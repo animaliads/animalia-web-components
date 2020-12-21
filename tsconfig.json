@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "es2015",
+      // "strict": true,
+      "lib": ["es2017", "dom", "dom.iterable"],
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "rootDir": "./src",
+      "outDir": "./dist",
+      "allowJs": true,
+    },
+    "include": ["./src/**/*"]
+  }

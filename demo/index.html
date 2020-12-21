@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        wcpr-button {
+          margin: 8px;
+          display: block;
+        }
+    
+        wcpr-button.teste {
+          --button-primary-background-color: blue;
+        }
+      </style>
+</head>
+<body>
+    <script src="./../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+
+    <script src="./../dist/index.js"></script>
+    <h1>Hello</h1>
+
+    <wcpr-link></wcpr-link>
+    <wcpr-button label="default"></wcpr-button>
+    <wcpr-button label="default | disabled" disabled="true"></wcpr-button>
+    <wcpr-button label="deve ser azul" class="teste" type="primary"></wcpr-button>
+    <wcpr-button label="deve ser amarelo" type="primary"></wcpr-button>
+    <wcpr-button label="primary | disabled" type="primary" disabled="true"></wcpr-button>
+    <wcpr-button label="secondary" type="secondary"></wcpr-button>
+    <wcpr-button label="secondary | disabled" type="secondary" disabled="true"></wcpr-button>
+  
+  
+    <wcpr-button label="Muda tema" type="primary" id="mudaTema"></wcpr-button>
+
+
+    <script>
+        function teste() {
+          console.log('função de fora')
+        }
+
+        const buttons = document.querySelectorAll('wcpr-button');
+        // buttons.forEach(button => button.addEventListener('clickButton', teste)); 
+    
+        var darkMode = false;
+
+        // const darkRule = `
+        //   html {
+        //     --color-primary: white;
+        //     --color-secondary: black;
+        //     background-color: #000;
+        //   }
+        // `
+    
+        // const lightRule = `
+        //   html {
+        //     --color-primary: #e91e63;
+        //     --color-secondary: green;
+        //   }
+        //   `
+    
+        // const button = document.getElementById('mudaTema').addEventListener('clickButton', () => {
+        //   const sheet = new CSSStyleSheet();
+    
+        //   const theme = darkMode ? lightRule : darkRule;
+        //   console.log('theme:', darkMode ? 'lightRule' : 'darkRule');
+        //   sheet.replaceSync(theme);
+        //   darkMode = !darkMode;
+        //   document.adoptedStyleSheets = [sheet];
+        // });
+      </script>
+  
+</body>
+</html>
