@@ -27,13 +27,13 @@ Instale o pacote via npm:
 npm install @po-ds/pods-web-components
 ```
 
-Se preferir, você também pode instalar o componente de forma individual:
+Ou se preferir, você também pode instalar o componente de forma individual, por exemplo:
 
 ```
 npm install @po-ds/pods-button
 ```
 
-Adicione o arquivo instalado no seu código `html`:
+Adicione o arquivo instalado no seu arquivo `html` :
 
 ```
 <script type="module" src="./node_modules/@po-ds/pods-button/index.js"></script>
@@ -80,7 +80,7 @@ Saiba mais sobre as [últimas correções e melhorias](CHANGELOG.md).
 | -------- | -------- | -------- | -------- | ---- |
 | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 11\* |
 
-\*IE 11 necessita de _polyfills_ para funcionar e não tem a funcionalidade de troca de tema.
+*IE 11 necessita de *polyfills\* para funcionar e não tem a funcionalidade de troca de tema.
 
 <a id="polyfills"></a>
 

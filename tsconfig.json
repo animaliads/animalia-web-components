@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "es2015",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "rootDir": "./packages",
+    "outDir": "./dist",
+    "lib": ["es2017", "dom"]
+  },
+  "include": ["./packages/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
