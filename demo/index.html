@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        wcpr-button {
+        pods-button {
           margin: 8px;
           display: block;
         }
     
-        wcpr-button.teste {
+        pods-button.teste {
           --button-primary-background-color: blue;
         }
       </style>
@@ -21,17 +21,17 @@
     <script src="./../dist/index.js"></script>
     <h1>Hello</h1>
 
-    <wcpr-link></wcpr-link>
-    <wcpr-button label="default"></wcpr-button>
-    <wcpr-button label="default | disabled" disabled="true"></wcpr-button>
-    <wcpr-button label="deve ser azul" class="teste" type="primary"></wcpr-button>
-    <wcpr-button label="deve ser amarelo" type="primary"></wcpr-button>
-    <wcpr-button label="primary | disabled" type="primary" disabled="true"></wcpr-button>
-    <wcpr-button label="secondary" type="secondary"></wcpr-button>
-    <wcpr-button label="secondary | disabled" type="secondary" disabled="true"></wcpr-button>
+    <pods-link></pods-link>
+    <pods-button label="default"></pods-button>
+    <pods-button label="default | disabled" disabled="true"></pods-button>
+    <pods-button label="deve ser azul" class="teste" type="primary"></pods-button>
+    <pods-button label="deve ser amarelo" type="primary"></pods-button>
+    <pods-button label="primary | disabled" type="primary" disabled="true"></pods-button>
+    <pods-button label="secondary" type="secondary"></pods-button>
+    <pods-button label="secondary | disabled" type="secondary" disabled="true"></pods-button>
   
   
-    <wcpr-button label="Muda tema" type="primary" id="mudaTema"></wcpr-button>
+    <pods-button label="Muda tema" type="primary" id="mudaTema"></pods-button>
 
 
     <script>
@@ -39,7 +39,7 @@
           console.log('função de fora')
         }
 
-        const buttons = document.querySelectorAll('wcpr-button');
+        const buttons = document.querySelectorAll('pods-button');
         // buttons.forEach(button => button.addEventListener('clickButton', teste)); 
     
         var darkMode = false;

@@ -1,15 +1,17 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "module": "es2015",
-      // "strict": true,
-      "lib": ["es2017", "dom", "dom.iterable"],
-      "declaration": true,
-      "declarationMap": true,
-      "sourceMap": true,
-      "rootDir": "./src",
-      "outDir": "./dist",
-      "allowJs": true,
-    },
-    "include": ["./src/**/*"]
-  }
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "es2015",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
+}

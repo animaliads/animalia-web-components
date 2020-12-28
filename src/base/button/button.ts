@@ -155,4 +155,4 @@ export default class Button extends HTMLElement {
   }
 }
 
-customElements.define('wcpr-button', Button);
+customElements.define('pods-button', Button);

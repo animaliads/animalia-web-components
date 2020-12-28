@@ -1,0 +1,17 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": "> 0.5%, ie >= 11"
+        },
+        "modules": "auto",
+        "forceAllTransforms": true
+      }
+    ]
+  ],
+  "plugins": [["@babel/plugin-transform-classes", {
+    "loose": true
+  }], "@babel/plugin-syntax-class-properties"]
+}

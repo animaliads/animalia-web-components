@@ -17,4 +17,4 @@ export default class Link extends HTMLElement {
   }
 }
 
-customElements.define('wcpr-link', Link);
+customElements.define('pods-link', Link);
