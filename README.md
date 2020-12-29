@@ -12,6 +12,8 @@ Biblioteca de componentes do design system PODS baseada em Web Components.
 
 ## Navegadores suportados (Browser Support)
 
-| Chrome   | Firefox  | Safari   | Edge     | IE  |
-| -------- | -------- | -------- | -------- | --- |
-| Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 11  |
+| Chrome   | Firefox  | Safari   | Edge     | IE   |
+| -------- | -------- | -------- | -------- | ---- |
+| Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 11\* |
+
+*IE 11 necessita de *polyfills\* para funcionar e não tem a funcionalidade de troca de tema.
