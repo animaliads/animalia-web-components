@@ -1,5 +1,5 @@
 {
-  "name": "@pods/base-components",
+  "name": "@pods/web-components",
   "version": "1.0.0",
   "description": "Repositório de Web Components do PODS",
   "main": "src/index.js",
