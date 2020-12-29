@@ -10,7 +10,10 @@
     "test": "jest --coverage",
     "test:dev": "jest --watch",
     "test:dev:all": "jest --watchAll",
-    "lint": "eslint --ext .ts ./src"
+    "lint": "eslint --ext .ts ./src",
+    "lint:fix": "eslint --ext .ts ./src --fix",
+    "prettier": "prettier write .",
+    "prettier:check": "prettier --check ."
   },
   "repository": {
     "type": "git",
@@ -35,7 +38,10 @@
     "@typescript-eslint/parser": "^4.11.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-unused-imports": "^1.0.1",
     "jest": "^26.6.3",
+    "prettier": "2.2.1",
     "rollup": "^2.35.1",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-minify-html-literals": "^1.2.5",

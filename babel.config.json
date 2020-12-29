@@ -11,7 +11,13 @@
       }
     ]
   ],
-  "plugins": [["@babel/plugin-transform-classes", {
-    "loose": true
-  }], "@babel/plugin-syntax-class-properties"]
+  "plugins": [
+    [
+      "@babel/plugin-transform-classes",
+      {
+        "loose": true
+      }
+    ],
+    "@babel/plugin-syntax-class-properties"
+  ]
 }

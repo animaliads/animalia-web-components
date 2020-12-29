@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        pods-button {
-          margin: 8px;
-          display: block;
-        }
-    
-        pods-button.teste {
-          --button-primary-background-color: blue;
-        }
-      </style>
-</head>
-<body>
+      pods-button {
+        margin: 8px;
+        display: block;
+      }
+
+      pods-button.teste {
+        --button-primary-background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
     <script src="./../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 
     <script src="./../dist/index.js"></script>
@@ -24,51 +24,60 @@
     <pods-link></pods-link>
     <pods-button label="default"></pods-button>
     <pods-button label="default | disabled" disabled="true"></pods-button>
-    <pods-button label="deve ser azul" class="teste" type="primary"></pods-button>
+    <pods-button
+      label="deve ser azul"
+      class="teste"
+      type="primary"
+    ></pods-button>
     <pods-button label="deve ser amarelo" type="primary"></pods-button>
-    <pods-button label="primary | disabled" type="primary" disabled="true"></pods-button>
+    <pods-button
+      label="primary | disabled"
+      type="primary"
+      disabled="true"
+    ></pods-button>
     <pods-button label="secondary" type="secondary"></pods-button>
-    <pods-button label="secondary | disabled" type="secondary" disabled="true"></pods-button>
-  
-  
+    <pods-button
+      label="secondary | disabled"
+      type="secondary"
+      disabled="true"
+    ></pods-button>
+
     <pods-button label="Muda tema" type="primary" id="mudaTema"></pods-button>
 
-
     <script>
-        function teste() {
-          console.log('função de fora')
-        }
+      function teste() {
+        console.log('função de fora');
+      }
 
-        const buttons = document.querySelectorAll('pods-button');
-        // buttons.forEach(button => button.addEventListener('clickButton', teste)); 
-    
-        var darkMode = false;
+      const buttons = document.querySelectorAll('pods-button');
+      // buttons.forEach(button => button.addEventListener('clickButton', teste));
 
-        // const darkRule = `
-        //   html {
-        //     --color-primary: white;
-        //     --color-secondary: black;
-        //     background-color: #000;
-        //   }
-        // `
-    
-        // const lightRule = `
-        //   html {
-        //     --color-primary: #e91e63;
-        //     --color-secondary: green;
-        //   }
-        //   `
-    
-        // const button = document.getElementById('mudaTema').addEventListener('clickButton', () => {
-        //   const sheet = new CSSStyleSheet();
-    
-        //   const theme = darkMode ? lightRule : darkRule;
-        //   console.log('theme:', darkMode ? 'lightRule' : 'darkRule');
-        //   sheet.replaceSync(theme);
-        //   darkMode = !darkMode;
-        //   document.adoptedStyleSheets = [sheet];
-        // });
-      </script>
-  
-</body>
+      var darkMode = false;
+
+      // const darkRule = `
+      //   html {
+      //     --color-primary: white;
+      //     --color-secondary: black;
+      //     background-color: #000;
+      //   }
+      // `
+
+      // const lightRule = `
+      //   html {
+      //     --color-primary: #e91e63;
+      //     --color-secondary: green;
+      //   }
+      //   `
+
+      // const button = document.getElementById('mudaTema').addEventListener('clickButton', () => {
+      //   const sheet = new CSSStyleSheet();
+
+      //   const theme = darkMode ? lightRule : darkRule;
+      //   console.log('theme:', darkMode ? 'lightRule' : 'darkRule');
+      //   sheet.replaceSync(theme);
+      //   darkMode = !darkMode;
+      //   document.adoptedStyleSheets = [sheet];
+      // });
+    </script>
+  </body>
 </html>

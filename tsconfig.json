@@ -5,13 +5,10 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": false,
-    "esModuleInterop":true,
+    "esModuleInterop": true,
     "rootDir": "./src",
     "outDir": "./dist",
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "lib": ["es2017", "dom"]
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "**/*.test.ts"]
