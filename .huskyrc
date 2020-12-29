@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "pretty-quick --staged",
+    "commit-msg": "commitlint --config commitlint.config.cjs -E HUSKY_GIT_PARAMS"
+  }
+}
