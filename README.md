@@ -1,4 +1,6 @@
-<img style="margin-left: auto;margin-right: auto; display: block" width="250" src="./docs/assets/pods-dark.png" alt="">
+<p align="center">
+    <img width="250" src="./docs/assets/pods-dark.png" alt="">
+</p>
 
 # Biblioteca de componentes do PODS
 
