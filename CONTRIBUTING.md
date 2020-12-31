@@ -24,6 +24,12 @@ Para executá-lo, utilizamos o servidor de desenvolvimento `live-server`, para i
 npm run start
 ```
 
+Você também pode fazer essas duas ações juntas através do seguinte comando:
+
+```
+npm run start:dev
+```
+
 ## Testes
 
 Os testes são feitos utilizando o [Jest](https://jestjs.io/). Abaixo segue os comandos que você pode
