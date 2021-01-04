@@ -1,6 +1,6 @@
 {
-  "name": "@pods/web-components",
-  "version": "1.0.0",
+  "name": "web-components-alvaro-teste",
+  "version": "1.0.2",
   "description": "Repositório de Web Components do PODS",
   "main": "src/index.js",
   "type": "module",
@@ -15,7 +15,9 @@
     "lint:fix": "eslint --ext .ts ./src --fix",
     "prettier": "prettier write .",
     "prettier:check": "prettier --check .",
-    "start:dev": "concurrently npm:dev npm:start"
+    "start:dev": "concurrently npm:dev npm:start",
+    "publish": "npm publish dist --registry http://localhost:4873",
+    "build:publish": "npm run build && npm run publish"
   },
   "repository": {
     "type": "git",
