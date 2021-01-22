@@ -1,0 +1,27 @@
+name: CI
+
+# Gatilho disparado em toda criação de PR para a main ou para a next
+on:
+  pull_request:
+    branches: [main, next]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: npm run install
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Prettier
+        run: npm run prettier:check
+
+      - name: Test
+        run: npm run test
