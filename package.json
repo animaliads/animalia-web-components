@@ -1,6 +1,6 @@
 {
   "name": "@po-ds/web-components",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "Repositório de Web Components do PODS",
   "main": "src/index.js",
   "type": "module",
@@ -11,8 +11,8 @@
     "test": "jest --coverage",
     "test:dev": "jest --watch",
     "test:dev:all": "jest --watchAll",
-    "lint": "eslint --ext .ts ./src",
-    "lint:fix": "eslint --ext .ts ./src --fix",
+    "lint": "eslint --ext .ts ./packages",
+    "lint:fix": "eslint --ext .ts ./packages --fix",
     "prettier": "prettier write .",
     "prettier:check": "prettier --check .",
     "start:dev": "concurrently npm:dev npm:start",
