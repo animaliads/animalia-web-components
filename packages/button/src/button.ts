@@ -106,9 +106,6 @@ export default class Button extends HTMLElement {
     this.shadow = this.attachShadow({ mode: 'open' });
     this.show = false;
 
-    this.contentElement = this.shadow.querySelector('div');
-    this.contentElement.style.display = 'none';
-
     this.click = document.createEvent('Event');
     this.click.initEvent('clickButton', true, true);
   }
@@ -149,7 +146,14 @@ export default class Button extends HTMLElement {
     if (!this.disabled) {
       this.show = !this.show;
       this.contentElement.style.display = this.show ? 'block' : 'none';
-      this.dispatchEvent(this.click);
+      //this.dispatchEvent(this.click);
+      this.dispatchEvent(
+        new CustomEvent('clickButton', {
+          detail: {
+            show: this.show,
+          },
+        })
+      );
     }
   }
 
@@ -165,10 +169,14 @@ export default class Button extends HTMLElement {
                 class="${this.type} ${this.disabled}">
                 ${this.label}
             </button>
+            </ br>
             <div>
               <slot></slot>
             </div>
         `;
+
+    this.contentElement = this.shadow.querySelector('div');
+    this.contentElement.style.display = 'none';
   }
 }
 

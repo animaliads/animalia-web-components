@@ -14,9 +14,18 @@
   <body>
     <h1>PODS - Demo</h1>
 
-    <pods-button label="Hello world"></pods-button>
+    <pods-button label="Hello world"> Teste do slot</pods-button>
 
     <script src="./../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="./../dist/packages/pods-web-components/index.js"></script>
+    <script>
+      const buttons = document.querySelectorAll('pods-button');
+      buttons.forEach(button =>
+        button.addEventListener('clickButton', event => {
+          console.log(event);
+          console.log(event.detail);
+        })
+      );
+    </script>
   </body>
 </html>
