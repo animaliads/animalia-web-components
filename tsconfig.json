@@ -4,11 +4,17 @@
     "module": "es2015",
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": false,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "rootDir": "./packages",
     "outDir": "./dist",
-    "lib": ["es2017", "dom"]
+    "lib": ["es2017", "dom"],
+    "paths": {
+      "@po-ds/utils": ["./packages/utils"],
+      "@po-ds/utils/*": ["./packages/utils/*"]
+    }
   },
   "include": ["./packages/**/*"],
   "exclude": ["node_modules", "**/*.test.ts"]

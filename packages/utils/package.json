@@ -1,0 +1,27 @@
+{
+  "name": "@po-ds/utils",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "Pacote utilitário - PODS",
+  "keywords": [
+    "material design",
+    "web components",
+    "button"
+  ],
+  "main": "utils/index.js",
+  "types": "./dist/packages/utils/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/po-ds/pods-web-components.git",
+    "directory": "packages/utils"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

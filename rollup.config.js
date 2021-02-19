@@ -9,6 +9,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 import { terser } from 'rollup-plugin-terser';
 
+import alias from '@rollup/plugin-alias';
+
 import typescript from '@rollup/plugin-typescript';
 
 import copy from 'rollup-plugin-copy';
@@ -47,6 +49,7 @@ function configFactory(pkg) {
     output: {
       file: outputPath,
       format: 'iife',
+      sourcemap: true,
     },
     plugins: [
       copy({
@@ -72,7 +75,6 @@ function configFactory(pkg) {
       }),
       minifyHTML(), // reduzir html e css dentro de literals com javascript
       typescript({
-        sourceMap: true,
         tsconfig: path.join(basePath, 'tsconfig.json'),
       }),
       babel({
