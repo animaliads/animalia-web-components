@@ -4,7 +4,7 @@ import './button';
 import { html } from 'lit-html';
 
 export default {
-  title: 'Componentes/Button',
+  title: 'API/Button',
   description: '**Descrição do compoent**',
   component: 'pods-button',
   argTypes: {
@@ -38,4 +38,18 @@ Sample.args = {
   type: 'primary',
   label: 'Button',
   disabled: false,
+};
+
+Sample.parameters = {
+  docs: {
+    source: {
+      code: `
+<pods-button
+  label="${Sample.args.label}"
+  type="${Sample.args.type}"
+  disabled="${Sample.args.disabled}"
+>
+</pods-button>`,
+    },
+  },
 };

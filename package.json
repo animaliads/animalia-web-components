@@ -49,6 +49,7 @@
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-node-resolve": "^11.0.1",
     "@rollup/plugin-typescript": "^8.1.0",
+    "@storybook/addon-a11y": "^6.1.20",
     "@storybook/addon-actions": "^6.1.20",
     "@storybook/addon-docs": "^6.1.20",
     "@storybook/addon-essentials": "^6.1.20",
