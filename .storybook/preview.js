@@ -1,4 +1,5 @@
 export const parameters = {
+  viewMode: 'docs',
   actions: { argTypesRegex: '^on[A-Z].*' },
   options: {
     storySort: {
@@ -8,6 +9,7 @@ export const parameters = {
         'Começando',
         'Guia de estilo',
         'Componentes',
+        'API',
         'Changelog',
       ],
     },

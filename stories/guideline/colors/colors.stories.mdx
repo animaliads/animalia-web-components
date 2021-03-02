@@ -1,0 +1,23 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import { html } from 'lit-html';
+
+import ColorsGeneral from './colors-general.mdx';
+import DesignTokens from './colors-tokens.mdx';
+
+<Meta
+  title="Guia de estilo/Cores"
+  parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+<Story name="Visão geral" height="0">
+  {html``}
+</Story>
+
+<ColorsGeneral />
+
+<Story name="Design tokens" height="0">
+  {html``}
+</Story>
+
+<DesignTokens />

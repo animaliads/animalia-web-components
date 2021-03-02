@@ -1,6 +1,4 @@
-// import { Button } from './button';
-// import mdx from './button.stories.mdx';
-import './button';
+import '../button';
 import { html } from 'lit-html';
 
 export default {
@@ -21,16 +19,27 @@ export default {
       description: 'Indica se o botão está desabilitado',
       default: false,
     },
+    onClick: { action: 'clicked' },
   },
 };
 
 const Template = ({ label, ...args }) => {
-  return html` <pods-button
-    label="${label}"
-    type="${args.type}"
-    disabled="${args.disabled}"
-  >
-  </pods-button>`;
+  return html`
+    <pods-button
+      label="${label}"
+      type="${args.type}"
+      disabled="${args.disabled}"
+    >
+    </pods-button>
+    <script>
+      function teste() {
+        console.log('função de fora');
+      }
+
+      const buttons = document.querySelectorAll('pods-button');
+      buttons.forEach(button => button.addEventListener('onClick', teste));
+    </script>
+  `;
 };
 
 export const Sample = Template.bind({});
