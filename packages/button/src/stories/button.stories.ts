@@ -3,7 +3,6 @@ import { html } from 'lit-html';
 
 export default {
   title: 'API/Button',
-  description: '**Descrição do compoent**',
   component: 'pods-button',
   argTypes: {
     label: {
@@ -42,21 +41,21 @@ const Template = ({ label, ...args }) => {
   `;
 };
 
-export const Sample = Template.bind({});
-Sample.args = {
+export const Primary = Template.bind({});
+Primary.args = {
   type: 'primary',
   label: 'Button',
   disabled: false,
 };
 
-Sample.parameters = {
+Primary.parameters = {
   docs: {
     source: {
       code: `
 <pods-button
-  label="${Sample.args.label}"
-  type="${Sample.args.type}"
-  disabled="${Sample.args.disabled}"
+  label="${Primary.args.label}"
+  type="${Primary.args.type}"
+  disabled="${Primary.args.disabled}"
 >
 </pods-button>`,
     },
