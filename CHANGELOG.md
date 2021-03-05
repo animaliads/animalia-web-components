@@ -1,3 +1,3 @@
 # Changelog
 
-[EM BREVE]
+texto do changelog

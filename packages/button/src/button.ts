@@ -7,7 +7,7 @@ const style = `
   --button-default-background-color: white;
   --button-secondary-background-color: var(--color-secondary, var(--color-secondary-default));
 }
-  
+
   button {
     border-radius: 3px;
     border-radius: 3px;
@@ -15,7 +15,7 @@ const style = `
     height: 44px;
     padding: 0 16px;
     cursor: pointer;
-  
+
     font-family: Roboto, Arial;
     font-size: 16px;
     font-weight: bold;
@@ -24,10 +24,10 @@ const style = `
     line-height: 1.5;
     letter-spacing: normal;
     text-align: center;
-  
+
     transition: all 0.1s ease;
   }
-  
+
   .primary {
     border: 1px solid #8241a4;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
@@ -36,69 +36,72 @@ const style = `
     border: 1px solid #ffd464;
     color: #1d2426;
   }
-  
+
   .default {
     border: solid 2px #8241a4;
     background-color: var(--button-default-background-color);
     color: #8241a4;
   }
-  
+
   .secondary {
     background-color: var(--button-secondary-background-color);
     color: white;
     border: solid 4px #8241a4;
   }
-  
+
   button:focus {
     outline: none;
     box-shadow: 0 0 0 5px rgba(130, 65, 164, 0.75);
   }
-  
+
   button.primary:hover {
     background-color: #efc65c;
     border-color: #efc65c;
   }
-  
+
   button.default:hover {
     color: #381b47;
     border-color: #381b47;
   }
-  
+
   button.secondary:hover {
     background-color: #381b47;
     border-color: #381b47;
   }
-  
+
   button.disabled {
     cursor: not-allowed;
   }
-  
+
   button.primary.disabled {
     background-color: #b6bdbf;
     border: 1px solid #b6bdbf;
   }
-  
+
   button.default.disabled {
     border: solid 2px #4a5c60;
     color: #4a5c60;
   }
-  
+
   button.secondary.disabled {
     background-color: #6e7c7f;
     border-color: #6e7c7f;
   }
-  
+
 `;
-export default class Button extends HTMLElement {
-  shadow;
-  click;
+
+export class Button extends HTMLElement {
+  shadow: ShadowRoot;
+  clickEvent: Event;
 
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
 
-    this.click = document.createEvent('Event');
-    this.click.initEvent('clickButton', true, true);
+    this.clickEvent = document.createEvent('Event');
+    this.clickEvent.initEvent('onClick', true, true);
+
+    this.addEventListener('click', this.onClick);
   }
 
   get label(): string {
@@ -118,7 +121,7 @@ export default class Button extends HTMLElement {
   }
 
   get disabled(): string {
-    return this.getAttribute('disabled') ? 'disabled' : '';
+    return this.getAttribute('disabled') === 'true' ? 'disabled' : '';
   }
 
   set disabled(value: string) {
@@ -135,13 +138,12 @@ export default class Button extends HTMLElement {
 
   onClick(): void {
     if (!this.disabled) {
-      this.dispatchEvent(this.click);
+      this.dispatchEvent(this.clickEvent);
     }
   }
 
   attributeChangedCallback(): void {
     this.render();
-    this.addEventListener('click', this.onClick);
   }
 
   render(): void {

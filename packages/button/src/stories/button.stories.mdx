@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import '../button';
+
+import Code from './code.mdx';
+import Accessibility from './accessibility.mdx';
+import General from './general.mdx';
+import CustomProperties from './custom-properties.mdx';
+
+<Meta
+  title="Componentes/Button"
+  parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+<Story name="Visão geral" height="0">
+  {html``}
+</Story>
+
+<General />
+
+<Story name="Acessibilidade" height="0">
+  {html``}
+</Story>
+
+<Accessibility />
+
+<Story name="Código" height="0">
+  {html``}
+</Story>
+
+<Code />
+
+<Story name="Propriedades customizáveis" height="0">
+  {html``}
+</Story>
+
+<CustomProperties />
