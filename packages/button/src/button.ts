@@ -31,7 +31,7 @@ const style = `
   .primary {
     border: 1px solid #8241a4;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
-    background-color: red;
+    background-color: var(--button-primary-background-color);
     /* background-color: #ffd464; */
     border: 1px solid #ffd464;
     color: #1d2426;
