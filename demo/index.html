@@ -15,15 +15,22 @@
     <h1>PODS - Demo</h1>
 
     <pods-button label="Hello world"> Teste do slot</pods-button>
+    <pods-input-cnpj id="cnpj"></pods-input-cnpj>
 
     <script src="./../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script src="./../dist/packages/pods-web-components/index.js"></script>
     <script>
       const buttons = document.querySelectorAll('pods-button');
+      const cnpj = document.getElementById('cnpj');
+      let toggle = true;
+
       buttons.forEach(button =>
         button.addEventListener('clickButton', event => {
-          console.log(event);
+          toggle = !toggle;
+          const personType = toggle ? 'CPF' : 'CNPJ';
+
           console.log(event.detail);
+          cnpj.notify({ personType });
         })
       );
     </script>
