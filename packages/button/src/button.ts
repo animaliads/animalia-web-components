@@ -146,7 +146,7 @@ export default class Button extends HTMLElement {
     if (!this.disabled) {
       this.show = !this.show;
       this.contentElement.style.display = this.show ? 'block' : 'none';
-      //this.dispatchEvent(this.click);
+
       this.dispatchEvent(
         new CustomEvent('clickButton', {
           detail: {
