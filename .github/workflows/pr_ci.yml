@@ -28,3 +28,11 @@ jobs:
 
       - name: Test
         run: npm run test
+  chromatic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Storybook
+        run: npm run chromatic
