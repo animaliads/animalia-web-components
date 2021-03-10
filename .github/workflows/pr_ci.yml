@@ -28,3 +28,20 @@ jobs:
 
       - name: Test
         run: npm run test
+  chromatic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        run: npm install
+
+      - name: Publish Storybook to Chromatic
+        uses: chromaui/action@v1
+
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
