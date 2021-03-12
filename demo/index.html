@@ -33,6 +33,10 @@
           cnpj.notify({ personType });
         })
       );
+
+      cnpj.addEventListener('emitValue', event => {
+        console.log('emitValue', event);
+      });
     </script>
   </body>
 </html>

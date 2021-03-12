@@ -22,14 +22,14 @@ const style = `
 `;
 export default class InputCnpj extends HTMLElement {
   shadow;
-  show;
+  value;
   contentElement;
   placeholder = '';
 
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
-    this.show = false;
+    this.value = '';
     this.setupCNPJ();
   }
 
@@ -43,6 +43,7 @@ export default class InputCnpj extends HTMLElement {
 
   connectedCallback(): void {
     this.render();
+    this.addEventListener('blur', this.onBlur);
   }
 
   notify(prop) {
@@ -57,11 +58,25 @@ export default class InputCnpj extends HTMLElement {
   }
 
   render(): void {
+    console.log('render input');
     this.shadow.innerHTML = `
             <style>${style}</style>
-            <input placeholder=${this.placeholder}>
+            <input id="input-cnpj" placeholder=${this.placeholder}>
             </input>
         `;
+  }
+
+  onBlur(event): void {
+    const value = document.querySelector('input');
+    console.log(value);
+    console.log(event.target);
+    this.dispatchEvent(
+      new CustomEvent('emitValue', {
+        detail: {
+          value: this.value,
+        },
+      })
+    );
   }
 }
 
