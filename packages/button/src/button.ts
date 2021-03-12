@@ -158,7 +158,6 @@ export default class Button extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
-    console.log('Botão');
     this.render();
     this.addEventListener('click', this.onClick);
   }
