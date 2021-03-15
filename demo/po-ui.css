@@ -1,0 +1,21 @@
+html {
+  --color-brand-01: #ffd464;
+  --color-brand-02: #8241a4;
+  --color: pink;
+}
+
+pods-button {
+  --font-family: xxx;
+  --color-focus: roxo;
+  --background: var(--color-brand-02);
+  --border-radius: var(--border-radius-sm);
+}
+
+pods-button[type='primary'] {
+  --background: var(--color-brand-01);
+  --transition: var(--transition-default);
+}
+
+pods-button[type='secondary'] {
+  --background: var(--color-brand-02);
+}

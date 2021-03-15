@@ -1,4 +1,4 @@
-import { style } from './button.style';
+import { styleTest } from './button.style';
 
 // import styles from './button.css';
 
@@ -59,7 +59,7 @@ export default class Button extends HTMLElement {
 
   render(): void {
     this.shadow.innerHTML = `
-            <style>${style}</style>
+            <style>${styleTest}</style>
             <button
                 class="${this.type} ${this.disabled}">
                 ${this.label}

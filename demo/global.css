@@ -1,0 +1,16 @@
+html {
+  --font-size-default: 16px;
+  --font-weight-bold: bold;
+
+  --letter-spacing-normal: normal;
+
+  --border-radius-xs: 3px;
+  --border-radius-sm: 6px;
+
+  --spacing-inset-squish-sm: 0 16px;
+
+  --trasition-default: all 0.1s ease;
+
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+  --shadow-focus: 0 0 0 5px rgba(130, 65, 164, 0.75);
+}
