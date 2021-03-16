@@ -12,8 +12,8 @@
     "outDir": "./dist",
     "lib": ["es2017", "dom"],
     "paths": {
-      "@po-ds/utils": ["./packages/utils/src"],
-      "@po-ds/utils/*": ["./packages/utils/*"]
+      "@po-ds/utils": ["./dist/packages/utils/src"],
+      "@po-ds/utils/*": ["./dist/packages/utils/src/*"]
     }
   },
   "include": ["./packages/**/*"],

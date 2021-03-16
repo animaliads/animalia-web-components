@@ -1,3 +1,5 @@
+import { css } from '@po-ds/utils';
+
 export default class Link extends HTMLElement {
   shadow;
 

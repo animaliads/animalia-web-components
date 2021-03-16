@@ -1,5 +1,4 @@
-import { css } from '@po-ds/utils';
-// import { utils } from '@po-ds/utils';
+import { utils } from '@po-ds/utils';
 
 export const styleTest = `
   button {
