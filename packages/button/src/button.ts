@@ -1,4 +1,5 @@
 import { style } from './button.style';
+
 export class Button extends HTMLElement {
   shadow: ShadowRoot;
   clickEvent: Event;
@@ -18,16 +19,9 @@ export class Button extends HTMLElement {
     return this.getAttribute('type');
   }
 
-  set type(value: string) {
-    this.setAttribute('type', value);
-  }
-
   get disabled(): string {
-    return this.getAttribute('disabled');
-  }
-
-  set disabled(value: string) {
-    this.setAttribute('disabled', value);
+    const disabled = this.getAttribute('disabled');
+    return disabled === '' ? 'true' : disabled;
   }
 
   static get observedAttributes(): Array<string> {
@@ -45,24 +39,20 @@ export class Button extends HTMLElement {
   }
 
   private onClick(): void {
-    if (!this.disabled) {
+    if (this.disabled !== 'true') {
       this.dispatchEvent(this.clickEvent);
     }
   }
 
   private setAccessibility() {
     this.buttonElement = this.shadow.getElementById('buttonElement');
-    this.buttonElement?.setAttribute('aria-disabled', this.disabled);
+    this.buttonElement.setAttribute('aria-disabled', this.disabled);
   }
 
   private render(): void {
     this.shadow.innerHTML = `
             <style>${style}</style>
-            <button
-                id="buttonElement"
-                class="${this.type} ${
-      !this.disabled || this.disabled === 'false' ? '' : 'disabled'
-    }">
+            <button id="buttonElement">
                 <slot></slot>
             </button>
         `;

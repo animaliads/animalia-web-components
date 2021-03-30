@@ -1,6 +1,4 @@
-import { css } from 'lit-element';
-
-export const style = css`
+export const style = `
   button {
     /* Custom */
     font-family: var(--font-family);
@@ -43,7 +41,7 @@ export const style = css`
     cursor: pointer;
   }
 
-  :host([disabled='true']) button {
+  button[aria-disabled='true'] {
     /* Custom */
     background-color: var(--background-disabled);
 
@@ -51,7 +49,7 @@ export const style = css`
     cursor: cursor-not-allowed;
   }
 
-  .disabled:focus {
+  button[aria-disabled='true']:focus {
     /* Custom */
     outline-color: var(--outline-color-disabled);
 
