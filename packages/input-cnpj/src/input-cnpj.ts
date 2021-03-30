@@ -45,8 +45,8 @@ export default class InputCnpj extends HTMLElement {
     this.addEventListener('blur', this.onBlur.bind(this));
   }
 
-  notify(prop) {
-    const { personType } = prop;
+  notify(prop, { model }) {
+    const { personType } = model;
 
     if (personType === 'CPF') {
       this.setupCPF();
