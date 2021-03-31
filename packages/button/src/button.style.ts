@@ -21,7 +21,7 @@ export const style = `
     background-color: var(--background-hover);
 
     /* Fixed */
-    cursor: cursor-pointer;
+    cursor: pointer;
   }
 
   button:focus {
@@ -44,9 +44,10 @@ export const style = `
   button[aria-disabled='true'] {
     /* Custom */
     background-color: var(--background-disabled);
+    color: var(--text-color-disabled);
 
     /* Fixed */
-    cursor: cursor-not-allowed;
+    cursor: not-allowed;
   }
 
   button[aria-disabled='true']:focus {
