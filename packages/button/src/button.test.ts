@@ -58,14 +58,14 @@ describe('Button:', () => {
     expect(buttonElement.getAttribute('aria-disabled')).toBe('true');
   });
 
-  test('should set aria-disabled to null if disabled is undefined', () => {
+  test('should set aria-disabled to false if disabled is undefined', () => {
     document.body.innerHTML = `
       <pods-button></pods-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
 
-    expect(buttonElement.getAttribute('aria-disabled')).toBe('null');
+    expect(buttonElement.getAttribute('aria-disabled')).toBe('false');
   });
 
   test('should call onClick function if component is clicked', () => {

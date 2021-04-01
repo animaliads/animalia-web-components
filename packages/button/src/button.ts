@@ -15,13 +15,9 @@ export class Button extends HTMLElement {
     this.addEventListener('click', this.onClick);
   }
 
-  get type(): string {
-    return this.getAttribute('type');
-  }
-
   get disabled(): string {
     const disabled = this.getAttribute('disabled');
-    return disabled === '' ? 'true' : disabled;
+    return transformBooleanProperties(disabled);
   }
 
   static get observedAttributes(): Array<string> {
@@ -60,3 +56,13 @@ export class Button extends HTMLElement {
 }
 
 customElements.define('pods-button', Button);
+
+function transformBooleanProperties(value: string) {
+  if (value === '') {
+    return 'true';
+  } else if (value === null) {
+    return 'false';
+  }
+
+  return value;
+}
