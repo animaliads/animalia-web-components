@@ -20,7 +20,7 @@ const style = `
   }
 
 `;
-export default class InputCnpj extends HTMLElement {
+export default class InputAnime extends HTMLElement {
   shadow;
   contentElement;
   placeholder = '';
@@ -28,16 +28,6 @@ export default class InputCnpj extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
-
-    this.setupCNPJ();
-  }
-
-  private setupCNPJ() {
-    this.placeholder = 'CNPJ';
-  }
-
-  private setupCPF() {
-    this.placeholder = 'CPF';
   }
 
   connectedCallback(): void {
@@ -46,12 +36,12 @@ export default class InputCnpj extends HTMLElement {
   }
 
   notify(prop, model) {
-    const { personType } = model;
+    const { anime } = model;
 
-    if (personType === 'CPF') {
-      this.setupCPF();
+    if (anime === 'DRAGON') {
+      this.placeholder = 'KAMEHAMEHA !!!';
     } else {
-      this.setupCNPJ();
+      this.placeholder = 'RASENGAN !!!';
     }
     this.render();
   }
@@ -59,13 +49,13 @@ export default class InputCnpj extends HTMLElement {
   render(): void {
     this.shadow.innerHTML = `
             <style>${style}</style>
-            <input id="cnpj" placeholder=${this.placeholder}>
+            <input id="anime" placeholder=${this.placeholder}>
             </input>
         `;
   }
 
   onBlur(event): void {
-    const value = event.target.shadow.getElementById('cnpj').value;
+    const value = event.target.shadow.getElementById('anime').value;
     console.log(value);
     this.dispatchEvent(
       new CustomEvent('emitValue', {
@@ -77,4 +67,4 @@ export default class InputCnpj extends HTMLElement {
   }
 }
 
-customElements.define('pods-input-cnpj', InputCnpj);
+customElements.define('pods-input-anime', InputAnime);
