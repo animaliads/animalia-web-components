@@ -38,12 +38,12 @@ export default class CheckboxAproves extends HTMLElement {
   }
 
   private setCheckbox() {
-    this.placeholder = 'Gaio de pau quebrando, vaca entrando no meio de roça!, engastiando na boca estaca de pau e quebrando os dente tudo. Globo da morte trabaiando, cambio de trator engastaindo, engastiando na boca estaca de pau e quebrando os dente tudo.';
+    this.placeholder = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquam facilisis urna at varius. Nunc rutrum tortor ac ultricies euismod. Sed a aliquam lorem. Cras euismod magna eu augue ultricies, sed laoreet tortor gravida. Phasellus in mi vel risus iaculis sodales. Sed nec molestie sem. Nam finibus, nibh id efficitur bibendum, dolor lorem bibendum ex, nec euismod orci ipsum vel ligula. Curabitur sit amet enim nec diam ullamcorper rutrum quis ut nunc. Praesent elementum velit diam, placerat consectetur metus vulputate nec. Fusce id quam mi. Nunc gravida neque vitae interdum interdum. Donec dignissim gravida ex, vitae fringilla magna laoreet sit amet. Vestibulum orci odio, viverra quis diam eget, suscipit faucibus tortor.';
   }
 
   connectedCallback(): void {
     this.render();
-    console.log('connectedCallback');
+
     this.addEventListener('click', this.onClick.bind(this));
   }
 
@@ -59,7 +59,6 @@ export default class CheckboxAproves extends HTMLElement {
   }
 
   notify(prop): void {
-    console.log('prop', prop);
     this.setCheckbox();
     this.render();
   }
@@ -74,7 +73,6 @@ export default class CheckboxAproves extends HTMLElement {
         },
       })
     );
-    console.log('oh loco clicou aqui');
   }
 }
 
