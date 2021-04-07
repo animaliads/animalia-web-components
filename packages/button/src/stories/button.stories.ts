@@ -24,11 +24,8 @@ export default {
 
 const Template = ({ label, ...args }) => {
   return html`
-    <pods-button
-      label="${label}"
-      type="${args.type}"
-      disabled="${args.disabled}"
-    >
+    <pods-button type="${args.type}" disabled="${args.disabled}">
+      ${label}
     </pods-button>
     <script>
       function teste() {
