@@ -40,7 +40,7 @@ const customPropertiesArgs = customProperties.reduce((acc, propertie) => {
     [propertie.name]: {
       description: propertie.description,
       table: {
-        category: 'Custom Properties',
+        category: 'Propriedades customizáveis (CSS)',
       },
     },
   };
@@ -56,21 +56,21 @@ export default {
       control: 'text',
       description: 'Rótulo',
       table: {
-        category: 'Properties',
+        category: 'Slot',
       },
     },
     disabled: {
       control: 'boolean',
       description: 'Indica se o botão está desabilitado',
-      default: false,
+      defaultValue: 'false',
       table: {
-        category: 'Properties',
+        category: 'Propriedades',
       },
     },
     onClick: {
       description: 'Evento disparado ao clicar no botão',
       table: {
-        category: 'Events',
+        category: 'Eventos',
       },
     },
     ...customPropertiesArgs,
@@ -83,21 +83,20 @@ const Template = ({ label, ...args }) => {
   `;
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Sample = Template.bind({});
+Sample.args = {
   label: 'Button',
   disabled: false,
 };
 
-Primary.parameters = {
+Sample.parameters = {
   docs: {
     source: {
       code: `
 <pods-button
-  label="${Primary.args.label}"
-  type="${Primary.args.type}"
-  disabled="${Primary.args.disabled}"
+  disabled="${Sample.args.disabled}"
 >
+${Sample.args.label}
 </pods-button>`,
     },
   },
