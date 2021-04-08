@@ -22,10 +22,9 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'Fluig',
+    defaultValue: 'poui',
     toolbar: {
       icon: 'circle',
-      // array of plain string values or MenuItem shape (see below)
       items: [
         { value: 'poui', title: 'PO UI' },
         { value: 'fluig', title: 'Fluig' },
@@ -38,7 +37,7 @@ const decorator = (story, context) => {
   const theme = context.globals.theme;
   const links = {
     poui: 'https://unpkg.com/@po-ds/po-ui-brand@1.0.0-beta.1/theme.css',
-    fluig: '',
+    fluig: 'https://unpkg.com/@po-ds/fluig-brand@1.0.0-beta.2/theme.css',
   };
   return html`
     <link rel="stylesheet" href="${links[theme]}" />
