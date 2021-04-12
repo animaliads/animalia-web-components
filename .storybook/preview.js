@@ -36,7 +36,7 @@ export const globalTypes = {
 const decorator = (story, context) => {
   const theme = context.globals.theme;
   const links = {
-    poui: 'https://unpkg.com/@po-ds/po-ui-brand@1.0.0-beta.1/theme.css',
+    poui: 'https://unpkg.com/@po-ds/po-ui-brand@1.0.0-beta.2/theme.css',
     fluig: 'https://unpkg.com/@po-ds/fluig-brand@1.0.0-beta.2/theme.css',
   };
   return html`
