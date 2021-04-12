@@ -1,0 +1,67 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import { html } from 'lit-html';
+
+import General from './typography-general.mdx';
+import FontFamily from './font-family.mdx';
+import FontSize from './font-size.mdx';
+import FontWeight from './font-weight.mdx';
+import LineHeight from './line-height.mdx';
+import LetterSpacing from './letter-spacing.mdx';
+import Transform from './transform.mdx';
+
+<Meta
+  title="Guia de estilo/Tipografia/Visão geral"
+  parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# Tipografia
+
+<Story name="Introdução" height="0">
+  {html``}
+</Story>
+
+> 95% das informações na web está em linguagem escrita
+
+– _[Oliver Reichensteisn](https://ia.net/topics/the-web-is-all-about-typography-period)_
+
+Sabendo que a informação textual compõe grande parte do meio digital, fica evidente a importância da **Tipografia**,
+pois esta é a disciplina que atua diretamente na modelagem dessa informação escrita.
+
+<General></General>
+
+<Story name="Família tipográfica" height="0">
+  {html``}
+</Story>
+
+<FontFamily></FontFamily>
+
+<Story name="Tamanhos e escala" height="0">
+  {html``}
+</Story>
+
+<FontSize></FontSize>
+
+<Story name="Variações de pesos" height="0">
+  {html``}
+</Story>
+
+<FontWeight></FontWeight>
+
+<Story name="Espaço entrelinhas" height="0">
+  {html``}
+</Story>
+
+<LineHeight></LineHeight>
+
+<Story name="Espaço entre caracteres" height="0">
+  {html``}
+</Story>
+
+<LetterSpacing></LetterSpacing>
+
+<Story name="Modificações em texto" height="0">
+  {html``}
+</Story>
+
+<Transform></Transform>
