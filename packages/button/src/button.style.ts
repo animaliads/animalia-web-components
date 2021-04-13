@@ -10,6 +10,8 @@ export const style = `
     border-radius: var(--border-radius);
     padding: var(--spacing-squish);
 
+    box-shadow: var(--shadow);
+
     /* Fixed */
     font-weight: var(--font-weight-bold);
     letter-spacing: var(--letter-spacing-auto);

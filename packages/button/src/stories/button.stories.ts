@@ -33,6 +33,10 @@ const customProperties = [
     name: '--background-disabled',
     description: 'cor do background quando o botão estiver desabilitado',
   },
+  {
+    name: '--shadow',
+    description: 'propriedades de sombra',
+  },
 ];
 
 const customPropertiesArgs = customProperties.reduce((acc, propertie) => {
