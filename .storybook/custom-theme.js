@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming/create';
 
 export const customTheme = create({
-  colorSecondary: '#c9357d',
+  colorSecondary: '#4545a1',
 
   brandTitle: 'PODS',
 });
