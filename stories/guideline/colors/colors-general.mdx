@@ -1,3 +1,132 @@
 # Cores
 
-conteúdo das Cores
+## Introdução
+
+Mais do que carregar expressividade e fazer conexão com a marca a qual representa, as cores utilizadas na interface assumem diversos papéis que auxiliam na compreensão das informações que estão sendo apresentadas, tendo impacto direto na usabilidade e acessibilidade.
+
+Para saber mais, consulte [Boas práticas no uso cores](https://www.notion.so/Boas-pr-ticas-no-uso-de-cores-b58b8be91cfd4ebe880294dd51f33bb1)
+
+Pensando nos diversos papéis e contextos de uso de cor, a estrutura geral de cores do PODS possui três grandes grupos: **Main**, **Neutral** e **Feedback colors**.
+
+**Main colors**
+
+- Brand color
+- Action color
+
+**Neutral colors**
+
+- Light neutral
+- Mid neutral
+- Dark neutral
+
+**Feedback colors**
+
+- Positive
+- Negative
+- Warning
+- Informative
+
+As cores de feedback são comuns comuns à todas as marcas (_global tokens_). Já as **_Main colors_** e **_Neutral colors_**, diferenciam-se de acordo com a marca (_brand tokens)_.
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/colors-ds.svg](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/colors-ds.svg)
+
+#PraCegoVer: Dois conjuntos, sendo um com os tokens globais e outro com os tokens de marca
+
+## Main colors: brand e action
+
+(_Cores principais_)
+
+O primeiro grupo de cores, denominado **\*main colors**,\* faz parte da camada da marca no Design System e é composto por `**Brand color**` e `**Action color**`.
+
+**_Brand colors_** são as cores que compõem a marca e a identidade visual. Além de poder ser usada como cor de ação, podem estar em interações com o logotipo, ilustrações, entre outras aplicações.
+
+A fim de atender aos diferente níveis de complexidades das marcas, a estrutura do PODS permite acoplar em cada marca até três cores deste grupo (`**color-brand-01**`, **`color-brand-02`** e **`color-brand-03`** ), sendo que **apenas uma é obrigatória**.
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/brand-color.svg](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/brand-color.svg)
+
+#PraCegoVer: Estrutura da brand-color com três slots, o primeiro deles preenchido, representando que é obrigatório
+
+Pensando nos diversos cenários em que as cores são utilizadas, foi prevista uma gama de variações, de forma padronizada. Cada **_brand color_** possui uma **_cor base_**, a partir da qual são geradas três cores mais escuras (**dark**, **darker** e **darkest**) e três cores mais claras (**light**, **lighter** e **lightest**), totalizando 7 variações.
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/brand-color-example.svg](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/brand-color-example.svg)
+
+#PraCegoVer: Exemplo de uma marca com duas brand-colors e sete variações para cada uma
+
+Já a **_cor de ação_** (**`color-action`**) será a cor definida para indicar as interações na interface e **é obrigatória**.
+
+Costuma ser uma das cores da própria marca (_brand color_), mas eventualmente pode não ser.
+
+A cor de ação possui cinco variações: **_default_**, **_hover_**, **_pressed_**, **_disabled_** e **_focus_**.
+Estas variações são utilizadas nos respectivos estados dos componentes, quando for pertinente.
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/action-color.svg](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/action-color.svg)
+
+#PraCegoVer: Exemplo de action color e as variações com os tokens
+
+Para a cor de acão, sempre precisarão ser feitos testes para verificar se a cor a ser adotada possui o contraste adequado para este fim.
+
+## Neutral colors
+
+_(Cores neutras)_
+
+O segundo grupo são as cores neutras, que geralmente compõem boa parte da interface. A paleta neutra é usada em background, textos, estado normal de componentes, dentre outros.
+
+Um ponto bem importante a ser destacado é que, por serem usadas em diferentes partes da interface, tanto em background quanto em textos como placeholder e rótulos, o contraste entre o elemento e a cor do fundo precisam ser sempre observados.
+
+E, em se tratando da paleta neutra, os tons intermediários em luminosidade (_lightness_) têm uma grande chance de não serem acessíveis ([Fonte](https://eightshapes.com/articles/color-in-design-systems.html)).
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/neutral-mid.svg](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/neutral-mid.svg)
+
+#PraCegoVer: Escala light, mid e dark, com os neutros mid 40, 50 e 60 como arriscados para acessibilidade
+
+No modo de cores **HSL**, luminosidade é o terceiro campo:
+
+**H** (Hue) é a cor em si (azul, amarelo, verde...)
+
+**S** (Saturation): saturação, o quão vibrante é
+
+**L** (Lightness): luminosidade, o quanto de branco ou preto há naquele tom (claro/ escuro)
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/hsl-lightness.png](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/hsl-lightness.png)
+
+Exemplo do branco #FFF, que possui 100% de luminosidade
+
+Para ter um melhor direcionamento no uso das cores, a paleta de neutros está dividida em três grupos, agrupados pelos níveis de luminosidade, sendo:
+
+- `**neutral-light**`: 00 a 30 de luminosidade
+- `**neutral-mid**`: 40 a 60 de luminosidade
+- `**neutral-dark**`: 70 a 95 de luminosidade
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/neutral-color.svg](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/neutral-color.svg)
+
+#PraCegoVer: Estrutura das cores neutras com 3 slots, com variações para light, mid e dark
+
+Os intermediários podem ser usados em alguns cenários específicos, mas sempre com ponto de atenção com relação ao contraste.
+
+## Feedback colors
+
+_(Cores de Feedback/ Cores de resposta)_
+
+O terceiro grupo de cores, denominado **\*Feedback colors**,\* são cores geralmente usadas em mensagens de suporte ou respostas do sistema à ações realizadas.
+
+No PODS há 4 cores de feedback: `**Positive**` , `**Negative**`, `**Warning**` e `**Info**`.
+
+A semântica adotada para estas cores foi pensada para ser o mais global possível, pois elas podem assumir diversos significados, dependendo do contexto. Alguns exemplos:
+
+**Positive**: confirmado, finalizado, aceito, recebido, correto, positivo
+
+**Negative:** falha, erro, risco, crítico, recusado, perda
+
+**Warning**: atenção, aviso, espera, alerta, prevenção, advertência
+
+**Info**: orientação, informação, suporte, ajuda, apoio
+
+Pelo cenário complexo que essas cores precisam atender, este grupo faz parte da camada global no Design System, sendo comum à todas as marcas.
+
+Essas cores são usadas não apenas como background, mas também em textos, ícones e outros elementos gráficos. Para atender aos diferentes cenários em que que são utilizadas, possui 7 variações, sendo uma **_cor base_**, três tons mais escuros (**_dark_**, **_darker_** e **_darkest_**) e três mais claros (**_light_**, **_lighter_** e **_lightest_**).
+
+![Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/feedback-color.svg](Visa%CC%83o%20geral%204ef5cb5668424714af15b5f3218540b6/feedback-color.svg)
+
+#PraCegoVer: Escalas das cores 4 cores de feedback e suas variações, ordenadas da mais clara para a mais escura
+
+Para consultar os valores de cada **Feedback Color**, [acesse a página de design tokens](https://www.notion.so/Design-Tokens-c61375cf4bca47c591d53f38dfe0991d).

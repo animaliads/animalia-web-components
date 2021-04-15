@@ -9,27 +9,79 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
 
 **Legenda**
 
-- **xs** = extra small
-- **sm** = small
-- **md** = medium
-- **lg** = large
-- **xl** = extra large
 - **global** = básico e comum à todos
 - **brand** = específico de cada marca, disponível de acordo com a necessidade
 
-tabela
-[Font-family (tokens)](https://www.notion.so/81ed3aef21f045c0b4f5521a02bb2756)
+## Font family
 
-[Font-size (tokens)](https://www.notion.so/2f0f63d78e4647c8b50bb39daf1ebb42)
+| Token                 | Camada DS | Uso                                                  |
+| --------------------- | --------- | ---------------------------------------------------- |
+| `font-family-heading` | brand     | Títulos e chamadas                                   |
+| `font-family-text`    | brand     | Textos em geral, labels, placeholders, legendas, etc |
+| `font-family-code`    | brand     | Trechos de código em documentação técnica            |
 
-> As ferramentas de design voltadas para interface utilizam pixel como unidade. Mas no desenvolvimento é importante considerar as medidas relativas (**rem**), pois valores fixos podem prejudicar a acessibilidade.
+## Font size
 
-[Font-weight (tokens)](https://www.notion.so/e5b24b632ce84933847a2b4516147ea4)
+| Token               | Valor (rem) | Valor (pixel) | Camada DS | Descrição                                                                      |
+| ------------------- | ----------- | ------------- | --------- | ------------------------------------------------------------------------------ |
+| `font-size-xs`      | 0.75        | 12px          | global    |                                                                                |
+| `font-size-sm`      | 0.875       | 14px          | global    |                                                                                |
+| `font-size-default` | 1           | 16px          | global    | Base da escala                                                                 |
+| `font-size-md`      | 1.25        | 20px          | global    |                                                                                |
+| `font-size-lg`      | 1.5         | 24px          | global    |                                                                                |
+| `font-size-xl`      | 2           | 32px          | global    |                                                                                |
+| `font-size-2xl`     | 2.5         | 40px          | global    |                                                                                |
+| `font-size-3xl`     | 3           | 48px          | global    |                                                                                |
+| `font-size-2xs`     | 0.625       | 10px          | brand     | Deve ser utilizado em casos restritos, em conjunto com o modificador uppercase |
+| `font-size-4xl`     | 3.75        | 60px          | brand     |                                                                                |
+| `font-size-5xl`     | 4.75        | 76px          | brand     |                                                                                |
+| `font-size-6xl`     | 6           | 96px          | brand     |                                                                                |
 
-[Line-height (tokens)](https://www.notion.so/a18d0251a4a04a738c49a71cc765c663)
+> **NOTA:** As ferramentas de design voltadas para interface utilizam pixel como unidade. Mas no desenvolvimento é importante considerar as medidas relativas (**rem**), pois valores fixos podem prejudicar a acessibilidade.
 
-[Letter-spacing (tokens)](https://www.notion.so/8aad1e804c6b4fe98b307a3355a0d6bf)
+## Font-weight
 
-[Transform: (tokens)](https://www.notion.so/ac32096a01f7408499c88a3cd3ea427a)
+| Token                     | Valor | Camada DS |
+| ------------------------- | ----- | --------- |
+| `font-weight-thin`        | 100   | brand     |
+| `font-weight-extra-light` | 200   | brand     |
+| `font-weight-light`       | 300   | brand     |
+| `font-weight-normal`      | 400   | global    |
+| `font-weight-medium`      | 500   | brand     |
+| `font-weight-semibold`    | 600   | global    |
+| `font-weight-bold`        | 700   | global    |
+| `font-weight-extrabold`   | 800   | brand     |
+| `font-weight-heavy`       | 900   | brand     |
 
-comentario sobre os tokens
+## Line-height
+
+| Token              | Valor | Referência (em) | Camada DS | Uso em texto                    | Uso em componente                                 |
+| ------------------ | ----- | --------------- | --------- | ------------------------------- | ------------------------------------------------- |
+| `line-height-none` | 100%  | 1.0             | global    | -                               | Quando for necessário ter line-height = font-size |
+| `line-height-sm`   | 140%  | 1.4             | global    | font-size 4xl, 5xl, 6xl         | A avaliar                                         |
+| `line-height-md`   | 150%  | 1.5             | global    | font-size default, xl, 2xl, 3xl | A avaliar                                         |
+| `line-height-lg`   | 160%  | 1.6             | global    | font-size sm, xs, 2xs           | A avaliar                                         |
+
+## Letterspacing
+
+| Token                  | Valor | Camada DS |
+| ---------------------- | ----- | --------- |
+| `letter-spacing-auto`  | auto  | global    |
+| `letter-spacing-1`     | 0.15  | global    |
+| `letter-spacing-2`     | 0.25  | global    |
+| `letter-spacing-3`     | 0.5   | global    |
+| `letter-spacing-4`     | 1.25  | global    |
+| `letter-spacing-5`     | 1.5   | global    |
+| `letter-spacing-neg-1` | -0.15 | global    |
+| `letter-spacing-neg-2` | -0.25 | global    |
+| `letter-spacing-neg-3` | -0.5  | global    |
+| `letter-spacing-neg-4` | -1.25 | global    |
+| `letter-spacing-neg-5` | -1.5  | global    |
+
+## Transform
+
+| Token                      | Valor     | Camada DS | Descrição                                                  |
+| -------------------------- | --------- | --------- | ---------------------------------------------------------- |
+| `text-transform-normal`    | normal    | brand     | Formatação padrão da fonte, sem nenhuma modificação        |
+| `text-transform-uppercase` | uppercase | brand     | Todas as letras maiúsculas                                 |
+| `text-transform-numtab`    | numtab    | brand     | Números tabulares, com caracteres ocupando a mesma largura |
