@@ -5,9 +5,11 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
   parameters={{ previewTabs: { canvas: { hidden: true } } }}
 />
 
-# Design Tokens
+# Cores: Design Tokens
 
-## Feedback positive
+Aqui estão listados os _global tokens_ referentes às cores de feedback e seus respectivos valores em hexadecimal.
+
+## Positive
 
 <ColorPalette>
   <ColorItem title="--color-feedback-positive-lightest" colors={['#DEF7ED']} />
@@ -18,3 +20,42 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
   <ColorItem title="--color-feedback-positive-darker" colors={['#083A25']} />
   <ColorItem title="--color-feedback-positive-darkest" colors={['#002415']} />
 </ColorPalette>
+
+## Negative
+
+<ColorPalette>
+  <ColorItem title="--color-feedback-negative-lightest" colors={['#F6E6E5']} />
+  <ColorItem title="--color-feedback-negative-lighter" colors={['#E3AEAB']} />
+  <ColorItem title="--color-feedback-negative-light" colors={['#D58581']} />
+  <ColorItem title="--color-feedback-negative-base" colors={['#BE3E37']} />
+  <ColorItem title="--color-feedback-negative-dark" colors={['#9B2D27']} />
+  <ColorItem title="--color-feedback-negative-darker" colors={['#72211D']} />
+  <ColorItem title="--color-feedback-negative-darkest" colors={['#4A1512']} />
+</ColorPalette>
+
+## Warning
+
+<ColorPalette>
+  <ColorItem title="--color-feedback-warning-lightest" colors={['#FCF6E3']} />
+  <ColorItem title="--color-feedback-warning-lighter" colors={['#F7DD97']} />
+  <ColorItem title="--color-feedback-warning-light" colors={['#F1CD6A']} />
+  <ColorItem title="--color-feedback-warning-base" colors={['#EFBA2A']} />
+  <ColorItem title="--color-feedback-warning-dark" colors={['#D8A20E']} />
+  <ColorItem title="--color-feedback-warning-darker" colors={['#705200']} />
+  <ColorItem title="--color-feedback-warning-darkest" colors={['#473400']} />
+</ColorPalette>
+
+## Info
+
+<ColorPalette>
+  <ColorItem title="--color-feedback-info-lightest" colors={['#E3E9F7']} />
+  <ColorItem title="--color-feedback-info-lighter" colors={['#B0C1E8']} />
+  <ColorItem title="--color-feedback-info-light" colors={['#7996D7']} />
+  <ColorItem title="--color-feedback-info-base" colors={['#23489F']} />
+  <ColorItem title="--color-feedback-info-dark" colors={['#173782']} />
+  <ColorItem title="--color-feedback-info-darker" colors={['#0F2557']} />
+  <ColorItem title="--color-feedback-info-darkest" colors={['#081536']} />
+</ColorPalette>
+
+> **NOTA:** Importante ressaltar que o grupo de cores para feedback requer uma maior atenção no contraste entre os elementos para garantir que a informação não está sendo prejudicada.
+> Especial atenção ao utilizar `--color-feedback-warning` para aplicações em mensagens de alerta e ícones, pois o amarelo possui baixíssimo contraste sobre fundo claro.
