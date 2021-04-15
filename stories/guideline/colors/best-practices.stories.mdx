@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+import BestPractices from './img/best-practices.png';
+
+<Meta
+  title="Guia de estilo/Cores/Boas práticas"
+  parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# Boas práticas no uso de cores
+
+[← Voltar para Cores: Visão geral](/?path=/docs/guia-de-estilo-cores--visao-geral)
+
+Mais do que carregar expressividade e fazer conexão com a marca a qual representa, as cores utilizadas na interface assumem diversos papéis que auxiliam na compreensão das informações que estão sendo apresentadas, dentre eles:
+
+- Indicar o que é ou não interativo na interface
+- Mostrar uma mudança de estado do componente (hover, selecionado, etc)
+- Ajudar na localização, indicando ao usuário onde ele está
+- Indicar se algo está habilitado ou desabilitado
+- Cria hierarquia nas informações (mais importante, menos importante)
+- Dar um feedback visual para a ação executada, como sucesso ou erro
+- Distinguir um tipo de informação
+- Dar o tom da informação (cuidado, ajuda..)
+- Informar um status (disponível, reservado...)
+- Categorizar/ identificar (legendas, gráficos)
+- Dividir ou delimitar uma área de conteúdo
+- Indicar um progresso
+- etc...
+
+A cor tem múltiplas facetas e é altamente influenciável pelo contexto. Essa versatilidade depende justamente de como, onde e quando está sendo usada.
+
+Isoladamente, a cor não tem todo esse poder — e nem deve ser o único recurso para transmitir uma informação. Mas a cor, somada à outros atributos, pode sim ser um importante recurso para potencializar a função desejada e guiar o usuário.
+
+## Todo mundo ganha
+
+Usabilidade e acessibilidade são parceiras fortíssimas. Boas práticas no uso de cor em interface quando o assunto é acessibilidade, traz uma melhor usabilidade para todo mundo.
+
+Quando a cor é usada em excesso na interface, nada se destaca e a usabilidade fica prejudicada.
+
+O exercício é aprender a dosar a cor e sempre usá-la com intenção.
+
+Um recurso que pode ajudar a distribuir as cores no layout, é a regra de proporção conhecida como 60-30-10, sendo:
+
+- 60% cor predominante
+- 30% cor de apoio
+- 10% a cor de destaque
+
+<img
+  src={BestPractices}
+  alt="Exemplo de distribuição de cores no layout, seguindo a regra 60-30-10"
+/>
+
+Estes não são valores rígidos, até porque é difícil precisar o quanto tem de cada cor no layout. A ideia é mais ser uma referência para se ter em mente quando estamos aplicando cores aos elementos da interface.
+
+**Algumas recomendações de acessibilidade para uso da cor:**
+
+- Ter um bom contraste entre cor texto e cor de fundo. A taxa de contraste (_contrast ratio_) mínima é 4.5: 1, medida através de verificadores, como o [Who Can Use](https://whocanuse.com/);
+- Outros componentes da interface também precisam ter contraste, como é o caso dos controles e ícones. Nesses elementos, o mínimo de contraste exigido pela WCAG é 3: 1;
+- Não usar as cores como a única maneira de transmitir uma informação ou distinguir elementos. Dependendo do contexto, pode-se utilizar textos, ícones, fonte em peso diferente, sublinhado, entre outros recursos;
+- Dar preferência a cores menos saturadas, pois cores com alta saturação são agressivas aos olhos, principalmente quando utilizadas em fundos;
+- Evite usar textos em preto 100% (#000), pois o contraste extremo também é incômodo;
+- Usar as cores com propósito, como um apoio para a guiar a atenção, diferenciar elementos ou relacioná-los
+
+(Fontes: Gaia, [recomendação G01](https://gaia.wiki.br/vocabulario-visual-e-textual/cores)/ WCAG, critérios [1.4.1](https://www.w3.org/TR/WCAG21/#use-of-color), [1.4.3](https://www.w3.org/TR/WCAG21/#contrast-minimum) e [1.4.11](https://www.w3.org/TR/WCAG21/#non-text-contrast) / [curso de acessibilidade Alura](https://www.alura.com.br/curso-online-acessibilidade-ux))
