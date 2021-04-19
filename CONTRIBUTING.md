@@ -1,6 +1,6 @@
-# Contribuindo com o PODS
+# Contribuindo com o Animalia DS
 
-Agradecemos o seu interesse em contribuir com o PO Design System!
+Agradecemos o seu interesse em contribuir com o Animalia Design System!
 
 [EM BREVE]
 

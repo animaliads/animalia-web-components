@@ -12,12 +12,14 @@ Para aprender sobre essas tecnologias você pode iniciar pelos seguintes links:
 
 ## Índice
 
-- [Pré requisitos](#prerequisites)
-- [Ambiente de desenvolvimento](#development-environment)
-- [Testes](tests)
-- [Formatadores e validadores de código](#formatters-validators)
-- [Ambiente de produção](#production-environment)
-- [Ferramentas recomendadas](#tools)
+- [Desenvolvimento](#desenvolvimento)
+  - [Índice](#índice)
+  - [Pré requisitos](#pré-requisitos)
+  - [Ambiente de desenvolvimento](#ambiente-de-desenvolvimento)
+  - [Testes](#testes)
+  - [Formatadores e validadores de código](#formatadores-e-validadores-de-código)
+  - [Ambiente de produção](#ambiente-de-produção)
+  - [Ferramentas recomendadas](#ferramentas-recomendadas)
 
 <a id="prerequisites"></a>
 
@@ -109,11 +111,11 @@ dist/
 
 --| packages/
 
-----| pods-button/
+----| button/
 
-----| pods-link/
+----| link/
 
-----| pods-web-components/
+----| animalia-web-components/
 ```
 
 Esses pacotes possibilitam ao usuário utilizar apenas um componentes isolado ou utilizar a biblioteca inteira.

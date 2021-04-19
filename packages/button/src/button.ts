@@ -55,7 +55,7 @@ export class Button extends HTMLElement {
   }
 }
 
-customElements.define('pods-button', Button);
+customElements.define('ani-button', Button);
 
 function transformBooleanProperties(value: string) {
   if (value === '') {

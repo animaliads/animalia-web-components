@@ -1,17 +1,17 @@
-# `<pods-button>`
+# `<ani-button>`
 
 Componente de botão desenvolvido com [Web Components](https://developer.mozilla.org/pt-BR/docs/Web/Web_Components).
 
 ## Instalação
 
 ```
-npm i @po-ds/pods-button
+npm i @animaliads/ani-button
 ```
 
 ## Utilização
 
 ```
-<pods-button label="Olá mundo"></pods-button>
+<ani-button label="Olá mundo"></ani-button>
 ```
 
 ## Propriedades

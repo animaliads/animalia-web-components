@@ -1,19 +1,19 @@
 {
-  "name": "@animalia/ani-link",
+  "name": "@animaliads/web-components",
   "version": "0.0.0-PLACEHOLDER",
-  "description": "Link do Animalia DS",
+  "description": "Web Components do Animalia DS",
   "tag": "dev",
   "keywords": [
-    "javascript",
     "design system",
+    "javascript",
     "web components",
-    "link"
+    "button"
   ],
-  "main": "link/index.js",
+  "main": "animalia-web-components/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",
-    "directory": "packages/link"
+    "directory": "packages/animalia-web-components"
   },
   "license": "MIT",
   "dependencies": {
