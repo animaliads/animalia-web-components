@@ -1,19 +1,73 @@
 ## Desenvolvimento
 
-[ conteúdo ]
+### Instalação
+
+Você pode instalar o componente de forma isolada, conforme o exemplo abaixo:
+
+```
+npm install @animaliads/ani-button
+```
+
+Ou instalar a biblioteca inteira de componentes:
+
+```
+npm install @animaliads/web-components
+```
+
+### Como utilizar
+
+Para utilizar o web component na sua aplicação você precisa importar o arquivo principal:
+
+```html
+<script src="./node_modules/@animaliads/ani-button"></script>
+```
+
+Mas caso você estiver utilizando algum framework, pode ser necessário seguir a documentação do próprio
+componente para adicionar o web component. Ou apenas importar o arquivo do componente
+em um arquivo JS, por exemplo:
+
+```javascript
+import '@animaliads/ani-button';
+```
+
+Depois dessa configuração, basta adicionar a tag `ani-button` no seu código:
+
+```html
+<ani-button>Hello world!<ani-button></ani-button></ani-button>
+```
+
+Para customizar o tema do componente, você pode estar utilizando as propriedades customizáveis
+da seguinte forma:
+
+```css
+ani-button {
+  --background: red;
+  --line-height: 100%;
+  --border-radius: 3px;
+}
+```
+
+Para saber quais são as propriedades disponível, consulte [propriedades customizar do botão](#propriedades-customizáveis).
+
+### Live Demo
 
 <iframe
-  src="https://codesandbox.io/embed/friendly-blackwell-s87zq?fontsize=14&hidenavigation=1&theme=dark"
+  src="https://codesandbox.io/embed/ani-button-ofjep?fontsize=14&hidenavigation=1&theme=dark"
   style={{
-    width: '100%',
-    height: '300px',
+    width: '90%',
+    height: '500px',
     border: '0',
     borderRadius: '4px',
     overflow: 'hidden',
   }}
-  title="friendly-blackwell-s87zq"
+  title="ani-button"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-[ Colocar o link para a API do button ]
+Para saber a lista de propriedades e eventos, acesse o [guia de referencia de API](/docs/api-button--sample).
+
+Link úteis:
+
+- [Angular elements](https://angular.io/guide/elements)
+- [Usando Web Components no React](https://pt-br.reactjs.org/docs/web-components.html)
