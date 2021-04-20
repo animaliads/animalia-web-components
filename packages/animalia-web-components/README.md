@@ -2,7 +2,7 @@
 
 <p  align="center">
 
-<img  width="250"  src="./docs/assets/pods-dark.png"  alt="">
+<img  width="250"  src="./stories/assets/animalia.png"  alt="">
 
 </p>
 
