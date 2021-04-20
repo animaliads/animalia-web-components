@@ -1,0 +1,42 @@
+import LineHeight from './assets/line-height.svg';
+import LineHeightExamples from './assets/line-height-text.svg';
+import LineHeightComponent from './assets/line-height-component.svg';
+
+## Line-height: espaço entrelinhas
+
+**_Line-height_** (altura de linha ou entrelinha) na web é o espaço adicionado acima e abaixo acima e abaixo dos caracteres.
+
+Isto significa que uma fonte de 16px com entrelinha de 24px, terá 4px acima e abaixo.
+Essa medida é importante pois é ela quem molda a aparência dos parágrafos e está diretamente relacionada a uma boa leitura.
+
+<img
+  src={LineHeight}
+  alt="Esquema mostrando o font-size como a altura do texto e o line-height como os espaços acima e abaixo da fonte"
+/>
+
+### Uso em texto corrido
+
+Para textos em geral, como parágrafos, legendas, etc, o uso de uma entrelinha adequada é essencial no conforto de leitura. Se o valor
+utilizado for muito justo ou muito espaçado, pode tornar a leitura mais difícil e cansativa.
+
+<img
+  src={LineHeightExamples}
+  alt="Exemplos um do tipo ideal outro com espaçamento maior que o ideal e outro com espaçamento menor que o ideal"
+/>
+
+Segundo a WCAG, todo conteúdo de texto precisa ter pelo menos 1.5x a altura do texto de entrelinha. Assim, se o texto possui 16px de tamanho, a entrelinha deve ser de pelo menos 24px, ou em porcentagens, no mínimo 150%.
+
+Entretanto, essa medida está diretamente relacionada ao tamanho da fonte. Quanto menor o tamanho da fonte, maior precisa ser a entrelinha para garantir uma boa leitura.
+
+Entretanto, essa medida está diretamente relacionada ao tamanho da fonte. Quanto menor o tamanho da fonte, maior precisa ser a entrelinha para garantir uma boa leitura.
+
+### Uso em componentes
+
+Em componentes, a entrelinha perde sua função principal e passa a impactar na construção do componente em si e os espaços que o estruturam.
+
+<img
+  src={LineHeightComponent}
+  alt="Exemplo de um botão com line-height compondo a estrutura"
+/>
+
+Nesses casos, há uma maior flexibilidade de uso e é preciso avaliar caso a caso, para aplicar a entrelinha mais adequada à necessidade.

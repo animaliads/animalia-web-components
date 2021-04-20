@@ -5,11 +5,14 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   options: {
     storySort: {
+      method: '',
       order: [
         'Página inicial',
-        'Princípios de design',
+        'Princípios',
         'Começando',
         'Guia de estilo',
+        ['Cores', 'Tipografia'],
+        ['Visão geral', 'Boas práticas', 'Design Tokens'],
         'Componentes',
         'API',
         'Changelog',

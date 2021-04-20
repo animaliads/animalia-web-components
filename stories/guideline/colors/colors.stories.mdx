@@ -3,21 +3,35 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { html } from 'lit-html';
 
 import ColorsGeneral from './colors-general.mdx';
-import DesignTokens from './colors-tokens.mdx';
+import MainColors from './main-colors.mdx';
+import NeutralColors from './neutral-colors.mdx';
+import FeedbackColors from './feedback-colors.mdx';
 
 <Meta
-  title="Guia de estilo/Cores"
+  title="Guia de estilo/Cores/Visão geral"
   parameters={{ previewTabs: { canvas: { hidden: true } } }}
 />
 
-<Story name="Visão geral" height="0">
+<Story name="Introdução" height="0">
   {html``}
 </Story>
 
 <ColorsGeneral />
 
-<Story name="Design tokens" height="0">
+<Story name="Main colors" height="0">
   {html``}
 </Story>
 
-<DesignTokens />
+<MainColors />
+
+<Story name="Neutral colors" height="0">
+  {html``}
+</Story>
+
+<NeutralColors />
+
+<Story name="Feedback colors" height="0">
+  {html``}
+</Story>
+
+<FeedbackColors />
