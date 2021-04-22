@@ -1,16 +1,18 @@
 {
-  "name": "@po-ds/pods-button",
+  "name": "@animaliads/ani-button",
   "version": "0.0.0-PLACEHOLDER",
-  "description": "Botão do PODS",
+  "description": "Botão do Animalia DS",
+  "tag": "dev",
   "keywords": [
-    "material design",
+    "javascript",
+    "design system",
     "web components",
     "button"
   ],
-  "main": "pods-button/index.js",
+  "main": "button/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/po-ds/pods-web-components.git",
+    "url": "git+https://github.com/animaliads/animalia-web-components.git",
     "directory": "packages/button"
   },
   "license": "MIT",

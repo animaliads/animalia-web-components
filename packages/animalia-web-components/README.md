@@ -1,21 +1,23 @@
-# Biblioteca de componentes do PODS
+# Biblioteca de componentes do Animalia DS
 
 <p  align="center">
 
-<img  width="250"  src="./docs/assets/pods-dark.png"  alt="">
+<img  width="250"  src="./stories/assets/animalia.png"  alt="">
 
 </p>
 
-Biblioteca de componentes do design system PODS baseada em Web Components.
+Biblioteca de componentes do design system Animalia baseada em Web Components.
 
 ## Índice
 
-- [Como usar](#how-to-use)
-  - [Angular](#angular)
-- [Changelog](#changelog)
-- [Navegadores suportados](#browser-support)
-- [Polyfills](#polyfills)
-- [Licença](#license)
+- [Biblioteca de componentes do Animalia DS](#biblioteca-de-componentes-do-animalia-ds)
+  - [Índice](#índice)
+  - [Como usar](#como-usar)
+    - [Angular](#angular)
+  - [Changelog](#changelog)
+  - [Navegadores suportados (Browser Support)](#navegadores-suportados-browser-support)
+  - [Polyfills](#polyfills)
+  - [Licença](#licença)
 
 <a id="how-to-use"></a>
 
@@ -24,19 +26,19 @@ Biblioteca de componentes do design system PODS baseada em Web Components.
 Instale o pacote via npm:
 
 ```
-npm install @po-ds/pods-web-components
+npm install @animaliads/animalia-web-components
 ```
 
 Ou se preferir, você também pode instalar o componente de forma individual, por exemplo:
 
 ```
-npm install @po-ds/pods-button
+npm install @animaliads/ani-button
 ```
 
 Adicione o arquivo instalado no seu arquivo `html` :
 
 ```
-<script type="module" src="./node_modules/@po-ds/pods-button/index.js"></script>
+<script type="module" src="./node_modules/@animaliads/ani-button/index.js"></script>
 ```
 
 <a id="angular"></a>
@@ -63,7 +65,7 @@ export class PageModule {}
 Você também precisará importar o pacote dentro do seu componente:
 
 ```
-import '@po-ds/pods-button';
+import '@animaliads/ani-button';
 ```
 
 <a id="changelog"></a>

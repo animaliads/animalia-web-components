@@ -54,7 +54,7 @@ const customPropertiesArgs = customProperties.reduce((acc, propertie) => {
 
 export default {
   title: 'API/Button',
-  component: 'pods-button',
+  component: 'ani-button',
   argTypes: {
     label: {
       control: 'text',
@@ -83,7 +83,7 @@ export default {
 
 const Template = ({ label, ...args }) => {
   return html`
-    <pods-button disabled="${args.disabled}"> ${label} </pods-button>
+    <ani-button disabled="${args.disabled}"> ${label} </ani-button>
   `;
 };
 
@@ -97,11 +97,11 @@ Sample.parameters = {
   docs: {
     source: {
       code: `
-<pods-button
+<ani-button
   disabled="${Sample.args.disabled}"
 >
 ${Sample.args.label}
-</pods-button>`,
+</ani-button>`,
     },
   },
 };

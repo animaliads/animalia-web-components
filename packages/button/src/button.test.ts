@@ -2,7 +2,7 @@ import './button';
 
 describe('Button:', () => {
   let button: HTMLElement;
-  const buttonTagName = 'pods-button';
+  const buttonTagName = 'ani-button';
 
   const getShadowRoot = (tagName: string): ShadowRoot => {
     return document.querySelector(tagName).shadowRoot;
@@ -18,7 +18,7 @@ describe('Button:', () => {
 
   test('should apply label', () => {
     document.body.innerHTML = `
-      <pods-button>Hello button</pods-button>
+      <ani-button>Hello button</ani-button>
     `;
 
     const renderedText = getShadowRoot(buttonTagName)
@@ -30,7 +30,7 @@ describe('Button:', () => {
 
   test('should set aria-disabled to true if disabled is true', () => {
     document.body.innerHTML = `
-      <pods-button disabled="true"></pods-button>
+      <ani-button disabled="true"></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
@@ -40,7 +40,7 @@ describe('Button:', () => {
 
   test('should set aria-disabled to false if disabled is false', () => {
     document.body.innerHTML = `
-      <pods-button disabled="false"></pods-button>
+      <ani-button disabled="false"></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
@@ -50,7 +50,7 @@ describe('Button:', () => {
 
   test('should set aria-disabled to true if disabled is defined', () => {
     document.body.innerHTML = `
-      <pods-button disabled></pods-button>
+      <ani-button disabled></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
@@ -60,7 +60,7 @@ describe('Button:', () => {
 
   test('should set aria-disabled to false if disabled is undefined', () => {
     document.body.innerHTML = `
-      <pods-button></pods-button>
+      <ani-button></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
