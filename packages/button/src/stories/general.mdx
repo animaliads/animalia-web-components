@@ -1,7 +1,39 @@
-# Botão
+import button_anatomy from './img/button-anatomy.svg';
+import button_states from './img/button-states.jpg';
 
-definição do botão
+# Button
 
 ## Visão geral
 
-boas práticas
+Os botões são utilizados para realizar ações e para tomada de decisões. Podem ser utilizado em páginas e também dentro de outros componentes.
+
+### Boas práticas
+
+- Use labels (rótulos) diretos, curtos e intuitivos, que direcionem o usuário para o que será realizado. Para isso, prefira utilizar verbos, por exemplo: "Salvar" e "Adicionar";
+- A interação de foco deve compor os botões, sendo navegação por mouse ou teclado, e em sequência lógica;
+- Evite utilizar muitos botões em uma única tela, pois isso aumenta a carga cognitiva do usuário e vai aumentar seu tempo de decisão;
+- Não use cores para label e backgroud com baixo contraste entre elas, pois isso dificulta o entendimento do conteúdo do botão.
+
+### Anatomia
+
+O botão é composto por um background que recebe uma cor de marca e uma label que descreve a interação que será realizada.
+
+<img
+  src={button_anatomy}
+  alt="Anatomia do botão, sendo 1 o label  e 2 o background"
+/>
+
+**1.** Label
+
+**2.** Background
+
+### Estados do botão
+
+O botão possui estados e se modifica de acordo com a interação do usuário. São eles:
+
+Default, Hover, Focus, Disabled e Focusable Disabled.
+
+<img
+  src={button_states}
+  alt="Os cinco estados do botão primário dispostos lado a lado"
+/>
