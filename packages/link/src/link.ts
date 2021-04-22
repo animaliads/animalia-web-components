@@ -17,4 +17,4 @@ export default class Link extends HTMLElement {
   }
 }
 
-customElements.define('pods-link', Link);
+customElements.define('ani-link', Link);

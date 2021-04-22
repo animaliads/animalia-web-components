@@ -77,7 +77,7 @@ function configFactory(pkg) {
       }),
       babel({
         babelHelpers: 'bundled',
-        exclude: 'node_modules/**',
+        exclude: ['node_modules/**'],
         extensions: ['.js', '.ts'],
       }),
       resolve(),

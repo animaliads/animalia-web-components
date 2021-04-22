@@ -2,7 +2,7 @@ import './link';
 
 describe('Link:', () => {
   let link: HTMLElement;
-  const linkTagName = 'pods-link';
+  const linkTagName = 'ani-link';
 
   const getShadowRoot = (tagName: string): ShadowRoot => {
     return document.body.getElementsByTagName(tagName)[0].shadowRoot;
