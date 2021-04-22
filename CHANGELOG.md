@@ -1,8 +1,8 @@
 # Changelog
 
-## Versão 1.0.0-beta.2
+## Versão 1.0.0-next.1 - Calango
 
-29 de abril de 2021
+28 de abril de 2021
 
 ### 🎉 Novidades (New Features)
 
@@ -11,6 +11,7 @@
 - **Documentação (Tipografia)**: Visão geral sobre a estrutura de tipografia e design tokens
 - **Documentação (Button)**: Visão geral sobre o componente, com boas práticas, anatomia e estados, listagem das propriedades e acessibilidade
 - [Repositório de design](https://github.com/animaliads/animalia-design) para versionamento dos arquivos Sketch, no Github
+- **Button**: novo componente. Botão do tipo primário.
   <br>
 
 ---
