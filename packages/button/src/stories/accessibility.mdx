@@ -1,0 +1,22 @@
+## Acessibilidade
+
+O componente botão foi projetado para atender os requisitos das Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1, mas alterações feitas na aplicação deste podem afetar essa conformidade.
+
+Por isso, é muito importante que, ao aplicar esse componente, o proprietário do conteúdo leve em consideração os seguintes critérios:
+
+**Operável**
+
+- O botão deve sempre ter um rótulo que descreva precisamente a ação que o mesmo executa. [2.4.6: Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels)
+- O nome acessível do botão deve conter o rótulo visível do mesmo. Em caso de descrição adicional, o rótulo deverá ser lido primeiro. [2.5.3: Label in Name](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name)
+- O estado de foco deve ser sempre preservado, inclusive quando o botão estiver desabilitado. [2.4.7: Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible)
+- Após a ativação do botão o foco deve ser movido dependendo do tipo de ação que o botão executa. Consultar lista de exemplos em [W3C WAI-ARIA 3.5 Button](https://www.w3.org/TR/wai-aria-practices-1.1/#button)
+
+**Perceptível**
+
+- Entre as cores do rótulo do botão e seu background o contraste deve ser de no mínimo 7:1, para botões ativos. [1.4.6: Contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html)
+
+### Diretrizes tratadas no componente
+
+Algumas diretrizes de acessibilidade já são tratadas no componente, internamente, e não podem ser alteradas pelo proprietário do conteúdo. São elas:
+
+- Quando em foco, o botão é ativado usando as teclas de _Espaço_ e _Enter_ do teclado. [W3C WAI-ARIA 3.5 Button - Keyboard Interaction](https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-3)

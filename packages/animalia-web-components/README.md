@@ -26,19 +26,19 @@ Biblioteca de componentes do design system Animalia baseada em Web Components.
 Instale o pacote via npm:
 
 ```
-npm install @animaliads/web-components
+npm install @animaliads/animalia-web-components
 ```
 
-Se preferir, você também pode instalar o componente de forma individual:
+Ou se preferir, você também pode instalar o componente de forma individual, por exemplo:
 
 ```
 npm install @animaliads/ani-button
 ```
 
-Adicione o arquivo instalado no seu código `html`:
+Adicione o arquivo instalado no seu arquivo `html` :
 
 ```
-<script type="module" src="./node_modules/@animaliads/web-components"></script>
+<script type="module" src="./node_modules/@animaliads/ani-button/index.js"></script>
 ```
 
 <a id="angular"></a>
@@ -65,7 +65,7 @@ export class PageModule {}
 Você também precisará importar o pacote dentro do seu componente:
 
 ```
-import '@animaliads/web-components';
+import '@animaliads/ani-button';
 ```
 
 <a id="changelog"></a>
@@ -82,7 +82,7 @@ Saiba mais sobre as [últimas correções e melhorias](CHANGELOG.md).
 | -------- | -------- | -------- | -------- | ---- |
 | Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 11\* |
 
-\*IE 11 necessita de _polyfills_ para funcionar e não tem a funcionalidade de troca de tema.
+*IE 11 necessita de *polyfills\* para funcionar e não tem a funcionalidade de troca de tema.
 
 <a id="polyfills"></a>
 

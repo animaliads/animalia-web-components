@@ -1,0 +1,47 @@
+name: CI
+
+# Gatilho disparado em toda criação de PR para a main ou para a next
+on:
+  pull_request:
+    branches: [main, next]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Prettier
+        run: npm run prettier:check
+
+      - name: Test
+        run: npm run test
+  chromatic:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        run: npm install
+
+      - name: Publish Storybook to Chromatic
+        uses: chromaui/action@v1
+
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
