@@ -16,4 +16,4 @@
 
 ---
 
-> O Design System é uma construção coletiva. Caso tenha sugestões ou algum ponto que gostaria de compartilhar conosco, entre em contato em <a href = "mailto: animaliads@totvs.com.br">animaliads@totvs.com.br </a> ou [abra uma issue no nosso Github](https://github.com/animaliads/animalia-web-components/issues).
+> O Design System é uma construção coletiva. Caso tenha sugestões ou algum ponto que gostaria de compartilhar conosco, entre em contato em <a href = "mailto: ds.animalia@gmail.com">ds.animalia@gmail.com </a> ou [abra uma issue no nosso Github](https://github.com/animaliads/animalia-web-components/issues).
