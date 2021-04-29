@@ -48,7 +48,7 @@ export default class InputAnime extends HTMLElement {
 
   render(): void {
     this.shadow.innerHTML = `
-            <style>${style}</style>
+
             <input id="anime" placeholder=${this.placeholder}>
             </input>
         `;
