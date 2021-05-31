@@ -7,9 +7,13 @@ export default class Link extends HTMLElement {
     return this.getAttribute('url');
   }
 
-  get isOpenNewTab(): string {
-    const isOpenNewTab = this.getAttribute('isOpenNewTab');
+  get openNewTab(): string {
+    const isOpenNewTab = this.getAttribute('open-new-tab');
     return transformBooleanProperties(isOpenNewTab);
+  }
+
+  set openNewTab(value: string) {
+    this.openNewTab = value;
   }
 
   constructor() {
@@ -22,7 +26,11 @@ export default class Link extends HTMLElement {
   }
 
   static get observedAttributes(): Array<string> {
-    return ['url'];
+    return ['url', 'open-new-tab'];
+  }
+
+  attributeChangedCallback(): void {
+    this.render();
   }
 
   render(): void {
@@ -35,7 +43,7 @@ export default class Link extends HTMLElement {
   }
 
   private get target() {
-    return this.isOpenNewTab === 'true' ? '_blank' : '_self';
+    return this.openNewTab === 'true' ? '_blank' : '_self';
   }
 }
 

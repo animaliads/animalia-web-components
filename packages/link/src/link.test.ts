@@ -5,7 +5,7 @@ describe('Link:', () => {
   const linkTagName = 'ani-link';
 
   const getShadowRoot = (tagName: string): ShadowRoot => {
-    return document.body.getElementsByTagName(tagName)[0].shadowRoot;
+    return document.querySelector(tagName)?.shadowRoot;
   };
 
   beforeEach(() => {
@@ -13,7 +13,7 @@ describe('Link:', () => {
   });
 
   afterEach(() => {
-    document.body.getElementsByTagName(linkTagName)[0].remove();
+    document.body.getElementsByTagName(linkTagName)[0]?.remove();
   });
 
   test('should be anchor element', () => {
@@ -37,9 +37,9 @@ describe('Link:', () => {
     expect(renderedText).toBe('Hello link');
   });
 
-  test('should to contain _blank if isOpenNewTab is true', () => {
+  test('should to contain _blank if open-new-tab is true', () => {
     document.body.innerHTML = `
-      <ani-link isOpenNewTab="true">Hello link</ani-link>
+      <ani-link open-new-tab="true">Hello link</ani-link>
     `;
 
     const anchorTarget = getShadowRoot(linkTagName)
@@ -49,9 +49,9 @@ describe('Link:', () => {
     expect(anchorTarget).toBe('_blank');
   });
 
-  test('should to contain _blank if isOpenNewTab is empty', () => {
+  test('should to contain _blank if open-new-tab is empty', () => {
     document.body.innerHTML = `
-      <ani-link isOpenNewTab>Hello link</ani-link>
+      <ani-link open-new-tab>Hello link</ani-link>
     `;
 
     const anchorTarget = getShadowRoot(linkTagName)
@@ -61,9 +61,9 @@ describe('Link:', () => {
     expect(anchorTarget).toBe('_blank');
   });
 
-  test('shouldn`t to be _blank if isOpenNewTab is false', () => {
+  test('shouldn`t to be _blank if open-new-tab is false', () => {
     document.body.innerHTML = `
-      <ani-link isOpenNewTab="false">Hello link</ani-link>
+      <ani-link open-new-tab="false">Hello link</ani-link>
     `;
 
     const anchorTarget = getShadowRoot(linkTagName)
@@ -73,7 +73,7 @@ describe('Link:', () => {
     expect(anchorTarget).not.toBe('_blank');
   });
 
-  test('shouldn`t to be _blank if isOpenNewTab isn`t defined', () => {
+  test('shouldn`t to be _blank if open-new-tab isn`t defined', () => {
     document.body.innerHTML = `
       <ani-link>Hello link</ani-link>
     `;
@@ -97,5 +97,16 @@ describe('Link:', () => {
       .getAttribute('href');
 
     expect(anchorHref).toBe(url);
+  });
+
+  test('should set attribute target to _blank if open-new-tab to change dynamically', () => {
+    document.body.appendChild(link);
+    link.setAttribute('open-new-tab', 'true');
+
+    const anchorTarget = getShadowRoot(linkTagName)
+      .querySelector<HTMLElement>('a')
+      .getAttribute('target');
+
+    expect(anchorTarget).toBe('_blank');
   });
 });
