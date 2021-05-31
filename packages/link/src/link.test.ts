@@ -99,6 +99,17 @@ describe('Link:', () => {
     expect(anchorHref).toBe(url);
   });
 
+  test('should set attribute href equal to url', () => {
+    document.body.appendChild(link);
+    link.setAttribute('url', 'test.io');
+
+    const anchorHref = getShadowRoot(linkTagName)
+      .querySelector<HTMLElement>('a')
+      .getAttribute('href');
+
+    expect(anchorHref).toBe('test.io');
+  });
+
   test('should set attribute target to _blank if open-new-tab to change dynamically', () => {
     document.body.appendChild(link);
     link.setAttribute('open-new-tab', 'true');
