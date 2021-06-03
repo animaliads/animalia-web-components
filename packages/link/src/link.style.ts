@@ -28,6 +28,7 @@ export const linkStyle = `
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
+    outline-style: solid;
     cursor: pointer;
   }
 

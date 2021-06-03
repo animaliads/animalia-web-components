@@ -1,0 +1,44 @@
+import LiveDemo from './test.tsx';
+
+## Desenvolvimento
+
+### Instalação do pacote
+
+Caso você já tenha feito o passo-a-passo descrito em [Começando](?path=/docs/começando--page),
+você pode pular esta instalação e ir direto para o tópico [Como utilizar](#como-utilizar).
+
+Você pode instalar o componente de forma isolada, conforme o exemplo abaixo:
+
+```
+npm install @animaliads/ani-link
+```
+
+### Como utilizar
+
+Para utilizar este componente na sua aplicação você precisa importar o arquivo principal.
+Essa importação irá variar conforme o tipo de aplicação que você está utilizando, por exemplo: angular, react ou
+somente javascript.
+
+Depois depois de importar o arquivo principal, basta adicionar a tag `ani-link` no seu código:
+
+```html
+<ani-link url="https://google.com">Acesse o Google</ani-link>
+```
+
+Para customizar o tema do componente, você pode estar utilizando as propriedades customizáveis
+da seguinte forma:
+
+```css
+ani-link {
+  --text-color: green;
+  --text-color-hover: black;
+}
+```
+
+Para saber quais são as propriedades disponíveis, consulte [propriedades customizáveis do botão](#propriedades-customizáveis).
+
+### Live Demo
+
+<LiveDemo />
+
+Para saber a lista de propriedades e eventos, acesse o [guia de referencia de API](/docs/api-link--sample).

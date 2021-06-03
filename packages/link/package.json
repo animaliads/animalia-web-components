@@ -9,7 +9,7 @@
     "web components",
     "link"
   ],
-  "main": "link/index.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",
