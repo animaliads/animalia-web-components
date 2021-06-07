@@ -1,4 +1,6 @@
 import { style } from './button.style';
+import { ButtonKind } from './enums/button-kind.enum';
+import { ButtonType } from './enums/button-type.enum';
 
 export class Button extends HTMLElement {
   shadow: ShadowRoot;
@@ -20,8 +22,36 @@ export class Button extends HTMLElement {
     return transformBooleanProperties(disabled);
   }
 
+  get danger(): string {
+    const isTertiary = this.kind === ButtonKind.tertiary;
+    const isDanger = isTertiary ? 'false' : this.getAttribute('danger');
+    return transformBooleanProperties(isDanger);
+  }
+
+  set danger(value: string) {
+    this.danger = value;
+  }
+
+  get kind(): string {
+    const kind = this.getAttribute('kind');
+    return kind === null ? ButtonKind.secondary : kind;
+  }
+
+  set kind(value: string) {
+    this.kind = value;
+  }
+
+  get type(): string {
+    const type = this.getAttribute('type');
+    return type === null ? ButtonType.button : type;
+  }
+
+  set type(value: string) {
+    this.type = value;
+  }
+
   static get observedAttributes(): Array<string> {
-    return ['type', 'disabled'];
+    return ['kind', 'disabled', 'danger', 'type'];
   }
 
   connectedCallback(): void {
@@ -48,7 +78,11 @@ export class Button extends HTMLElement {
   private render(): void {
     this.shadow.innerHTML = `
             <style>${style}</style>
-            <button id="buttonElement">
+            <button
+              id="buttonElement"
+              type="${this.type}"
+              kind=${this.kind}
+              danger=${this.danger}>
                 <slot></slot>
             </button>
         `;

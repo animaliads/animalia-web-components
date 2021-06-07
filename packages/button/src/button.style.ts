@@ -14,7 +14,7 @@ export const style = css`
     letter-spacing: var(--letter-spacing-auto);
   }
 
-  :host([kind='primary']) button {
+  button[kind='primary'] {
     background-color: var(--background);
     color: var(--text-color);
     box-shadow: var(--shadow);
@@ -22,20 +22,20 @@ export const style = css`
     border: none;
   }
 
-  :host([kind='primary']) button:hover {
+  button[kind='primary']:hover {
     background-color: var(--background-hover);
     color: var(--text-color-hover);
 
     cursor: pointer;
   }
 
-  :host([kind='primary']) button:focus {
+  button[kind='primary']:focus {
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
   }
 
-  :host([kind='primary']) button:active {
+  button[kind='primary']:active {
     background-color: var(--background-pressed);
     color: var(--text-color-pressed);
     outline-color: var(--outline-color-focused);
@@ -44,7 +44,7 @@ export const style = css`
     cursor: pointer;
   }
 
-  :host([kind='primary'][disabled]) button[aria-disabled='true'] {
+  button[kind='primary'][aria-disabled='true'] {
     /* Custom */
     background-color: var(--background-disabled);
     color: var(--text-color-disabled);
@@ -53,7 +53,7 @@ export const style = css`
     cursor: not-allowed;
   }
 
-  :host([kind='primary'][disabled]) button[aria-disabled='true']:focus {
+  button[kind='primary'][aria-disabled='true']:focus {
     /* Custom */
     outline-color: var(--outline-color-disabled);
 
@@ -62,7 +62,7 @@ export const style = css`
     cursor: not-allowed;
   }
 
-  :host([kind='secondary']) button {
+  button[kind='secondary'] {
     color: var(--text-color);
     border-color: var(--border-color);
     border-width: var(--border-width);
@@ -72,7 +72,7 @@ export const style = css`
     box-shadow: var(--shadow-none);
   }
 
-  :host([kind='secondary']) button:hover {
+  button[kind='secondary']:hover {
     color: var(--text-color-hover);
     background-color: var(--background-hover);
     border-color: var(--border-color-hover);
@@ -80,13 +80,13 @@ export const style = css`
     cursor: pointer;
   }
 
-  :host([kind='secondary']) button:focus {
+  button[kind='secondary']:focus {
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
   }
 
-  :host([kind='secondary']) button:active {
+  button[kind='secondary']:active {
     color: var(--text-color-pressed);
     background-color: var(--background-pressed);
     border-color: var(--border-color-pressed);
@@ -96,7 +96,7 @@ export const style = css`
     cursor: pointer;
   }
 
-  :host([kind='secondary'][disabled]) button[aria-disabled='true'] {
+  button[kind='secondary'][aria-disabled='true'] {
     /* Custom */
     color: var(--text-color-disabled);
     border-color: var(--border-color-disabled);
@@ -105,7 +105,7 @@ export const style = css`
     cursor: not-allowed;
   }
 
-  :host([kind='secondary'][disabled]) button[aria-disabled='true']:focus {
+  button[kind='secondary'][aria-disabled='true']:focus {
     /* Custom */
     outline-color: var(--outline-color-disabled);
 
@@ -114,7 +114,7 @@ export const style = css`
     cursor: not-allowed;
   }
 
-  :host([kind='tertiary']) button {
+  button[kind='tertiary'] {
     color: var(--text-color);
 
     background-color: transparent;
@@ -122,20 +122,20 @@ export const style = css`
     box-shadow: var(--shadow-none);
   }
 
-  :host([kind='tertiary']) button:hover {
+  button[kind='tertiary']:hover {
     color: var(--text-color-hover);
     background-color: var(--background-hover);
 
     cursor: pointer;
   }
 
-  :host([kind='tertiary']) button:focus {
+  button[kind='tertiary']:focus {
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
   }
 
-  :host([kind='tertiary']) button:active {
+  button[kind='tertiary']:active {
     color: var(--text-color-pressed);
     background-color: var(--background-pressed);
     outline-color: var(--outline-color-focused);
@@ -144,7 +144,7 @@ export const style = css`
     cursor: pointer;
   }
 
-  :host([kind='tertiary'][disabled]) button[aria-disabled='true'] {
+  button[kind='tertiary'][aria-disabled='true'] {
     /* Custom */
     color: var(--text-color-disabled);
 
@@ -152,7 +152,7 @@ export const style = css`
     cursor: not-allowed;
   }
 
-  :host([kind='tertiary'][disabled]) button[aria-disabled='true']:focus {
+  button[kind='tertiary'][aria-disabled='true']:focus {
     /* Custom */
     outline-color: var(--outline-color-disabled);
 
