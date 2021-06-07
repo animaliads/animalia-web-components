@@ -1,5 +1,5 @@
 export enum ButtonType {
   submit = 'submit',
-  button = 'sumit',
+  button = 'button',
   reset = 'reset',
 }
