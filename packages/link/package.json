@@ -1,5 +1,5 @@
 {
-  "name": "@animalia/ani-link",
+  "name": "@animaliads/ani-link",
   "version": "0.0.0-PLACEHOLDER",
   "description": "Link do Animalia DS",
   "tag": "dev",
@@ -9,7 +9,7 @@
     "web components",
     "link"
   ],
-  "main": "index.js",
+  "main": "link/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",

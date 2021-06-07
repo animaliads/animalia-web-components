@@ -7,7 +7,8 @@
     "design system",
     "javascript",
     "web components",
-    "button"
+    "button",
+    "link"
   ],
   "main": "animalia-web-components/index.js",
   "repository": {
