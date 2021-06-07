@@ -56,6 +56,8 @@ export class Button extends HTMLElement {
 
   connectedCallback(): void {
     this.render();
+
+    this.setDefaultKind();
     this.setAccessibility();
   }
 
@@ -67,6 +69,12 @@ export class Button extends HTMLElement {
   private onClick(): void {
     if (this.disabled !== 'true') {
       this.dispatchEvent(this.clickEvent);
+    }
+  }
+
+  private setDefaultKind() {
+    if (!this.hasAttribute('kind')) {
+      this.setAttribute('kind', ButtonKind.secondary);
     }
   }
 
