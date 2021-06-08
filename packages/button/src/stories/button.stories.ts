@@ -60,7 +60,19 @@ export default {
       control: 'text',
       description: 'Rótulo',
       table: {
+        type: { summary: 'string' },
         category: 'Slot',
+      },
+    },
+    kind: {
+      options: ['primary', 'secondary', 'tertiary'],
+      control: { type: 'radio' },
+      description: 'Variação',
+      defaultValue: 'secondary',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+        defaultValue: { summary: 'secondary' },
       },
     },
     disabled: {
@@ -68,7 +80,31 @@ export default {
       description: 'Indica se o botão está desabilitado',
       defaultValue: 'false',
       table: {
+        type: { summary: 'boolean' },
         category: 'Propriedades',
+        defaultValue: { summary: false },
+      },
+    },
+    type: {
+      control: 'text',
+      description:
+        'Valor para indicar o tipo do botão, por exemplo: `submit`, `reset` ou `button`. ' +
+        'Ao inserir qualquer um desses valores, é importante implementar essas funcionalidades.',
+      defaultValue: 'button',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+        defaultValue: { summary: 'button' },
+      },
+    },
+    danger: {
+      control: 'boolean',
+      description: 'Habilita o botão do tipo danger',
+      defaultValue: 'false',
+      table: {
+        type: { summary: 'boolean' },
+        category: 'Propriedades',
+        defaultValue: { summary: false },
       },
     },
     onClick: {
@@ -83,7 +119,14 @@ export default {
 
 const Template = ({ label, ...args }) => {
   return html`
-    <ani-button disabled="${args.disabled}"> ${label} </ani-button>
+    <ani-button
+      kind="${args.kind}"
+      type="${args.type}"
+      danger="${args.danger}"
+      disabled="${args.disabled}"
+    >
+      ${label}
+    </ani-button>
   `;
 };
 
@@ -91,6 +134,9 @@ export const Sample = Template.bind({});
 Sample.args = {
   label: 'Button',
   disabled: false,
+  type: 'button',
+  kind: 'secondary',
+  danger: false,
 };
 
 Sample.parameters = {
@@ -98,6 +144,9 @@ Sample.parameters = {
     source: {
       code: `
 <ani-button
+  kind="${Sample.args.kind}"
+  type="${Sample.args.type}"
+  danger="${Sample.args.danger}"
   disabled="${Sample.args.disabled}"
 >
 ${Sample.args.label}
