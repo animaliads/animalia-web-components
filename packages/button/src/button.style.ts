@@ -1,6 +1,4 @@
-import { css } from 'lit-element';
-
-export const style = css`
+export const style = `
   button {
     /* Custom */
     font-family: var(--font-family);

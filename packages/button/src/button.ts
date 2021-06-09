@@ -28,26 +28,14 @@ export class Button extends HTMLElement {
     return transformBooleanProperties(isDanger);
   }
 
-  set danger(value: string) {
-    this.danger = value;
-  }
-
   get kind(): string {
     const kind = this.getAttribute('kind');
-    return kind === null ? ButtonKind.secondary : kind;
-  }
-
-  set kind(value: string) {
-    this.kind = value;
+    return !kind || kind === 'null' ? ButtonKind.secondary : kind;
   }
 
   get type(): string {
     const type = this.getAttribute('type');
-    return type === null ? ButtonType.button : type;
-  }
-
-  set type(value: string) {
-    this.type = value;
+    return !type || type === 'null' ? ButtonType.button : type;
   }
 
   static get observedAttributes(): Array<string> {
@@ -63,6 +51,8 @@ export class Button extends HTMLElement {
 
   attributeChangedCallback(): void {
     this.render();
+
+    this.setDefaultKind();
     this.setAccessibility();
   }
 
@@ -73,7 +63,11 @@ export class Button extends HTMLElement {
   }
 
   private setDefaultKind() {
-    if (!this.hasAttribute('kind')) {
+    const includesKind = Object.values(ButtonKind).includes(
+      <ButtonKind>this.getAttribute('kind')
+    );
+
+    if (!this.hasAttribute('kind') || !includesKind) {
       this.setAttribute('kind', ButtonKind.secondary);
     }
   }
