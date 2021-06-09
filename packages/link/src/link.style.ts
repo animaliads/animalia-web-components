@@ -16,11 +16,13 @@ export const linkStyle = `
     cursor: pointer;
   }
 
-  a:focus-visible {
+  a:focus {
     color: var(--text-color-focus);
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
+    outline-style: solid;
+    outline-offset: 2px;
   }
 
   a:active {
@@ -29,6 +31,7 @@ export const linkStyle = `
 
     outline-width: var(--border-width-lg);
     outline-style: solid;
+    outline-offset: 2px;
     cursor: pointer;
   }
 
