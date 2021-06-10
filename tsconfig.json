@@ -6,6 +6,7 @@
     "declarationMap": true,
     "sourceMap": false,
     "esModuleInterop": true,
+    "moduleResolution": "node",
     "rootDir": "./packages",
     "outDir": "./dist",
     "lib": ["es2017", "dom"]

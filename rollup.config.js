@@ -8,6 +8,7 @@ import babel from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
 import { terser } from 'rollup-plugin-terser';
+import postcss from 'rollup-plugin-postcss';
 
 import typescript from '@rollup/plugin-typescript';
 
@@ -70,6 +71,9 @@ function configFactory(pkg) {
             dest: outputPathBase,
           },
         ],
+      }),
+      postcss({
+        modules: true,
       }),
       minifyHTML(), // reduzir html e css dentro de literals com javascript
       typescript({

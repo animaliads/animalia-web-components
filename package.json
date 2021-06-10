@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/web-components",
-  "version": "1.0.0-dev.2",
+  "version": "1.0.0-dev.4",
   "description": "Repositório de Web Components do Animalia DS",
   "main": "src/index.js",
   "tag": "dev",
@@ -48,7 +48,7 @@
     "@lerna/filter-packages": "^3.18.0",
     "@lerna/project": "^3.21.0",
     "@rollup/plugin-babel": "^5.2.2",
-    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^11.2.1",
     "@rollup/plugin-typescript": "^8.1.0",
     "@storybook/addon-a11y": "^6.1.20",
     "@storybook/addon-docs": "^6.1.20",

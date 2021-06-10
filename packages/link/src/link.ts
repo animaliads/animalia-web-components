@@ -1,4 +1,5 @@
 import { linkStyle } from './link.style';
+import { linkStyleIe } from './link.style.ie';
 
 export default class Link extends HTMLElement {
   shadow: ShadowRoot;
@@ -35,6 +36,7 @@ export default class Link extends HTMLElement {
 
   render(): void {
     this.shadow.innerHTML = `
+        <style>${linkStyleIe}</style>
         <style>${linkStyle}</style>
         <a href="${this.url}" target="${this.target}">
           <slot></slot>
