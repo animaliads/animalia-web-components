@@ -22,7 +22,7 @@ export default {
     openNewTab: {
       control: 'boolean',
       description:
-        'Indica se o link deverá ser aberta em uma nova aba. Sempre que utilizar essa propriedade, é importante informar isso ao usuário através da label. Por exemplo: Storybook (abrir em uma nova aba).',
+        'Indica se o link deverá ser aberta em uma nova aba. Sempre que utilizar essa propriedade, é importante informar isso ao usuário através da label. Por exemplo: Storybook (abre em uma nova aba).',
       defaultValue: 'false',
       table: {
         category: 'Propriedades',
