@@ -10,6 +10,10 @@ export const linkStyle = `
     line-height: inherit;
   }
 
+  a:visited {
+    color: var(--text-color-visited);
+  }
+
   a:hover {
     color: var(--text-color-hover);
 
@@ -33,9 +37,5 @@ export const linkStyle = `
     outline-style: solid;
     outline-offset: 2px;
     cursor: pointer;
-  }
-
-  a:visited {
-    color: var(--text-color-visited);
   }
 `;
