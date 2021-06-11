@@ -1,6 +1,7 @@
 import { style } from './button.style';
 import { ButtonKind } from './enums/button-kind.enum';
 import { ButtonType } from './enums/button-type.enum';
+import { ButtonSize } from './enums/button.size.enum';
 
 export class Button extends HTMLElement {
   shadow: ShadowRoot;
@@ -26,6 +27,11 @@ export class Button extends HTMLElement {
     const isTertiary = this.kind === ButtonKind.tertiary;
     const isDanger = isTertiary ? 'false' : this.getAttribute('danger');
     return transformBooleanProperties(isDanger);
+  }
+
+  get size(): string {
+    const size = this.getAttribute('size');
+    return !size || size === 'null' ? ButtonSize.medium : size;
   }
 
   get kind(): string {
@@ -84,6 +90,7 @@ export class Button extends HTMLElement {
               id="buttonElement"
               type="${this.type}"
               kind=${this.kind}
+              size=${this.size}
               danger=${this.danger}>
                 <slot></slot>
             </button>

@@ -1,4 +1,4 @@
-export function addCss(fileName: string): void {
+export function addCssTheme(fileName: string): void {
   const head = document.head;
   const link = document.createElement('link');
 
@@ -9,5 +9,5 @@ export function addCss(fileName: string): void {
   head.insertBefore(link, head.firstChild);
 }
 
-addCss('./node_modules/@animaliads/animalia-brand/theme.css');
-addCss('./node_modules/@animaliads/css-tokens/global-tokens.css');
+addCssTheme('./node_modules/@animaliads/animalia-brand/theme.css');
+addCssTheme('./node_modules/@animaliads/css-tokens/global-tokens.css');
