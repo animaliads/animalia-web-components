@@ -8,6 +8,7 @@
     "sourceMap": false,
     "esModuleInterop": true,
     "rootDir": "./packages",
+    "jsx": "react",
     "outDir": "./dist",
     "lib": ["es2017", "dom"]
   },

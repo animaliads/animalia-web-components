@@ -1,5 +1,21 @@
+import { linkStyle } from './link.style';
+import { linkStyleIe } from './link.style.ie';
+
 export default class Link extends HTMLElement {
-  shadow;
+  shadow: ShadowRoot;
+
+  get url(): string {
+    return this.getAttribute('url');
+  }
+
+  get openNewTab(): string {
+    const isOpenNewTab = this.getAttribute('open-new-tab');
+    return transformBooleanProperties(isOpenNewTab);
+  }
+
+  set openNewTab(value: string) {
+    this.openNewTab = value;
+  }
 
   constructor() {
     super();
@@ -10,11 +26,37 @@ export default class Link extends HTMLElement {
     this.render();
   }
 
+  static get observedAttributes(): Array<string> {
+    return ['url', 'open-new-tab'];
+  }
+
+  attributeChangedCallback(): void {
+    this.render();
+  }
+
   render(): void {
     this.shadow.innerHTML = `
-        <a href="">link<a/>
+        <style>${linkStyleIe}</style>
+        <style>${linkStyle}</style>
+        <a href="${this.url}" target="${this.target}">
+          <slot></slot>
+        <a/>
     `;
+  }
+
+  private get target() {
+    return this.openNewTab === 'true' ? '_blank' : '_self';
   }
 }
 
 customElements.define('ani-link', Link);
+
+function transformBooleanProperties(value: string) {
+  if (value === '') {
+    return 'true';
+  } else if (value === null) {
+    return 'false';
+  }
+
+  return value;
+}
