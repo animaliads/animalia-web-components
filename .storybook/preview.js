@@ -25,10 +25,11 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'poui',
+    defaultValue: 'animalia',
     toolbar: {
       icon: 'circle',
       items: [
+        { value: 'animalia', title: 'Animalia' },
         { value: 'poui', title: 'PO UI' },
         { value: 'fluig', title: 'Fluig' },
       ],
@@ -39,6 +40,7 @@ export const globalTypes = {
 const decorator = (story, context) => {
   const theme = context.globals.theme;
   const links = {
+    animalia: 'https://unpkg.com/@animaliads/animalia-brand@dev/theme.css',
     poui: 'https://unpkg.com/@animaliads/po-ui-brand@next/theme.css',
     fluig: 'https://unpkg.com/@animaliads/fluig-brand@next/theme.css',
   };
