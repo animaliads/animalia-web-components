@@ -1,2 +1,2 @@
 export * from './link';
-import './link.css';
+export * from './theme-default';
