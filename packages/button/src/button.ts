@@ -52,6 +52,7 @@ export class Button extends HTMLElement {
     this.render();
 
     this.setDefaultKind();
+    this.setDefaultSize();
     this.setAccessibility();
   }
 
@@ -59,6 +60,7 @@ export class Button extends HTMLElement {
     this.render();
 
     this.setDefaultKind();
+    this.setDefaultSize();
     this.setAccessibility();
   }
 
@@ -75,6 +77,16 @@ export class Button extends HTMLElement {
 
     if (!this.hasAttribute('kind') || !includesKind) {
       this.setAttribute('kind', ButtonKind.secondary);
+    }
+  }
+
+  private setDefaultSize() {
+    const includesSize = Object.values(ButtonSize).includes(
+      <ButtonSize>this.getAttribute('size')
+    );
+
+    if (!this.hasAttribute('size') || !includesSize) {
+      this.setAttribute('size', ButtonSize.medium);
     }
   }
 

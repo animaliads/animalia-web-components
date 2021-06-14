@@ -92,6 +92,7 @@ export const style = `
     color: var(--text-color-disabled);
     border-color: var(--border-color-disabled);
 
+    background-color: transparent;
     cursor: not-allowed;
   }
 
@@ -118,6 +119,7 @@ export const style = `
     /* Custom */
     color: var(--text-color-disabled);
 
+    background-color: transparent;
     cursor: not-allowed;
   }
 
