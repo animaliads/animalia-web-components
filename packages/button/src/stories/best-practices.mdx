@@ -1,0 +1,203 @@
+import buttonDo1 from './img/button-do-1.jpg';
+import buttonDont1 from './img/button-dont-1.jpg';
+import buttonDo2 from './img/button-do-2.jpg';
+import buttonDont2 from './img/button-dont-2.jpg';
+import buttonDo3 from './img/button-do-3.jpg';
+import buttonDont3 from './img/button-dont-3.jpg';
+import buttonDo4 from './img/button-do-4.jpg';
+import buttonDont4 from './img/button-dont-4.jpg';
+import buttonDo5 from './img/button-do-5.jpg';
+import buttonDont5 from './img/button-dont-5.jpg';
+
+## Boas práticas
+
+O componente do botão foi projetado para atender os requisitos das Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1. Também foram estruturadas padrões de usabilidade para auxiliar na utilização do componente e garantir uma boa experiência para os usuários. Por isso, é muito importante que, ao aplicar esse componente, o proprietário do conteúdo leve em consideração alguns critérios e práticas:
+
+### Uso
+
+- Evite utilizar muitos botões em uma única tela, pois isso aumenta a carga cognitiva do usuário e vai aumentar seu tempo de decisão;
+- Utilize sempre a ação principal do lado direito da página, e os demais botões à esquerda, respeitando a hierarquia.
+
+<div style={{ padding: '0 0 24px 0' }}>
+
+<div style={{ display: 'inline-block', width: '48%' }}>
+
+<img
+  src={buttonDo1}
+  alt="#PraCegoVer Três botões dispostos à direita, terciário, secundário e primário, respectivamente"
+/>
+
+**Fazer**
+
+Alinhe os botões sempre à direita da página, sendo primeiro o botão primário, depois secundário e terciário.
+
+</div>
+
+<div style={{ display: 'inline-block', width: '4%' }}></div>
+
+<div  style={{ display: 'inline-block', width: '48%' }}>
+<img
+src={buttonDont1}
+alt="#PraCegoVer Três botões dispostos a esquerda, primário, secundário e terciário, respectivamente"
+/>
+
+**Não fazer**
+
+Não insira os botões fora da hierarquia e alinhado à esquerda da página.
+
+</div>
+
+</div>
+
+### Label
+
+- Use labels (rótulos) diretas, curtas e intuitivas, que direcionem o usuário para o que será realizado. Para isso, prefira utilizar verbos, por exemplo: "Salvar" e "Adicionar". Quando necessária maior especificação, pode ser utilizado um complemento junto ao verbo, como por exemplo: "Salvar rascunho". ([WCAG 2.4.6: Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels))
+- O nome acessível do botão, que será lido por leitores de tela, deve ser o mesmo nome definido na label do botão, para garantir que os usuários tenham as mesmas experiências. ([WCAG 2.5.3: Label in Name](https://www.w3.org/WAI/WCAG21/Understanding/label-in-name))
+
+<div style={{ padding: '0 0 24px 0' }}>
+
+<div style={{ display: 'inline-block', width: '48%' }}>
+
+<img
+  src={buttonDo2}
+  alt="#PraCegoVer Botão secundário com a label Salvar rascunho e botão primário com a label Publicar"
+/>
+
+**Fazer**
+
+Utilize labels diretas e quando necessário acrescente um complemento.
+
+</div>
+
+<div style={{ display: 'inline-block', width: '4%' }}></div>
+
+<div  style={{ display: 'inline-block', width: '48%' }}>
+<img
+src={buttonDont2}
+alt="#PraCegoVer Botão primário com a label Publicar a página Animalia"
+/>
+
+**Não fazer**
+
+Não use uma label com muitas palavras, priorize somente o necessário para o entendimento do usuário.
+
+</div>
+
+</div>
+
+### Ícones
+
+- Adicione um ícone junto a label do botão quando precisar descrever melhor a ação que o usuário irá executar. Utilize ícones claros que possuem relação direta com a label. O ícone à esquerda representa uma ação imediata; e à direita, representa continuidade.
+- Para os botões de perigo e botões terciários, é recomendado preferencialmente a utilização do ícone acompanhando a label.
+- Para a utilização de ícones isolados, use o botão terciário sem label, para que a acessibilidade do componente seja garantida.
+
+<div style={{ padding: '0 0 24px 0' }}>
+
+<div style={{ display: 'inline-block', width: '48%' }}>
+
+<img
+  src={buttonDo3}
+  alt="#PraCegoVer Botão de perigo secundário com ícone de lixeira a esquerda da label e um botão primário com ícone de seta a direita da label"
+/>
+
+**Fazer**
+
+Utilize ícones que possuem associação clara com a label.
+
+</div>
+
+<div style={{ display: 'inline-block', width: '4%' }}></div>
+
+<div  style={{ display: 'inline-block', width: '48%' }}>
+<img
+src={buttonDont3}
+alt="#PraCegoVer Botão primário com ícone de lixeira embaixo da label"
+/>
+
+**Não fazer**
+
+Não alinhe o ícone em cima ou embaixo da label.
+
+</div>
+
+</div>
+
+### Cores
+
+- Não use cores para label e background com baixo contraste entre si, pois isso dificulta o entendimento do conteúdo do botão. É possível conferir se o contraste está adequado e atingindo o valor de 7:1 em um [Contrast Checker](https://webaim.org/resources/contrastchecker/). ([WCAG 1.4.6: Contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html))
+
+<div style={{ padding: '0 0 24px 0' }}>
+
+<div style={{ display: 'inline-block', width: '48%' }}>
+
+<img
+  src={buttonDo4}
+  alt="#PraCegoVer Botão primário e secundário com cores com contraste de 8.01:1"
+/>
+
+**Fazer**
+
+Contraste alto entre o background e a label. Confira também o contraste com o fundo.
+
+</div>
+
+<div style={{ display: 'inline-block', width: '4%' }}></div>
+
+<div  style={{ display: 'inline-block', width: '48%' }}>
+<img
+src={buttonDont4}
+alt="##PraCegoVer Botão primário e secundário com cores com contraste de 1.93:1"
+/>
+
+**Não fazer**
+
+Contraste inferior a 7:1 entre o background e a label.
+
+</div>
+
+</div>
+
+### Interação
+
+- A interação de foco deve compor os botões, sendo navegação por mouse ou teclado, e em sequência lógica. Consultar lista de exemplos em ([W3C WAI-ARIA 3.5 Button](https://www.w3.org/TR/wai-aria-practices-1.1/#button))
+- Ao alterar as propriedades customizadas de espaçamento no botão, é necessário atenção porque o botão precisa ter uma área de interação de no mínimo 44 x 44px, ou seja, nem toda a área precisa ser clicável, mas a distância entre os elementos interativos precisa ser de pelo menos 44px. ([WGAG 2.5.8: Target Size (Minimum](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum))
+- O mesmo cuidado é necessário para a utilização do botão no tamanho small.
+
+<div style={{ padding: '0 0 24px 0' }}>
+
+<div style={{ display: 'inline-block', width: '48%' }}>
+
+<img
+  src={buttonDo5}
+  alt="#PraCegoVer Botões small primário e secundário alinhados verticalmente com um espaçamento de 12px entre eles, totalizando 44px de área segura."
+/>
+
+**Fazer**
+
+Incluir um espaçamento adequado entre os componentes para atingir um área segura de 44px.
+
+</div>
+
+<div style={{ display: 'inline-block', width: '4%' }}></div>
+
+<div  style={{ display: 'inline-block', width: '48%' }}>
+<img
+src={buttonDont5}
+alt="#PraCegoVer botões small primário e secundário alinhados verticalmente com um espaçamento de 8px entre eles, não atingindo 44px de área segura."
+/>
+
+**Não fazer**
+
+Não alinhe os componentes muito próximos um dos outros, pois a área de interação pode ser comprometida.
+
+</div>
+
+</div>
+
+### Acessibilidade tratada no componente
+
+Algumas diretrizes de acessibilidade já são tratadas no componente, internamente, e não podem ser alteradas pelo proprietário do conteúdo. São elas:
+
+- Quando em foco, o botão é ativado usando as teclas de _Espaço_ e _Enter_ do teclado. ([W3C WAI-ARIA 3.5 Button - Keyboard Interaction](https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-3))
+- A área do foco precisar ter uma espessura de pelo menos 2 pixels CSS e o foco não pode ficar escondido por outros elementos da tela. ([WCAG 2.4.12: Focus Appearance](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced))
+- O estado de foco deve ser sempre preservado, inclusive quando o botão estiver desabilitado. ([WCAG 2.4.7: Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible))
