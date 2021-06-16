@@ -42,7 +42,7 @@ export const style = `
     background-color: var(--background);
     box-shadow: var(--shadow);
 
-    border: none;
+    border: var(--border-width) solid transparent;
   }
 
   button[kind='primary']:hover {
@@ -102,6 +102,7 @@ export const style = `
     background-color: transparent;
     border: none;
     box-shadow: var(--shadow-none);
+    border: var(--border-width) solid transparent;
   }
 
   button[kind='tertiary']:hover {

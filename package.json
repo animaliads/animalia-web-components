@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/web-components",
-  "version": "1.0.0-dev.14",
+  "version": "1.0.0-dev.15",
   "description": "Repositório de Web Components do Animalia DS",
   "main": "src/index.js",
   "tag": "dev",
