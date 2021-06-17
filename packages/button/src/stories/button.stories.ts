@@ -26,7 +26,7 @@ export default {
     },
     disabled: {
       control: 'boolean',
-      description: 'Indica se o botão está desabilitado',
+      description: 'Indica se o botão está desabilitado.',
       defaultValue: 'false',
       table: {
         type: { summary: 'boolean' },
@@ -46,9 +46,21 @@ export default {
         defaultValue: { summary: 'button' },
       },
     },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'radio' },
+      description: 'Tamanhos do botão.',
+      defaultValue: 'button',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+        defaultValue: { summary: 'medium' },
+      },
+    },
     danger: {
       control: 'boolean',
-      description: 'Habilita o botão do tipo danger',
+      description:
+        'Habilita o botão do tipo danger. Essa propriedade é válida apenas para os tipos `primary` e `secondary`.',
       defaultValue: 'false',
       table: {
         type: { summary: 'boolean' },
@@ -57,7 +69,7 @@ export default {
       },
     },
     onClick: {
-      description: 'Evento disparado ao clicar no botão',
+      description: 'Evento disparado ao clicar no botão.',
       table: {
         category: 'Eventos',
       },
@@ -71,6 +83,7 @@ const Template = ({ label, ...args }) => {
       kind="${args.kind}"
       type="${args.type}"
       danger="${args.danger}"
+      size="${args.size}"
       disabled="${args.disabled}"
     >
       ${label}
@@ -84,6 +97,7 @@ Sample.args = {
   disabled: false,
   type: 'button',
   kind: 'secondary',
+  size: 'medium',
   danger: false,
 };
 
@@ -94,6 +108,7 @@ Sample.parameters = {
 <ani-button
   kind="${Sample.args.kind}"
   type="${Sample.args.type}"
+  size="${Sample.args.size}"
   danger="${Sample.args.danger}"
   disabled="${Sample.args.disabled}"
 >
