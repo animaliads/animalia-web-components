@@ -21,7 +21,6 @@ export const linkStyle = `
   }
 
   a:focus {
-    color: var(--text-color-focus);
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
