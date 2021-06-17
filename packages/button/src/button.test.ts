@@ -38,6 +38,27 @@ describe('Button:', () => {
     expect(buttonElement.getAttribute('aria-disabled')).toBe('true');
   });
 
+  test('shouldn`t set danger if kind is tertiary', () => {
+    document.body.innerHTML = `
+      <ani-button kind="tertiary" danger></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('danger')).toBe('false');
+  });
+
+  test('shouldn`t set danger if kind was dynamically assigned as tertiary', () => {
+    document.body.appendChild(button);
+    button.setAttribute('kind', 'tertiary');
+
+    const buttonKind = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('danger');
+
+    expect(buttonKind).toBe('false');
+  });
+
   test('should set aria-disabled to false if disabled is false', () => {
     document.body.innerHTML = `
       <ani-button disabled="false"></ani-button>
@@ -66,6 +87,164 @@ describe('Button:', () => {
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
 
     expect(buttonElement.getAttribute('aria-disabled')).toBe('false');
+  });
+
+  test('should set attribute disabled to true', () => {
+    document.body.appendChild(button);
+    button.setAttribute('disabled', 'true');
+
+    const buttonDisabled = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('aria-disabled');
+
+    expect(buttonDisabled).toBe('true');
+  });
+
+  test('should set danger to true if danger is true', () => {
+    document.body.innerHTML = `
+      <ani-button danger="true"></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('danger')).toBe('true');
+  });
+
+  test('should set danger to true if danger is defined', () => {
+    document.body.innerHTML = `
+      <ani-button danger></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('danger')).toBe('true');
+  });
+
+  test('should set danger to false if danger is undefined', () => {
+    document.body.innerHTML = `
+      <ani-button></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('danger')).toBe('false');
+  });
+
+  test('should set attribute danger to true', () => {
+    document.body.appendChild(button);
+    button.setAttribute('danger', 'true');
+
+    const buttonDanger = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('danger');
+
+    expect(buttonDanger).toBe('true');
+  });
+
+  test('should set type to button if type is undefined', () => {
+    document.body.innerHTML = `
+      <ani-button></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('type')).toBe('button');
+  });
+
+  test('should set type to reset if type is reset', () => {
+    document.body.innerHTML = `
+      <ani-button type="reset"></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('type')).toBe('reset');
+  });
+
+  test('should set attribute type to submit', () => {
+    document.body.appendChild(button);
+    button.setAttribute('type', 'submit');
+
+    const buttonType = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('type');
+
+    expect(buttonType).toBe('submit');
+  });
+
+  test('should set kind to secondary if kind is undefined', () => {
+    document.body.innerHTML = `
+      <ani-button></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('kind')).toBe('secondary');
+  });
+
+  test('should set kind to primary if type is primary', () => {
+    document.body.innerHTML = `
+      <ani-button kind="primary"></ani-button>
+    `;
+
+    const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
+
+    expect(buttonElement.getAttribute('kind')).toBe('primary');
+  });
+
+  test('should set attribute kind to secondary', () => {
+    document.body.appendChild(button);
+    button.setAttribute('kind', 'secondary');
+
+    const buttonSecondary = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('kind');
+
+    expect(buttonSecondary).toBe('secondary');
+  });
+
+  test('should set attribute kind to default value if kind is null', () => {
+    document.body.appendChild(button);
+    button.setAttribute('kind', null);
+
+    const buttonSecondary = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('kind');
+
+    expect(buttonSecondary).toBe('secondary');
+  });
+
+  test('should set attribute kind to default value if kind is null', () => {
+    document.body.appendChild(button);
+    button.setAttribute('kind', null);
+
+    const buttonSecondary = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('kind');
+
+    expect(buttonSecondary).toBe('secondary');
+  });
+
+  test('should set attribute type to default value if type is null string', () => {
+    document.body.appendChild(button);
+    button.setAttribute('type', 'null');
+
+    const buttonType = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('type');
+
+    expect(buttonType).toBe('button');
+  });
+
+  test('should set attribute type to default value if type is null string', () => {
+    document.body.appendChild(button);
+    button.setAttribute('type', 'null');
+
+    const buttonType = getShadowRoot(buttonTagName)
+      .querySelector<HTMLElement>('button')
+      .getAttribute('type');
+
+    expect(buttonType).toBe('button');
   });
 
   test('should call onClick function if component is clicked', () => {
