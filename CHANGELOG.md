@@ -1,5 +1,21 @@
 # Changelog
 
+## Versão 1.0.0 - (Calango)
+
+28 de junho de 2021
+
+### 🎉 Novidades (New Features)
+
+**Link:** novo componente para rotas.
+
+**Button:** novo componente com os tipos: primary, secondary, tertiary e danger. Novos tamanhos de botão: small, medium e large.
+
+**Brand tokens (Animalia):** novos tokens - Font family, Brand colors, Action colors e Neutral colors.
+
+### ✨ Melhorias (Enhancements)
+
+**Global tokens:** ampliação da escala de tokens para line height e spacing squish.
+
 ## Versão 1.0.0-next.1 - Calango
 
 28 de abril de 2021
