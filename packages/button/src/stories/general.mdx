@@ -1,5 +1,8 @@
-import button_anatomy from './img/button-anatomy.svg';
-import button_states from './img/button-states.jpg';
+import buttonTypes from './img/button-types.jpg';
+import buttonAnatomy from './img/button-anatomy.jpg';
+import buttonToken from './img/button-token.jpg';
+import buttonSize from './img/button-size.jpg';
+import buttonWidth from './img/button-width.jpg';
 
 # Button
 
@@ -7,33 +10,61 @@ import button_states from './img/button-states.jpg';
 
 Os botões são utilizados para realizar ações e para tomada de decisões. Podem ser utilizado em páginas e também dentro de outros componentes.
 
-### Boas práticas
+### Tipos
 
-- Use labels (rótulos) diretos, curtos e intuitivos, que direcionem o usuário para o que será realizado. Para isso, prefira utilizar verbos, por exemplo: "Salvar" e "Adicionar";
-- A interação de foco deve compor os botões, sendo navegação por mouse ou teclado, e em sequência lógica;
-- Evite utilizar muitos botões em uma única tela, pois isso aumenta a carga cognitiva do usuário e vai aumentar seu tempo de decisão;
-- Não use cores para label e backgroud com baixo contraste entre elas, pois isso dificulta o entendimento do conteúdo do botão.
+Cada tipo de botão representa uma prioridade na interface e é recomendado que sejam utilizados de acordo com a importância das ações que o usuário deve realizar. Outro fator importante, é manter a consistência dentro dos produtos para que os usuários identifiquem facilmente as ações.
+
+<img
+  src={buttonTypes}
+  alt="Os cinco tipos de botões dispostos lado a lado, sendo 1 o Primary, 2 o Secondary, 3 o Tertiary, 4 o Primary Button e 5 o Secondary Danger"
+/>
+
+1. **Primary**: Os botões primários devem ser usados para a ação principal da página e preferencialmente apenas um botão deste tipo por página, para direcionar o usuário para a ação principal de forma clara.
+2. **Secondary**: Devem ser utilizados para ações secundárias na página. Os botões secundários podem ser utilizado ao lado dos botões primários, como segunda ação, e também isolados na página quando não forem a ação principal e já houver um botão primário.
+3. **Tertiary**: Os botões terciários chamam menos atenção que os outros botões e devem ser utilizados para ações menos importantes. Ao inserir o botão de forma isolada, utilize preferencialmente acompanhado de um ícone que represente a ação, para aumentar o entendimento do usuário de que há uma ação a ser realizada. Também podem ser utilizados como terceira ação junto a um botão secundário e primário.
+4. **Primary Danger**: Utilizar quando a ação principal trouxer grande impacto para o usuário, como excluir conta ou apagar um grande volume de dados, são situações difíceis de reverter e que precisam de mais atenção ao executar. Neste botão, também é recomendado a utilização de um ícone de alerta junto a label, para que os usuários consigam diferenciar facilmente do botão primário. Não deve ser inserido mais de um botão de perigo por página.
+5. **Secondary Danger**: Quando a segunda ação for de grande impacto, como cancelar um processo muito importante, deverá ser utilizado este botão. Assim como no botão primário de perigo, é recomendado o uso do ícone de alerta junto a label e somente um botão por página.
 
 ### Anatomia
 
-O botão é composto por um background que recebe uma cor de marca e uma label que descreve a interação que será realizada.
+O botão é composto por um background ou border que recebe uma cor de marca e uma label que descreve a ação que será realizada.
 
 <img
-  src={button_anatomy}
-  alt="Anatomia do botão, sendo 1 o label  e 2 o background"
+  src={buttonAnatomy}
+  alt="Anatomia dos cinco tipos de botões disposto lado a lado, sendo 1 a label, 2 o background e 3 o border"
 />
 
-**1.** Label
+**1.** Label (rótulo)
 
 **2.** Background
 
-### Estados do botão
+**3.** Border
 
-O botão possui estados e se modifica de acordo com a interação do usuário. São eles:
-
-Default, Hover, Focus, Disabled e Focusable Disabled.
+Os componentes são formados por tokens, sendo estes propriedades de estilo que definem como será estruturado e estilizado o botão. Os tokens que podem ser alterados pelas marcas, podem ser conferidos na seção de [propriedades customizáveis](#propriedades-customizáveis).
 
 <img
-  src={button_states}
-  alt="Os cinco estados do botão primário dispostos lado a lado"
+  src={buttonToken}
+  alt="Descrição dos tokens customizados que foram utilizados na construção do botão."
+/>
+
+### Tamanhos
+
+Todos os tipos de botões podem ser utilizados em três tamanhos diferentes: Small, Medium e Large. O tamanho medium é o tamanho padrão do botão e deve ser o mais aplicado. Utilize as outras variações para criar uma hierarquia na página, alinhada aos tipos de botões .
+
+<img
+  src={buttonSize}
+  alt="Três variações de tamanho para o botão dispostas lado a lado, sendo 1 o tamanho small, 2 o tamanho medium e 3 o tamanho large"
+/>
+
+**1.** Small
+
+**2.** Medium
+
+**3.** Large
+
+Por padrão, a largura do botão se adequa de acordo com o tamanho do texto e o espaçamento definido no token `—-spacing-squish`. Se necessário, é possível redefinir a largura para se ajustar ao tamanho do componente no qual o botão está inserido.
+
+<img
+  src={buttonWidth}
+  alt="Dois botões demonstrando como a largura do botão aumenta conforme o a label que é inserida"
 />
