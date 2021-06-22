@@ -6,15 +6,12 @@
 
 ### 🎉 Novidades (New Features)
 
-**Link:** novo componente para rotas.
-
-**Button:** novo componente com os tipos: primary, secondary, tertiary e danger. Novos tamanhos de botão: small, medium e large.
-
-**Brand tokens (Animalia):** novos tokens - Font family, Brand colors, Action colors e Neutral colors.
+- **[Link](https://animaliads.io/?path=/docs/componentes-link--visao-geral):** novo componente para rotas.
+- **[Button](https://animaliads.io/?path=/docs/componentes-button--visao-geral):** novo componente com os tipos: primary, secondary, tertiary e danger. Novos tamanhos de botão: small, medium e large. -**[Brand tokens (Animalia)](https://github.com/animaliads/animalia-brand):** novos tokens - Font family, Brand colors, Action colors e Neutral colors.
 
 ### ✨ Melhorias (Enhancements)
 
-**Global tokens:** ampliação da escala de tokens para line height e spacing squish.
+- **Global tokens:** ampliação da escala de tokens para line height e spacing squish.
 
 ## Versão 1.0.0-next.1 - Calango
 
