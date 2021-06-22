@@ -7,7 +7,8 @@
 ### 🎉 Novidades (New Features)
 
 - **[Link](https://animaliads.io/?path=/docs/componentes-link--visao-geral):** novo componente para rotas.
-- **[Button](https://animaliads.io/?path=/docs/componentes-button--visao-geral):** novo componente com os tipos: primary, secondary, tertiary e danger. Novos tamanhos de botão: small, medium e large. -**[Brand tokens (Animalia)](https://github.com/animaliads/animalia-brand):** novos tokens - Font family, Brand colors, Action colors e Neutral colors.
+- **[Button](https://animaliads.io/?path=/docs/componentes-button--visao-geral):** novo componente com os tipos: primary, secondary, tertiary e danger. Novos tamanhos de botão: small, medium e large.
+- **[Brand tokens (Animalia)](https://github.com/animaliads/animalia-brand):** novos tokens - Font family, Brand colors, Action colors e Neutral colors.
 
 ### ✨ Melhorias (Enhancements)
 
@@ -25,7 +26,6 @@
 - **Documentação (Button)**: Visão geral sobre o componente, com boas práticas, anatomia e estados, listagem das propriedades e acessibilidade
 - [Repositório de design](https://github.com/animaliads/animalia-design) para versionamento dos arquivos Sketch, no Github
 - **Button**: novo componente. Botão do tipo primário.
-  <br>
 
 ---
 
