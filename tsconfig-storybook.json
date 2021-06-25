@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "es2017",
+    "module": "es2015",
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "esModuleInterop": true,
+    "rootDir": "./packages",
+    "jsx": "react",
+    "outDir": "./dist",
+    "lib": ["es2017", "dom"]
+  },
+  "include": ["./packages/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts", "**/stories/**"]
+}

@@ -60,6 +60,7 @@ function configFactory(pkg) {
               delete packageJson.scripts;
               delete packageJson.files;
               packageJson.version = MAIN_VERSION;
+              packageJson.main = 'index.js';
 
               return Buffer.from(JSON.stringify(packageJson, null, 2), 'utf-8');
             },

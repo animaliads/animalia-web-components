@@ -27,12 +27,49 @@ E para a instalação local no seu computador, precisará ter instalado:
 - [Node.js](https://nodejs.org/en/)
 - [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
 
+### Utilização básica
+
+Nesta utilização básica, iremos adicionar o componente `<ani-button>` em uma página
+`.html` básica. Por isso, crie um arquivo `.html` e adicione a seguinte tag `script` contendo o link do pacote
+com o componente `ani-button`:
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+  </head>
+  <body></body>
+  <!-- Pacote com o componente -->
+  <script src="https://unpkg.com/@animaliads/ani-button"></script>
+</html>
+```
+
+Com a inclusão do script do componente, agora você já pode adicionar a tag do componente e começar
+a utilizá-lo!
+
+```html
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World</title>
+  </head>
+  <body>
+    <!-- Componente ani-button -->
+    <ani-button>Hello World</ani-button>
+  </body>
+  <script src="https://unpkg.com/@animaliads/ani-button"></script>
+</html>
+```
+
 ## Instalação
 
-Instale o pacote via npm:
+### Instale o pacote via npm:
 
 ```
-npm install @animaliads/animalia-web-components
+npm install @animaliads/web-components
 ```
 
 Se preferir, você também pode instalar o componente de forma individual:
@@ -41,13 +78,11 @@ Se preferir, você também pode instalar o componente de forma individual:
 npm install @animaliads/ani-button
 ```
 
-## Como usar
+## Configuração
 
-Adicione o arquivo instalado no seu código `html`:
-
-```
-<script type="module" src="./node_modules/@animaliads/web-components"></script>
-```
+A configuração irá depender do tipo de aplicação que você está criando, se utilizando algum framework,
+por exemplo Angular ou React, ou se é utilizando javascript básico.
+A seguir temos algumas formas de configuração para cada ambiente específico:
 
 <a id="angular"></a>
 
@@ -72,3 +107,8 @@ Você também precisará importar o pacote dentro do seu componente:
 ```
 import '@animaliads/web-components';
 ```
+
+Link úteis:
+
+- [Angular elements](https://angular.io/guide/elements)
+- [Usando Web Components no React](https://pt-br.reactjs.org/docs/web-components.html)

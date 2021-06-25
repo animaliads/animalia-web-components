@@ -1,4 +1,7 @@
 import { style } from './button.style';
+import { ButtonKind } from './enums/button-kind.enum';
+import { ButtonType } from './enums/button-type.enum';
+import { ButtonSize } from './enums/button.size.enum';
 
 export class Button extends HTMLElement {
   shadow: ShadowRoot;
@@ -20,23 +23,70 @@ export class Button extends HTMLElement {
     return transformBooleanProperties(disabled);
   }
 
+  get danger(): string {
+    const isTertiary = this.kind === ButtonKind.tertiary;
+    const isDanger = isTertiary ? 'false' : this.getAttribute('danger');
+    return transformBooleanProperties(isDanger);
+  }
+
+  get size(): string {
+    const size = this.getAttribute('size');
+    return !size || size === 'null' ? ButtonSize.medium : size;
+  }
+
+  get kind(): string {
+    const kind = this.getAttribute('kind');
+    return !kind || kind === 'null' ? ButtonKind.secondary : kind;
+  }
+
+  get type(): string {
+    const type = this.getAttribute('type');
+    return !type || type === 'null' ? ButtonType.button : type;
+  }
+
   static get observedAttributes(): Array<string> {
-    return ['type', 'disabled'];
+    return ['kind', 'disabled', 'danger', 'type'];
   }
 
   connectedCallback(): void {
     this.render();
+
+    this.setDefaultKind();
+    this.setDefaultSize();
     this.setAccessibility();
   }
 
   attributeChangedCallback(): void {
     this.render();
+
+    this.setDefaultKind();
+    this.setDefaultSize();
     this.setAccessibility();
   }
 
   private onClick(): void {
     if (this.disabled !== 'true') {
       this.dispatchEvent(this.clickEvent);
+    }
+  }
+
+  private setDefaultKind() {
+    const includesKind = Object.values(ButtonKind).includes(
+      <ButtonKind>this.getAttribute('kind')
+    );
+
+    if (!this.hasAttribute('kind') || !includesKind) {
+      this.setAttribute('kind', ButtonKind.secondary);
+    }
+  }
+
+  private setDefaultSize() {
+    const includesSize = Object.values(ButtonSize).includes(
+      <ButtonSize>this.getAttribute('size')
+    );
+
+    if (!this.hasAttribute('size') || !includesSize) {
+      this.setAttribute('size', ButtonSize.medium);
     }
   }
 
@@ -48,7 +98,12 @@ export class Button extends HTMLElement {
   private render(): void {
     this.shadow.innerHTML = `
             <style>${style}</style>
-            <button id="buttonElement">
+            <button
+              id="buttonElement"
+              type="${this.type}"
+              kind=${this.kind}
+              size=${this.size}
+              danger=${this.danger}>
                 <slot></slot>
             </button>
         `;

@@ -17,6 +17,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@animaliads/animalia-brand": "^1.0.0-dev.4",
+    "@animaliads/css-tokens": "^1.0.0-dev.4",
     "tslib": "^2.0.3"
   },
   "devDependencies": {

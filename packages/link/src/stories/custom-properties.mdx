@@ -1,0 +1,21 @@
+import link_states from './img/link-states.jpg';
+
+## Propriedades customizáveis
+
+O componente de link possui propriedades customizáveis, que possibilitam fazer alterações, de acordo com a marca ou o tema a ser utilizado. Com isso, garantimos uma consistência ao Design System, sem perder a identidade de cada marca.
+
+Possui cinco estados, que se modificam de acordo com a interação do usuário. São eles: Normal, Hover, Focus, Pressed e Visited.
+
+| Propriedade               | Descrição                          | Valor padrão          |
+| ------------------------- | ---------------------------------- | --------------------- |
+| `--font-family`           | família tipográfica usada na label | $font-family-text     |
+| `--text-color`            | cor da label                       | $color-action-default |
+| `--text-color-hover`      | cor da label no estado hover       | $color-action-hover   |
+| `--outline-color-focused` | cor do outline do focus            | $color-action-focus   |
+| `--text-color-pressed`    | cor da label no estado pressed     | $color-action-pressed |
+| `--text-color-visited`    | cor da label no estado visited     | $color-action-pressed |
+
+<img
+  src={link_states}
+  alt="Os cinco estados de interação do link dispostos lado a lado"
+/>

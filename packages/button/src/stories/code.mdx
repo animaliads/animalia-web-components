@@ -1,6 +1,11 @@
+import LiveDemo from './live-demo.tsx';
+
 ## Desenvolvimento
 
-### Instalação
+### Instalação do pacote
+
+Caso você já tenha feito o passo-a-passo descrito em [Começando](?path=/docs/começando--page),
+você pode pular esta instalação e ir direto para o tópico [Como utilizar](#como-utilizar).
 
 Você pode instalar o componente de forma isolada, conforme o exemplo abaixo:
 
@@ -8,66 +13,36 @@ Você pode instalar o componente de forma isolada, conforme o exemplo abaixo:
 npm install @animaliads/ani-button
 ```
 
-Ou instalar a biblioteca inteira de componentes:
-
-```
-npm install @animaliads/web-components
-```
-
 ### Como utilizar
 
-Para utilizar o web component na sua aplicação você precisa importar o arquivo principal:
+Para utilizar este componente na sua aplicação você precisa importar o arquivo principal.
+Essa importação irá variar conforme o tipo de aplicação que você está utilizando, por exemplo: angular, react ou
+somente javascript.
+
+Depois de importar o arquivo principal, basta adicionar a tag `ani-button` no seu código:
 
 ```html
-<script src="./node_modules/@animaliads/ani-button"></script>
+<ani-button>Salvar cadastro</ani-button>
 ```
 
-Mas caso você estiver utilizando algum framework, pode ser necessário seguir a documentação do próprio
-componente para adicionar o web component. Ou apenas importar o arquivo do componente
-em um arquivo JS, por exemplo:
-
-```javascript
-import '@animaliads/ani-button';
-```
-
-Depois dessa configuração, basta adicionar a tag `ani-button` no seu código:
-
-```html
-<ani-button>Hello world!<ani-button></ani-button></ani-button>
-```
+> Para utilizar com o tema padrão, é necessário instalar e utilizar os pacotes `@animaliads/animalia-brand`
+> e `@animaliads/css-tokens`. Você pode ver um exemplo de utilização no [Live Demo](#live-demo).
 
 Para customizar o tema do componente, você pode estar utilizando as propriedades customizáveis
 da seguinte forma:
 
 ```css
-ani-button {
-  --background: red;
+ani-button[kind='secondary'] {
+  --border-color: purple;
   --line-height: 100%;
   --border-radius: 3px;
 }
 ```
 
-Para saber quais são as propriedades disponível, consulte [propriedades customizáveis do botão](#propriedades-customizáveis).
+Para saber quais são as propriedades disponíveis, consulte [propriedades customizáveis do botão](#propriedades-customizáveis).
 
 ### Live Demo
 
-<iframe
-  src="https://codesandbox.io/embed/ani-button-ofjep?fontsize=14&hidenavigation=1&theme=dark"
-  style={{
-    width: '90%',
-    height: '500px',
-    border: 'solid 1px black',
-    borderRadius: '4px',
-    overflow: 'hidden',
-  }}
-  title="ani-button"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-></iframe>
+<LiveDemo />
 
 Para saber a lista de propriedades e eventos, acesse o [guia de referencia de API](/docs/api-button--sample).
-
-Link úteis:
-
-- [Angular elements](https://angular.io/guide/elements)
-- [Usando Web Components no React](https://pt-br.reactjs.org/docs/web-components.html)
