@@ -1,0 +1,25 @@
+{
+  "name": "@animaliads/common",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "Pacote ",
+  "tag": "dev",
+  "keywords": [
+    "javascript",
+    "design system",
+    "web components"
+  ],
+  "types": "./dist/packages/common/src/index.d.ts",
+  "main": "common/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animaliads/animalia-web-components.git",
+    "directory": "packages/common"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.16.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

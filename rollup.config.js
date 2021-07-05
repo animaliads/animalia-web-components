@@ -105,7 +105,9 @@ async function getSortedPackages(scope, ignore) {
     []
   );
 
-  return packagesToBuild;
+  const test = packagesToBuild.reverse();
+
+  return test;
 }
 
 export default main(); // @returns Promise<RollupConfig>
