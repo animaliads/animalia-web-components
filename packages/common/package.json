@@ -8,14 +8,17 @@
     "design system",
     "web components"
   ],
-  "types": "./dist/packages/common/src/index.d.ts",
   "main": "common/index.js",
+  "types": "./dist/packages/common/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",
     "directory": "packages/common"
   },
   "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.0.3"
+  },
   "devDependencies": {
     "eslint": "^7.16.0"
   },
