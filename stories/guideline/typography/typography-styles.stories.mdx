@@ -1,0 +1,194 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title="Guia de estilo/Tipografia/Estilos"
+  parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# Tipografia: Estilos
+
+## Visão geral
+
+Os estilos tipográficos são estilos pré-definidos que ajudam a usar a tipografia de forma consistente, trazendo hierarquia visual para as informações textuais da interface.
+
+### Tipos
+
+Os estilos tipográficos previstos atualmente no Animalia contemplam Heading, Body e Code.
+
+#### Heading
+
+Os Headings (cabeçalhos ou títulos) são usados para criar níveis de hierarquia entre os conteúdos de uma página.
+
+Os usuários costumam "scannear" o conteúdo de uma página pelos títulos, então é importante usá-los corretamente para facilitar a compreensão de como a página está organizada. Além disso, os mecanismos de pesquisa e leitores de tela utilizam esses parâmetros para identificar a estrutura e o conteúdo das páginas.
+
+São 6 níveis de Heading, que seguem uma hierarquia de relevância.
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/heading-sizes.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/heading-sizes.jpg)
+
+#PracegoVer Listagem dos 6 níveis de heading indo sendo 1 o maior e 6 o menor
+
+#### Body
+
+É o estilo padrão da interface, que engloba todos os textos que não recebam um tratamento específico – sejam blocos de texto ou textos dentro de componente.
+
+#### Code
+
+É o estilo utilizado quando é necessário especificar um conteúdo como sendo um código. Esse Esse estilo deve ser usado para destacar no meio de um texto que aquele o trecho ou palavra se trata de um código.
+
+### Anatomia
+
+Os estilos _Heading_ e _Body_ aplicam um grupo de tokens pré-definidos nos textos e, no caso do _Code_, há também um background que recebe uma cor.
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/styles-anatomy.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/styles-anatomy.jpg)
+
+#Pracegover Três estilo lado a lado, heading, body, e code
+
+**1.** Text
+
+**2.** Background
+
+Os estilos tipográficos do Animalia foram construídos utilizando os design tokens, mas estes estilos podem ser alterados e estilizados de acordo com a necessidade de cada contexto. Para isso, você pode consultar a lista completa de [design tokens de tipografia](https://www.notion.so/Tipografia-Design-Tokens-87c6e363dce847ee959d768efa5c71a4).
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/heading-token.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/heading-token.jpg)
+
+#Pracegover Estilo heading com a listagem dos tokens utilizados
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/body-token.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/body-token.jpg)
+
+#Pracegover Estilo body com a listagem dos tokens utilizados
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/code-token.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/code-token.jpg)
+
+#Pracegover Estilo code com a listagem dos tokens utilizados
+
+## Boas práticas
+
+Os estilos tipográficos foram projetados buscando atender os requisitos das Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1. Também foram estruturadas padrões de usabilidade para auxiliar na utilização e garantir uma boa experiência para os usuários. Por isso, é muito importante que, ao aplicar esse componente, o proprietário do conteúdo leve em consideração alguns critérios e práticas:
+
+### Arquitetura da Informação (Hierarquia)
+
+- Toda página deve conter um título, que descreva com clareza o assunto ou finalidade (WCAG [2.4.2 - Page Titled](https://www.w3.org/WAI/WCAG21/Understanding/page-titled))
+- Mantenha a hierarquia das informações de formar clara e compreensível, não apenas visualmente, mas também para quem ouve o conteúdo. Os usuários que enxergam percebem a estrutura e os relacionamentos por meio de várias pistas visuais, como o peso dado aos títulos das seções (WCAG [1.3.1 - Info and relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships))
+- Use os títulos das seções para organizar o conteúdo e facilitar a identificação das áreas (WCAG [2.4.10 - Section Heading](https://www.w3.org/WAI/WCAG21/Understanding/section-headings))
+- Não use Headings apenas para tornar o texto grande ou em bold. Eles estruturam o conteúdo e são utilizados por tecnologias assistivas para identificar corretamente os elementos da interface e seus níveis. (WCAG [4.1.2 - Name, role, value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value))
+
+> **NOTA:** Não se esqueça que os espaços também ajudam a organizar o conteúdo e a hierarquia na interface, separando ou agrupando os assuntos.
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-do-1.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-do-1.jpg)
+
+#PraCegoVer Três títulos com níveis de hierarquia diferentes
+
+**Fazer**
+
+Utilize os títulos com os níveis corretos para criar hierarquia e detalhamento do assunto.
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-dont-1.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-dont-1.jpg)
+
+#PraCegoVer Três títulos sem diferenciar níveis de hierarquia
+
+**Não fazer**
+
+Não utilize os mesmos níveis para todos os títulos, pois isso dificulta o entendimento da estrutura da página.
+
+### **Conteúdo**
+
+- Os títulos devem descrever sem ambiguidade a finalidade dos conteúdos que estão relacionados. Não precisam ser longos. Uma palavra pode ser suficiente se fornecer uma pista apropriada para localizar e navegar pelo conteúdo. (WCAG [2.4.6 - Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels))
+
+### **Visual**
+
+- Não utilize cores com baixo contraste entre o fundo e o texto, pois isso dificulta o entendimento do conteúdo. É possível conferir se o contraste está adequado e atingindo o valor de 7:1 em um [Contrast Checker](https://webaim.org/resources/contrastchecker/) (WCAG [1.4.6: Contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html))
+- Utilize alinhamento de texto à esquerda ou à direita, quando pertinente ao contexto. Nunca utilize texto justificado, pois gera espaçamento desigual entre as palavras. (WCAG [1.4.8 - Apresentação visual](https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation))
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-do-2.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-do-2.jpg)
+
+#PraCegoVer Bloco de texto com alinhamento à esquerda
+
+**Fazer**
+
+Use alinhamento de texto à esquerda ou à direita para garantir a regularidade independente do conteúdo ou largura do bloco de texto.
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-dont-2.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-dont-2.jpg)
+
+#PraCegoVer Bloco de texto com alinhamento justificado e espaços grandes entre as palavras
+
+**Não fazer**
+
+Não use alinhamento justificado pois ele adiciona espaços irregulares entre as palavras para fazê-lo ocupar toda a largura do bloco, o que varia muito dependendo do conteúdo e largura do dispositivo.
+
+### Conforto de leitura
+
+- Não utilize blocos de texto muito largos, pois linhas longas dificultam a leitura e exigem que pessoas que utilizam zoom precisem rolar a página horizontalmente para ler uma linha de texto. A recomendação é ter uma largura de linha de até 80 caracteres, para comportar todo o texto na tela mesmo com até 200% de zoom;
+- Em blocos de texto, utilize um espaçamento entrelinhas (line height) de pelo menos 1,5x o tamanho da fonte, ou seja 150%.
+  (WCAG [1.4.8 - Apresentação visual](https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation), [1.4.12 - Espaçamento de texto](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing))
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-do-3.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-do-3.jpg)
+
+#PraCegoVer Texto com lineheight adequado, de 150% o tamanho da fonte
+
+**Fazer**
+
+Use entrelinha (line height) adequada ao tamanho do texto. Adotar medidas relativas como porcentagem, facilitam essa utilização.
+
+![Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-dont-3.jpg](Tipografia%20Estilos%20tipogra%CC%81ficos%20a56ccdb39260495981857d0f6274db95/type-dont-3.jpg)
+
+#PraCegoVer Texto com lineheight inadequado, de 120% o tamanho da fonte
+
+**Não fazer**
+
+Não use um line height estreito, pois torna a leitura mais difícil e as linhas tendem a se embaralhar.
+
+### **Acessibilidade tratada nos estilos do Animalia**
+
+Algumas diretrizes de acessibilidade já são tratadas no pacote de definição de estilos tipográficos. São elas:
+
+- Os estilos de cabeçalho (Heading) foram desenvolvidos de modo a facilitar a criação de hierarquias ao se utilizar os controles padrão do HTML, que permitem a identificação do mesmo na interface por tecnologias assistivas. (WCAG [4.1.2: Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value))
+
+## Desenvolvimento
+
+O pacote de tipografia da marca Animalia adiciona os estilos nos elementos nativos do HTML, por exemplo: `h1`, `h2`, `body` e `code`.
+
+### Instalação e configuração
+
+Instale o pacote de tipografia no seu projeto utilizando o NPM:
+
+```bash
+npm install @animaliads/typography
+```
+
+Em seguida adicione o arquivo `index.css` do pacote `@animaliads/typography` na sua aplicação. Veja exemplos de configuração desse arquivo na seção Live Demo.
+
+### Customização da tipografia
+
+Se você estiver utilizando a estrutura de design tokens de tipografia e cores, conforme o guia de estilo, você poderá customizar a tipografia através desses design tokens da marca, por exemplo:
+
+```css
+h1 {
+  --font-family-heading: Roboto;
+}
+
+code {
+  --font-family-code: Roboto Mono;
+  --color-neutral-dark-80: gray;
+}
+```
+
+Caso você não esteja utilizando essa estrutura, esse pacote contém uma definição padrão, como Arial para as famílias de fonte. Mas você também pode sobrescrever esses valores utilizando sintaxe comum de CSS.
+
+```css
+h1 {
+  font-family: Roboto;
+}
+
+code {
+  font-family: Roboto Mono;
+  color: gray;
+}
+```
+
+### Live Demo
+
+(vou colocar no storybook conforme os outros exemplos)
+
+[https://stackblitz.com/edit/ani-typography?file=index.html](https://stackblitz.com/edit/ani-typography?file=index.html)
+
+[https://stackblitz.com/edit/react-ani-typography?file=index.tsx](https://stackblitz.com/edit/react-ani-typography?file=index.tsx)
