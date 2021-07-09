@@ -1,6 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
 import BestPracticesComponent from './../../helpers/components/best-practices.tsx';
+import LiveDemoComponent from './../../helpers/components/live-demo.tsx';
 
 import HeadingSizes from './assets/styles/heading-sizes.jpg';
 import StyleAnatomy from './assets/styles/styles-anatomy.jpg';
@@ -176,8 +177,7 @@ code {
 
 ### Live Demo
 
-(vou colocar no storybook conforme os outros exemplos)
-
-[https://stackblitz.com/edit/ani-typography?file=index.html](https://stackblitz.com/edit/ani-typography?file=index.html)
-
-[https://stackblitz.com/edit/react-ani-typography?file=index.tsx](https://stackblitz.com/edit/react-ani-typography?file=index.tsx)
+<LiveDemoComponent
+  javascript="https://stackblitz.com/edit/ani-typography?file=index.html"
+  react="https://stackblitz.com/edit/react-ani-typography?file=index.html"
+/>

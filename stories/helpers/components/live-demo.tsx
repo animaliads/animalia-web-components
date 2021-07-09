@@ -1,17 +1,12 @@
 import React from 'react';
 
-const demo = {
-  javascript: 'https://stackblitz.com/edit/ani-button?embed=1&file=index.html',
-  angular:
-    'https://stackblitz.com/edit/angular-ani-button?embed=1&file=src/app/app.component.ts',
-  react: 'https://stackblitz.com/edit/react-ani-button?embed=1&file=src/App.js',
-};
-
-export default class LiveDemo extends React.Component<
-  { language: string },
-  { language: string }
-> {
+export default class LiveDemoComponent extends React.Component {
   state = { language: 'javascript' };
+
+  props: {
+    javascript: string;
+    react: string;
+  };
 
   render(): JSX.Element {
     return (
@@ -20,6 +15,7 @@ export default class LiveDemo extends React.Component<
           style={{
             display: 'block',
             marginBottom: '8px',
+            fontFamily: 'sans-serif',
           }}
         >
           <label id="language">Selecione o tipo de aplicação:</label>
@@ -27,18 +23,18 @@ export default class LiveDemo extends React.Component<
             id="language"
             style={{
               padding: '8px',
+              marginLeft: '8px',
             }}
             onChange={event => this.setState({ language: event.target.value })}
           >
             <option value="javascript" selected>
               Javascript
             </option>
-            <option value="angular">Angular</option>
             <option value="react">React</option>
           </select>
         </div>
         <iframe
-          src={demo[this.state.language]}
+          src={this.props[this.state.language]}
           style={{
             width: '90%',
             height: '500px',
