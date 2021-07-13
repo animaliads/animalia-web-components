@@ -24,7 +24,7 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
 
 | Token               | Valor (rem) | Valor (pixel) | Camada DS | Descrição                                                                      |
 | ------------------- | ----------- | ------------- | --------- | ------------------------------------------------------------------------------ |
-| `font-size-xs`      | 0.75        | 12px          | brand     |                                                                                |
+| `font-size-xs`      | 0.75        | 12px          | global    |                                                                                |
 | `font-size-sm`      | 0.875       | 14px          | global    |                                                                                |
 | `font-size-default` | 1           | 16px          | global    | Base da escala                                                                 |
 | `font-size-md`      | 1.25        | 20px          | global    |                                                                                |
@@ -57,31 +57,31 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
 
 | Token              | Valor | Referência (em) | Camada DS | Uso em texto                    | Uso em componente                                 |
 | ------------------ | ----- | --------------- | --------- | ------------------------------- | ------------------------------------------------- |
+| `line-height-auto` | auto  |                 | global    | -                               | A avaliar                                         |
 | `line-height-none` | 100%  | 1.0             | global    | -                               | Quando for necessário ter line-height = font-size |
+| `line-height-3xs ` | 110%  | 1.1             | global    | -                               | A avaliar                                         |
+| `line-height-2xs ` | 120%  | 1.2             | global    | -                               | A avaliar                                         |
+| `line-height-xs `  | 130%  | 1.3             | global    | -                               | A avaliar                                         |
 | `line-height-sm`   | 140%  | 1.4             | global    | font-size 4xl, 5xl, 6xl         | A avaliar                                         |
 | `line-height-md`   | 150%  | 1.5             | global    | font-size default, xl, 2xl, 3xl | A avaliar                                         |
 | `line-height-lg`   | 160%  | 1.6             | global    | font-size sm, xs, 2xs           | A avaliar                                         |
+| `line-height-xlg`  | 170%  | 1.7             | global    |                                 | A avaliar                                         |
+| `line-height-2xl`  | 180%  | 1.8             | global    |                                 | A avaliar                                         |
+| `line-height-3xl`  | 190%  | 1.9             | global    |                                 | A avaliar                                         |
+| `line-height-4xl`  | 200%  | 2.0             | global    |                                 | A avaliar                                         |
 
 ## Letterspacing
 
-| Token                  | Valor | Camada DS |
-| ---------------------- | ----- | --------- |
-| `letter-spacing-auto`  | auto  | global    |
-| `letter-spacing-1`     | 0.15  | global    |
-| `letter-spacing-2`     | 0.25  | global    |
-| `letter-spacing-3`     | 0.5   | global    |
-| `letter-spacing-4`     | 1.25  | global    |
-| `letter-spacing-5`     | 1.5   | global    |
-| `letter-spacing-neg-1` | -0.15 | global    |
-| `letter-spacing-neg-2` | -0.25 | global    |
-| `letter-spacing-neg-3` | -0.5  | global    |
-| `letter-spacing-neg-4` | -1.25 | global    |
-| `letter-spacing-neg-5` | -1.5  | global    |
-
-## Transform
-
-| Token                      | Valor     | Camada DS | Descrição                                                  |
-| -------------------------- | --------- | --------- | ---------------------------------------------------------- |
-| `text-transform-normal`    | normal    | brand     | Formatação padrão da fonte, sem nenhuma modificação        |
-| `text-transform-uppercase` | uppercase | brand     | Todas as letras maiúsculas                                 |
-| `text-transform-numtab`    | numtab    | brand     | Números tabulares, com caracteres ocupando a mesma largura |
+| Token                  | Valor (em) | Camada DS |
+| ---------------------- | ---------- | --------- |
+| `letter-spacing-auto`  | auto       | global    |
+| `letter-spacing-1`     | 0.015      | global    |
+| `letter-spacing-2`     | 0.025      | global    |
+| `letter-spacing-3`     | 0.05       | global    |
+| `letter-spacing-4`     | 0.075      | global    |
+| `letter-spacing-5`     | 0.1        | global    |
+| `letter-spacing-neg-1` | -0.015     | global    |
+| `letter-spacing-neg-2` | -0.025     | global    |
+| `letter-spacing-neg-3` | -0.05      | global    |
+| `letter-spacing-neg-4` | -0.075     | global    |
+| `letter-spacing-neg-5` | -0.1       | global    |

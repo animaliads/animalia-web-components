@@ -1,0 +1,50 @@
+import LiveDemoComponent from './../../../helpers/components/live-demo.tsx';
+
+## Desenvolvimento
+
+O pacote de tipografia da marca Animalia adiciona os estilos nos elementos nativos do HTML, por exemplo: `h1`, `h2`, `body` e `code`.
+
+### Instalação e configuração
+
+Instale o pacote de tipografia no seu projeto utilizando o NPM:
+
+```bash
+npm install @animaliads/typography
+```
+
+Em seguida adicione o arquivo `index.css` do pacote `@animaliads/typography` na sua aplicação. Veja exemplos de configuração desse arquivo na seção Live Demo.
+
+### Customização da tipografia
+
+Se você estiver utilizando a estrutura de design tokens de tipografia e cores, conforme o guia de estilo, você poderá customizar a tipografia através desses design tokens da marca, por exemplo:
+
+```css
+h1 {
+  --font-family-heading: Roboto;
+}
+
+code {
+  --font-family-code: Roboto Mono;
+  --color-neutral-dark-80: gray;
+}
+```
+
+Caso você não esteja utilizando essa estrutura, esse pacote contém uma definição padrão, como Arial para as famílias de fonte. Mas você também pode sobrescrever esses valores utilizando sintaxe comum de CSS.
+
+```css
+h1 {
+  font-family: Roboto;
+}
+
+code {
+  font-family: Roboto Mono;
+  color: gray;
+}
+```
+
+### Live Demo
+
+<LiveDemoComponent
+  javascript="https://stackblitz.com/edit/ani-typography?embed=1&file=index.html"
+  react="https://stackblitz.com/edit/react-ani-typography?embed=1&file=index.tsx"
+/>
