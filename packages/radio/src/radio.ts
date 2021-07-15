@@ -14,22 +14,16 @@ export default class Radio extends HTMLElement {
     return transformBooleanProperties(disabled);
   }
 
-  get group(): string {
-    return this.getAttribute('group');
-  }
-
   get size(): string {
     const size = this.getAttribute('size');
     return !size || size === 'null' ? RadioSize.medium : size;
   }
 
-  get aniId(): string {
-    return this.getAttribute('ani-id');
-  }
-
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
+
+    this.addEventListener('click', this.onClick);
   }
 
   connectedCallback(): void {
@@ -39,7 +33,7 @@ export default class Radio extends HTMLElement {
   }
 
   static get observedAttributes(): Array<string> {
-    return ['checked', 'ani-id', 'group', 'disabled'];
+    return ['checked', 'disabled', 'size'];
   }
 
   attributeChangedCallback(): void {
@@ -48,17 +42,21 @@ export default class Radio extends HTMLElement {
     this.setDefaultSize();
   }
 
+  private onClick() {
+    this.setAttribute('checked', 'true');
+  }
+
   render(): void {
     this.shadow.innerHTML = `
         <style>${radioStyle}</style>
-        <input
-          type="radio"
-          id="customRadio"
-          name="${this.group}"
-          size="${this.size}"
-          checked="${this.checked}"
-        >
-        <label for="customRadio">
+        <label>
+          <input
+            type="radio"
+            id="customRadio"
+            size="${this.size}"
+            ${this.checked === 'true' ? 'checked' : ''}
+            ${this.disabled === 'true' ? 'disabled' : ''}
+          >
           <slot></slot>
         </label>
     `;
