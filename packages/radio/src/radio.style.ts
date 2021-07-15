@@ -34,23 +34,23 @@ export const radioStyle = css`
     box-shadow: var(--shadow-color-hover);
   }
 
-  input[type='radio'][disabled='true'] {
+  input[type='radio'][disabled] {
     cursor: not-allowed;
     box-shadow: none;
   }
 
-  input[type='radio'][checked='true'] {
+  input[type='radio']:checked {
     background-color: var(--fill-color-selected);
     border-color: var(--border-color-selected);
   }
 
-  input[type='radio'][disabled='true'][checked='false'] {
+  input[type='radio'][disabled] {
     background-color: var(--background-disabled);
     border-color: var(--border-color-disabled);
     padding: 0;
   }
 
-  input[type='radio'][disabled='true'][checked='true'] {
+  input[type='radio'][disabled]:checked {
     background: radial-gradient(
       11px circle at 10px 10px,
       var(--fill-color-disabled) 50%,
@@ -61,7 +61,7 @@ export const radioStyle = css`
     padding: 4px;
   }
 
-  input[type='radio'][disabled='true'][checked='true'][size='large'] {
+  input[type='radio'][disabled][size='large']:checked {
     background: radial-gradient(
       19px circle at 14px 14px,
       var(--fill-color-disabled) 50%,
