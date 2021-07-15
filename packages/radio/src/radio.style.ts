@@ -70,7 +70,7 @@ export const radioStyle = css`
     background-color: var(--background-disabled);
   }
 
-  input[type='radio']:focus {
+  input[type='radio']:focus-visible {
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
