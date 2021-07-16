@@ -1,8 +1,7 @@
 import { css } from 'lit-element';
 
 export const radioStyle = css`
-  :host,
-  slot {
+  * {
     cursor: pointer;
   }
 
@@ -38,11 +37,12 @@ export const radioStyle = css`
   }
 
   :host([disabled]),
-  input[type='radio'][disabled] + slot {
+  input[type='radio'][aria-disabled='true'],
+  input[type='radio'][aria-disabled='true'] + slot {
     cursor: not-allowed;
   }
 
-  input[type='radio'][disabled] {
+  input[type='radio'][aria-disabled='true'] {
     box-shadow: none;
   }
 
@@ -51,13 +51,13 @@ export const radioStyle = css`
     border-color: var(--border-color-selected);
   }
 
-  input[type='radio'][disabled] {
+  input[type='radio'][aria-disabled='true'] {
     background-color: var(--background-disabled);
     border-color: var(--border-color-disabled);
     padding: 0;
   }
 
-  input[type='radio'][disabled]:checked {
+  input[type='radio'][aria-disabled='true']:checked {
     background: radial-gradient(
       11px circle at 10px 10px,
       var(--fill-color-disabled) 50%,
@@ -68,7 +68,7 @@ export const radioStyle = css`
     padding: 4px;
   }
 
-  input[type='radio'][disabled][size='large']:checked {
+  input[type='radio'][aria-disabled='true'][size='large']:checked {
     background: radial-gradient(
       19px circle at 14px 14px,
       var(--fill-color-disabled) 50%,

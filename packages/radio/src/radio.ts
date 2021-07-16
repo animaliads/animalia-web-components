@@ -4,6 +4,8 @@ import { radioStyle } from './radio.style';
 export default class Radio extends HTMLElement {
   shadow: ShadowRoot;
 
+  radioElement: HTMLElement;
+
   get checked(): string {
     const checked = this.getAttribute('checked');
     return transformBooleanProperties(checked);
@@ -19,6 +21,10 @@ export default class Radio extends HTMLElement {
     return !size || size === 'null' ? RadioSize.medium : size;
   }
 
+  static get observedAttributes(): Array<string> {
+    return ['checked', 'disabled', 'size'];
+  }
+
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
@@ -29,21 +35,23 @@ export default class Radio extends HTMLElement {
   connectedCallback(): void {
     this.render();
 
+    this.setAccessibility();
     this.setDefaultSize();
-  }
-
-  static get observedAttributes(): Array<string> {
-    return ['checked', 'disabled', 'size'];
   }
 
   attributeChangedCallback(): void {
     this.render();
 
+    this.setAccessibility();
     this.setDefaultSize();
   }
 
-  private onClick() {
-    this.setAttribute('checked', 'true');
+  private onClick(event) {
+    if (this.disabled === 'false') {
+      this.setAttribute('checked', 'true');
+    } else {
+      event.preventDefault();
+    }
   }
 
   render(): void {
@@ -52,10 +60,9 @@ export default class Radio extends HTMLElement {
         <label>
           <input
             type="radio"
-            id="customRadio"
+            id="radioElement"
             size="${this.size}"
             ${this.checked === 'true' ? 'checked' : ''}
-            ${this.disabled === 'true' ? 'disabled' : ''}
           >
           <slot></slot>
         </label>
@@ -70,6 +77,12 @@ export default class Radio extends HTMLElement {
     if (!this.hasAttribute('size') || !includesSize) {
       this.setAttribute('size', RadioSize.medium);
     }
+  }
+
+  private setAccessibility() {
+    this.radioElement = this.shadow.getElementById('radioElement');
+
+    this.radioElement.setAttribute('aria-disabled', this.disabled);
   }
 }
 
