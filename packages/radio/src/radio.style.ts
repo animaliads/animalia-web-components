@@ -1,6 +1,11 @@
 import { css } from 'lit-element';
 
 export const radioStyle = css`
+  :host,
+  slot {
+    cursor: pointer;
+  }
+
   :host {
     display: inline-block;
   }
@@ -16,8 +21,6 @@ export const radioStyle = css`
     background-clip: content-box;
     padding: 4px;
     margin: 0;
-
-    cursor: pointer;
   }
 
   input[size='medium'] {
@@ -34,8 +37,12 @@ export const radioStyle = css`
     box-shadow: var(--shadow-color-hover);
   }
 
-  input[type='radio'][disabled] {
+  :host([disabled]),
+  input[type='radio'][disabled] + slot {
     cursor: not-allowed;
+  }
+
+  input[type='radio'][disabled] {
     box-shadow: none;
   }
 
