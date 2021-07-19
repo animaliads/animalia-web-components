@@ -9,7 +9,7 @@ export const radioStyle = `
 
   input[type='radio'] {
     background-color: var(--background);
-    border-color: var(--border-color);
+    border-color: var(--color);
 
     appearance: none;
     border-width: var(--border-width-md);
@@ -31,7 +31,7 @@ export const radioStyle = `
   }
 
   input[type='radio']:hover {
-    box-shadow: var(--shadow-color-hover);
+    box-shadow: 0 0 0 var(--border-width-lg) var(--shadow-color-hover);
   }
 
   :host([disabled]),
@@ -45,31 +45,31 @@ export const radioStyle = `
   }
 
   input[type='radio']:checked {
-    background-color: var(--fill-color-selected);
-    border-color: var(--border-color-selected);
+    background-color: var(--color-selected);
+    border-color: var(--color-selected);
   }
 
   input[type='radio'][aria-disabled='true'] {
     background-color: var(--background-disabled);
-    border-color: var(--border-color-disabled);
+    border-color: var(--color-disabled);
     padding: 0;
   }
 
   input[type='radio'][aria-disabled='true']:checked {
     background: radial-gradient(
       11px circle at 10px 10px,
-      var(--fill-color-disabled) 50%,
+      var(--color-disabled) 50%,
       transparent 54.2%
     );
     background-color: var(--background-disabled);
-    border-color: var(--border-color-disabled);
+    border-color: var(--color-disabled);
     padding: 4px;
   }
 
   input[type='radio'][aria-disabled='true'][size='large']:checked {
     background: radial-gradient(
       19px circle at 14px 14px,
-      var(--fill-color-disabled) 50%,
+      var(--color-disabled) 50%,
       transparent 54.2%
     );
     background-color: var(--background-disabled);
