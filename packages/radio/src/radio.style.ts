@@ -1,6 +1,4 @@
-import { css } from 'lit-element';
-
-export const radioStyle = css`
+export const radioStyle = `
   * {
     cursor: pointer;
   }
