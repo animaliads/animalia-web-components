@@ -1,0 +1,69 @@
+import BestPracticesComponent from './../../../helpers/components/best-practices.tsx';
+
+import Do1 from './../assets/styles/type-do-1.jpg';
+import Do2 from './../assets/styles/type-do-2.jpg';
+import Do3 from './../assets/styles/type-do-3.jpg';
+import Dont1 from './../assets/styles/type-dont-1.jpg';
+import Dont2 from './../assets/styles/type-dont-2.jpg';
+import Dont3 from './../assets/styles/type-dont-3.jpg';
+
+## Boas práticas
+
+Os estilos tipográficos foram projetados buscando atender os requisitos das Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1. Também foram estruturadas padrões de usabilidade para auxiliar na utilização e garantir uma boa experiência para os usuários. Por isso, é muito importante que, ao aplicar esse componente, o proprietário do conteúdo leve em consideração alguns critérios e práticas:
+
+### Arquitetura da Informação (Hierarquia)
+
+- Toda página deve conter um título, que descreva com clareza o assunto ou finalidade (WCAG [2.4.2 - Page Titled](https://www.w3.org/WAI/WCAG21/Understanding/page-titled))
+- Mantenha a hierarquia das informações de formar clara e compreensível, não apenas visualmente, mas também para quem ouve o conteúdo. Os usuários que enxergam percebem a estrutura e os relacionamentos por meio de várias pistas visuais, como o peso dado aos títulos das seções (WCAG [1.3.1 - Info and relationships](https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships))
+- Use os títulos das seções para organizar o conteúdo e facilitar a identificação das áreas (WCAG [2.4.10 - Section Heading](https://www.w3.org/WAI/WCAG21/Understanding/section-headings))
+- Não use Headings apenas para tornar o texto grande ou em bold. Eles estruturam o conteúdo e são utilizados por tecnologias assistivas para identificar corretamente os elementos da interface e seus níveis. (WCAG [4.1.2 - Name, role, value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value))
+
+> **NOTA:** Não se esqueça que os espaços também ajudam a organizar o conteúdo e a hierarquia na interface, separando ou agrupando os assuntos.
+
+<BestPracticesComponent
+  doImg={Do1}
+  doAlt="Três títulos com níveis de hierarquia diferentes"
+  doDescription="Utilize os títulos com os níveis corretos para criar hierarquia e detalhamento do assunto."
+  dontImg={Dont1}
+  dontAlt="Três títulos sem diferenciar níveis de hierarquia"
+  dontDescription="Não utilize os mesmos níveis para todos os títulos, pois isso dificulta o entendimento da estrutura da página."
+/>
+
+### **Conteúdo**
+
+- Os títulos devem descrever sem ambiguidade a finalidade dos conteúdos que estão relacionados. Não precisam ser longos. Uma palavra pode ser suficiente se fornecer uma pista apropriada para localizar e navegar pelo conteúdo. (WCAG [2.4.6 - Headings and Labels](https://www.w3.org/WAI/WCAG21/Understanding/headings-and-labels))
+
+### **Visual**
+
+- Não utilize cores com baixo contraste entre o fundo e o texto, pois isso dificulta o entendimento do conteúdo. É possível conferir se o contraste está adequado e atingindo o valor de 7:1 em um [Contrast Checker](https://webaim.org/resources/contrastchecker/) (WCAG [1.4.6: Contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html))
+- Utilize alinhamento de texto à esquerda ou à direita, quando pertinente ao contexto. Nunca utilize texto justificado, pois gera espaçamento desigual entre as palavras. (WCAG [1.4.8 - Apresentação visual](https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation))
+
+<BestPracticesComponent
+  doImg={Do2}
+  doAlt="Bloco de texto com alinhamento à esquerda"
+  doDescription="Use alinhamento de texto à esquerda ou à direita para garantir a regularidade independente do conteúdo ou largura do bloco de texto."
+  dontImg={Dont2}
+  dontAlt="Bloco de texto com alinhamento justificado e espaços grandes entre as palavras"
+  dontDescription="Não use alinhamento justificado pois ele adiciona espaços irregulares entre as palavras para fazê-lo ocupar toda a largura do bloco, o que varia muito dependendo do conteúdo e largura do dispositivo."
+/>
+
+### Conforto de leitura
+
+- Não utilize blocos de texto muito largos, pois linhas longas dificultam a leitura e exigem que pessoas que utilizam zoom precisem rolar a página horizontalmente para ler uma linha de texto. A recomendação é ter uma largura de linha de até 80 caracteres, para comportar todo o texto na tela mesmo com até 200% de zoom;
+- Em blocos de texto, utilize um espaçamento entrelinhas (line height) de pelo menos 1,5x o tamanho da fonte, ou seja 150%.
+  (WCAG [1.4.8 - Apresentação visual](https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation), [1.4.12 - Espaçamento de texto](https://www.w3.org/WAI/WCAG21/Understanding/text-spacing))
+
+<BestPracticesComponent
+  doImg={Do3}
+  doAlt="Texto com lineheight adequado, de 150% o tamanho da fonte"
+  doDescription="Use entrelinha (line height) adequada ao tamanho do texto. Adotar medidas relativas como porcentagem, facilitam essa utilização."
+  dontImg={Dont3}
+  dontAlt="Texto com lineheight inadequado, de 120% o tamanho da fonte"
+  dontDescription="Não use um line height estreito, pois torna a leitura mais difícil e as linhas tendem a se embaralhar."
+/>
+
+### **Acessibilidade tratada nos estilos do Animalia**
+
+Algumas diretrizes de acessibilidade já são tratadas no pacote de definição de estilos tipográficos. São elas:
+
+- Os estilos de cabeçalho (Heading) foram desenvolvidos de modo a facilitar a criação de hierarquias ao se utilizar os controles padrão do HTML, que permitem a identificação do mesmo na interface por tecnologias assistivas. (WCAG [4.1.2: Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value))
