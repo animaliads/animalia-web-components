@@ -16,7 +16,6 @@ export const radioStyle = `
     border-style: solid;
     border-radius: 100%;
     background-clip: content-box;
-    padding: 4px;
     margin: 0;
   }
 
@@ -47,6 +46,8 @@ export const radioStyle = `
   input[type='radio']:checked {
     background-color: var(--color-selected);
     border-color: var(--color-selected);
+
+    padding: 4px;
   }
 
   input[type='radio'][aria-disabled='true'] {
