@@ -18,32 +18,32 @@ export const radioStyle = css`
 
     --background-radial-md: radial-gradient(
       var(--circle-width-md) circle at 10px 10px,
-      var(--color-selected) 50%,
+      var(--color-checked) 50%,
       transparent 57%
     );
 
     --background-radial-lg: radial-gradient(
       var(--circle-width-lg) circle at 14px 14px,
-      var(--color-selected) 50%,
+      var(--color-checked) 50%,
       transparent 54.2%
     );
 
     --background-radial-md-disabled: radial-gradient(
       var(--circle-width-md) circle at 10px 10px,
-      var(--color-disabled) 50%,
+      var(--color-checked-disabled) 50%,
       transparent 57%
     );
 
     --background-radial-lg-disabled: radial-gradient(
       var(--circle-width-lg) circle at 14px 14px,
-      var(--color-disabled) 50%,
+      var(--color-checked-disabled) 50%,
       transparent 54.2%
     );
   }
 
   input[type='radio'] {
-    background-color: var(--background);
-    border-color: var(--color);
+    background-color: var(--color-unchecked);
+    border-color: var(--border-color);
 
     appearance: none;
     border-width: var(--border-width-md);
@@ -69,6 +69,7 @@ export const radioStyle = css`
   }
 
   :host([disabled]),
+  label,
   input[type='radio'][aria-disabled='true'],
   input[type='radio'][aria-disabled='true'] + slot {
     cursor: not-allowed;
@@ -80,29 +81,29 @@ export const radioStyle = css`
 
   input[type='radio']:checked {
     background: var(--background-radial-md);
-    background-color: var(--background);
-    border-color: var(--color-selected);
+    background-color: var(--color-unchecked);
+    border-color: var(--color-checked);
     padding: 4px;
   }
 
   input[type='radio'][size='large']:checked {
     background: var(--background-radial-lg);
-    background-color: var(--background);
+    background-color: var(--color-unchecked);
   }
 
   input[type='radio'][aria-disabled='true'] {
-    background-color: var(--background-disabled);
-    border-color: var(--color-disabled);
+    background-color: var(--color-unchecked-disabled);
+    border-color: var(--border-color);
   }
 
   input[type='radio'][aria-disabled='true']:checked {
     background: var(--background-radial-md-disabled);
-    background-color: var(--background-disabled);
+    background-color: var(--color-unchecked-disabled);
   }
 
   input[type='radio'][aria-disabled='true'][size='large']:checked {
     background: var(--background-radial-lg-disabled);
-    background-color: var(--background-disabled);
+    background-color: var(--color-unchecked-disabled);
   }
 
   input[type='radio']:focus-visible {
