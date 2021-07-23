@@ -67,8 +67,8 @@ export const radioStyle = `
     border-color: var(--color-hover);
   }
 
-  :host([disabled]),
-  label,
+  :host([disabled="true"]),
+  :host([disabled="true"]) label,
   input[type='radio'][aria-disabled='true'],
   input[type='radio'][aria-disabled='true'] + slot {
     cursor: not-allowed;
@@ -92,7 +92,7 @@ export const radioStyle = `
 
   input[type='radio'][aria-disabled='true'] {
     background-color: var(--color-unchecked-disabled);
-    border-color: var(--border-color);
+    border-color: var(--color-checked-disabled)
   }
 
   input[type='radio'][aria-disabled='true']:checked {
