@@ -1,0 +1,56 @@
+import BestPracticesComponent from './../../../../stories/helpers/components/best-practices.tsx';
+
+import Do1 from './img/radio-do-1.jpg';
+import Do2 from './img/radio-do-2.jpg';
+import Dont1 from './img/radio-dont-1.jpg';
+import Dont2 from './img/radio-dont-2.jpg';
+
+## Boas práticas
+
+O componente foi projetado para atender os requisitos das Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1. Também foram estruturadas padrões de usabilidade para auxiliar na utilização do componente e garantir uma boa experiência para os usuários. Por isso, é muito importante que, ao aplicar esse componente, o proprietário do conteúdo leve em consideração alguns critérios e práticas:
+
+### **Uso**
+
+- Ordene as opções de radio de forma lógica, como por exemplo em ordem alfabética, numeral ou com base nos itens mais escolhidos;
+- Ao utilizar labels para acompanhar os radio butons, as mesmas devem ser apresentadas ao lado direito do componente;
+
+<BestPracticesComponent
+  doImg={Do1}
+  doAlt="Radio button com label Opção A à direita."
+  doDescription="Labels ao lado esquerdo do radio button para facilitar a leitura."
+  dontImg={Dont1}
+  dontAlt="Opção A e um radio button à esquerda"
+  dontDescription="Label ao lado esquerdo podem confundir o usuário."
+/>
+
+- Prefira a utilização do componente em uma lista vertical ao invés de horizontal, pois permite uma leitura mais fácil para os usuários. O alinhamento horizontal dificulta correlacionar as labels ao seus radio buttons correspondentes.
+
+<BestPracticesComponent
+  doImg={Do2}
+  doAlt="Radio button com opções listadas uma embaixo da outra"
+  doDescription="Alinhe os componentes verticalmente sempre que possível."
+  dontImg={Dont2}
+  dontAlt="Radio button com opções listadas lado a lado"
+  dontDescription="Ao inserir os componentes lado a lado, certifique-se de inserir um espaçamento adequado entre as opções."
+  warning="true"
+/>
+
+### Comportamento
+
+- Prefira não deixar nenhuma opção de radio pré-selecionada, pois pode passar despercebida pelos usuários e ocasionar no envio de uma resposta errada;
+- Os usuários não podem voltar a não ter nenhuma opção selecionada depois de escolher uma, sem atualizar a janela do navegador. Portanto, se fizer sentido para o contexto, é importante incluir uma saída para o usuário, como por exemplo uma alternativa de "Nenhuma das opções acima" ou "Prefiro não responder".
+- Se o radio button estiver acompanhado de outro elemento, como label ou ícone, é recomendado que a área clicável envolva o elemento também.
+
+### I**nteração**
+
+- A interação de foco deve compor o componente, sendo a navegação por mouse ou teclado, e em sequência lógica. Como por exemplo, quando não tem nenhuma opção selecionada, o foco deve mover-se para o primeiro botão da lista. (WCAG [2.4.3: Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order))
+
+### **Acessibilidade tratada no componente**
+
+Algumas diretrizes de acessibilidade já são tratadas no componente, internamente, e não podem ser alteradas pelo proprietário do conteúdo. São elas:
+
+- O componente foi desenvolvido utilizando controles padrões HTML para permitir a identificação do mesmo na interface por tecnologias assistivas. ([WCAG 4.1.2: Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value))
+- A cor não deve ser o único meio para diferenciar o radio button normal do selecionado, por isso deve-se manter uma diferença visual entre os estados. ([WGAG 1.4.1: Use of Color, 3.2.4: Consistent Identification](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color))
+- Quando em foco, o componente é ativado usando as teclas de _Espaço_ e _Enter_ do teclado. ([W3C WAI-ARIA 3.5 Button - Keyboard Interaction](https://www.w3.org/TR/wai-aria-practices-1.1/#keyboard-interaction-3))
+- A área do foco precisar ter uma espessura de pelo menos 2 pixels CSS e o foco não pode ficar escondido por outros elementos da tela. ([WCAG 2.4.12: Focus Appearance](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced))
+- O estado de foco deve ser sempre preservado, inclusive quando o componente estiver desabilitado. ([WCAG 2.4.7: Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible))

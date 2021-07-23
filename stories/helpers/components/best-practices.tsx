@@ -8,6 +8,7 @@ export default class BestPracticesComponent extends React.Component {
     dontAlt: string;
     doDescription: string;
     dontDescription: string;
+    warning: boolean;
   };
 
   render(): JSX.Element {
@@ -37,7 +38,7 @@ export default class BestPracticesComponent extends React.Component {
             src={this.props.dontImg}
             alt={this.props.dontAlt}
           />
-          <b>Não fazer</b>
+          <b>{this.props.warning ? 'Cuidado' : 'Não fazer'}</b>
           <p>{this.props.dontDescription}</p>
         </div>
       </div>

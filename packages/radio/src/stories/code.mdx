@@ -1,0 +1,50 @@
+import LiveDemoComponent from './../../../../stories/helpers/components/live-demo.tsx';
+
+## Desenvolvimento
+
+### Instalação do pacote
+
+Caso você já tenha feito o passo-a-passo descrito em [Começando](?path=/docs/começando--page),
+você pode pular esta instalação e ir direto para o tópico [Como utilizar](#como-utilizar).
+
+Você pode instalar o componente de forma isolada, conforme o exemplo abaixo:
+
+```
+npm install @animaliads/ani-radio
+```
+
+### Como utilizar
+
+Para utilizar este componente na sua aplicação você precisa importar o arquivo principal.
+Essa importação irá variar conforme o tipo de aplicação que você está utilizando, por exemplo: angular, react ou
+somente javascript.
+
+Depois de importar o arquivo principal, basta adicionar a tag `ani-radio` no seu código:
+
+```html
+<ani-radio>exemplo de label</ani-radio>
+```
+
+> Para utilizar com o tema padrão, é necessário instalar e utilizar os pacotes `@animaliads/animalia-brand`
+> e `@animaliads/css-tokens`. Você pode ver um exemplo de utilização no [Live Demo](#live-demo).
+
+Para customizar o tema do componente, você pode estar utilizando as propriedades customizáveis
+da seguinte forma:
+
+```css
+ani-radio {
+  --color-unchecked: green;
+  --color-checked: coral;
+}
+```
+
+> Para criar um `radio group`, é importante adicionar os [controles via teclado indicados pela W3C
+> para o radio group ](https://www.w3.org/TR/2017/WD-wai-aria-practices-1.1-20170628/examples/radio/radio-1/radio-1.html) para manter a acessibilidade do componente.
+
+Para saber quais são as propriedades disponíveis, consulte [propriedades customizáveis](#propriedades-customizáveis).
+
+### Live Demo
+
+<LiveDemoComponent react="https://stackblitz.com/edit/react-ani-radio?embed=1&file=src/App.js" />
+
+Para saber a lista de propriedades e eventos, acesse o [guia de referencia de API](/docs/api-radio--sample).

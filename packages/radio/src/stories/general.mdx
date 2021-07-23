@@ -1,0 +1,40 @@
+import radio_anatomy from './img/radio-anatomy.jpg';
+import size from './img/radio-size.jpg';
+
+# Radio
+
+## Visão geral
+
+O componente radio button é utilizado para escolher uma opção dentre outras, ou seja, apenas um item
+pode ser selecionado por vez. Quando um usuário seleciona um novo item, a escolha anterior é
+automaticamente desmarcada.
+
+## Anatomia
+
+O radio button é composto por _background_ e _border_. Também contém partes que são específicas de variação do componente ou estados de interação, como _shadow_ no estado hover.
+
+<img
+  src={radio_anatomy}
+  alt="Anatomia do radio button disposto lado a lado, sendo 1 border, 2 background, 3 fill, 4 shadow hover e 5 outline e 3 o border"
+/>
+
+**1.** Border
+
+**2.** Background
+
+**3.** Fill (checked)
+
+**4.** Shadow (hover)
+
+**5.** Outline (focused)
+
+## Tamanhos
+
+O componente possui dois tamanhos diferentes: _Medium_ e _Large_. O tamanho medium é o tamanho padrão. O large pode ser usado em casos específicos, como em cards por exemplo.
+
+<img
+  src={size}
+  alt="Duas variações de tamanho para o radio dispostas lado a lado."
+/>
+
+Os componentes são formados por tokens, sendo estes propriedades de estilo que definem como será estruturado e estilizado. Os tokens que podem ser alterados pelas marcas, podem ser conferidos na seção de [propriedades customizáveis](#propriedades-customizáveis).

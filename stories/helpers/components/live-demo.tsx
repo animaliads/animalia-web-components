@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default class LiveDemoComponent extends React.Component {
-  state = { language: 'javascript' };
+  state = { language: 'react' };
 
   props: {
-    javascript: string;
+    javascript?: string;
     react: string;
   };
 
@@ -27,10 +27,12 @@ export default class LiveDemoComponent extends React.Component {
             }}
             onChange={event => this.setState({ language: event.target.value })}
           >
-            <option value="javascript" selected>
-              Javascript
-            </option>
             <option value="react">React</option>
+            {this.props['javascript'] ? (
+              <option value="javascript">Javascript</option>
+            ) : (
+              ''
+            )}
           </select>
         </div>
         <iframe
@@ -42,7 +44,7 @@ export default class LiveDemoComponent extends React.Component {
             borderRadius: '4px',
             overflow: 'hidden',
           }}
-          title="ani-button"
+          title="Live demo"
         ></iframe>
       </div>
     );
