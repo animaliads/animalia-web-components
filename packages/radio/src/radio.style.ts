@@ -43,6 +43,7 @@ export const radioStyle = `
     background-color: var(--color-unchecked);
     border-color: var(--border-color);
 
+    -webkit-appearance: none;
     appearance: none;
     border-width: var(--border-width-md);
     border-style: solid;
