@@ -7,7 +7,8 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      description: 'Rótulo',
+      description:
+        'Rótulo. O estilo do rótulo não é tratado no componente. Temos um exemplo de como fazer essa customização no Live Demo.',
       table: {
         type: { summary: 'string' },
         category: 'Slot',
@@ -61,7 +62,7 @@ const Template = ({ label, ...args }) => {
 
 export const Sample = Template.bind({});
 Sample.args = {
-  label: 'Radio',
+  label: '',
   checked: false,
   disabled: false,
   size: 'medium',
