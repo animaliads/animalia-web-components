@@ -44,30 +44,41 @@ export default class Checkbox extends HTMLElement {
     this.render();
   }
 
-  private onClick(event) {
-    if (this.disabled === 'false') {
-      this.checked = this.checked === 'true' ? 'false' : 'true';
-    } else {
-      event.preventDefault();
-    }
-  }
-
   render(): void {
     this.shadow.innerHTML = `
         <style>${checkboxStyle}</style>
         <label>
           <input
             type="checkbox"
-            id="checkboxElement"
             size="${this.size}"
+            aria-disabled="${this.disabled}"
             ${this.checked === 'true' ? 'checked' : ''}
           >
           <slot></slot>
         </label>
     `;
+    // this.shadow.innerHTML = `
+    //     <style>${checkboxStyle}</style>
+    //     <div role="checkbox"
+    //         class="group_checkbox"
+    //         aria-checked="false"
+    //         tabindex="0">
+    //           <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    //           <path d="M0 5.32608L4.55114 9.5L12 2.10491L10.3864 0.5L4.55114 6.30151L1.60227 3.49433L0 5.32608Z" fill="white"/>
+    //           </svg>
 
-    this.setAccessibility();
+    //         <slot></slot>
+    //     </div>
+    // `;
     this.setDefaultSize();
+  }
+
+  private onClick(event) {
+    if (this.disabled === 'false') {
+      this.checked = this.checked === 'true' ? 'false' : 'true';
+    } else {
+      event.preventDefault();
+    }
   }
 
   private setDefaultSize() {
@@ -78,12 +89,6 @@ export default class Checkbox extends HTMLElement {
     if (!this.hasAttribute('size') || !includesSize) {
       this.setAttribute('size', CheckboxSize.medium);
     }
-  }
-
-  private setAccessibility() {
-    this.checkboxElement = this.shadow.getElementById('checkboxElement');
-
-    this.checkboxElement.setAttribute('aria-disabled', this.disabled);
   }
 }
 
