@@ -1,0 +1,30 @@
+{
+  "name": "@animaliads/ani-checkbox",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "Checkbox do Animalia DS",
+  "tag": "dev",
+  "keywords": [
+    "javascript",
+    "design system",
+    "web components",
+    "checkbox"
+  ],
+  "main": "checkbox/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animaliads/animalia-web-components.git",
+    "directory": "packages/checkbox"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@animaliads/animalia-brand": "^1.0.0-dev.1",
+    "@animaliads/css-tokens": "^1.0.0-dev.1",
+    "tslib": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
