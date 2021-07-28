@@ -51,14 +51,12 @@ export default class Checkbox extends HTMLElement {
   connectedCallback(): void {
     this.render();
 
-    this.checkboxElement = this.querySelector('.checkbox');
-
     this.addEventListener('click', this.onClick);
     this.addEventListener('keydown', this.handleKeyDown);
   }
 
   disconnectedCallback(): void {
-    this.checkboxElement.removeEventListener('keydown', this.handleKeyDown);
+    this.removeEventListener('keydown', this.handleKeyDown);
   }
 
   attributeChangedCallback(): void {
@@ -69,10 +67,10 @@ export default class Checkbox extends HTMLElement {
     this.shadow.innerHTML = `
         <style>${checkboxStyle}</style>
         <div
-          size="${this.size}"
           role="checkbox"
           aria-checked="${this.checked}"
-          aria-disabled="${this.disabled}">
+          aria-disabled="${this.disabled}"
+          size="${this.size}">
           <span class="checkbox" tabindex="0">
             ${this.checked === 'false' ? '' : this.checkedIcon}
           </span>
