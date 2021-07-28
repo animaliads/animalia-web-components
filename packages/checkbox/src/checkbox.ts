@@ -51,10 +51,14 @@ export default class Checkbox extends HTMLElement {
   connectedCallback(): void {
     this.render();
 
-    this.checkboxElement = this.shadow.querySelector('.checkbox');
+    this.checkboxElement = this.querySelector('.checkbox');
 
     this.addEventListener('click', this.onClick);
     this.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  disconnectedCallback(): void {
+    this.checkboxElement.removeEventListener('keydown', this.handleKeyDown);
   }
 
   attributeChangedCallback(): void {
@@ -75,6 +79,7 @@ export default class Checkbox extends HTMLElement {
           <slot></slot>
         </div>
     `;
+
     this.setDefaultSize();
   }
 
@@ -92,6 +97,7 @@ export default class Checkbox extends HTMLElement {
     if (keyCode === KeyCode.SPACE) {
       if (this.disabled === 'false') {
         this.toggleCheckbox();
+        this.checkboxElement = this.shadow.querySelector('.checkbox');
         this.checkboxElement.focus();
       } else {
         event.preventDefault();
