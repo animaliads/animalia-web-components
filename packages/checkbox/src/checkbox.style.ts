@@ -1,6 +1,7 @@
 export const checkboxStyle = `
   :host {
     display: inline-block;
+    cursor: pointer;
 
     --width-md: 24px;
     --width-lg: 32px;
@@ -52,7 +53,8 @@ export const checkboxStyle = `
     box-shadow: none;
   }
 
-  :not([aria-checked='false'])[aria-disabled='true'] {
+  [aria-checked='true'][aria-disabled='true'],
+  [aria-checked='mixed'][aria-disabled='true'] {
     background-color: var(--color-checked-disabled);
   }
 
@@ -60,7 +62,7 @@ export const checkboxStyle = `
     cursor: not-allowed;
   }
 
-  :host  {
+  :host([disabled='false'])  {
     cursor: pointer;
   }
 

@@ -32,11 +32,12 @@ export default class Checkbox extends HTMLElement {
   }
 
   get checkedIcon(): string {
-    if (this.checked === 'false') {
-      return '';
-    }
+    const icons = {
+      true: checkIcon,
+      mixed: mixedIcon,
+    };
 
-    return this.checked === 'mixed' ? mixedIcon : checkIcon;
+    return icons[this.checked] || '';
   }
 
   get size(): string {

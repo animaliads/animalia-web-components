@@ -30,7 +30,7 @@ export default {
       description: 'Habilita/Desabilita o checkbox',
       defaultValue: 'false',
       table: {
-        type: { summary: 'boolean' },
+        type: { summary: 'string' },
         category: 'Propriedades',
         defaultValue: { summary: false },
       },
