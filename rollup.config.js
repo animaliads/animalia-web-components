@@ -47,6 +47,7 @@ function configFactory(pkg) {
     output: {
       file: outputPath,
       format: 'iife',
+      sourcemap: 'inline',
     },
     plugins: [
       copy({
@@ -74,6 +75,7 @@ function configFactory(pkg) {
       minifyHTML(), // reduzir html e css dentro de literals com javascript
       typescript({
         sourceMap: true,
+        declaration: true,
         tsconfig: path.join(basePath, 'tsconfig.json'),
       }),
       babel({
