@@ -15,6 +15,7 @@ const checkIcon = `
 export default class Checkbox extends HTMLElement {
   shadow: ShadowRoot;
   checkboxElement: HTMLElement;
+  ariaAttr = ['checked', 'disabled'];
 
   get checked(): string {
     const checked = this.getAttribute('checked');
@@ -67,30 +68,26 @@ export default class Checkbox extends HTMLElement {
   }
 
   attributeChangedCallback(attr: string, oldValue, newValue): void {
-    if (attr === 'checked') {
-      this.checkboxElement.setAttribute('aria-checked', newValue);
-      this.checkboxElement.innerHTML = this.checkedIcon;
+    if (!this.checkboxElement) {
+      return;
     }
 
-    if (attr === 'disabled') {
-      this.checkboxElement.setAttribute('aria-disabled', newValue);
-    } else {
-      this.checkboxElement.setAttribute(attr, newValue);
-    }
+    const property = this.ariaAttr.includes(attr) ? `aria-${attr}` : attr;
+
+    this.checkboxElement.setAttribute(property, newValue);
+    this.checkboxElement.innerHTML = this.checkedIcon;
   }
 
   render(): void {
     this.shadow.innerHTML = `
         <style>${checkboxStyle}</style>
-        <div>
-          <span class="checkbox"role="checkbox"
-          aria-checked="${this.checked}"
-          aria-disabled="${this.disabled}"
-          size="${this.size}" tabindex="0" >
-            ${this.checkedIcon}
-          </span>
-          <slot></slot>
-        </div>
+        <span class="checkbox"role="checkbox"
+        aria-checked="${this.checked}"
+        aria-disabled="${this.disabled}"
+        size="${this.size}" tabindex="0" >
+          ${this.checkedIcon}
+        </span>
+        <slot></slot>
     `;
 
     this.setDefaultSize();
@@ -107,12 +104,8 @@ export default class Checkbox extends HTMLElement {
   private handleKeyDown(event) {
     const keyCode = event.keyCode;
 
-    if (keyCode === KeyCode.SPACE) {
-      if (this.disabled === 'false') {
-        this.toggleCheckbox();
-      } else {
-        event.preventDefault();
-      }
+    if (this.disabled === 'false' && keyCode === KeyCode.SPACE) {
+      this.toggleCheckbox();
     }
   }
 

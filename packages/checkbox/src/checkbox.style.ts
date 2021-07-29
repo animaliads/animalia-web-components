@@ -4,11 +4,14 @@ export const checkboxStyle = css`
   :host {
     display: inline-block;
     cursor: pointer;
+
+    --width-md: 24px;
+    --width-lg: 32px;
   }
 
   .checkbox {
-    width: 24px;
-    height: 24px;
+    width: var(--width-md);
+    height: var(--width-md);
     box-sizing: border-box;
     display: inline-block;
     background-color: var(--color-unchecked);
@@ -57,8 +60,8 @@ export const checkboxStyle = css`
   }
 
   [size='large'] {
-    width: 32px;
-    height: 32px;
+    width: var(--width-lg);
+    height: var(--width-lg);
   }
 
   svg {
