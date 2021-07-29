@@ -76,6 +76,8 @@ export default class Checkbox extends HTMLElement {
 
     this.checkboxElement.setAttribute(property, newValue);
     this.checkboxElement.innerHTML = this.checkedIcon;
+
+    this.setDefaultSize();
   }
 
   render(): void {

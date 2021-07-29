@@ -3,7 +3,7 @@ import './checkbox';
 describe('Checkbox:', () => {
   let checkbox: HTMLElement;
   const checkboxTagName = 'ani-checkbox';
-  const checkboxElementSelector = 'input[type="checkbox"]';
+  const checkboxElementSelector = '.checkbox';
 
   const getShadowRoot = (tagName: string): ShadowRoot => {
     return document.querySelector(tagName).shadowRoot;
@@ -23,7 +23,7 @@ describe('Checkbox:', () => {
     `;
 
     const renderedText = getShadowRoot(checkboxTagName)
-      .querySelector<HTMLSlotElement>('label > slot')
+      .querySelector<HTMLSlotElement>('slot')
       .assignedNodes()[0].textContent;
 
     expect(renderedText).toBe('Hello checkbox');
@@ -88,7 +88,7 @@ describe('Checkbox:', () => {
     expect(checkboxDisabled).toBe('true');
   });
 
-  test('should set checked to true if checked is true', () => {
+  test('should set aria-checked to true if checked is true', () => {
     document.body.innerHTML = `
       <ani-checkbox checked="true"></ani-checkbox>
     `;
@@ -97,10 +97,22 @@ describe('Checkbox:', () => {
       checkboxElementSelector
     );
 
-    expect(checkboxElement['checked']).toBe(true);
+    expect(checkboxElement.getAttribute('aria-checked')).toBe('true');
   });
 
-  test('should set checked to true if checked is defined', () => {
+  test('should set aria-checked to mixed if checked is mixed', () => {
+    document.body.innerHTML = `
+      <ani-checkbox checked="mixed"></ani-checkbox>
+    `;
+
+    const checkboxElement = getShadowRoot(checkboxTagName).querySelector(
+      checkboxElementSelector
+    );
+
+    expect(checkboxElement.getAttribute('aria-checked')).toBe('mixed');
+  });
+
+  test('should set aria-checked to true if checked is defined', () => {
     document.body.innerHTML = `
       <ani-checkbox checked></ani-checkbox>
     `;
@@ -109,10 +121,10 @@ describe('Checkbox:', () => {
       checkboxElementSelector
     );
 
-    expect(checkboxElement['checked']).toBe(true);
+    expect(checkboxElement.getAttribute('aria-checked')).toBe('true');
   });
 
-  test('should set checked to false if checked is undefined', () => {
+  test('should set aria-checked to false if checked is undefined', () => {
     document.body.innerHTML = `
       <ani-checkbox></ani-checkbox>
     `;
@@ -121,18 +133,18 @@ describe('Checkbox:', () => {
       checkboxElementSelector
     );
 
-    expect(checkboxElement['checked']).toBe(false);
+    expect(checkboxElement.getAttribute('aria-checked')).toBe('false');
   });
 
   test('should set attribute checked to true', () => {
     document.body.appendChild(checkbox);
     checkbox.setAttribute('checked', 'true');
 
-    const checkboxChecked = getShadowRoot(
-      checkboxTagName
-    ).querySelector<HTMLElement>(checkboxElementSelector)['checked'];
+    const checkboxChecked = getShadowRoot(checkboxTagName)
+      .querySelector<HTMLElement>(checkboxElementSelector)
+      .getAttribute('aria-checked');
 
-    expect(checkboxChecked).toBe(true);
+    expect(checkboxChecked).toBe('true');
   });
 
   test('should set size to medium if size is undefined', () => {
@@ -198,11 +210,39 @@ describe('Checkbox:', () => {
 
     checkbox.click();
 
-    const checkboxChecked = getShadowRoot(
-      checkboxTagName
-    ).querySelector<HTMLElement>(checkboxElementSelector)['checked'];
+    const checkboxChecked = getShadowRoot(checkboxTagName)
+      .querySelector<HTMLElement>(checkboxElementSelector)
+      .getAttribute('aria-checked');
 
-    expect(checkboxChecked).toBe(false);
+    expect(checkboxChecked).toBe('false');
+  });
+
+  test('shouldn`t set attribute checked to true when space is pressed if disabled is true', () => {
+    document.body.appendChild(checkbox);
+    checkbox.setAttribute('disabled', 'true');
+
+    const event = new KeyboardEvent('keydown', { keyCode: 32 });
+    checkbox.dispatchEvent(event);
+
+    const checkboxChecked = getShadowRoot(checkboxTagName)
+      .querySelector<HTMLElement>(checkboxElementSelector)
+      .getAttribute('aria-checked');
+
+    expect(checkboxChecked).toBe('false');
+  });
+
+  test('should set attribute checked to true when space is pressed', () => {
+    document.body.appendChild(checkbox);
+    checkbox.setAttribute('disabled', 'false');
+
+    const event = new KeyboardEvent('keydown', { keyCode: 32 });
+    checkbox.dispatchEvent(event);
+
+    const checkboxChecked = getShadowRoot(checkboxTagName)
+      .querySelector<HTMLElement>(checkboxElementSelector)
+      .getAttribute('aria-checked');
+
+    expect(checkboxChecked).toBe('true');
   });
 
   test('should set attribute checked to true when clicking checkbox if disabled is false', () => {
@@ -211,11 +251,11 @@ describe('Checkbox:', () => {
 
     checkbox.click();
 
-    const checkboxChecked = getShadowRoot(
-      checkboxTagName
-    ).querySelector<HTMLElement>(checkboxElementSelector)['checked'];
+    const checkboxChecked = getShadowRoot(checkboxTagName)
+      .querySelector<HTMLElement>(checkboxElementSelector)
+      .getAttribute('aria-checked');
 
-    expect(checkboxChecked).toBe(true);
+    expect(checkboxChecked).toBe('true');
   });
 
   test('should set attribute checked to false when clicking checkbox if disabled is false', () => {
@@ -225,10 +265,10 @@ describe('Checkbox:', () => {
 
     checkbox.click();
 
-    const checkboxChecked = getShadowRoot(
-      checkboxTagName
-    ).querySelector<HTMLElement>(checkboxElementSelector)['checked'];
+    const checkboxChecked = getShadowRoot(checkboxTagName)
+      .querySelector<HTMLElement>(checkboxElementSelector)
+      .getAttribute('aria-checked');
 
-    expect(checkboxChecked).toBe(false);
+    expect(checkboxChecked).toBe('false');
   });
 });

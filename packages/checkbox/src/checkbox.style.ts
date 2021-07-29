@@ -1,6 +1,4 @@
-import { css } from 'lit-element';
-
-export const checkboxStyle = css`
+export const checkboxStyle = `
   :host {
     display: inline-block;
     cursor: pointer;
