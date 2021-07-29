@@ -25,7 +25,8 @@ export default {
       },
     },
     checked: {
-      control: 'boolean',
+      options: ['true', 'false', 'mixed'],
+      control: { type: 'radio' },
       description: 'Habilita/Desabilita o checkbox',
       defaultValue: 'false',
       table: {
