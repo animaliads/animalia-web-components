@@ -34,20 +34,21 @@ export const checkboxStyle = css`
     outline-offset: 2px;
   }
 
-  :not([aria-checked='false']) .checkbox {
+  [aria-checked='true'],
+  [aria-checked='mixed'] {
     background-color: var(--color-checked);
 
     border-color: transparent;
   }
 
-  [aria-disabled='true'] .checkbox {
+  [aria-disabled='true'] {
     background-color: var(--color-unchecked-disabled);
     border-color: var(--color-checked-disabled);
 
     box-shadow: none;
   }
 
-  :not([aria-checked='false'])[aria-disabled='true'] .checkbox {
+  :not([aria-checked='false'])[aria-disabled='true'] {
     background-color: var(--color-checked-disabled);
   }
 
@@ -55,7 +56,7 @@ export const checkboxStyle = css`
     cursor: not-allowed;
   }
 
-  [size='large'] .checkbox {
+  [size='large'] {
     width: 32px;
     height: 32px;
   }

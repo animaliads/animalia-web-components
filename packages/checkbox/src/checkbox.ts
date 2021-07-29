@@ -31,6 +31,10 @@ export default class Checkbox extends HTMLElement {
   }
 
   get checkedIcon(): string {
+    if (this.checked === 'false') {
+      return '';
+    }
+
     return this.checked === 'mixed' ? mixedIcon : checkIcon;
   }
 
@@ -51,28 +55,39 @@ export default class Checkbox extends HTMLElement {
   connectedCallback(): void {
     this.render();
 
+    this.checkboxElement = this.shadow.querySelector('.checkbox');
+
     this.addEventListener('click', this.onClick);
     this.addEventListener('keydown', this.handleKeyDown);
   }
 
   disconnectedCallback(): void {
+    this.removeEventListener('click', this.onClick);
     this.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  attributeChangedCallback(): void {
-    this.render();
+  attributeChangedCallback(attr: string, oldValue, newValue): void {
+    if (attr === 'checked') {
+      this.checkboxElement.setAttribute('aria-checked', newValue);
+      this.checkboxElement.innerHTML = this.checkedIcon;
+    }
+
+    if (attr === 'disabled') {
+      this.checkboxElement.setAttribute('aria-disabled', newValue);
+    } else {
+      this.checkboxElement.setAttribute(attr, newValue);
+    }
   }
 
   render(): void {
     this.shadow.innerHTML = `
         <style>${checkboxStyle}</style>
-        <div
-          role="checkbox"
+        <div>
+          <span class="checkbox"role="checkbox"
           aria-checked="${this.checked}"
           aria-disabled="${this.disabled}"
-          size="${this.size}">
-          <span class="checkbox" tabindex="0">
-            ${this.checked === 'false' ? '' : this.checkedIcon}
+          size="${this.size}" tabindex="0" >
+            ${this.checkedIcon}
           </span>
           <slot></slot>
         </div>
@@ -95,8 +110,6 @@ export default class Checkbox extends HTMLElement {
     if (keyCode === KeyCode.SPACE) {
       if (this.disabled === 'false') {
         this.toggleCheckbox();
-        this.checkboxElement = this.shadow.querySelector('.checkbox');
-        this.checkboxElement.focus();
       } else {
         event.preventDefault();
       }
