@@ -1,7 +1,6 @@
 export const checkboxStyle = `
   :host {
     display: inline-block;
-    cursor: pointer;
 
     --width-md: 24px;
     --width-lg: 32px;
@@ -42,7 +41,11 @@ export const checkboxStyle = `
     border-color: transparent;
   }
 
-  [aria-disabled='true'] {
+  [aria-checked='true']:hover,
+  [aria-checked='mixed']:hover {
+    background-color: var(--color-hover);
+  }
+  .checkbox[aria-disabled='true'] {
     background-color: var(--color-unchecked-disabled);
     border-color: var(--color-checked-disabled);
 
@@ -53,8 +56,12 @@ export const checkboxStyle = `
     background-color: var(--color-checked-disabled);
   }
 
-  div[aria-disabled='true'] {
+  :host([disabled])  {
     cursor: not-allowed;
+  }
+
+  :host  {
+    cursor: pointer;
   }
 
   [size='large'] {

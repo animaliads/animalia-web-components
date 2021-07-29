@@ -82,14 +82,18 @@ export default class Checkbox extends HTMLElement {
 
   render(): void {
     this.shadow.innerHTML = `
-        <style>${checkboxStyle}</style>
-        <span class="checkbox"role="checkbox"
+      <style>${checkboxStyle}</style>
+      <span
+        class="checkbox"
+        role="checkbox"
         aria-checked="${this.checked}"
         aria-disabled="${this.disabled}"
-        size="${this.size}" tabindex="0" >
-          ${this.checkedIcon}
-        </span>
-        <slot></slot>
+        size="${this.size}"
+        tabindex="0"
+      >
+        ${this.checkedIcon}
+      </span>
+      <slot></slot>
     `;
 
     this.setDefaultSize();
