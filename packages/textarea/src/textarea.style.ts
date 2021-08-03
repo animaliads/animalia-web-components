@@ -1,6 +1,4 @@
-import { css } from 'lit-element';
-
-export const style = css`
+export const style = `
   textarea {
     font-family: var(--font-family);
     font-size: var(--font-size);
@@ -34,7 +32,7 @@ export const style = css`
     outline-offset: 2px;
   }
 
-  textarea[aria-disabled='true'] {
+  textarea:disabled {
     border-color: var(--color-disabled);
     background: var(--background-disabled);
     color: var(--text-color-disabled);

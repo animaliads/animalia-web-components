@@ -6,4 +6,8 @@ export interface Field {
   readonly disabled: string;
 
   readonly readonly: string;
+
+  readonly maxlength: string;
+
+  readonly minlength: string;
 }
