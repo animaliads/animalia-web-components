@@ -68,7 +68,11 @@ export default class Checkbox extends HTMLElement {
     this.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  attributeChangedCallback(attr: string, oldValue: string, newValue: string): void {
+  attributeChangedCallback(
+    attr: string,
+    oldValue: string,
+    newValue: string
+  ): void {
     if (!this.checkboxElement) {
       return;
     }
