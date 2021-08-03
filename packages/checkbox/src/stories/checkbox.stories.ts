@@ -27,7 +27,7 @@ export default {
     checked: {
       options: ['true', 'false', 'mixed'],
       control: { type: 'radio' },
-      description: 'Habilita/Desabilita o checkbox',
+      description: 'Marca e desmarca o checkbox',
       defaultValue: 'false',
       table: {
         type: { summary: 'string' },
