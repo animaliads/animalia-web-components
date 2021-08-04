@@ -4,7 +4,7 @@
     "module": "es2015",
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "rootDir": "./packages",
