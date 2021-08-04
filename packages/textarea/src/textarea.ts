@@ -4,9 +4,10 @@ import { style } from './textarea.style';
 export default class Textarea extends HTMLElement implements Field {
   shadow: ShadowRoot;
   textareaElement: HTMLTextAreaElement;
-  changeEvent: any;
+  changeEvent: Event;
   blurEvent: Event;
   inputEvent: Event;
+  focusEvent: Event;
 
   get placeholder(): string {
     return this.getAttribute('placeholder') || '';
@@ -86,7 +87,7 @@ export default class Textarea extends HTMLElement implements Field {
     this.updateAttributes();
   }
 
-  render(): void {
+  private render(): void {
     this.shadow.innerHTML = `
         <style>${style}</style>
         <label>
@@ -114,7 +115,7 @@ export default class Textarea extends HTMLElement implements Field {
     this.textareaElement.required = this.required === 'true';
   }
 
-  listenerEvents() {
+  private listenerEvents() {
     this.changeEvent = document.createEvent('Event');
     this.changeEvent.initEvent('onChange', true, true);
 
@@ -123,6 +124,9 @@ export default class Textarea extends HTMLElement implements Field {
 
     this.inputEvent = document.createEvent('Event');
     this.inputEvent.initEvent('onInput', true, true);
+
+    this.focusEvent = document.createEvent('Event');
+    this.focusEvent.initEvent('onFocus', true, true);
 
     this.textareaElement.addEventListener(
       'change',
@@ -136,9 +140,13 @@ export default class Textarea extends HTMLElement implements Field {
       'input',
       this.handleEvent.bind(this, this.inputEvent)
     );
+    this.textareaElement.addEventListener(
+      'focus',
+      this.handleEvent.bind(this, this.focusEvent)
+    );
   }
 
-  handleEvent(event) {
+  private handleEvent(event) {
     this.value = this.textareaElement.value;
     this.dispatchEvent(event);
   }
