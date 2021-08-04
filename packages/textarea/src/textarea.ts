@@ -123,6 +123,11 @@ export default class Textarea extends HTMLElement implements Field {
       return;
     }
 
+    this.textareaElement.setAttribute('placeholder', this.placeholder);
+    this.textareaElement.setAttribute('rows', this.rows);
+    this.textareaElement.setAttribute('minlength', this.minlength);
+    this.textareaElement.setAttribute('maxlength', this.maxlength);
+
     this.textareaElement.value = this.value;
     this.textareaElement.readOnly = this.readonly === 'true';
     this.textareaElement.disabled = this.disabled === 'true';
