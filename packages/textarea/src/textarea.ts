@@ -68,13 +68,21 @@ export default class Textarea extends HTMLElement implements Field {
   connectedCallback(): void {
     this.render();
 
+    this.textareaElement = this.shadowRoot.querySelector('textarea');
+
     this.updateAttributes();
 
     this.listenerEvents();
   }
 
+  disconnectedCallback(): void {
+    this.textareaElement.removeEventListener('change', this.handleEvent);
+    this.textareaElement.removeEventListener('blur', this.handleEvent);
+    this.textareaElement.removeEventListener('input', this.handleEvent);
+  }
+
   attributeChangedCallback(): void {
-    this.render();
+    // this.render();
     this.updateAttributes();
   }
 
@@ -96,7 +104,9 @@ export default class Textarea extends HTMLElement implements Field {
   }
 
   private updateAttributes() {
-    this.textareaElement = this.shadowRoot.querySelector('textarea');
+    if (!this.textareaElement) {
+      return;
+    }
 
     this.textareaElement.value = this.value;
     this.textareaElement.readOnly = this.readonly === 'true';
@@ -114,18 +124,23 @@ export default class Textarea extends HTMLElement implements Field {
     this.inputEvent = document.createEvent('Event');
     this.inputEvent.initEvent('onInput', true, true);
 
-    this.textareaElement.addEventListener('change', event => {
-      this.dispatchEvent(this.changeEvent);
-    });
+    this.textareaElement.addEventListener(
+      'change',
+      this.handleEvent.bind(this, this.changeEvent)
+    );
+    this.textareaElement.addEventListener(
+      'blur',
+      this.handleEvent.bind(this, this.blurEvent)
+    );
+    this.textareaElement.addEventListener(
+      'input',
+      this.handleEvent.bind(this, this.inputEvent)
+    );
+  }
 
-    this.textareaElement.addEventListener('blur', event => {
-      this.dispatchEvent(this.blurEvent);
-    });
-
-    this.textareaElement.addEventListener('input', event => {
-      this.value = this.textareaElement.value;
-      console.log('input(change model):', this.value);
-    });
+  handleEvent(event) {
+    this.value = this.textareaElement.value;
+    this.dispatchEvent(event);
   }
 }
 
