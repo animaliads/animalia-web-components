@@ -87,6 +87,20 @@ export default class Textarea extends HTMLElement implements Field {
     this.updateAttributes();
   }
 
+  /**
+   * Retorna o elemento que define o textarea.
+   */
+  getElement(): HTMLTextAreaElement {
+    return this.textareaElement;
+  }
+
+  /**
+   * Aciona o foco no componente.
+   */
+  setFocus() {
+    this.textareaElement.focus();
+  }
+
   private render(): void {
     this.shadow.innerHTML = `
         <style>${style}</style>
