@@ -4,6 +4,9 @@ import { style } from './textarea.style';
 export default class Textarea extends HTMLElement implements Field {
   shadow: ShadowRoot;
   textareaElement: HTMLTextAreaElement;
+  changeEvent: any;
+  blurEvent: Event;
+  inputEvent: Event;
 
   get placeholder(): string {
     return this.getAttribute('placeholder') || '';
@@ -21,8 +24,12 @@ export default class Textarea extends HTMLElement implements Field {
     return this.getAttribute('minlength') || '';
   }
 
-  get label(): string {
-    return this.getAttribute('label') || '';
+  get value(): string {
+    return this.getAttribute('value') || '';
+  }
+
+  set value(value) {
+    this.setAttribute('value', value);
   }
 
   get disabled(): string {
@@ -49,6 +56,7 @@ export default class Textarea extends HTMLElement implements Field {
       'rows',
       'maxlength',
       'minlength',
+      'value',
     ];
   }
 
@@ -61,6 +69,8 @@ export default class Textarea extends HTMLElement implements Field {
     this.render();
 
     this.updateAttributes();
+
+    this.listenerEvents();
   }
 
   attributeChangedCallback(): void {
@@ -72,10 +82,11 @@ export default class Textarea extends HTMLElement implements Field {
     this.shadow.innerHTML = `
         <style>${style}</style>
         <label>
-          ${this.label}
+          <div>
+            <slot></slot>
+          </div>
           <textarea
             rows="${this.rows}"
-            aria-maxlength="${this.maxlength}"
             maxlength="${this.maxlength}"
             minlength="${this.minlength}"
             placeholder="${this.placeholder}">
@@ -87,10 +98,34 @@ export default class Textarea extends HTMLElement implements Field {
   private updateAttributes() {
     this.textareaElement = this.shadowRoot.querySelector('textarea');
 
-    this.textareaElement.textContent = this.textContent;
+    this.textareaElement.value = this.value;
     this.textareaElement.readOnly = this.readonly === 'true';
     this.textareaElement.disabled = this.disabled === 'true';
     this.textareaElement.required = this.required === 'true';
+  }
+
+  listenerEvents() {
+    this.changeEvent = document.createEvent('Event');
+    this.changeEvent.initEvent('onChange', true, true);
+
+    this.blurEvent = document.createEvent('Event');
+    this.blurEvent.initEvent('onBlur', true, true);
+
+    this.inputEvent = document.createEvent('Event');
+    this.inputEvent.initEvent('onInput', true, true);
+
+    this.textareaElement.addEventListener('change', event => {
+      this.dispatchEvent(this.changeEvent);
+    });
+
+    this.textareaElement.addEventListener('blur', event => {
+      this.dispatchEvent(this.blurEvent);
+    });
+
+    this.textareaElement.addEventListener('input', event => {
+      this.value = this.textareaElement.value;
+      console.log('input(change model):', this.value);
+    });
   }
 }
 

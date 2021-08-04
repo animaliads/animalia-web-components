@@ -1,7 +1,7 @@
 export interface Field {
   readonly placeholder: string;
 
-  readonly label: string;
+  readonly value: string;
 
   readonly disabled: string;
 

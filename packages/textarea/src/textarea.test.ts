@@ -19,14 +19,14 @@ describe('Textarea:', () => {
 
   test('should apply label', () => {
     document.body.innerHTML = `
-      <ani-textarea label="Hello textarea"></ani-textarea>
+      <ani-textarea>Hello textarea</ani-textarea>
     `;
 
-    const renderedText = getShadowRoot(tagName).querySelector<HTMLElement>(
-      'label'
-    ).textContent;
+    const renderedText = getShadowRoot(tagName)
+      .querySelector<HTMLSlotElement>('label slot')
+      .assignedNodes()[0].textContent;
 
-    expect(renderedText.trim()).toEqual('Hello textarea');
+    expect(renderedText).toEqual('Hello textarea');
   });
 
   test('should set disabled to true if disabled is true', () => {
@@ -223,6 +223,27 @@ describe('Textarea:', () => {
       .getAttribute('maxlength');
 
     expect(element).toEqual('3');
+  });
+
+  test('should set value to "content test"', () => {
+    document.body.innerHTML = `
+      <ani-textarea value="content test"></ani-textarea>
+    `;
+
+    const element = getShadowRoot(tagName).querySelector(selector);
+
+    expect(element.value).toEqual('content test');
+  });
+
+  test('should set value to "content test dynamic"', () => {
+    document.body.appendChild(textarea);
+    textarea.setAttribute('value', 'content test dynamic');
+
+    const element = getShadowRoot(tagName).querySelector<HTMLTextAreaElement>(
+      selector
+    ).value;
+
+    expect(element).toEqual('content test dynamic');
   });
 
   test('should set rows to 4', () => {
