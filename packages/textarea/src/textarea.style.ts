@@ -10,7 +10,7 @@ export const style = `
     line-height: var(--line-height-md);
     padding: var(--spacing-squish-sm);
     border-radius: var(--border-radius-md);
-    border-width: var(--border-width-md);
+    border-width: var(--border-width-sm);
     border-style: solid;
   }
 
