@@ -40,7 +40,7 @@ function configFactory(pkg) {
   const { main } = pkg.toJSON();
 
   const outputPath = path.join('./dist/packages', main);
-  const outputPathBase = outputPath.substr(0, outputPath.lastIndexOf('/'));
+  const outputPathBase = path.dirname(outputPath);
 
   const config = {
     input,
