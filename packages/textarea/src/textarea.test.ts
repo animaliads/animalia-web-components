@@ -1,4 +1,5 @@
 import './textarea';
+import Textarea from './textarea';
 
 describe('Textarea:', () => {
   let textarea: HTMLElement;
@@ -10,7 +11,7 @@ describe('Textarea:', () => {
   };
 
   beforeEach(() => {
-    textarea = document.createElement(tagName) as HTMLElement;
+    textarea = document.createElement(tagName) as Textarea;
   });
 
   afterEach(() => {
@@ -285,5 +286,47 @@ describe('Textarea:', () => {
       .getAttribute('rows');
 
     expect(element).toEqual('3');
+  });
+
+  test('should return textarea element', () => {
+    document.body.innerHTML = `
+      <ani-textarea></ani-textarea>
+    `;
+
+    const aniTextarea = <Textarea>document.querySelector('ani-textarea');
+
+    const element = getShadowRoot(tagName).querySelector<HTMLElement>(selector);
+
+    expect(element).toBe(aniTextarea.getElement());
+  });
+
+  test('should set focus if setFocus is called', () => {
+    document.body.innerHTML = `
+      <ani-textarea></ani-textarea>
+    `;
+
+    const aniTextarea = <Textarea>document.querySelector('ani-textarea');
+    spyOn(aniTextarea.getElement(), 'focus');
+
+    aniTextarea.setFocus();
+
+    expect(aniTextarea.getElement().focus).toBeCalled();
+  });
+
+  test('should emit event on change', () => {
+    const event = new KeyboardEvent('keypress', { key: 'a', code: 'a' });
+    const onChangeMock = jest.fn();
+
+    document.body.innerHTML = `
+    <ani-textarea></ani-textarea>
+  `;
+
+    const aniTextarea = <Textarea>document.querySelector('ani-textarea');
+
+    aniTextarea.addEventListener('onChange', onChangeMock);
+    aniTextarea.getElement().dispatchEvent(event);
+    aniTextarea.getElement().blur();
+
+    expect(onChangeMock).toBeCalled();
   });
 });

@@ -108,11 +108,7 @@ export default class Textarea extends HTMLElement implements Field {
           <div>
             <slot></slot>
           </div>
-          <textarea
-            rows="${this.rows}"
-            maxlength="${this.maxlength}"
-            minlength="${this.minlength}"
-            placeholder="${this.placeholder}">
+          <textarea>
           </textarea>
         </label>
     `;
