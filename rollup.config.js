@@ -5,8 +5,9 @@ import batchPackages from '@lerna/batch-packages';
 import path from 'path';
 import minimist from 'minimist';
 import babel from '@rollup/plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import minifyHTML from 'rollup-plugin-minify-html-literals';
+import internal from 'rollup-plugin-internal';
 import { terser } from 'rollup-plugin-terser';
 
 import typescript from '@rollup/plugin-typescript';
@@ -42,11 +43,15 @@ function configFactory(pkg) {
   const outputPath = path.join('./dist/packages', main);
   const outputPathBase = path.dirname(outputPath);
 
+  const name = main.split('/');
+
   const config = {
     input,
     output: {
       file: outputPath,
-      format: 'iife',
+      format: 'umd', // necessário para resolver a dep
+      name: name[0],
+      sourcemap: true,
     },
     plugins: [
       copy({
@@ -76,13 +81,14 @@ function configFactory(pkg) {
         sourceMap: true,
         tsconfig: path.join(basePath, 'tsconfig.json'),
       }),
+      commonjs(),
       babel({
         babelHelpers: 'bundled',
         exclude: ['node_modules/**'],
         extensions: ['.js', '.ts'],
       }),
-      resolve(),
-      terser(), // minificar
+      internal(['@animaliads/common']), // resolve como dep interna
+      terser(),
     ],
   };
   return config;
