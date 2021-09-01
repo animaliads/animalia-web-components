@@ -12,6 +12,8 @@ export const style = `
     border-radius: var(--border-radius-md);
     border-width: var(--border-width-sm);
     border-style: solid;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   textarea::placeholder {
@@ -23,7 +25,7 @@ export const style = `
     background: var(--background-hover);
   }
 
-  textarea:focus {
+  textarea:focus-visible {
     border-color: var(--color-focused);
     outline-color: var(--outline-color-focused);
 
