@@ -14,6 +14,7 @@ export const style = `
     border-style: solid;
     width: 100%;
     box-sizing: border-box;
+    resize: both;
   }
 
   textarea::placeholder {
@@ -34,17 +35,17 @@ export const style = `
     outline-offset: 2px;
   }
 
+  textarea:read-only {
+    border-color: var(--color-disabled);
+    background: var(--background);
+    color: var(--text-color-disabled);
+  }
+
   textarea:disabled {
     border-color: var(--color-disabled);
     background: var(--background-disabled);
     color: var(--text-color-disabled);
 
     cursor: not-allowed;
-  }
-
-  textarea:read-only {
-    border-color: var(--color-disabled);
-    background: var(--background);
-    color: var(--text-color-disabled);
   }
 `;
