@@ -312,21 +312,4 @@ describe('Textarea:', () => {
 
     expect(aniTextarea.getElement().focus).toBeCalled();
   });
-
-  test('should emit event on change', () => {
-    const event = new KeyboardEvent('keypress', { key: 'a', code: 'a' });
-    const onChangeMock = jest.fn();
-
-    document.body.innerHTML = `
-    <ani-textarea></ani-textarea>
-  `;
-
-    const aniTextarea = <Textarea>document.querySelector('ani-textarea');
-
-    aniTextarea.addEventListener('onChange', onChangeMock);
-    aniTextarea.getElement().dispatchEvent(event);
-    aniTextarea.getElement().blur();
-
-    expect(onChangeMock).toBeCalled();
-  });
 });
