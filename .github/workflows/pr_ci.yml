@@ -16,10 +16,10 @@ jobs:
 
       - name: Install
         run: npm install
-        
+
       - name: Build
         run: npm run build
-        
+
       - name: Lint
         run: npm run lint
 
