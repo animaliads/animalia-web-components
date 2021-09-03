@@ -22,6 +22,14 @@ export default {
         category: 'Propriedades',
       },
     },
+    placeholder: {
+      control: 'text',
+      description: 'Placeholder',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+      },
+    },
     disabled: {
       control: 'boolean',
       description: 'Indica se o textarea está desabilitado.',
@@ -121,6 +129,7 @@ export default {
 const Template = ({ label, ...args }) => {
   return html`
     <ani-textarea
+      placeholder="${args.placeholder}"
       maxlength="${args.maxlength}"
       minlength="${args.minlength}"
       value="${args.value}"
@@ -136,6 +145,7 @@ const Template = ({ label, ...args }) => {
 
 export const Sample = Template.bind({});
 Sample.args = {
+  placeholder: '',
   maxlength: '',
   minlength: '',
   value: '',
@@ -151,6 +161,7 @@ Sample.parameters = {
     source: {
       code: `
 <ani-textarea
+  placeholder="${Sample.placeholder}"
   maxlength="${Sample.maxlength}"
   minlength="${Sample.minlength}"
   value="${Sample.value}"
