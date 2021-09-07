@@ -11,6 +11,14 @@ export default class Textfield extends HTMLElement {
   get placeholder(): string {
     return this.getAttribute('placeholder') || '';
   }
+
+  get pattern(): string {
+    return this.getAttribute('pattern') || '';
+  }
+  
+  get autocomplete(): string {
+    return this.getAttribute('autocomplete') || 'on';
+  }
   
   get type(): string {
     return this.getAttribute('type') || 'text';
@@ -49,6 +57,8 @@ export default class Textfield extends HTMLElement {
 
   static get observedAttributes(): Array<string> {
     return [
+      'pattern',
+      'autocomplete',
       'type',
       'disabled',
       'readonly',
@@ -116,7 +126,7 @@ export default class Textfield extends HTMLElement {
       return;
     }
 
-    const attributes = ['type', 'placeholder', 'minlength', 'maxlength']
+    const attributes = ['autocomplete', 'pattern', 'type', 'placeholder', 'minlength', 'maxlength'];
 
     attributes.forEach(attr => this.updateAttribute(attr, this[attr]));
 

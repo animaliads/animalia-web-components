@@ -22,6 +22,25 @@ export default {
         category: 'Propriedades',
       },
     },
+    pattern: {
+      control: 'text',
+      description: 'Expressão regular utilizada para validar o campo.',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+      },
+    },
+    autocomplete: {
+      options: ['off', 'on'],
+      control: { type: 'radio' },
+      description: 'Indica se o valor do campo pode ser completado automaticamente pelo navegador.',
+      defaultValue: 'on',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+        defaultValue: { summary: 'on' },
+      },
+    },
     placeholder: {
       control: 'text',
       description: 'Placeholder',
@@ -130,6 +149,8 @@ const Template = ({ label, ...args }) => {
   return html`
     <ani-textfield
       placeholder="${args.placeholder}"
+      pattern="${args.pattern}"
+      autocomplete="${args.autocomplete}"
       maxlength="${args.maxlength}"
       minlength="${args.minlength}"
       value="${args.value}"
@@ -146,6 +167,8 @@ const Template = ({ label, ...args }) => {
 export const Sample = Template.bind({});
 Sample.args = {
   placeholder: '',
+  pattern: '',
+  autocomplete: '',
   maxlength: '',
   minlength: '',
   value: '',
@@ -162,6 +185,8 @@ Sample.parameters = {
       code: `
 <ani-textfield
   placeholder="${Sample.placeholder}"
+  pattern="${Sample.pattern}"
+  autocomplete="${Sample.autocomplete}"
   maxlength="${Sample.maxlength}"
   minlength="${Sample.minlength}"
   value="${Sample.value}"
