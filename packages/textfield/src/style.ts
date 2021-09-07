@@ -12,6 +12,7 @@ input {
     font-weight: var(--font-weight-normal);
     border-radius: var(--border-radius-md);
     min-height: 2.75em;
+    box-sizing: border-box;
 }
 
 input::placeholder {
