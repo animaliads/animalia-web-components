@@ -4,7 +4,6 @@
   "description": "Repositório de Web Components do Animalia DS",
   "main": "index.js",
   "tag": "dev",
-  "type": "module",
   "scripts": {
     "build": "rimraf dist && lerna exec -- rollup -c ../../scripts/rollup.config.js && gulp --gulpfile ./scripts/gulpfile.cjs",
     "dev": "rollup -c -w",
