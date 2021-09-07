@@ -87,7 +87,7 @@ export default {
       },
     },
     getElement: {
-      description: 'Retorna o elemento textfield. `HTMLTextfieldElement`',
+      description: 'Retorna o elemento textfield. `HTMLInputElement`',
       table: {
         category: 'Métodos',
       },
