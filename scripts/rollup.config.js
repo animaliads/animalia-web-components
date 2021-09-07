@@ -22,11 +22,12 @@ export default {
   input: `${PACKAGE_ROOT_PATH}/src/index.ts`,
   output: [
     {
+      name,
       file: `${LERNA_ROOT_PATH}/dist/@animaliads/web-components/index.js`,
-      format: 'esm',
+      format: 'umd',
     },
     {
-      name: name,
+      name,
       file: `${outputPathBase}/index.js`,
       format: 'umd',
       sourcemap: 'inline',

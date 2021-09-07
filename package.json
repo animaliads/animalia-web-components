@@ -6,7 +6,7 @@
   "tag": "dev",
   "type": "module",
   "scripts": {
-    "build": "rimraf dist && lerna exec -- rollup -c ../../scripts/rollup.config.js",
+    "build": "rimraf dist && lerna exec -- rollup -c ../../scripts/rollup.config.js && gulp --gulpfile ./scripts/gulpfile.cjs",
     "dev": "rollup -c -w",
     "start": "live-server --open=demo",
     "test": "jest --coverage",
@@ -26,7 +26,8 @@
     "build:publish": "npm run build && npm run publish:all",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes"
+    "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -63,11 +64,14 @@
     "@typescript-eslint/parser": "^4.30.0",
     "@webcomponents/webcomponentsjs": "^2.6.0",
     "chromatic": "^5.9.2",
+    "commitlint": "^13.1.0",
     "concurrently": "^6.2.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-unused-imports": "^1.1.4",
-    "husky": "^7.0.2",
+    "gulp": "^4.0.2",
+    "gulp-tap": "^2.0.0",
+    "husky": "^7.0.0",
     "jest": "^27.1.0",
     "lerna": "^4.0.0",
     "lit-element": "^2.5.1",
