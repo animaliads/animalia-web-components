@@ -134,7 +134,7 @@ export default class Textarea extends HTMLElement implements Field {
     this.blurEvent = new Event('onBlur');
     this.inputEvent = new Event('onInput');
     this.focusEvent = new Event('onFocus');
-    
+
     this.textareaElement.addEventListener(
       'change',
       this.handleEvent.bind(this, this.changeEvent)
