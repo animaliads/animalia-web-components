@@ -83,7 +83,6 @@ export default class Textarea extends HTMLElement implements Field {
   }
 
   attributeChangedCallback(): void {
-    // this.render();
     this.updateAttributes();
   }
 
@@ -131,18 +130,11 @@ export default class Textarea extends HTMLElement implements Field {
   }
 
   private listenerEvents() {
-    this.changeEvent = document.createEvent('Event');
-    this.changeEvent.initEvent('onChange', true, true);
-
-    this.blurEvent = document.createEvent('Event');
-    this.blurEvent.initEvent('onBlur', true, true);
-
-    this.inputEvent = document.createEvent('Event');
-    this.inputEvent.initEvent('onInput', true, true);
-
-    this.focusEvent = document.createEvent('Event');
-    this.focusEvent.initEvent('onFocus', true, true);
-
+    this.changeEvent = new Event('onChange');
+    this.blurEvent = new Event('onBlur');
+    this.inputEvent = new Event('onInput');
+    this.focusEvent = new Event('onFocus');
+    
     this.textareaElement.addEventListener(
       'change',
       this.handleEvent.bind(this, this.changeEvent)
