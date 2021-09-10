@@ -33,7 +33,8 @@ export default {
     autocomplete: {
       options: ['off', 'on'],
       control: { type: 'radio' },
-      description: 'Indica se o valor do campo pode ser completado automaticamente pelo navegador.',
+      description:
+        'Indica se o valor do campo pode ser completado automaticamente pelo navegador.',
       defaultValue: 'on',
       table: {
         type: { summary: 'string' },

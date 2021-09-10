@@ -74,9 +74,8 @@ describe('Textarea:', () => {
     document.body.appendChild(textarea);
     textarea.setAttribute('disabled', 'true');
 
-    const textareaDisabled = getShadowRoot(tagName).querySelector<HTMLElement>(
-      selector
-    )['disabled'];
+    const textareaDisabled =
+      getShadowRoot(tagName).querySelector<HTMLElement>(selector)['disabled'];
 
     expect(textareaDisabled).toBe(true);
   });
@@ -115,9 +114,8 @@ describe('Textarea:', () => {
     document.body.appendChild(textarea);
     textarea.setAttribute('readonly', 'true');
 
-    const textareaReadonly = getShadowRoot(tagName).querySelector<HTMLElement>(
-      selector
-    )['readOnly'];
+    const textareaReadonly =
+      getShadowRoot(tagName).querySelector<HTMLElement>(selector)['readOnly'];
 
     expect(textareaReadonly).toBe(true);
   });
@@ -156,9 +154,8 @@ describe('Textarea:', () => {
     document.body.appendChild(textarea);
     textarea.setAttribute('required', 'true');
 
-    const textareaElement = getShadowRoot(tagName).querySelector<HTMLElement>(
-      selector
-    )['required'];
+    const textareaElement =
+      getShadowRoot(tagName).querySelector<HTMLElement>(selector)['required'];
 
     expect(textareaElement).toBe(true);
   });
@@ -240,9 +237,8 @@ describe('Textarea:', () => {
     document.body.appendChild(textarea);
     textarea.setAttribute('value', 'content test dynamic');
 
-    const element = getShadowRoot(tagName).querySelector<HTMLTextAreaElement>(
-      selector
-    ).value;
+    const element =
+      getShadowRoot(tagName).querySelector<HTMLTextAreaElement>(selector).value;
 
     expect(element).toEqual('content test dynamic');
   });
