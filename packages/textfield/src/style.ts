@@ -13,6 +13,7 @@ input {
     border-radius: var(--border-radius-md);
     min-height: 2.75em;
     box-sizing: border-box;
+    width: 100%;
 }
 
 input::placeholder {
