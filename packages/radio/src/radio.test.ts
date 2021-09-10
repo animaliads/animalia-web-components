@@ -34,8 +34,9 @@ describe('Radio:', () => {
       <ani-radio disabled="true"></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement.getAttribute('aria-disabled')).toBe('true');
   });
@@ -45,8 +46,9 @@ describe('Radio:', () => {
       <ani-radio disabled="false"></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement.getAttribute('aria-disabled')).toBe('false');
   });
@@ -56,8 +58,9 @@ describe('Radio:', () => {
       <ani-radio disabled></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement.getAttribute('aria-disabled')).toBe('true');
   });
@@ -67,8 +70,9 @@ describe('Radio:', () => {
       <ani-radio></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement.getAttribute('aria-disabled')).toBe('false');
   });
@@ -89,8 +93,9 @@ describe('Radio:', () => {
       <ani-radio checked="true"></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement['checked']).toBe(true);
   });
@@ -100,8 +105,9 @@ describe('Radio:', () => {
       <ani-radio checked></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement['checked']).toBe(true);
   });
@@ -111,8 +117,9 @@ describe('Radio:', () => {
       <ani-radio></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement['checked']).toBe(false);
   });
@@ -121,10 +128,9 @@ describe('Radio:', () => {
     document.body.appendChild(radio);
     radio.setAttribute('checked', 'true');
 
-    const radioChecked =
-      getShadowRoot(radioTagName).querySelector<HTMLElement>(
-        radioElementSelector
-      )['checked'];
+    const radioChecked = getShadowRoot(radioTagName).querySelector<HTMLElement>(
+      radioElementSelector
+    )['checked'];
 
     expect(radioChecked).toBe(true);
   });
@@ -134,8 +140,9 @@ describe('Radio:', () => {
       <ani-radio></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement.getAttribute('size')).toBe('medium');
   });
@@ -145,8 +152,9 @@ describe('Radio:', () => {
       <ani-radio size="large"></ani-radio>
     `;
 
-    const radioElement =
-      getShadowRoot(radioTagName).querySelector(radioElementSelector);
+    const radioElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
     expect(radioElement.getAttribute('size')).toBe('large');
   });
@@ -190,10 +198,9 @@ describe('Radio:', () => {
 
     radio.click();
 
-    const radioChecked =
-      getShadowRoot(radioTagName).querySelector<HTMLElement>(
-        radioElementSelector
-      )['checked'];
+    const radioChecked = getShadowRoot(radioTagName).querySelector<HTMLElement>(
+      radioElementSelector
+    )['checked'];
 
     expect(radioChecked).toBe(false);
   });
@@ -204,10 +211,9 @@ describe('Radio:', () => {
 
     radio.click();
 
-    const radioChecked =
-      getShadowRoot(radioTagName).querySelector<HTMLElement>(
-        radioElementSelector
-      )['checked'];
+    const radioChecked = getShadowRoot(radioTagName).querySelector<HTMLElement>(
+      radioElementSelector
+    )['checked'];
 
     expect(radioChecked).toBe(true);
   });

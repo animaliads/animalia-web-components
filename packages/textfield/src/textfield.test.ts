@@ -74,8 +74,9 @@ describe('Textfield:', () => {
     document.body.appendChild(textfield);
     textfield.setAttribute('disabled', 'true');
 
-    const textfieldDisabled =
-      getShadowRoot(tagName).querySelector<HTMLElement>(selector)['disabled'];
+    const textfieldDisabled = getShadowRoot(tagName).querySelector<HTMLElement>(
+      selector
+    )['disabled'];
 
     expect(textfieldDisabled).toBe(true);
   });
@@ -114,8 +115,9 @@ describe('Textfield:', () => {
     document.body.appendChild(textfield);
     textfield.setAttribute('readonly', 'true');
 
-    const textfieldReadonly =
-      getShadowRoot(tagName).querySelector<HTMLElement>(selector)['readOnly'];
+    const textfieldReadonly = getShadowRoot(tagName).querySelector<HTMLElement>(
+      selector
+    )['readOnly'];
 
     expect(textfieldReadonly).toBe(true);
   });
@@ -154,8 +156,9 @@ describe('Textfield:', () => {
     document.body.appendChild(textfield);
     textfield.setAttribute('required', 'true');
 
-    const textfieldElement =
-      getShadowRoot(tagName).querySelector<HTMLElement>(selector)['required'];
+    const textfieldElement = getShadowRoot(tagName).querySelector<HTMLElement>(
+      selector
+    )['required'];
 
     expect(textfieldElement).toBe(true);
   });
@@ -237,8 +240,9 @@ describe('Textfield:', () => {
     document.body.appendChild(textfield);
     textfield.setAttribute('value', 'content test dynamic');
 
-    const element =
-      getShadowRoot(tagName).querySelector<HTMLInputElement>(selector).value;
+    const element = getShadowRoot(tagName).querySelector<HTMLInputElement>(
+      selector
+    ).value;
 
     expect(element).toEqual('content test dynamic');
   });
