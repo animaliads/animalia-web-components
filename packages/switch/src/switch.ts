@@ -25,10 +25,6 @@ export default class Switch extends HTMLElement {
     return transformBooleanProperties(disabled);
   }
 
-  get checkedIcon(): string {
-    return checkIcon || '';
-  }
-
   static get observedAttributes(): Array<string> {
     return ['checked', 'disabled'];
   }
@@ -64,14 +60,13 @@ export default class Switch extends HTMLElement {
     const property = this.ariaAttr.includes(attr) ? `aria-${attr}` : attr;
 
     this.switchElement.setAttribute(property, newValue);
-    // this.switchElement.innerHTML = this.checkedIcon;
   }
 
   render(): void {
     this.shadow.innerHTML = `
       <style>${style}</style>
-      <slot></slot>
-      <div class="container" tabindex="0">
+      <slot class="label"></slot>
+      <div class="container" tabindex="${this.disabled === 'true' ? '-1' : 0}">
         <div
           role="switch"
           class="track"
@@ -79,7 +74,7 @@ export default class Switch extends HTMLElement {
           aria-disabled="${this.disabled}"
         >
           <div class="toggle">
-            ${this.checkedIcon}
+            ${checkIcon}
           </div>
         </div>
       </div>
@@ -87,17 +82,13 @@ export default class Switch extends HTMLElement {
   }
 
   private onClick(event) {
-    if (this.disabled === 'false') {
-      this.toggleSwitch();
-    } else {
-      event.preventDefault();
-    }
+    this.toggleSwitch();
   }
 
   private handleKeyDown(event) {
     const keyCode = event.keyCode;
 
-    if (this.disabled === 'false' && keyCode === KeyCode.SPACE) {
+    if (keyCode === KeyCode.SPACE) {
       this.toggleSwitch();
     }
   }

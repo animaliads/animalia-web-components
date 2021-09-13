@@ -49,7 +49,7 @@ export const style = `
     left: 1.5rem;
   }
 
-  :host([disabled]),[aria-disabled='true']  {
+  [aria-disabled='true'], :host([disabled]) .label {
     cursor: not-allowed;
   }
 
