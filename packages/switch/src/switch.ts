@@ -71,15 +71,16 @@ export default class Switch extends HTMLElement {
     this.shadow.innerHTML = `
       <style>${style}</style>
       <slot></slot>
-      <div
-        role="switch"
-        class="container"
-        aria-checked="${this.checked}"
-        aria-disabled="${this.disabled}"
-        tabindex="0"
-      >
-        <div class="toggle">
-          ${this.checkedIcon}
+      <div class="container" tabindex="0">
+        <div
+          role="switch"
+          class="track"
+          aria-checked="${this.checked}"
+          aria-disabled="${this.disabled}"
+        >
+          <div class="toggle">
+            ${this.checkedIcon}
+          </div>
         </div>
       </div>
     `;

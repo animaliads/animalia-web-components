@@ -1,11 +1,19 @@
 export const style = `
   .container {
+    height: 1.5rem;
+    position: relative;
+    width: 3rem;
+  }
+
+  .track {
     background-color: var(--track-unchecked);
 
     height: 1rem;
     width: 3rem;
     border-radius: 400px;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
     cursor: pointer;
   }
 
@@ -51,6 +59,14 @@ export const style = `
 
   [aria-checked='true'][aria-disabled='true'] {
     background-color: var(--track-unchecked);
+  }
+
+  .container:focus-visible {
+    outline-color: var(--outline-color-focused);
+
+    outline-width: var(--border-width-lg);
+    outline-style: solid;
+    outline-offset: 2px;
   }
 
   svg {
