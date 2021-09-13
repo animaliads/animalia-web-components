@@ -94,6 +94,10 @@ export default class Switch extends HTMLElement {
   }
 
   private toggleSwitch() {
+    if (this.disabled === 'true') {
+      return;
+    }
+
     this.checked = this.checked === 'true' ? 'false' : 'true';
   }
 }
