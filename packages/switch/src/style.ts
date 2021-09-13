@@ -18,7 +18,7 @@ export const style = `
   }
 
   .toggle {
-    background: var(--color-unchecked);
+    background-color: var(--color-unchecked);
     border: var(--border-width-md) solid var(--border-color);
 
     border-radius: 100%;
@@ -27,6 +27,16 @@ export const style = `
     position: absolute;
     top: -0.25rem;
     box-sizing: border-box;
+  }
+
+  .toggle:hover {
+    background-color: var(--color-unchecked-hover);
+
+    border-color: var(--color-checked-hover);
+  }
+  
+  [aria-checked='true'] .toggle:hover {
+    background-color: var(--color-checked-hover);
   }
 
   [aria-checked='true'] {
