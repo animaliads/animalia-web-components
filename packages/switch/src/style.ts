@@ -17,6 +17,10 @@ export const style = `
     cursor: pointer;
   }
 
+  .label {
+    cursor: pointer;
+  }
+
   .toggle {
     background-color: var(--color-unchecked);
     border: var(--border-width-md) solid var(--border-color);
@@ -39,7 +43,7 @@ export const style = `
     background-color: var(--color-checked-hover);
   }
 
-  [aria-checked='true'] {
+  [aria-checked='true'] .track{
     background-color: var(--track-checked);
   }
 
@@ -49,7 +53,7 @@ export const style = `
     left: 1.5rem;
   }
 
-  [aria-disabled='true'], :host([disabled]) .label {
+  [aria-disabled='true'] .track, :host([disabled]) .label {
     cursor: not-allowed;
   }
 
@@ -67,7 +71,7 @@ export const style = `
     background: var(--color-checked-disabled);
   }
 
-  [aria-checked='true'][aria-disabled='true'] {
+  [aria-checked='true'][aria-disabled='true'] .track{
     background-color: var(--track-unchecked);
   }
 

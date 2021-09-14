@@ -39,46 +39,45 @@ export default class Switch extends HTMLElement {
 
     this.switchElement = this.shadow.querySelector('[role="switch"]');
 
-    this.addEventListener('click', this.onClick);
-    this.addEventListener('keydown', this.handleKeyDown);
+    this.shadow.addEventListener('click', this.onClick.bind(this));
+    this.shadow.addEventListener('keydown', this.handleKeyDown.bind(this));
+
+    this.updateProperties();
   }
 
   disconnectedCallback(): void {
-    this.removeEventListener('click', this.onClick);
-    this.removeEventListener('keydown', this.handleKeyDown);
+    this.shadow.removeEventListener('click', this.onClick);
+    this.shadow.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  attributeChangedCallback(
-    attr: string,
-    oldValue: string,
-    newValue: string
-  ): void {
+  attributeChangedCallback(): void {
     if (!this.switchElement) {
       return;
     }
-
-    const property = this.ariaAttr.includes(attr) ? `aria-${attr}` : attr;
-
-    this.switchElement.setAttribute(property, newValue);
+    this.updateProperties();
   }
 
   render(): void {
     this.shadow.innerHTML = `
       <style>${style}</style>
-      <slot class="label"></slot>
-      <div class="container" tabindex="${this.disabled === 'true' ? '-1' : 0}">
-        <div
-          role="switch"
-          class="track"
-          aria-checked="${this.checked}"
-          aria-disabled="${this.disabled}"
-        >
+      <slot class="label" id="label"></slot>
+      <div class="container" role="switch" aria-labelledby="label">
+        <div class="track">
           <div class="toggle">
             ${checkIcon}
           </div>
         </div>
       </div>
     `;
+  }
+
+  private updateProperties() {
+    this.switchElement.setAttribute('aria-checked', this.checked);
+    this.switchElement.setAttribute('aria-disabled', this.disabled);
+    this.switchElement.setAttribute(
+      'tabindex',
+      this.disabled === 'true' ? '-1' : '0'
+    );
   }
 
   private onClick(event) {

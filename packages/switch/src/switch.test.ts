@@ -179,7 +179,7 @@ describe('Switch:', () => {
     element.setAttribute('disabled', 'false');
 
     const event = new KeyboardEvent('keydown', { keyCode: 32 });
-    element.dispatchEvent(event);
+    getShadowRoot(switchTagName).dispatchEvent(event);
 
     const switchChecked = getShadowRoot(switchTagName)
       .querySelector<HTMLElement>(switchElementSelector)
@@ -193,7 +193,7 @@ describe('Switch:', () => {
     element.setAttribute('disabled', 'false');
 
     const event = new KeyboardEvent('keydown', { keyCode: 13 });
-    element.dispatchEvent(event);
+    getShadowRoot(switchTagName).dispatchEvent(event);
 
     const switchChecked = getShadowRoot(switchTagName)
       .querySelector<HTMLElement>(switchElementSelector)
@@ -206,7 +206,9 @@ describe('Switch:', () => {
     document.body.appendChild(element);
     element.setAttribute('disabled', 'false');
 
-    element.click();
+    getShadowRoot(switchTagName)
+      .querySelector<HTMLElement>(switchElementSelector)
+      .click();
 
     const switchChecked = getShadowRoot(switchTagName)
       .querySelector<HTMLElement>(switchElementSelector)
@@ -220,7 +222,9 @@ describe('Switch:', () => {
     element.setAttribute('disabled', 'false');
     element.setAttribute('checked', 'true');
 
-    element.click();
+    getShadowRoot(switchTagName)
+      .querySelector<HTMLElement>(switchElementSelector)
+      .click();
 
     const switchChecked = getShadowRoot(switchTagName)
       .querySelector<HTMLElement>(switchElementSelector)
