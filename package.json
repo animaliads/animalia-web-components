@@ -14,7 +14,7 @@
     "test:dev:all": "jest --watchAll",
     "lint": "eslint --ext .ts ./packages",
     "lint:fix": "eslint --ext .ts ./packages --fix",
-    "prettier": "prettier write .",
+    "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "start:dev": "concurrently npm:dev npm:start",
     "publish:link": "npm publish ./dist/packages/link --access public",
