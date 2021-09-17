@@ -6,7 +6,7 @@
   "tag": "dev",
   "scripts": {
     "build": "rimraf dist && lerna exec -- rollup -c ../../scripts/rollup.config.js && gulp --gulpfile ./scripts/gulpfile.cjs",
-    "dev": "rollup -c -w",
+    "dev": "lerna exec -- rollup -c ../../scripts/rollup.config.js -w",
     "start": "live-server --open=demo",
     "test": "jest --coverage",
     "test:dev": "jest --watch",
