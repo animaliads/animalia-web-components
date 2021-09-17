@@ -1,8 +1,4 @@
 export const style = `
-  :host {
-    width: max-content;
-  }
-
   button {
     /* Custom */
     font-family: var(--font-family);
@@ -11,6 +7,7 @@ export const style = `
 
     /* Fixed */
     letter-spacing: var(--letter-spacing-auto);
+    width: inherit;
   }
 
   button:focus {
