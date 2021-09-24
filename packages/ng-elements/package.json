@@ -1,0 +1,26 @@
+{
+  "name": "@po-ds/ng-elements",
+  "version": "0.0.0-PLACEHOLDER",
+  "description": "Angular Elements",
+  "keywords": [
+    "material design",
+    "web components",
+    "ng-elements"
+  ],
+  "main": "ng-elements/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/po-ds/pods-web-components.git",
+    "directory": "packages/ng-elements"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
