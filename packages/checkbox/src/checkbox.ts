@@ -61,6 +61,8 @@ export default class Checkbox extends HTMLElement {
 
     this.addEventListener('click', this.onClick);
     this.addEventListener('keydown', this.handleKeyDown);
+
+    this.updateProperties();
   }
 
   disconnectedCallback(): void {
@@ -68,21 +70,8 @@ export default class Checkbox extends HTMLElement {
     this.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  attributeChangedCallback(
-    attr: string,
-    oldValue: string,
-    newValue: string
-  ): void {
-    if (!this.checkboxElement) {
-      return;
-    }
-
-    const property = this.ariaAttr.includes(attr) ? `aria-${attr}` : attr;
-
-    this.checkboxElement.setAttribute(property, newValue);
-    this.checkboxElement.innerHTML = this.checkedIcon;
-
-    this.setDefaultSize();
+  attributeChangedCallback(): void {
+    this.updateProperties();
   }
 
   render(): void {
@@ -91,15 +80,22 @@ export default class Checkbox extends HTMLElement {
       <span
         class="checkbox"
         role="checkbox"
-        aria-checked="${this.checked}"
-        aria-disabled="${this.disabled}"
-        size="${this.size}"
-        tabindex="0"
-      >
+        size="${this.size}">
         ${this.checkedIcon}
       </span>
       <slot></slot>
     `;
+  }
+
+  private updateProperties() {
+    if (!this.checkboxElement) {
+      return;
+    }
+
+    this.checkboxElement.setAttribute('aria-checked', this.checked);
+    this.checkboxElement.setAttribute('aria-disabled', this.disabled);
+    this.checkboxElement.setAttribute('tabindex', this.disabled === 'true' ? '-1' : '0');
+    this.checkboxElement.innerHTML = this.checkedIcon;
 
     this.setDefaultSize();
   }

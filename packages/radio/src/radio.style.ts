@@ -69,12 +69,12 @@ export const radioStyle = `
 
   :host([disabled="true"]),
   :host([disabled="true"]) label,
-  input[type='radio'][aria-disabled='true'],
-  input[type='radio'][aria-disabled='true'] + slot {
+  input[type='radio'][disabled],
+  input[type='radio'][disabled] + slot {
     cursor: not-allowed;
   }
 
-  input[type='radio'][aria-disabled='true'] {
+  input[type='radio'][disabled] {
     box-shadow: none;
   }
 
@@ -90,17 +90,17 @@ export const radioStyle = `
     background-color: var(--color-unchecked);
   }
 
-  input[type='radio'][aria-disabled='true'] {
+  input[type='radio'][disabled] {
     background-color: var(--color-unchecked-disabled);
     border-color: var(--color-checked-disabled)
   }
 
-  input[type='radio'][aria-disabled='true']:checked {
+  input[type='radio'][disabled]:checked {
     background: var(--background-radial-md-disabled);
     background-color: var(--color-unchecked-disabled);
   }
 
-  input[type='radio'][aria-disabled='true'][size='large']:checked {
+  input[type='radio'][disabled][size='large']:checked {
     background: var(--background-radial-lg-disabled);
     background-color: var(--color-unchecked-disabled);
   }
