@@ -277,9 +277,9 @@ describe('Checkbox:', () => {
     checkbox.setAttribute('disabled', 'false');
 
     const checkboxElement = getShadowRoot(checkboxTagName)
-    .querySelector<HTMLElement>(checkboxElementSelector);
+      .querySelector<HTMLElement>(checkboxElementSelector);
 
-  expect(checkboxElement.getAttribute('tabindex')).toBe('0');
+    expect(checkboxElement.getAttribute('tabindex')).toBe('0');
   });
   
   test('shouldn`t be focusable if it is disabled', () => {
@@ -287,8 +287,8 @@ describe('Checkbox:', () => {
     checkbox.setAttribute('disabled', 'true');
 
     const checkboxElement = getShadowRoot(checkboxTagName)
-    .querySelector<HTMLElement>(checkboxElementSelector);
+      .querySelector<HTMLElement>(checkboxElementSelector);
 
-  expect(checkboxElement.getAttribute('tabindex')).toBe('-1');
+    expect(checkboxElement.getAttribute('tabindex')).toBe('-1');
   });
 });
