@@ -276,18 +276,20 @@ describe('Checkbox:', () => {
     document.body.appendChild(checkbox);
     checkbox.setAttribute('disabled', 'false');
 
-    const checkboxElement = getShadowRoot(checkboxTagName)
-      .querySelector<HTMLElement>(checkboxElementSelector);
+    const checkboxElement = getShadowRoot(
+      checkboxTagName
+    ).querySelector<HTMLElement>(checkboxElementSelector);
 
     expect(checkboxElement.getAttribute('tabindex')).toBe('0');
   });
-  
+
   test('shouldn`t be focusable if it is disabled', () => {
     document.body.appendChild(checkbox);
     checkbox.setAttribute('disabled', 'true');
 
-    const checkboxElement = getShadowRoot(checkboxTagName)
-      .querySelector<HTMLElement>(checkboxElementSelector);
+    const checkboxElement = getShadowRoot(
+      checkboxTagName
+    ).querySelector<HTMLElement>(checkboxElementSelector);
 
     expect(checkboxElement.getAttribute('tabindex')).toBe('-1');
   });

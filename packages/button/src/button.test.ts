@@ -93,8 +93,9 @@ describe('Button:', () => {
     document.body.appendChild(button);
     button.setAttribute('disabled', 'true');
 
-    const buttonDisabled: any = getShadowRoot(buttonTagName)
-      .querySelector<HTMLElement>('button');
+    const buttonDisabled: any = getShadowRoot(
+      buttonTagName
+    ).querySelector<HTMLElement>('button');
 
     expect(buttonDisabled.disabled).toBe(true);
   });

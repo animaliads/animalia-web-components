@@ -93,7 +93,10 @@ export default class Checkbox extends HTMLElement {
 
     this.checkboxElement.setAttribute('aria-checked', this.checked);
     this.checkboxElement.setAttribute('aria-disabled', this.disabled);
-    this.checkboxElement.setAttribute('tabindex', this.disabled === 'true' ? '-1' : '0');
+    this.checkboxElement.setAttribute(
+      'tabindex',
+      this.disabled === 'true' ? '-1' : '0'
+    );
     this.checkboxElement.innerHTML = this.checkedIcon;
 
     this.setDefaultSize();
