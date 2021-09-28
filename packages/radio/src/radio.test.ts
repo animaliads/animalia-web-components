@@ -29,63 +29,63 @@ describe('Radio:', () => {
     expect(renderedText).toBe('Hello radio');
   });
 
-  test('should set aria-disabled to true if disabled is true', () => {
+  test('should set disabled to true if disabled is true', () => {
     document.body.innerHTML = `
       <ani-radio disabled="true"></ani-radio>
     `;
 
-    const radioElement = getShadowRoot(radioTagName).querySelector(
+    const radioElement: HTMLInputElement = getShadowRoot(radioTagName).querySelector(
       radioElementSelector
     );
 
-    expect(radioElement.getAttribute('aria-disabled')).toBe('true');
+    expect(radioElement.disabled).toBe(true);
   });
 
-  test('should set aria-disabled to false if disabled is false', () => {
+  test('should set disabled to false if disabled is false', () => {
     document.body.innerHTML = `
       <ani-radio disabled="false"></ani-radio>
     `;
 
-    const radioElement = getShadowRoot(radioTagName).querySelector(
+    const radioElement: HTMLInputElement = getShadowRoot(radioTagName).querySelector(
       radioElementSelector
     );
 
-    expect(radioElement.getAttribute('aria-disabled')).toBe('false');
+    expect(radioElement.disabled).toBe(false);
   });
 
-  test('should set aria-disabled to true if disabled is defined', () => {
+  test('should set disabled to true if disabled is defined', () => {
     document.body.innerHTML = `
       <ani-radio disabled></ani-radio>
     `;
 
-    const radioElement = getShadowRoot(radioTagName).querySelector(
+    const radioElement: HTMLInputElement = getShadowRoot(radioTagName).querySelector(
       radioElementSelector
     );
 
-    expect(radioElement.getAttribute('aria-disabled')).toBe('true');
+    expect(radioElement.disabled).toBe(true);
   });
 
-  test('should set aria-disabled to false if disabled is undefined', () => {
+  test('should set disabled to false if disabled is undefined', () => {
     document.body.innerHTML = `
       <ani-radio></ani-radio>
     `;
 
-    const radioElement = getShadowRoot(radioTagName).querySelector(
+    const radioElement: HTMLInputElement = getShadowRoot(radioTagName).querySelector(
       radioElementSelector
     );
 
-    expect(radioElement.getAttribute('aria-disabled')).toBe('false');
+    expect(radioElement.disabled).toBe(false);
   });
 
   test('should set attribute disabled to true', () => {
     document.body.appendChild(radio);
     radio.setAttribute('disabled', 'true');
 
-    const radioDisabled = getShadowRoot(radioTagName)
-      .querySelector<HTMLElement>(radioElementSelector)
-      .getAttribute('aria-disabled');
+    const radioElement: HTMLInputElement = getShadowRoot(radioTagName).querySelector(
+      radioElementSelector
+    );
 
-    expect(radioDisabled).toBe('true');
+    expect(radioElement.disabled).toBe(true);
   });
 
   test('should set checked to true if checked is true', () => {
