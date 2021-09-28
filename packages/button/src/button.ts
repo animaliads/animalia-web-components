@@ -6,7 +6,6 @@ import { ButtonSize } from './enums/button.size.enum';
 export class Button extends HTMLElement {
   shadow: ShadowRoot;
   clickEvent: Event;
-  buttonElement: HTMLElement;
 
   constructor() {
     super();
@@ -53,7 +52,6 @@ export class Button extends HTMLElement {
 
     this.setDefaultKind();
     this.setDefaultSize();
-    this.setAccessibility();
   }
 
   attributeChangedCallback(): void {
@@ -61,7 +59,6 @@ export class Button extends HTMLElement {
 
     this.setDefaultKind();
     this.setDefaultSize();
-    this.setAccessibility();
   }
 
   private onClick(): void {
@@ -90,19 +87,14 @@ export class Button extends HTMLElement {
     }
   }
 
-  private setAccessibility() {
-    this.buttonElement = this.shadow.getElementById('buttonElement');
-    this.buttonElement.setAttribute('aria-disabled', this.disabled);
-  }
-
   private render(): void {
     this.shadow.innerHTML = `
             <style>${style}</style>
             <button
-              id="buttonElement"
               type="${this.type}"
               kind=${this.kind}
               size=${this.size}
+              ${this.disabled === 'true' ? 'disabled' : ''}
               danger=${this.danger}>
                 <slot></slot>
             </button>

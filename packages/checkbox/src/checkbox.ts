@@ -15,7 +15,6 @@ const checkIcon = `
 export default class Checkbox extends HTMLElement {
   shadow: ShadowRoot;
   checkboxElement: HTMLElement;
-  ariaAttr = ['checked', 'disabled'];
 
   get checked(): string {
     const checked = this.getAttribute('checked');
