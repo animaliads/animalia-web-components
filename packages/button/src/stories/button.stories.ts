@@ -74,6 +74,12 @@ export default {
         category: 'Eventos',
       },
     },
+    setFocus: {
+      description: 'Aciona o foco no componente.',
+      table: {
+        category: 'Métodos',
+      },
+    }
   },
 };
 

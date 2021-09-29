@@ -61,6 +61,14 @@ export class Button extends HTMLElement {
     this.setDefaultSize();
   }
 
+  /**
+   * Aciona o foco no componente.
+   */
+     setFocus() {
+      this.shadow.querySelector('button').focus();
+    }
+  
+
   private onClick(): void {
     if (this.disabled !== 'true') {
       this.dispatchEvent(this.clickEvent);
