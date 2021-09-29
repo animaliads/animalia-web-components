@@ -64,10 +64,9 @@ export class Button extends HTMLElement {
   /**
    * Aciona o foco no componente.
    */
-     setFocus() {
-      this.shadow.querySelector('button').focus();
-    }
-  
+  setFocus() {
+    this.shadow.querySelector('button').focus();
+  }
 
   private onClick(): void {
     if (this.disabled !== 'true') {

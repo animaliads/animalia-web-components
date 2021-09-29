@@ -79,7 +79,7 @@ export default {
       table: {
         category: 'Métodos',
       },
-    }
+    },
   },
 };
 
