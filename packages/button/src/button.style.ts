@@ -18,7 +18,7 @@ export const style = `
     outline-offset: 2px;
   }
 
-  button:active {
+  button:active:not([disabled]) {
     color: var(--text-color-pressed, var(--text-color));
     outline-color: var(--outline-color-focused);
 

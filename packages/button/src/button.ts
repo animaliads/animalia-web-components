@@ -64,7 +64,7 @@ export class Button extends HTMLElement {
   /**
    * Aciona o foco no componente.
    */
-  setFocus() {
+  setFocus(): void {
     this.shadow.querySelector('button').focus();
   }
 

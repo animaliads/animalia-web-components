@@ -29,7 +29,7 @@ export default class Textarea extends HTMLElement implements Field {
     return this.getAttribute('value') || '';
   }
 
-  set value(value) {
+  set value(value: string) {
     this.setAttribute('value', value);
   }
 
@@ -96,7 +96,7 @@ export default class Textarea extends HTMLElement implements Field {
   /**
    * Aciona o foco no componente.
    */
-  setFocus() {
+  setFocus(): void {
     this.textareaElement.focus();
   }
 

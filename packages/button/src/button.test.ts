@@ -93,11 +93,11 @@ describe('Button:', () => {
     document.body.appendChild(button);
     button.setAttribute('disabled', 'true');
 
-    const buttonDisabled: any = getShadowRoot(
+    const buttonDisabled = getShadowRoot(
       buttonTagName
     ).querySelector<HTMLElement>('button');
 
-    expect(buttonDisabled.disabled).toBe(true);
+    expect(buttonDisabled['disabled']).toBe(true);
   });
 
   test('should set danger to true if danger is true', () => {
