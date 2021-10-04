@@ -36,7 +36,7 @@ export default class Textfield extends HTMLElement {
     return this.getAttribute('value') || '';
   }
 
-  set value(value) {
+  set value(value: string) {
     this.setAttribute('value', value);
   }
 
@@ -105,7 +105,7 @@ export default class Textfield extends HTMLElement {
   /**
    * Aciona o foco no componente.
    */
-  setFocus() {
+  setFocus(): void {
     this.textfieldElement.focus();
   }
 
@@ -143,7 +143,7 @@ export default class Textfield extends HTMLElement {
     this.textfieldElement.required = this.required === 'true';
   }
 
-  updateAttribute(attr: string, property: string) {
+  updateAttribute(attr: string, property: string): void {
     property && this.textfieldElement.setAttribute(attr, property);
   }
 

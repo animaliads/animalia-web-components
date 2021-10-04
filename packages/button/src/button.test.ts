@@ -28,14 +28,14 @@ describe('Button:', () => {
     expect(renderedText).toBe('Hello button');
   });
 
-  test('should set aria-disabled to true if disabled is true', () => {
+  test('should set disabled to true if disabled is true', () => {
     document.body.innerHTML = `
       <ani-button disabled="true"></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
 
-    expect(buttonElement.getAttribute('aria-disabled')).toBe('true');
+    expect(buttonElement.disabled).toBe(true);
   });
 
   test('shouldn`t set danger if kind is tertiary', () => {
@@ -59,45 +59,45 @@ describe('Button:', () => {
     expect(buttonKind).toBe('false');
   });
 
-  test('should set aria-disabled to false if disabled is false', () => {
+  test('should set disabled to false if disabled is false', () => {
     document.body.innerHTML = `
       <ani-button disabled="false"></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
 
-    expect(buttonElement.getAttribute('aria-disabled')).toBe('false');
+    expect(buttonElement.disabled).toBe(false);
   });
 
-  test('should set aria-disabled to true if disabled is defined', () => {
+  test('should set disabled to true if disabled is defined', () => {
     document.body.innerHTML = `
       <ani-button disabled></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
 
-    expect(buttonElement.getAttribute('aria-disabled')).toBe('true');
+    expect(buttonElement.disabled).toBe(true);
   });
 
-  test('should set aria-disabled to false if disabled is undefined', () => {
+  test('should set disabled to false if disabled is undefined', () => {
     document.body.innerHTML = `
       <ani-button></ani-button>
     `;
 
     const buttonElement = getShadowRoot(buttonTagName).querySelector('button');
 
-    expect(buttonElement.getAttribute('aria-disabled')).toBe('false');
+    expect(buttonElement.disabled).toBe(false);
   });
 
   test('should set attribute disabled to true', () => {
     document.body.appendChild(button);
     button.setAttribute('disabled', 'true');
 
-    const buttonDisabled = getShadowRoot(buttonTagName)
-      .querySelector<HTMLElement>('button')
-      .getAttribute('aria-disabled');
+    const buttonDisabled = getShadowRoot(
+      buttonTagName
+    ).querySelector<HTMLElement>('button');
 
-    expect(buttonDisabled).toBe('true');
+    expect(buttonDisabled['disabled']).toBe(true);
   });
 
   test('should set danger to true if danger is true', () => {

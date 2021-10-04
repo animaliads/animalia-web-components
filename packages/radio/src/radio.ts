@@ -35,14 +35,12 @@ export default class Radio extends HTMLElement {
   connectedCallback(): void {
     this.render();
 
-    this.setAccessibility();
     this.setDefaultSize();
   }
 
   attributeChangedCallback(): void {
     this.render();
 
-    this.setAccessibility();
     this.setDefaultSize();
   }
 
@@ -63,6 +61,7 @@ export default class Radio extends HTMLElement {
             id="radioElement"
             size="${this.size}"
             ${this.checked === 'true' ? 'checked' : ''}
+            ${this.disabled === 'true' ? 'disabled' : ''}
           >
           <slot></slot>
         </label>
@@ -77,12 +76,6 @@ export default class Radio extends HTMLElement {
     if (!this.hasAttribute('size') || !includesSize) {
       this.setAttribute('size', RadioSize.medium);
     }
-  }
-
-  private setAccessibility() {
-    this.radioElement = this.shadow.getElementById('radioElement');
-
-    this.radioElement.setAttribute('aria-disabled', this.disabled);
   }
 }
 

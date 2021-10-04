@@ -18,7 +18,7 @@ export const style = `
     outline-offset: 2px;
   }
 
-  button:active {
+  button:active:not([disabled]) {
     color: var(--text-color-pressed, var(--text-color));
     outline-color: var(--outline-color-focused);
 
@@ -53,7 +53,7 @@ export const style = `
     background-color: var(--background-pressed);
   }
 
-  button[kind='primary'][aria-disabled='true'] {
+  button[kind='primary'][disabled] {
     /* Custom */
     color: var(--text-color-disabled);
     background-color: var(--background-disabled);
@@ -84,7 +84,7 @@ export const style = `
     border-color: var(--border-color-pressed);
   }
 
-  button[kind='secondary'][aria-disabled='true'] {
+  button[kind='secondary'][disabled] {
     /* Custom */
     color: var(--text-color-disabled);
     border-color: var(--border-color-disabled);
@@ -113,7 +113,7 @@ export const style = `
     background-color: var(--background-pressed);
   }
 
-  button[kind='tertiary'][aria-disabled='true'] {
+  button[kind='tertiary'][disabled] {
     /* Custom */
     color: var(--text-color-disabled);
 

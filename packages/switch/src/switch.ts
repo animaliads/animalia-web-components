@@ -80,7 +80,7 @@ export default class Switch extends HTMLElement {
     );
   }
 
-  private onClick(event) {
+  private onClick() {
     this.toggleSwitch();
   }
 
