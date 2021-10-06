@@ -1,6 +1,5 @@
 export const style = `
   button {
-    /* Custom */
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height);
@@ -8,12 +7,10 @@ export const style = `
     border-width: var(--border-width);
     padding: var(--padding);
 
-    /* Fixed */
     letter-spacing: var(--letter-spacing-auto);
     width: inherit;
     border-style: solid;
     min-height: 2.75em;
-
     cursor: pointer;
   }
 
@@ -49,7 +46,7 @@ export const style = `
   }
 
 
-  button:focus, button:active:not([disabled]) {
+  button:focus, button:enabled:active {
     outline-color: var(--outline-color-focused);
 
     outline-width: var(--border-width-lg);
@@ -71,7 +68,7 @@ export const style = `
     color: var(--border-color-hover);
   }
 
-  button[kind='secondary']:active:enabled {
+  button[kind='secondary']:enabled:active {
     background-color: var(--background-pressed);
     border-color: var(--border-color-hover);
     color: var(--border-color-hover);
@@ -90,7 +87,7 @@ export const style = `
     background-color: var(--background-hover);
   }
 
-  button[kind='tertiary']:active {
+  button[kind='tertiary']:enabled:active {
     background-color: var(--background-pressed);
     color: var(--color-pressed);
   }
@@ -102,7 +99,7 @@ export const style = `
     border-color: transparent;
   }
   
-  button[kind='primary'][danger="true"]:hover:enabled {
+  button[kind='primary'][danger="true"]:enabled:hover {
     background-color: var(--color-danger-hover);
   }
   
@@ -115,7 +112,7 @@ export const style = `
     border-color: var(--color-danger);
   }
   
-  button[kind='secondary'][danger="true"]:hover:enabled {
+  button[kind='secondary'][danger="true"]:enabled:hover {
     background-color: var(--background-danger-hover);
     border-color: var(--border-color-danger-hover);
 
