@@ -1,6 +1,5 @@
 import buttonTypes from './img/button-types.jpg';
 import buttonAnatomy from './img/button-anatomy.jpg';
-import buttonToken from './img/button-token.jpg';
 import buttonSize from './img/button-size.jpg';
 import buttonWidth from './img/button-width.jpg';
 
@@ -42,11 +41,6 @@ O botão é composto por um background ou border que recebe uma cor de marca e u
 
 Os componentes são formados por tokens, sendo estes propriedades de estilo que definem como será estruturado e estilizado o botão. Os tokens que podem ser alterados pelas marcas, podem ser conferidos na seção de [propriedades customizáveis](#propriedades-customizáveis).
 
-<img
-  src={buttonToken}
-  alt="Descrição dos tokens customizados que foram utilizados na construção do botão."
-/>
-
 ### Tamanhos
 
 Todos os tipos de botões podem ser utilizados em três tamanhos diferentes: Small, Medium e Large. O tamanho medium é o tamanho padrão do botão e deve ser o mais aplicado. Utilize as outras variações para criar uma hierarquia na página, alinhada aos tipos de botões .
@@ -62,8 +56,7 @@ Todos os tipos de botões podem ser utilizados em três tamanhos diferentes: Sma
 
 **3.** Large
 
-Por padrão, a largura do botão se adequa de acordo com o tamanho do texto e o espaçamento definido no token `—-spacing-squish`. Se necessário, é possível redefinir a largura para se ajustar ao tamanho do componente no qual o botão está inserido.
-
+Por padrão, a largura do botão se adequa de acordo com o tamanho do texto. Mas caso seja necessário, é possível redefinir a largura para se ajustar ao tamanho do componente no qual o botão está inserido.
 <img
   src={buttonWidth}
   alt="Dois botões demonstrando como a largura do botão aumenta conforme o a label que é inserida"

@@ -8,135 +8,64 @@ import buttonSecondaryDanger from './img/button-secondary-danger.jpg';
 
 O componente de botão possui propriedades customizáveis que podem variar de acordo com o tema selecionado. As propriedades customizáveis podem ser alteradas para cada produto, de acordo com os tokens de marca e tokens globais. Com isso, garantimos uma consistência no Design System, sem perder a identidade de cada marca.
 
-O botão possui estados e se modifica de acordo com a interação do usuário. São eles: Default, Hover, Focus, Disabled e Focusable Disabled.
+O botão possui estados e se modifica de acordo com a interação do usuário. São eles: Default, Hover, Focus e Disabled.
 
-### Primary Button
+### Button
 
-| Propriedade               | Descrição                                                      | Valor padrão            |
-| ------------------------- | -------------------------------------------------------------- | ----------------------- |
-| `--font-family`           | família tipográfica usada na label                             | $font-family-text       |
-| `--font-size`             | tamanho da fonte na label                                      | $font-size-default      |
-| `--font-weight`           | peso da fonte na label                                         | $font-weight-bold       |
-| `--line-height`           | tamanho da label                                               | $line-height-4xl        |
-| `--text-color`            | cor da label                                                   | $color-neutral-light-00 |
-| `--border-radius`         | arredondamento da borda do background                          | $border-radius-md       |
-| `--border-width`          | espessura do border                                            | $border-width-md        |
-| `--spacing-squish`        | espaço interno entre a label e a borda do background (padding) | $spacing-squish-md      |
-| `--background`            | cor do background                                              | $color-action-default   |
-| `--shadow`                | sombra do background                                           | $shadow-none            |
-| `--text-color-hover`      | cor da label no estado hover                                   | $color-neutral-light-00 |
-| `--background-hover`      | cor do background estado hover                                 | $color-action-hover     |
-| `--outline-color-focused` | cor do outline do focus                                        | $color-action-focus     |
-| `--text-color-pressed`    | cor da label no estado pressed                                 | $color-neutral-light-00 |
-| `--background-pressed`    | cor do background no estado pressed                            | $color-action-pressed   |
-| `--text-color-disabled`   | cor da label no estado disabled                                | $color-neutral-dark-70  |
-| `--background-disabled`   | cor do background no estado disabled                           | $color-action-disabled  |
+| Propriedade               | Descrição                                                                                                   | Valor padrão                    |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `--font-family`           | família tipográfica usada na label                                                                          | $font-family-text               |
+| `--font-size`             | tamanho da fonte na label                                                                                   | $font-size-default              |
+| `--font-weight`           | peso da fonte na label                                                                                      | $font-weight-bold               |
+| `--line-height`           | altura da linha da label                                                                                    | $line-height-none               |
+| `--border-radius`         | arredondamento da borda                                                                                     | $border-radius-md               |
+| `--border-width`          | espessura da borda                                                                                          | $border-width-md                |
+| `--padding`               | espaço interno entre a label e a borda do background (padding)                                              | 0, 1em                          |
+| `--outline-color-focused` | cor do outline do focus                                                                                     | $color-action-focus             |
+| `--color`                 | cor principal que será aplicado internamento no botão de acordo com o tipo (primary, secondary ou tertiray) | $color-action-default           |
+| `--color-disabled`        | cor principal no estado disabled                                                                            | $color-action-disabled          |
+| `--color-pressed`         | cor principal no estado pressed                                                                             | $color-action-pressed           |
+| `--color-danger`         | cor principal quando o componente estiver danger                                                             | $color-feedback-negative-dark   |
+
+### Primary
+
+| Propriedade               | Descrição                                                           | Valor padrão                     |
+| ------------------------- | ------------------------------------------------------------------- |
+| `--text-color`            | cor da label                                                        | $color-neutral-light-00          |
+| `--shadow`                | sombra do background                                                | $shadow-none                     |
+| `--color-hover`           | cor do background estado hover                                      | $color-action-hover              |
+| `--text-color-disabled`   | cor da label no estado disabled                                     | $color-neutral-dark-70           |
+| `--text-color-danger`     | cor da label quando o componente estiver danger                     | $color-neutral-light-00          |
+| `--color-danger-hover`    | cor do background estado hover quando o componente estiver danger   | $color-feedback-negative-darker  |
+| `--color-danger-pressed`  | cor do background estado pressed quando o componente estiver danger | $color-feedback-negative-darkest |
+
 
 <img
   src={buttonPrimary}
   alt="Os cinco estado de interação do botão primário dispostos lado a lado."
 />
 
-### Secondary Button
-
-| Propriedade               | Descrição                                         | Valor padrão            |
-| ------------------------- | ------------------------------------------------- | ----------------------- |
-| `--font-family`           | família tipográfica usada na label                | $font-family-text       |
-| `--font-size`             | tamanho da fonte na label                         | $font-size-default      |
-| `--font-weight`           | peso da fonte na label                            | $font-weight-bold       |
-| `--line-height`           | tamanho da label                                  | $line-height-4xl        |
-| `--text-color`            | cor da label                                      | $color-action-default   |
-| `--border-radius`         | arredondamento da borda do background             | $border-radius-md       |
-| `--spacing-squish`        | espaço interno entre a label e o border (padding) | $spacing-squish-md      |
-| `--border-color`          | cor do border                                     | $color-action-default   |
-| `--border-width`          | espessura do border                               | $border-width-md        |
-| `--text-color-hover`      | cor da label no estado hover                      | $color-brand-01-darkest |
-| `--background-hover`      | cor do background no estado hover                 | $color-brand-01-lighter |
-| `--border-color-hover`    | cor do border no estado hover                     | $color-brand-01-darkest |
-| `--outline-color-focused` | cor do outline do focus                           | $color-action-focus     |
-| `--text-color-pressed`    | cor da label no estado pressed                    | $color-brand-01-darkest |
-| `--background-pressed`    | cor do background no estado pressed               | $color-brand-01-light   |
-| `--border-color-pressed`  | cor do border no estado pressed                   | $color-action-pressed   |
-| `--text-color-disabled`   | cor da label no estado disabled                   | $color-neutral-light-30 |
-| `--border-color-disabled` | cor do border no estado disabled                  | $color-action-disabled  |
-
-<img
-  src={buttonSecondary}
-  alt="Os cinco estado de interação do botão secundário dispostos lado a lado."
-/>
-
-### Tertiary Button
-
-| Propriedade               | Descrição                                                      | Valor padrão            |
-| ------------------------- | -------------------------------------------------------------- | ----------------------- |
-| `--font-family`           | família tipográfica usada na label                             | $font-family-text       |
-| `--font-size`             | tamanho da fonte na label                                      | $font-size-default      |
-| `--font-weight`           | peso da fonte na label                                         | $font-weight-bold       |
-| `--line-height`           | tamanho da label                                               | $line-height-4xl        |
-| `--text-color`            | cor da label                                                   | $color-action-default   |
-| `--border-radius`         | arredondamento da borda do background                          | $border-radius-md       |
-| `--border-width`          | espessura do border                                            | $border-width-md        |
-| `--spacing-squish`        | espaço interno entre a label e a borda do background (padding) | $spacing-squish-md      |
-| `--text-color-hover`      | cor da label no estado hover                                   | $color-brand-01-darkest |
-| `--background-hover`      | cor do background no estado hover                              | $color-brand-01-lighter |
-| `--outline-color-focused` | cor do outline do focus                                        | $color-action-focus     |
-| `--text-color-pressed`    | cor da label no estado pressed                                 | $color-brand-01-darkest |
-| `--background-pressed`    | cor do background no estado pressed                            | $color-brand-01-light   |
-| `--text-color-disabled`   | cor da label no estado disabled                                | $color-neutral-light-30 |
-
-<img
-  src={buttonTertiary}
-  alt="Os cinco estado de interação do botão terciário dispostos lado a lado."
-/>
-
-### Primary Danger
-
-| Propriedade             | Descrição                                                      | Valor padrão                     |
-| ----------------------- | -------------------------------------------------------------- | -------------------------------- |
-| `--font-family`         | família tipográfica usada na label                             | $font-family-text                |
-| `--font-size`           | tamanho da fonte na label                                      | $font-size-default               |
-| `--font-weight`         | peso da fonte na label                                         | $font-weight-bold                |
-| `--line-height`         | tamanho da label                                               | $line-height-4xl                 |
-| `--text-color`          | cor da label                                                   | $color-neutral-light-00          |
-| `--border-radius`       | arredondamento da borda do background                          | $border-radius-md                |
-| `--border-width`        | espessura do border                                            | $border-width-md                 |
-| `--spacing-squish`      | espaço interno entre a label e a borda do background (padding) | $spacing-squish-md               |
-| `--background`          | cor do background                                              | $color-feedback-negative-dark    |
-| `--text-color-hover`    | cor da label no estado hover                                   | $color-neutral-light-00          |
-| `--background-hover`    | cor do background estado hover                                 | $color-feedback-negative-darker  |
-| `--outline-color`       | cor do outline do focus                                        | $color-action-focus              |
-| `--text-color-pressed`  | cor da label no estado pressed                                 | $color-neutral-light-00          |
-| `--background-pressed`  | cor do background no estado pressed                            | $color-feedback-negative-darkest |
-| `--text-color-disabled` | cor da label no estado disabled                                | $color-neutral-dark-70           |
-| `--background-disabled` | cor do background no estado disabled                           | $color-action-disabled           |
-
 <img
   src={buttonPrimaryDanger}
   alt="Os cinco estado de interação do botão de perigo primário dispostos lado a lado."
 />
 
-### Secondary Danger
 
-| Propriedade               | Descrição                                         | Valor padrão                     |
-| ------------------------- | ------------------------------------------------- | -------------------------------- |
-| `--font-family`           | família tipográfica usada na label                | $font-family-text                |
-| `--font-size`             | tamanho da fonte na label                         | $font-size-default               |
-| `--font-weight`           | peso da fonte na label                            | $font-weight-bold                |
-| `--line-height`           | tamanho da label                                  | $line-height-4xl                 |
-| `--text-color`            | cor da label                                      | $color-feedback-negative-dark    |
-| `--border-radius`         | arredondamento da borda do background             | $border-radius-md                |
-| `--spacing-squish`        | espaço interno entre a label e o border (padding) | $spacing-squish-md               |
-| `--border-color`          | cor do border                                     | $color-feedback-negative-dark    |
-| `--border-width`          | espessura do border                               | $border-width-md                 |
-| `--text-color-hover`      | cor da label no estado hover                      | $color-feedback-negative-darkest |
-| `--background-hover`      | cor do background no estado hover                 | $color-feedback-negative-lighter |
-| `--border-color-hover`    | cor do border no estado hover                     | $color-feedback-negative-darkest |
-| `--outline-color-focused` | cor do outline do focus                           | $color-action-focus              |
-| `--text-color-pressed`    | cor da label no estado pressed                    | $color-feedback-negative-darkest |
-| `--background-pressed`    | cor do background no estado pressed               | $color-feedback-negative-light   |
-| `--border-color-pressed`  | cor do border no estado pressed                   | $color-feedback-negative-darkest |
-| `--text-color-disabled`   | cor da label no estado disabled                   | $color-neutral-light-30          |
-| `--border-color-disabled` | cor do border no estado disabled                  | $color-action-disabled           |
+### Secondary Button
+
+| Propriedade                   | Descrição                                                 | Valor padrão                     |
+| ----------------------------- | --------------------------------------------------------- | -------------------------------- |
+| `--background-hover`          | cor do background no estado hover                         | $color-brand-01-lighter          |
+| `--border-color-hover`        | cor do border no estado hover                             | $color-brand-01-darkest          |
+| `--background-pressed`        | cor do background no estado pressed                       | $color-brand-01-light            |
+| `--border-color-danger-hover` | cor do border no estado hover quando estiver danger       | $color-feedback-negative-darkest |
+| `--background-danger-hover`   | cor do background no estado hover quando estiver danger   | $color-feedback-negative-lighter |
+| `--background-danger-pressed` | cor do background no estado pressed quando estiver danger | $color-feedback-negative-light   |
+
+<img
+  src={buttonSecondary}
+  alt="Os cinco estado de interação do botão secundário dispostos lado a lado."
+/>
 
 <img
   src={buttonSecondaryDanger}
