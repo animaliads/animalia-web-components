@@ -3,122 +3,153 @@ export const style = `
     /* Custom */
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
+    line-height: var(--line-height);
     border-radius: var(--border-radius);
+    border-width: var(--border-width);
+    padding: var(--padding);
 
     /* Fixed */
     letter-spacing: var(--letter-spacing-auto);
     width: inherit;
-  }
+    border-style: solid;
+    min-height: 2.75em;
 
-  button:focus {
-    outline-color: var(--outline-color-focused);
-
-    outline-width: var(--border-width-lg);
-    outline-style: solid;
-    outline-offset: 2px;
-  }
-
-  button:active:not([disabled]) {
-    color: var(--text-color-pressed, var(--text-color));
-    outline-color: var(--outline-color-focused);
-
-    outline-width: var(--border-width-lg);
-    outline-style: solid;
-    outline-offset: 2px;
     cursor: pointer;
   }
 
   button[size='small'], button[size='medium'], button[size='large'] {
     font-size: var(--font-size);
     line-height: var(--line-height);
-    padding: var(--spacing-squish);
+    padding: var(--padding);
+  }
+
+  button[size='small'] {
+    min-height: 2em;
+  }
+  
+  button[size='large'] {
+    min-height: 3.5em;
   }
 
   button[kind='primary'] {
     color: var(--text-color);
-    background-color: var(--background);
+    background-color: var(--color);
     box-shadow: var(--shadow);
 
-    border: var(--border-width) solid transparent;
+    border-color: transparent;
   }
 
   button[kind='primary']:hover {
-    color: var(--text-color-hover, var(--text-color));
-    background-color: var(--background-hover);
-
-    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--color-hover);
   }
 
   button[kind='primary']:active {
-    background-color: var(--background-pressed);
+    background-color: var(--color-pressed);
   }
 
-  button[kind='primary'][disabled] {
-    /* Custom */
-    color: var(--text-color-disabled);
-    background-color: var(--background-disabled);
 
-    cursor: not-allowed;
+  button:focus, button:active:not([disabled]) {
+    outline-color: var(--outline-color-focused);
+
+    outline-width: var(--border-width-lg);
+    outline-style: solid;
+    outline-offset: 2px;
   }
 
   button[kind='secondary'] {
-    color: var(--text-color);
-    border-color: var(--border-color);
-    border-width: var(--border-width);
+    color: var(--color);
+    border-color: var(--color);
 
     background-color: transparent;
-    border-style: solid;
     box-shadow: var(--shadow-none);
   }
 
   button[kind='secondary']:hover {
-    color: var(--text-color-hover, var(--text-color));
     background-color: var(--background-hover);
     border-color: var(--border-color-hover);
-
-    cursor: pointer;
+    color: var(--border-color-hover);
   }
 
-  button[kind='secondary']:active {
+  button[kind='secondary']:active:enabled {
     background-color: var(--background-pressed);
-    border-color: var(--border-color-pressed);
-  }
-
-  button[kind='secondary'][disabled] {
-    /* Custom */
-    color: var(--text-color-disabled);
-    border-color: var(--border-color-disabled);
-
-    background-color: transparent;
-    cursor: not-allowed;
+    border-color: var(--border-color-hover);
+    color: var(--border-color-hover);
   }
 
   button[kind='tertiary'] {
-    color: var(--text-color);
+    color: var(--color);
 
     background-color: transparent;
-    border: none;
+    border-color: transparent;
     box-shadow: var(--shadow-none);
-    border: var(--border-width) solid transparent;
   }
 
   button[kind='tertiary']:hover {
-    color: var(--text-color-hover);
+    color: var(--border-color-hover);
     background-color: var(--background-hover);
-
-    cursor: pointer;
   }
 
   button[kind='tertiary']:active {
     background-color: var(--background-pressed);
+    color: var(--color-pressed);
   }
 
-  button[kind='tertiary'][disabled] {
-    /* Custom */
+  button[kind='primary'][danger="true"] {
+    color: var(--text-color-danger);
+    background-color: var(--color-danger);
+
+    border-color: transparent;
+  }
+  
+  button[kind='primary'][danger="true"]:hover:enabled {
+    background-color: var(--color-danger-hover);
+  }
+  
+  button[kind='primary'][danger="true"]:enabled:active {
+    background-color: var(--color-danger-pressed);
+  }
+
+  button[kind='secondary'][danger="true"] {
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+  }
+  
+  button[kind='secondary'][danger="true"]:hover:enabled {
+    background-color: var(--background-danger-hover);
+    border-color: var(--border-color-danger-hover);
+
+    color: var(--border-color-danger-hover);
+  }
+  
+  button[kind='secondary'][danger="true"]:enabled:active {
+    background-color: var(--background-danger-pressed);
+    border-color: var(--border-color-danger-hover);
+
+    color: var(--border-color-danger-hover);
+  }
+
+
+  button:disabled {
+    cursor: not-allowed; 
+  }
+
+  button[kind='primary']:disabled {
+    color: var(--text-color-disabled);
+    background-color: var(--color-disabled);
+  }
+
+  button[kind='secondary']:disabled {
+    color: var(--color-disabled);
+    border-color: var(--color-disabled);
+
+    background-color: transparent;
+  }
+
+  button[kind='tertiary']:disabled {
     color: var(--text-color-disabled);
 
     background-color: transparent;
-    cursor: not-allowed;
   }
 
 `;
