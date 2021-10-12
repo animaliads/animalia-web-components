@@ -27,6 +27,10 @@ export const checkboxStyle = `
     box-shadow: 0 0 0 var(--border-width-lg) var(--shadow-color-hover);
   }
 
+  [aria-disabled='true'].checkbox:focus {
+    outline: none;
+  }
+
   .checkbox:focus-visible {
     outline-color: var(--outline-color-focused);
 
