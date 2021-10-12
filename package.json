@@ -16,7 +16,7 @@
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "start:dev": "concurrently npm:dev npm:start",
-    "publish": "node ./scripts/publish.js",
+    "publish": "npm publish --workspace dist/@animaliads",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
