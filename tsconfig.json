@@ -6,11 +6,8 @@
     "declarationMap": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "rootDir": "./packages",
-    "outDir": "./dist",
-    "lib": ["es2017", "dom"]
+    "lib": ["es2017", "dom"],
   },
-  "include": ["./packages/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts", "**/stories/**"]
+  "include": ["packages/**/*.ts"],
+  "exclude": ["**/node_modules/**", "**/*.test.ts", "**/stories/**", "**/dist/**"]
 }
