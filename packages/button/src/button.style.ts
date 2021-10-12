@@ -144,7 +144,7 @@ export const style = `
   }
 
   button[kind='tertiary']:disabled {
-    color: var(--text-color-disabled);
+    color: var(--color-disabled);
 
     background-color: transparent;
   }
