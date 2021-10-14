@@ -1,9 +1,12 @@
 {
   "name": "@animaliads/web-components",
-  "version": "1.1.0-dev.24",
+  "version": "1.1.0-dev.25",
   "description": "Repositório de Web Components do Animalia DS",
   "main": "index.js",
   "tag": "dev",
+  "workspaces": [
+    "dist/@animaliads/*"
+  ],
   "scripts": {
     "build:packages": "lerna exec -- rollup -c ../../scripts/packages-rollup.config.js",
     "build:bunddle": "rollup -c ./scripts/bunddle-rollup.config.js",
@@ -18,7 +21,7 @@
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "start:dev": "concurrently npm:dev npm:start",
-    "publish": "npm publish --workspace dist/@animaliads",
+    "publish": "npm publish --workspace=dist/@animaliads",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
