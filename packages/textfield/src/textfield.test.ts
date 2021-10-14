@@ -302,7 +302,7 @@ describe('Textfield:', () => {
     `;
 
     const aniTextfield = <Textfield>document.querySelector('ani-textfield');
-    spyOn(aniTextfield.getElement(), 'focus');
+    jest.spyOn(aniTextfield.getElement(), 'focus');
 
     aniTextfield.setFocus();
 

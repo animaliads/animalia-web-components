@@ -302,7 +302,7 @@ describe('Textarea:', () => {
     `;
 
     const aniTextarea = <Textarea>document.querySelector('ani-textarea');
-    spyOn(aniTextarea.getElement(), 'focus');
+    jest.spyOn(aniTextarea.getElement(), 'focus');
 
     aniTextarea.setFocus();
 
