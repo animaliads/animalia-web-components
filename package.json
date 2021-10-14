@@ -8,7 +8,7 @@
     "build:packages": "lerna exec -- rollup -c ../../scripts/packages-rollup.config.js",
     "build:bunddle": "rollup -c ./scripts/bunddle-rollup.config.js",
     "build": "rimraf dist &&  npm run build:packages && npm run build:bunddle",
-    "dev": "lerna exec -- rollup -c ../../scripts/packages-rollup.config.js -w",
+    "dev": "rollup -c ./scripts/bunddle-rollup.config.js -w",
     "start": "live-server --open=demo",
     "test": "jest --coverage",
     "test:dev": "jest --watch",

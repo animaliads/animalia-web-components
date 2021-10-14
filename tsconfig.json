@@ -6,8 +6,13 @@
     "declarationMap": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2017", "dom"]
   },
   "include": ["packages/**/*.ts"],
-  "exclude": ["**/node_modules/**", "**/*.test.ts", "**/stories/**", "**/dist/**"]
+  "exclude": [
+    "**/node_modules/**",
+    "**/*.test.ts",
+    "**/stories/**",
+    "**/dist/**"
+  ]
 }

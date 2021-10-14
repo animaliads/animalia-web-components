@@ -34,9 +34,8 @@ describe('Radio:', () => {
       <ani-radio disabled="true"></ani-radio>
     `;
 
-    const radioElement: HTMLInputElement = getShadowRoot(
-      radioTagName
-    ).querySelector(radioElementSelector);
+    const radioElement: HTMLInputElement =
+      getShadowRoot(radioTagName).querySelector(radioElementSelector);
 
     expect(radioElement.disabled).toBe(true);
   });
@@ -46,9 +45,8 @@ describe('Radio:', () => {
       <ani-radio disabled="false"></ani-radio>
     `;
 
-    const radioElement: HTMLInputElement = getShadowRoot(
-      radioTagName
-    ).querySelector(radioElementSelector);
+    const radioElement: HTMLInputElement =
+      getShadowRoot(radioTagName).querySelector(radioElementSelector);
 
     expect(radioElement.disabled).toBe(false);
   });
@@ -58,9 +56,8 @@ describe('Radio:', () => {
       <ani-radio disabled></ani-radio>
     `;
 
-    const radioElement: HTMLInputElement = getShadowRoot(
-      radioTagName
-    ).querySelector(radioElementSelector);
+    const radioElement: HTMLInputElement =
+      getShadowRoot(radioTagName).querySelector(radioElementSelector);
 
     expect(radioElement.disabled).toBe(true);
   });
@@ -70,9 +67,8 @@ describe('Radio:', () => {
       <ani-radio></ani-radio>
     `;
 
-    const radioElement: HTMLInputElement = getShadowRoot(
-      radioTagName
-    ).querySelector(radioElementSelector);
+    const radioElement: HTMLInputElement =
+      getShadowRoot(radioTagName).querySelector(radioElementSelector);
 
     expect(radioElement.disabled).toBe(false);
   });
@@ -81,9 +77,8 @@ describe('Radio:', () => {
     document.body.appendChild(radio);
     radio.setAttribute('disabled', 'true');
 
-    const radioElement: HTMLInputElement = getShadowRoot(
-      radioTagName
-    ).querySelector(radioElementSelector);
+    const radioElement: HTMLInputElement =
+      getShadowRoot(radioTagName).querySelector(radioElementSelector);
 
     expect(radioElement.disabled).toBe(true);
   });

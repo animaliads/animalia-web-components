@@ -10,7 +10,6 @@ import typescript2 from 'rollup-plugin-typescript2';
 const rootPath = process.cwd();
 const outputPathBase = `${rootPath}/dist/@animaliads/web-components`;
 
-
 export default {
   input: `${rootPath}/packages/index.ts`,
   output: [
