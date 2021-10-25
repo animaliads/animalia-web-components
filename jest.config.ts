@@ -5,5 +5,6 @@ const config: Config.InitialOptions = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
+  testEnvironment: 'jsdom',
 };
 export default config;
