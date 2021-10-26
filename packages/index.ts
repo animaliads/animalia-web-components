@@ -5,3 +5,4 @@ export * from './radio/src/index';
 export * from './switch/src/index';
 export * from './textarea/src/index';
 export * from './textfield/src/index';
+export * from './select/src/index';
