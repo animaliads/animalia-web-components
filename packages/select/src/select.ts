@@ -15,15 +15,19 @@ export default class Select extends HTMLElement {
   }
 
   get items() {
-    return JSON.parse(this.getAttribute('items'));
+    return JSON.parse(this.getAttribute('items')) || [];
   }
 
   set items(value) {
     this.setAttribute('items', value);
   }
 
+  get value(): string {
+    return this.getAttribute('value') || '';
+  }
+
   static get observedAttributes() {
-    return ['items', 'disabled'];
+    return ['items', 'disabled', 'value'];
   }
 
   constructor() {
@@ -34,17 +38,15 @@ export default class Select extends HTMLElement {
   connectedCallback(): void {
     this.render();
     this.selectElement = this.shadowRoot.querySelector('select');
+
+    this.updateAttributes();
   }
 
   attributeChangedCallback(): void {
-    this.render();
+    this.updateAttributes();
   }
 
-  render() {
-    const options = this.items.reduce((acc, item) => {
-      return acc + `<option value="${item.value}">${item.label}</option>`;
-    }, '');
-
+  private render() {
     this.shadow.innerHTML = `
       <style>${style}</style>
       
@@ -53,15 +55,43 @@ export default class Select extends HTMLElement {
           <slot></slot>
         </div>
         <div class="container">
-        <select
-        ${this.disabled === 'true' ? 'disabled' : ''}
-        >
-        ${options}
-        </select>
-        ${icon}
+          <select></select>
+          ${icon}
         </div>
       </label>
     `;
+  }
+
+  private updateAttributes() {
+    if (!this.selectElement) {
+      return;
+    }
+
+    this.selectElement.disabled = this.disabled === 'true';
+
+    this.removeOptions();
+
+    this.items.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.value;
+      option.innerText = item.label;
+
+      this.selectElement.add(option);
+    });
+
+    if (this.value) {
+      this.selectElement.value = this.value;
+    }
+  }
+
+  private removeOptions() {
+    // Array.from(this.selectElement.options).forEach((element, index) => {
+    //   console.log(this.selectElement.options)
+    //   this.selectElement.remove(index)
+    // });
+
+    this.selectElement.remove(0);
+    this.selectElement.remove(1);
   }
 }
 
