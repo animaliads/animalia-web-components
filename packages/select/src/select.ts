@@ -85,13 +85,12 @@ export default class Select extends HTMLElement {
   }
 
   private removeOptions() {
-    // Array.from(this.selectElement.options).forEach((element, index) => {
-    //   console.log(this.selectElement.options)
-    //   this.selectElement.remove(index)
-    // });
+    let hasOptions = !!this.selectElement.options.length;
 
-    this.selectElement.remove(0);
-    this.selectElement.remove(1);
+    while (hasOptions) {
+      this.selectElement.remove(0);
+      hasOptions = !!this.selectElement.options.length;
+    }
   }
 }
 

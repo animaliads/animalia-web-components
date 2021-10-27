@@ -137,7 +137,7 @@ describe('Select:', () => {
 
     const selectElement = select.shadowRoot.querySelector(selector);
 
-    expect(selectElement.item(0)).toEqual('A');
+    expect(selectElement.item(0).value).toEqual('A');
     expect(selectElement.options.length).toBe(1);
   });
 });
