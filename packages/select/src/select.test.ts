@@ -140,4 +140,79 @@ describe('Select:', () => {
     expect(selectElement.item(0).value).toEqual('A');
     expect(selectElement.options.length).toBe(1);
   });
+
+  test('should set required to true if required is true', () => {
+    document.body.innerHTML = `
+      <ani-select required="true"></ani-select>
+    `;
+
+    const selectElement = getShadowRoot(tagName).querySelector(selector);
+
+    expect(selectElement['required']).toBe(true);
+  });
+
+  test('should set required to false if required is false', () => {
+    document.body.innerHTML = `
+      <ani-select required="false"></ani-select>
+    `;
+
+    const selectElement = getShadowRoot(tagName).querySelector(selector);
+
+    expect(selectElement['required']).toBe(false);
+  });
+
+  test('should set required to true if required is defined', () => {
+    document.body.innerHTML = `
+      <ani-select required></ani-select>
+    `;
+
+    const selectElement = getShadowRoot(tagName).querySelector(selector);
+
+    expect(selectElement['required']).toBe(true);
+  });
+
+  test('should set required to false if required is undefined', () => {
+    document.body.innerHTML = `
+      <ani-select></ani-select>
+    `;
+
+    const selectElement = getShadowRoot(tagName).querySelector(selector);
+
+    expect(selectElement['required']).toBe(false);
+  });
+
+  test('should set attribute required to true', () => {
+    document.body.appendChild(select);
+    select.setAttribute('required', 'true');
+
+    const selectRequired =
+      getShadowRoot(tagName).querySelector<HTMLElement>(selector)['required'];
+
+    expect(selectRequired).toBe(true);
+  });
+
+  test('should return select element', () => {
+    document.body.innerHTML = `
+      <ani-select></ani-select>
+    `;
+
+    const aniTextfield = <Select>document.querySelector('ani-select');
+
+    const element = getShadowRoot(tagName).querySelector<HTMLElement>(selector);
+
+    expect(element).toBe(aniTextfield.getElement());
+  });
+
+  test('should set focus if setFocus is called', () => {
+    document.body.innerHTML = `
+      <ani-select></ani-select>
+    `;
+
+    const aniTextfield = <Select>document.querySelector('ani-select');
+    jest.spyOn(aniTextfield.getElement(), 'focus');
+
+    aniTextfield.setFocus();
+
+    expect(aniTextfield.getElement().focus).toBeCalled();
+  });
 });

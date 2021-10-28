@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { style } from './style';
 
 const icon = `
@@ -8,6 +9,10 @@ const icon = `
 export default class Select extends HTMLElement {
   shadow: ShadowRoot;
   selectElement: HTMLSelectElement;
+  changeEvent: Event;
+  blurEvent: Event;
+  inputEvent: Event;
+  focusEvent: Event;
 
   get disabled(): string {
     const disabled = this.getAttribute('disabled');
@@ -26,8 +31,21 @@ export default class Select extends HTMLElement {
     return this.getAttribute('value') || '';
   }
 
+  set value(value: string) {
+    this.setAttribute('value', value);
+  }
+
+  get required(): string {
+    const required = this.getAttribute('required');
+    return transformBooleanProperties(required);
+  }
+
+  get labelChooseOption(): string {
+    return this.getAttribute('label-choose-option');
+  }
+
   static get observedAttributes() {
-    return ['items', 'disabled', 'value'];
+    return ['items', 'disabled', 'value', 'required', 'label-choose-option'];
   }
 
   constructor() {
@@ -40,24 +58,42 @@ export default class Select extends HTMLElement {
     this.selectElement = this.shadowRoot.querySelector('select');
 
     this.updateAttributes();
+    this.listenerEvents();
+  }
+
+  disconnectedCallback(): void {
+    this.selectElement.removeEventListener('change', this.handleEvent);
+    this.selectElement.removeEventListener('blur', this.handleEvent);
+    this.selectElement.removeEventListener('input', this.handleEvent);
   }
 
   attributeChangedCallback(): void {
     this.updateAttributes();
   }
 
+  /**
+   * Retorna o elemento que define o textfield.
+   */
+  getElement(): HTMLSelectElement {
+    return this.selectElement;
+  }
+
+  /**
+   * Aciona o foco no componente.
+   */
+  setFocus(): void {
+    this.selectElement.focus();
+  }
+
   private render() {
     this.shadow.innerHTML = `
       <style>${style}</style>
-      
+
       <label>
         <div>
           <slot></slot>
         </div>
-        <div class="container">
           <select></select>
-          ${icon}
-        </div>
       </label>
     `;
   }
@@ -68,8 +104,17 @@ export default class Select extends HTMLElement {
     }
 
     this.selectElement.disabled = this.disabled === 'true';
+    this.selectElement.required = this.required === 'true';
 
     this.removeOptions();
+
+    if (this.labelChooseOption) {
+      const option = document.createElement('option');
+      option.value = this.labelChooseOption;
+      option.innerText = this.labelChooseOption;
+      option.disabled = true;
+      this.selectElement.add(option);
+    }
 
     this.items.forEach(item => {
       const option = document.createElement('option');
@@ -81,6 +126,20 @@ export default class Select extends HTMLElement {
 
     if (this.value) {
       this.selectElement.value = this.value;
+      this.selectElement.style.setProperty(
+        'color',
+        getComputedStyle(this.selectElement).getPropertyValue('--text-color')
+      );
+    }
+
+    if (!this.value && this.labelChooseOption) {
+      this.selectElement.value = this.labelChooseOption;
+      this.selectElement.style.setProperty(
+        'color',
+        getComputedStyle(this.selectElement).getPropertyValue(
+          '--text-color-empty'
+        )
+      );
     }
   }
 
@@ -91,6 +150,35 @@ export default class Select extends HTMLElement {
       this.selectElement.remove(0);
       hasOptions = !!this.selectElement.options.length;
     }
+  }
+
+  private listenerEvents() {
+    this.changeEvent = new Event('onChange');
+    this.blurEvent = new Event('onBlur');
+    this.inputEvent = new Event('onInput');
+    this.focusEvent = new Event('onFocus');
+
+    this.selectElement.addEventListener(
+      'change',
+      this.handleEvent.bind(this, this.changeEvent)
+    );
+    this.selectElement.addEventListener(
+      'blur',
+      this.handleEvent.bind(this, this.blurEvent)
+    );
+    this.selectElement.addEventListener(
+      'input',
+      this.handleEvent.bind(this, this.inputEvent)
+    );
+    this.selectElement.addEventListener(
+      'focus',
+      this.handleEvent.bind(this, this.focusEvent)
+    );
+  }
+
+  private handleEvent(event) {
+    this.value = this.selectElement.value;
+    this.dispatchEvent(event);
   }
 }
 
