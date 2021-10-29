@@ -1,10 +1,4 @@
-/* eslint-disable linebreak-style */
 import { style } from './style';
-
-const icon = `
-<svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M13.707 0.293006C13.316 -0.0979941 12.684 -0.0979941 12.293 0.293006L7.00001 5.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L6.29301 7.70701C6.48801 7.90201 6.74401 8.00001 7.00001 8.00001C7.25601 8.00001 7.51201 7.90201 7.70701 7.70701L13.707 1.70701C14.098 1.31601 14.098 0.684006 13.707 0.293006Z" fill="#515162"/>
-</svg>`;
 
 export default class Select extends HTMLElement {
   shadow: ShadowRoot;
@@ -19,12 +13,12 @@ export default class Select extends HTMLElement {
     return transformBooleanProperties(disabled);
   }
 
-  get items() {
+  get items(): Array<{ label: string; value: string }> {
     return JSON.parse(this.getAttribute('items')) || [];
   }
 
   get value(): string {
-    return this.getAttribute('value') || '';
+    return this.getAttribute('value');
   }
 
   set value(value: string) {
@@ -40,7 +34,7 @@ export default class Select extends HTMLElement {
     return this.getAttribute('label-choose-option');
   }
 
-  static get observedAttributes() {
+  static get observedAttributes(): Array<string> {
     return ['items', 'disabled', 'value', 'required', 'label-choose-option'];
   }
 
@@ -102,41 +96,49 @@ export default class Select extends HTMLElement {
     this.selectElement.disabled = this.disabled === 'true';
     this.selectElement.required = this.required === 'true';
 
+    this.addOptions();
+
+    const firstOption = this.selectElement.options[0]?.value;
+    const isEmpty = !this.value && this.labelChooseOption;
+
+    this.selectElement.value =
+      this.value || this.labelChooseOption || firstOption;
+
+    this.setColorLabelChooseOption(
+      isEmpty ? '--text-color-empty' : '--text-color'
+    );
+  }
+
+  private setColorLabelChooseOption(customProperty: string) {
+    this.selectElement.style.setProperty(
+      'color',
+      getComputedStyle(this.selectElement).getPropertyValue(customProperty)
+    );
+  }
+
+  private addOptions() {
     this.removeOptions();
 
     if (this.labelChooseOption) {
-      const option = document.createElement('option');
-      option.value = this.labelChooseOption;
-      option.innerText = this.labelChooseOption;
-      option.disabled = true;
-      this.selectElement.add(option);
-    }
-
-    this.items.forEach(item => {
-      const option = document.createElement('option');
-      option.value = item.value;
-      option.innerText = item.label;
-
-      this.selectElement.add(option);
-    });
-
-    if (this.value) {
-      this.selectElement.value = this.value;
-      this.selectElement.style.setProperty(
-        'color',
-        getComputedStyle(this.selectElement).getPropertyValue('--text-color')
+      this.createOption(
+        { label: this.labelChooseOption, value: this.labelChooseOption },
+        true
       );
     }
 
-    if (!this.value && this.labelChooseOption) {
-      this.selectElement.value = this.labelChooseOption;
-      this.selectElement.style.setProperty(
-        'color',
-        getComputedStyle(this.selectElement).getPropertyValue(
-          '--text-color-empty'
-        )
-      );
-    }
+    this.items.forEach(item => this.createOption(item));
+  }
+
+  private createOption(
+    item: { label: string; value: string },
+    isDisabled = false
+  ) {
+    const option = document.createElement('option');
+    option.value = item.value;
+    option.innerText = item.label;
+    option.disabled = isDisabled;
+
+    this.selectElement.add(option);
   }
 
   private removeOptions() {
