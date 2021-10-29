@@ -1,4 +1,5 @@
 import './button';
+import { Button } from './button';
 
 describe('Button:', () => {
   let button: HTMLElement;
@@ -273,5 +274,22 @@ describe('Button:', () => {
     button.click();
 
     expect(onClickMock).not.toHaveBeenCalled();
+  });
+
+  test('should set focus if setFocus is called', () => {
+    document.body.innerHTML = `
+      <ani-button></ani-button>
+    `;
+
+    const buttonElement =
+      getShadowRoot(buttonTagName).querySelector<HTMLElement>('button');
+
+    const aniButton = <Button>document.querySelector('ani-button');
+
+    jest.spyOn(buttonElement, 'focus');
+
+    aniButton.setFocus();
+
+    expect(buttonElement.focus).toBeCalled();
   });
 });
