@@ -23,10 +23,6 @@ export default class Select extends HTMLElement {
     return JSON.parse(this.getAttribute('items')) || [];
   }
 
-  set items(value) {
-    this.setAttribute('items', value);
-  }
-
   get value(): string {
     return this.getAttribute('value') || '';
   }

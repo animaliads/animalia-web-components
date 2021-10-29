@@ -196,11 +196,11 @@ describe('Select:', () => {
       <ani-select></ani-select>
     `;
 
-    const aniTextfield = <Select>document.querySelector('ani-select');
+    const aniSelect = <Select>document.querySelector('ani-select');
 
     const element = getShadowRoot(tagName).querySelector<HTMLElement>(selector);
 
-    expect(element).toBe(aniTextfield.getElement());
+    expect(element).toBe(aniSelect.getElement());
   });
 
   test('should set focus if setFocus is called', () => {
@@ -208,11 +208,56 @@ describe('Select:', () => {
       <ani-select></ani-select>
     `;
 
-    const aniTextfield = <Select>document.querySelector('ani-select');
-    jest.spyOn(aniTextfield.getElement(), 'focus');
+    const aniSelect = <Select>document.querySelector('ani-select');
+    jest.spyOn(aniSelect.getElement(), 'focus');
 
-    aniTextfield.setFocus();
+    aniSelect.setFocus();
 
-    expect(aniTextfield.getElement().focus).toBeCalled();
+    expect(aniSelect.getElement().focus).toBeCalled();
+  });
+
+  test('shoulnd`t set labelChooseOption in first option if labelChooseOption is undefined and value is defined', () => {
+    document.body.innerHTML = `
+    <ani-select value="2" items='[{"label": "item 1", "value": 1}, {"label": "item 2", "value": 2}]'></ani-select>
+  `;
+
+    const element = getShadowRoot(tagName).querySelector(selector);
+
+    expect(element.options[0].value).toEqual('1');
+    expect(element.options.length).toBe(2);
+    expect(element.selectedIndex).toBe(1);
+    expect(element.options[0].style.getPropertyValue('color')).toBe(
+      getComputedStyle(element).getPropertyValue('--text-color')
+    );
+  });
+
+  test('shoulnd`t set labelChooseOption in first option if labelChooseOption is undefined', () => {
+    document.body.innerHTML = `
+    <ani-select items='[{"label": "item 1", "value": 1}, {"label": "item 2", "value": 2}]'></ani-select>
+  `;
+
+    const element = getShadowRoot(tagName).querySelector(selector);
+
+    expect(element.options[0].value).toEqual('1');
+    expect(element.options.length).toBe(2);
+    expect(element.selectedIndex).toBe(0);
+    expect(element.options[0].style.getPropertyValue('color')).toBe(
+      getComputedStyle(element).getPropertyValue('--text-color')
+    );
+  });
+
+  test('should set labelChooseOption in first option if labelChooseOption is defined', () => {
+    document.body.innerHTML = `
+    <ani-select label-choose-option='Label' items='[{"label": "item 1", "value": 1}, {"label": "item 2", "value": 2}]'></ani-select>
+  `;
+
+    const element = getShadowRoot(tagName).querySelector(selector);
+
+    expect(element.options[0].value).toEqual('Label');
+    expect(element.options.length).toBe(3);
+    expect(element.selectedIndex).toBe(0);
+    expect(element.options[0].style.getPropertyValue('color')).toBe(
+      getComputedStyle(element).getPropertyValue('--text-color-empty')
+    );
   });
 });
