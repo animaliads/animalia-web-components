@@ -1,3 +1,4 @@
+export * from './common/src/index';
 export * from './button/src/index';
 export * from './checkbox/src/index';
 export * from './link/src/index';

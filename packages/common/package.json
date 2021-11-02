@@ -1,25 +1,25 @@
 {
-  "name": "@animaliads/ani-button",
+  "name": "@animaliads/common",
   "version": "0.0.0-PLACEHOLDER",
-  "description": "Botão do Animalia DS",
+  "description": "Common do Animalia DS",
+  "types": "./dist/@animaliads/common/src/index.d.ts",
   "tag": "dev",
   "keywords": [
     "javascript",
     "design system",
     "web components",
-    "button"
+    "common"
   ],
-  "main": "button/index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",
-    "directory": "packages/button"
+    "directory": "packages/common"
   },
   "license": "MIT",
   "dependencies": {
-    "@animaliads/animalia-brand": "^1.0.0-dev.4",
-    "@animaliads/css-tokens": "^1.0.0-dev.4",
-    "@animaliads/common": "1.1.0-dev.25",
+    "@animaliads/animalia-brand": "^1.0.0",
+    "@animaliads/css-tokens": "^1.0.0",
     "tslib": "^2.0.3"
   },
   "devDependencies": {
