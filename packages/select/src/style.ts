@@ -13,6 +13,7 @@ select {
     border-style: solid;
     min-height: 2.75em;
 
+    -webkit-appearance: none;
     appearance: none;
     width: 100%;
 
