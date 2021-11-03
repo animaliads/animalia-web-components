@@ -13,10 +13,6 @@ export default class Link extends HTMLElement {
     return transformBooleanProperties(isOpenNewTab);
   }
 
-  set openNewTab(value: string) {
-    this.openNewTab = value;
-  }
-
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
