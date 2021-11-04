@@ -17,10 +17,10 @@ select {
     appearance: none;
     width: 100%;
 
-    background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.707 0.293006C13.316 -0.0979941 12.684 -0.0979941 12.293 0.293006L7.00001 5.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L6.29301 7.70701C6.48801 7.90201 6.74401 8.00001 7.00001 8.00001C7.25601 8.00001 7.51201 7.90201 7.70701 7.70701L13.707 1.70701C14.098 1.31601 14.098 0.684006 13.707 0.293006Z' fill='%23515162'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.707 8.29301C18.316 7.90201 17.684 7.90201 17.293 8.29301L12 13.586L6.70701 8.29301C6.31601 7.90201 5.68401 7.90201 5.29301 8.29301C4.90201 8.68401 4.90201 9.31601 5.29301 9.70701L11.293 15.707C11.488 15.902 11.744 16 12 16C12.256 16 12.512 15.902 12.707 15.707L18.707 9.70701C19.098 9.31601 19.098 8.68401 18.707 8.29301Z' fill='%23515162'/%3E%3C/svg%3E%0A");
     background-repeat: no-repeat;
     background-position: right var(--padding-horizontal) center;
-    background-size: var(--font-size) 12px;
+    background-size: 24px;
 }
 
 select:hover {
@@ -42,7 +42,7 @@ select:focus {
 select:disabled {
     border-color: var(--color-disabled);
     background-color: var(--background-disabled);
-    background-image: url("data:image/svg+xml,%3Csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.707 0.293006C13.316 -0.0979941 12.684 -0.0979941 12.293 0.293006L7.00001 5.58601L1.70701 0.293006C1.31601 -0.0979941 0.684006 -0.0979941 0.293006 0.293006C-0.0979941 0.684006 -0.0979941 1.31601 0.293006 1.70701L6.29301 7.70701C6.48801 7.90201 6.74401 8.00001 7.00001 8.00001C7.25601 8.00001 7.51201 7.90201 7.70701 7.70701L13.707 1.70701C14.098 1.31601 14.098 0.684006 13.707 0.293006Z' fill='rgb(180, 180, 192)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.707 8.29301C18.316 7.90201 17.684 7.90201 17.293 8.29301L12 13.586L6.70701 8.29301C6.31601 7.90201 5.68401 7.90201 5.29301 8.29301C4.90201 8.68401 4.90201 9.31601 5.29301 9.70701L11.293 15.707C11.488 15.902 11.744 16 12 16C12.256 16 12.512 15.902 12.707 15.707L18.707 9.70701C19.098 9.31601 19.098 8.68401 18.707 8.29301Z' fill='%23B4B4C0'/%3E%3C/svg%3E%0A");
 
     color: var(--text-color);
     cursor: not-allowed;
