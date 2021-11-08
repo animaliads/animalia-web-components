@@ -1,4 +1,11 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["./src"]
+  "include": ["./src"],
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "paths": {
+      "@animaliads/common": ["./node_modules/@animaliads/common/dist"],
+      "@animaliads/common/*": ["./node_modules/@animaliads/common/dist/*"]
+    }
+  }
 }

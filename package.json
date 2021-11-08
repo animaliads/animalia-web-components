@@ -4,11 +4,6 @@
   "main": "index.js",
   "tag": "dev",
   "scripts": {
-    "build:packages:files": "lerna exec -- gulp -f ../../scripts/packages-gulp.js",
-    "build:bunddle:files": " gulp -f ./scripts/bunddle-gulp.js",
-    "build:packages": "lerna exec -- rollup -c ../../scripts/packages-rollup.config.js && npm run build:packages:files",
-    "build:bunddle": "rollup -c ./scripts/bunddle-rollup.config.js && npm run build:bunddle:files",
-    "build": "rimraf dist &&  npm run build:packages && npm run build:bunddle",
     "dev": "rollup -c ./scripts/bunddle-rollup.config.js -w",
     "start": "live-server --open=demo",
     "test": "jest --coverage",
