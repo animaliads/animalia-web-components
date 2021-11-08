@@ -22,11 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@animaliads/common": "^1.1.0-dev.27",
-    "tslib": "^2.0.3"
-  },
-  "devDependencies": {
-    "eslint": "^7.16.0"
+    "@animaliads/common": "^1.1.0-dev.27"
   },
   "publishConfig": {
     "access": "public"

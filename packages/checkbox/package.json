@@ -21,14 +21,6 @@
     "directory": "packages/checkbox"
   },
   "license": "MIT",
-  "dependencies": {
-    "@animaliads/animalia-brand": "^1.0.0-dev.1",
-    "@animaliads/css-tokens": "^1.0.0-dev.1",
-    "tslib": "^2.0.3"
-  },
-  "devDependencies": {
-    "eslint": "^7.16.0"
-  },
   "publishConfig": {
     "access": "public"
   }

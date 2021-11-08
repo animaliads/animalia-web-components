@@ -21,14 +21,6 @@
     "directory": "packages/textarea"
   },
   "license": "MIT",
-  "dependencies": {
-    "@animaliads/animalia-brand": "^1.0.0",
-    "@animaliads/css-tokens": "^1.0.0",
-    "tslib": "^2.0.3"
-  },
-  "devDependencies": {
-    "eslint": "^7.16.0"
-  },
   "publishConfig": {
     "access": "public"
   }
