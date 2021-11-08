@@ -4,8 +4,6 @@
   "main": "index.js",
   "tag": "dev",
   "scripts": {
-    "dev": "rollup -c ./scripts/bunddle-rollup.config.js -w",
-    "start": "live-server --open=demo",
     "test": "jest --coverage",
     "test:dev": "jest --watch",
     "test:dev:all": "jest --watchAll",
