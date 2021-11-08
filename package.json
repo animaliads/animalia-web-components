@@ -1,12 +1,8 @@
 {
-  "name": "@animaliads/web-components",
-  "version": "1.1.0-dev.25",
+  "name": "root",
   "description": "Repositório de Web Components do Animalia DS",
   "main": "index.js",
   "tag": "dev",
-  "workspaces": [
-    "dist/@animaliads/*"
-  ],
   "scripts": {
     "build:packages:files": "lerna exec -- gulp -f ../../scripts/packages-gulp.js",
     "build:bunddle:files": " gulp -f ./scripts/bunddle-gulp.js",

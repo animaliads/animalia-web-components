@@ -9,7 +9,12 @@
     "web components",
     "radio"
   ],
-  "main": "radio/index.js",
+  "browser": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "npx rollup -c",
+    "watch": "npx rollup -c -w"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",

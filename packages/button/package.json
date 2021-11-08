@@ -9,7 +9,12 @@
     "web components",
     "button"
   ],
-  "main": "button/index.js",
+  "browser": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "npx rollup -c",
+    "watch": "npx rollup -c -w"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",
@@ -17,9 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@animaliads/animalia-brand": "^1.0.0-dev.4",
-    "@animaliads/css-tokens": "^1.0.0-dev.4",
-    "@animaliads/common": "1.1.0-dev.25",
+    "@animaliads/common": "^0.0.0-PLACEHOLDER",
     "tslib": "^2.0.3"
   },
   "devDependencies": {
