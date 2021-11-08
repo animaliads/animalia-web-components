@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/common",
-  "version": "1.1.0-dev.26",
+  "version": "1.1.0-dev.27",
   "description": "Common do Animalia DS",
   "types": "./dist/@animaliads/common/src/index.d.ts",
   "tag": "dev",
