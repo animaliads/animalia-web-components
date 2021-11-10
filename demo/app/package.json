@@ -1,0 +1,19 @@
+{
+  "name": "@animaliads/demo",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "browser": "dist/bunddle.js",
+  "module": "dist/bunddle.js",
+  "private": "true",
+  "scripts": {
+    "build": "npx rollup -c",
+    "start": "live-server"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.6"
+  },
+  "dependencies": {
+    "@animaliads/ani-button": "^1.1.0-dev.27"
+  }
+}
