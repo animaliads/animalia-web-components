@@ -1,20 +1,16 @@
 import './card';
 
 describe('Card:', () => {
-  let card: HTMLElement;
   const cardTagName = 'ani-card';
 
   const getShadowRoot = (tagName: string): ShadowRoot => {
     return document.querySelector(tagName)?.shadowRoot;
   };
 
-  beforeEach(() => {
-    card = document.createElement(cardTagName) as HTMLElement;
-  });
-
   afterEach(() => {
     document.body.getElementsByTagName(cardTagName)[0]?.remove();
   });
+
   test('should apply content', () => {
     document.body.innerHTML = `
       <ani-card>Description card</ani-card>
