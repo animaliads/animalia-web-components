@@ -14,7 +14,6 @@ export default [
   {
     input,
     output: {
-      name: 'textfield',
       file: pkg.module,
       format: 'esm',
       sourcemap: true,

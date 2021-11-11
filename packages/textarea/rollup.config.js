@@ -14,7 +14,6 @@ export default [
   {
     input,
     output: {
-      name: 'textarea',
       file: pkg.module,
       format: 'esm',
       sourcemap: true,

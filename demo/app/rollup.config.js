@@ -8,7 +8,6 @@ export default [
   {
     input,
     output: {
-      name: 'demo',
       file: pkg.module,
       format: 'esm',
       sourcemap: true,

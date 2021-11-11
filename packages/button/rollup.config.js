@@ -14,7 +14,6 @@ export default [
   {
     input,
     output: {
-      name: 'button',
       file: pkg.module,
       format: 'esm',
       sourcemap: true,

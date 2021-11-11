@@ -13,7 +13,7 @@ const plugins = [typescript({ typescript: require('typescript') })];
 export default [
   {
     input,
-    output: { name: 'radio', file: pkg.module, format: 'esm', sourcemap: true },
+    output: { file: pkg.module, format: 'esm', sourcemap: true },
     plugins,
     external,
   },
