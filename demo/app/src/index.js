@@ -1,1 +1,1 @@
-import '@animaliads/ani-button';
+import '@animaliads/web-components';
