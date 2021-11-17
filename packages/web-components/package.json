@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/web-components",
-  "version": "1.1.0-dev.27",
+  "version": "1.1.0-dev.31",
   "description": "Animalia DS web components",
   "homepage": "https://github.com/animaliads/animalia-web-components/tree/main/packages/web-components#readme",
   "license": "MIT",
@@ -30,14 +30,14 @@
     "url": "https://github.com/animaliads/animalia-web-components/issues"
   },
   "dependencies": {
-    "@animaliads/ani-button": "^1.1.0-dev.27",
-    "@animaliads/ani-card": "^1.1.0-dev.27",
-    "@animaliads/ani-checkbox": "^1.1.0-dev.27",
-    "@animaliads/ani-link": "^1.1.0-dev.27",
-    "@animaliads/ani-radio": "^1.1.0-dev.27",
-    "@animaliads/ani-select": "^1.1.0-dev.27",
-    "@animaliads/ani-switch": "^1.1.0-dev.27",
-    "@animaliads/ani-textarea": "^1.1.0-dev.27",
-    "@animaliads/ani-textfield": "^1.1.0-dev.27"
+    "@animaliads/ani-button": "^1.1.0-dev.31",
+    "@animaliads/ani-card": "^1.1.0-dev.31",
+    "@animaliads/ani-checkbox": "^1.1.0-dev.31",
+    "@animaliads/ani-link": "^1.1.0-dev.31",
+    "@animaliads/ani-radio": "^1.1.0-dev.31",
+    "@animaliads/ani-select": "^1.1.0-dev.31",
+    "@animaliads/ani-switch": "^1.1.0-dev.31",
+    "@animaliads/ani-textarea": "^1.1.0-dev.31",
+    "@animaliads/ani-textfield": "^1.1.0-dev.31"
   }
 }

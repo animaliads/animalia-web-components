@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/ani-button",
-  "version": "1.1.0-dev.27",
+  "version": "1.1.0-dev.31",
   "description": "Botão do Animalia DS",
   "tag": "dev",
   "keywords": [
@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@animaliads/common": "^1.1.0-dev.27"
+    "@animaliads/common": "^1.1.0-dev.31"
   },
   "publishConfig": {
     "access": "public"
