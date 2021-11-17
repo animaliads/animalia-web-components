@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/ani-card",
-  "version": "0.0.0-PLACEHOLDER",
+  "version": "1.1.0-dev.27",
   "description": "Card do Animalia DS",
   "tag": "dev",
   "keywords": [
@@ -9,21 +9,18 @@
     "web components",
     "card"
   ],
-  "main": "card/index.js",
+  "scripts": {
+    "build": "npx rollup -c",
+    "watch": "npx rollup -c -w"
+  },
+  "browser": "dist/index.js",
+  "module": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animaliads/animalia-web-components.git",
     "directory": "packages/card"
   },
   "license": "MIT",
-  "dependencies": {
-    "@animaliads/animalia-brand": "^1.0.0-dev.1",
-    "@animaliads/css-tokens": "^1.0.0-dev.1",
-    "tslib": "^2.0.3"
-  },
-  "devDependencies": {
-    "eslint": "^7.16.0"
-  },
   "publishConfig": {
     "access": "public"
   }
