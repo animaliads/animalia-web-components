@@ -9,6 +9,9 @@
     "web components",
     "radio"
   ],
+  "files": [
+    "dist/*"
+  ],
   "browser": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
