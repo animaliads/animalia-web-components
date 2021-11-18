@@ -1,5 +1,5 @@
 {
-  "packages": ["packages/*", "shared/*", "demo/*"],
+  "packages": ["shared/*", "packages/*", "demo/*"],
   "version": "1.1.0-dev.34",
   "npmClients": "npm"
 }

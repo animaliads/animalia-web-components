@@ -16,7 +16,7 @@
   "module": "dist/index.js",
   "scripts": {
     "build": "npx rollup -c",
-    "watch": "npx rollup -c -w"
+    "dev": "npx rollup -c -w"
   },
   "repository": {
     "type": "git",

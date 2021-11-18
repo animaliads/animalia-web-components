@@ -4,6 +4,7 @@
   "main": "index.js",
   "tag": "dev",
   "scripts": {
+    "build": "lerna run build",
     "test": "jest --coverage",
     "test:dev": "jest --watch",
     "test:dev:all": "jest --watchAll",

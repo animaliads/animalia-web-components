@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "npx rollup -c",
-    "watch": "npx rollup -c -w"
+    "dev": "npx rollup -c -w"
   },
   "bugs": {
     "url": "https://github.com/animaliads/animalia-web-components/issues"

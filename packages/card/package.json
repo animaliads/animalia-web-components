@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "npx rollup -c",
-    "watch": "npx rollup -c -w"
+    "dev": "npx rollup -c -w"
   },
   "browser": "dist/index.js",
   "module": "dist/index.js",
