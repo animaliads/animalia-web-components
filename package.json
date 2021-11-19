@@ -5,6 +5,7 @@
   "tag": "dev",
   "scripts": {
     "build": "lerna run build",
+    "publish": "lerna publish",
     "test": "jest --coverage",
     "test:dev": "jest --watch",
     "test:dev:all": "jest --watchAll",
