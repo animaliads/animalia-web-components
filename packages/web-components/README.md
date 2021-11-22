@@ -23,11 +23,21 @@ Instale o pacote via npm:
 npm install @animaliads/web-components
 ```
 
-Adicione o arquivo instalado no seu código `html`:
+Importe o código do componente no seu módulo javascript:
 
+```javascript
+import '@animaliads/web-components';
 ```
-<script type="module" src="./node_modules/@animaliads/web-components"></script>
+
+E adicione e tag do componente no seu HTML:
+
+```html
+<ani-button>Hello World</ani-button>
 ```
+
+> Os pacotes do AnimaliaDS são gerados utilzando os módulos Node. Para isso,
+> você precisar fazer as resolução de módulos antes de utilizar o componente.
+> Veja mais no [começando do AnimaliaDS](http://animaliads.io/?path=/docs/come%C3%A7ando--page).
 
 <a id="angular"></a>
 
