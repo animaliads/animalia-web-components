@@ -48,6 +48,9 @@ jobs:
       - name: Bootstrap
         run: npx lerna bootstrap --hoist
 
+      - name: Build
+        run: npm run build
+
       - name: Publish Storybook to Chromatic
         uses: chromaui/action@v1
 
