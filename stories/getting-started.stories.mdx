@@ -27,27 +27,56 @@ E para a instalação local no seu computador, precisará ter instalado:
 - [Node.js](https://nodejs.org/en/)
 - [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
 
-### Utilização básica
+### Utilização básica sem framework
 
-Nesta utilização básica, iremos adicionar o componente `<ani-button>` em uma página
-`.html` básica. Por isso, crie um arquivo `.html` e adicione a seguinte tag `script` contendo o link do pacote
-com o componente `ani-button`:
+Os pacotes do Animalia utilizam internamente [módulos do tipo Node](https://nodejs.org/api/modules.html#modules_all_together).
+Portanto, para utilizar os componentes sem a utilização de algum framework, apenas Javascript, antes de incluir o
+componente diretamente do seu HTML, você irá precisar resolver os módulos Node.
+Existem diversas estratégias para isso, mas uma delas é utilizar o [Browserify](https://browserify.org/)
+ou o [Rollup](https://rollupjs.org/guide/en/) para gerar o bundle e resolver os módulos. Nesse passo-a-passo iremos
+utilizar o Rollup.
 
-```html
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
-  </head>
-  <body></body>
-  <!-- Pacote com o componente -->
-  <script src="https://unpkg.com/@animaliads/ani-button"></script>
-</html>
+```
+npm i -D rollup @rollup/plugin-node-resolve
 ```
 
-Com a inclusão do script do componente, agora você já pode adicionar a tag do componente e começar
-a utilizá-lo!
+Crie um arquivo javascript chamado `index.js` e importe o componente:
+
+```javascript
+import '@animaliads/ani-button';
+```
+
+Agora crie outro arquivo javascript e adione a configuração do rollup para podermos gerar um arquivo final
+com o nosso componente.
+
+```javascript
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+
+import pkg from './package.json';
+
+const input = 'index.js';
+
+export default [
+  {
+    input,
+    output: {
+      file: 'bundle.js',
+      format: 'esm',
+      sourcemap: true,
+    },
+    plugins: [nodeResolve()],
+  },
+];
+```
+
+Agora execute o seguinte comando para gerar o bundle:
+
+```
+npx rollup -c
+```
+
+Esse comando irá gerar um arquivo chamando `bundle.js` no mesmo diretório, agora basta adicioná-lo em
+uma tag `script` dentro de um arquivo `.html`, junto com a tag do componente.
 
 ```html
 <html>
@@ -60,7 +89,9 @@ a utilizá-lo!
     <!-- Componente ani-button -->
     <ani-button>Hello World</ani-button>
   </body>
-  <script src="https://unpkg.com/@animaliads/ani-button"></script>
+
+  <!-- Pacote gerado com o rollup -->
+  <script src="bundle.js"></script>
 </html>
 ```
 

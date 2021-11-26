@@ -1,10 +1,4 @@
-# Biblioteca de componentes do Animalia DS
-
-<p  align="center">
-
-<img  width="250"  src="./stories/assets/animalia.png"  alt="">
-
-</p>
+# `@animaliads/web-components`
 
 Biblioteca de componentes do design system Animalia baseada em Web Components.
 
@@ -29,16 +23,10 @@ Instale o pacote via npm:
 npm install @animaliads/web-components
 ```
 
-Se preferir, você também pode instalar o componente de forma individual:
-
-```
-npm install @animaliads/ani-button
-```
-
 Importe o código do componente no seu módulo javascript:
 
 ```javascript
-import '@animaliads/ani-button';
+import '@animaliads/web-components';
 ```
 
 E adicione e tag do componente no seu HTML:
