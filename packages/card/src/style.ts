@@ -37,7 +37,7 @@ export const cardStyle = `
     outline-offset: 2px;
   }
 
-  .ani-card-selectable {
+  [aria-checked='true'] {
     border-color: var(--border-color-selected);
     background-color: var(--background-selected)
   }

@@ -32,6 +32,7 @@ export default class Card extends HTMLElement {
 
   connectedCallback(): void {
     this.render();
+    this.cardElement = this.shadow.querySelector('.ani-card');
 
     this.addEventListener('click', this.onClick);
     this.addEventListener('keydown', this.handleKeyDown);
@@ -69,11 +70,14 @@ export default class Card extends HTMLElement {
     this.selected = this.selected === 'true' ? 'false' : 'true';
   }
 
-  attributeChangedCallback(): void {
+  attributeChangedCallback(attrName, oldVal, newVal): void {
     this.updateAttributes();
   }
 
   private updateAttributes() {
+    if (!this.cardElement) {
+      return;
+    }
     if (this.type === 'link') {
       this.shadow.innerHTML = `
         <style>${cardStyle}</style>
@@ -83,21 +87,9 @@ export default class Card extends HTMLElement {
      `;
     }
     if (this.type === 'selectable') {
-      if (this.selected === 'true') {
-        this.shadow.innerHTML = `
-          <style>${cardStyle}</style>
-          <div class="ani-card ani-card-selectable" tabindex="0">
-            <slot></slot>
-          </div>
-        `;
-        return;
-      }
-      this.shadow.innerHTML = `
-      <style>${cardStyle}</style>
-      <div class="ani-card" tabindex="0">
-        <slot></slot>
-      </div>
-    `;
+      this.cardElement.setAttribute('role', 'radio');
+      this.cardElement.setAttribute('aria-checked', this.selected);
+      this.cardElement.setAttribute('tabindex', '0');
     }
   }
 }
