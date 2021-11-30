@@ -6,6 +6,8 @@
     "paths": {
       "@animaliads/common": ["./node_modules/@animaliads/common/dist"],
       "@animaliads/common/*": ["./node_modules/@animaliads/common/dist/*"]
-    }
+    },
+    "outDir": "./dist",
+    "declarationDir": "."
   }
 }

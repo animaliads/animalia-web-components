@@ -1,4 +1,4 @@
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 
 /**
@@ -10,7 +10,12 @@ import { terser } from 'rollup-plugin-terser';
  * @returns Rollup config
  */
 export function getRollupConfig(input, pkg) {
-  const plugins = [typescript({ typescript: require('typescript') }), terser()];
+  const plugins = [
+    typescript({
+      tsconfig: './tsconfig.json',
+    }),
+    terser(),
+  ];
 
   const external = [
     ...Object.keys(pkg.dependencies || {}),

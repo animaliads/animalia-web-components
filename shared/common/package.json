@@ -27,5 +27,10 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@animaliads/css-tokens": "^1.1.0-dev.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@animaliads/animalia-brand": "^1.1.0-dev.16"
   }
 }

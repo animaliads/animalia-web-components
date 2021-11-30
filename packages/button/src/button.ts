@@ -1,9 +1,11 @@
-import { transformBooleanProperties } from '@animaliads/common';
+import { transformBooleanProperties, applyTheme } from '@animaliads/common';
 
 import { style } from './button.style';
 import { ButtonKind } from './enums/button-kind.enum';
 import { ButtonType } from './enums/button-type.enum';
 import { ButtonSize } from './enums/button.size.enum';
+
+applyTheme();
 
 export class Button extends HTMLElement {
   shadow: ShadowRoot;
