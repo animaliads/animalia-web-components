@@ -1,12 +1,11 @@
-import { transformBooleanProperties, applyTheme } from '@animaliads/common';
+import { transformBooleanProperties, Component } from '@animaliads/common';
 
 import { style } from './button.style';
 import { ButtonKind } from './enums/button-kind.enum';
 import { ButtonType } from './enums/button-type.enum';
 import { ButtonSize } from './enums/button.size.enum';
 
-applyTheme();
-
+@Component('ani-button')
 export class Button extends HTMLElement {
   shadow: ShadowRoot;
   clickEvent: Event;
@@ -112,5 +111,3 @@ export class Button extends HTMLElement {
         `;
   }
 }
-
-customElements.define('ani-button', Button);

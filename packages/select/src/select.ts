@@ -1,5 +1,8 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { style } from './style';
 
+@Component('ani-select')
 export default class Select extends HTMLElement {
   shadow: ShadowRoot;
   selectElement: HTMLSelectElement;
@@ -178,16 +181,4 @@ export default class Select extends HTMLElement {
     this.value = this.selectElement.value;
     this.dispatchEvent(event);
   }
-}
-
-customElements.define('ani-select', Select);
-
-function transformBooleanProperties(value: string) {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }

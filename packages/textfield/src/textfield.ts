@@ -1,5 +1,8 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { style } from './style';
 
+@Component('ani-textfield')
 export default class Textfield extends HTMLElement {
   shadow: ShadowRoot;
   textfieldElement: HTMLInputElement;
@@ -175,16 +178,4 @@ export default class Textfield extends HTMLElement {
     this.value = this.textfieldElement.value;
     this.dispatchEvent(event);
   }
-}
-
-customElements.define('ani-textfield', Textfield);
-
-function transformBooleanProperties(value: string) {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }

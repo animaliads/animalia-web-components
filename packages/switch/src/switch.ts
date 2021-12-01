@@ -1,3 +1,5 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { KeyCode } from './enums/key-code.enum';
 import { style } from './style';
 
@@ -6,6 +8,7 @@ const checkIcon = `
   <path d="M0 5.32608L4.55114 9.5L12 2.10491L10.3864 0.5L4.55114 6.30151L1.60227 3.49433L0 5.32608Z"/>
 </svg>`;
 
+@Component('ani-switch')
 export default class Switch extends HTMLElement {
   shadow: ShadowRoot;
   switchElement: HTMLElement;
@@ -99,16 +102,4 @@ export default class Switch extends HTMLElement {
 
     this.checked = this.checked === 'true' ? 'false' : 'true';
   }
-}
-
-customElements.define('ani-switch', Switch);
-
-function transformBooleanProperties(value: string) {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }

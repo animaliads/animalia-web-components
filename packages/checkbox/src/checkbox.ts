@@ -1,3 +1,5 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { CheckboxSize } from './enums/checkbox-size.enum';
 import { KeyCode } from './enums/key-code.enum';
 import { checkboxStyle } from './checkbox.style';
@@ -12,6 +14,7 @@ const checkIcon = `
   <path d="M0 5.32608L4.55114 9.5L12 2.10491L10.3864 0.5L4.55114 6.30151L1.60227 3.49433L0 5.32608Z"/>
 </svg>`;
 
+@Component('ani-checkbox')
 export default class Checkbox extends HTMLElement {
   shadow: ShadowRoot;
   checkboxElement: HTMLElement;
@@ -131,16 +134,4 @@ export default class Checkbox extends HTMLElement {
       this.setAttribute('size', CheckboxSize.medium);
     }
   }
-}
-
-customElements.define('ani-checkbox', Checkbox);
-
-function transformBooleanProperties(value: string) {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }

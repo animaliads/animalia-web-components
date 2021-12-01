@@ -1,6 +1,9 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { Field } from './field';
 import { style } from './textarea.style';
 
+@Component('ani-textarea')
 export default class Textarea extends HTMLElement implements Field {
   shadow: ShadowRoot;
   textareaElement: HTMLTextAreaElement;
@@ -157,16 +160,4 @@ export default class Textarea extends HTMLElement implements Field {
     this.value = this.textareaElement.value;
     this.dispatchEvent(event);
   }
-}
-
-customElements.define('ani-textarea', Textarea);
-
-function transformBooleanProperties(value: string): string {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }
