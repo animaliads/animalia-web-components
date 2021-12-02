@@ -1,13 +1,14 @@
-import { applyTheme } from './../css/theme';
+import { applyGlobalTheme } from './../css/theme';
 
-let initialized = false;
-
+/**
+ * Decorator para poder colocar as funcionalidades em comum dos componentes
+ * Neste caso, ele aplica o tema global no componente.
+ * @param prefix seletor do componente
+ * @returns Classe do componente
+ */
 export const Component = (prefix: string) => {
   return (target: CustomElementConstructor) => {
-    if (!initialized) {
-      applyTheme();
-      initialized = true;
-    }
+    applyGlobalTheme();
 
     customElements.define(prefix, target);
   };

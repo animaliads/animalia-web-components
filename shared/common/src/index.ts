@@ -1,3 +1,3 @@
-export * from './utils/utils';
-export * from './css/theme';
-export * from './decorators/classes';
+export * from './utils';
+export * from './css';
+export * from './decorators';
