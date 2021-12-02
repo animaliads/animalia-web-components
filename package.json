@@ -30,6 +30,7 @@
   "homepage": "https://github.com/animaliads/animalia-web-components#readme",
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/plugin-proposal-decorators": "^7.16.4",
     "@babel/plugin-syntax-class-properties": "^7.12.13",
     "@babel/plugin-transform-classes": "^7.14.9",
     "@babel/preset-env": "^7.16.4",
