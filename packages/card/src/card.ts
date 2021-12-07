@@ -1,5 +1,8 @@
+import { Component } from '@animaliads/common';
+
 import { cardStyle } from './style';
 
+@Component('ani-card')
 export default class Card extends HTMLElement {
   shadow: ShadowRoot;
 
@@ -21,5 +24,3 @@ export default class Card extends HTMLElement {
     `;
   }
 }
-
-customElements.define('ani-card', Card);

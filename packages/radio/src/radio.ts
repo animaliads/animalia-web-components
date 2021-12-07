@@ -1,6 +1,9 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { RadioSize } from './enums/radio-size.enum';
 import { radioStyle } from './radio.style';
 
+@Component('ani-radio')
 export default class Radio extends HTMLElement {
   shadow: ShadowRoot;
 
@@ -77,16 +80,4 @@ export default class Radio extends HTMLElement {
       this.setAttribute('size', RadioSize.medium);
     }
   }
-}
-
-customElements.define('ani-radio', Radio);
-
-function transformBooleanProperties(value: string) {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }

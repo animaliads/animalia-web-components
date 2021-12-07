@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "forceConsistentCasingInFileNames": true,
