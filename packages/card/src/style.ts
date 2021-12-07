@@ -21,14 +21,14 @@ export const cardStyle = `
     width: 100%;
   }
 
-  .ani-card:hover {
+  .card-interactive:hover {
     border-color: var(--border-color-hover);
     box-shadow: var(--shadow-hover);
 
     cursor: pointer;
   }
 
-  .ani-card:focus {
+  .card-interactive:focus {
     border-color: var(--color-focused);
     outline-color: var(--outline-color-focused);
 
@@ -37,7 +37,7 @@ export const cardStyle = `
     outline-offset: 2px;
   }
 
-  [aria-checked='true'] {
+  .card-interactive[aria-checked='true'] {
     border-color: var(--border-color-selected);
     background-color: var(--background-selected)
   }

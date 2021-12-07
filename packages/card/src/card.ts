@@ -31,8 +31,7 @@ export default class Card extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.render();
-    this.cardElement = this.shadow.querySelector('.ani-card');
+    this.createCard(this.type);
 
     this.addEventListener('click', this.onClick);
     this.addEventListener('keydown', this.handleKeyDown);
@@ -52,6 +51,8 @@ export default class Card extends HTMLElement {
           <slot></slot>
         </div>
     `;
+
+    this.cardElement = this.shadow.querySelector('.ani-card');
   }
 
   private onClick() {
@@ -70,27 +71,61 @@ export default class Card extends HTMLElement {
     this.selected = this.selected === 'true' ? 'false' : 'true';
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal): void {
-    this.updateAttributes();
+  attributeChangedCallback(attrName, oldValue, newValue): void {
+    this.updateAttributes(attrName, oldValue, newValue);
   }
 
-  private updateAttributes() {
-    if (!this.cardElement) {
+  private updateAttributes(attrName?, oldValue?, newValue?) {
+    if (attrName === 'type') {
+      this.createCard(newValue);
+    }
+
+    if (attrName === 'selected') {
+      this.setSelectStatus();
+    }
+    if (attrName === 'href') {
+      this.setHrefLink();
+    }
+  }
+
+  private createCard(type) {
+    if (type === 'selectable') {
+      this.selectableCard();
       return;
     }
-    if (this.type === 'link') {
-      this.shadow.innerHTML = `
-        <style>${cardStyle}</style>
-        <a class="ani-card" href="${this.href}">
-          <slot></slot>
-        </a>
-     `;
+    if (type === 'link') {
+      this.linkCard();
+      return;
     }
-    if (this.type === 'selectable') {
-      this.cardElement.setAttribute('role', 'radio');
-      this.cardElement.setAttribute('aria-checked', this.selected);
-      this.cardElement.setAttribute('tabindex', '0');
-    }
+    this.render();
+    return;
+  }
+
+  private selectableCard() {
+    this.render();
+    this.setSelectStatus();
+
+    this.cardElement.classList.add('card-interactive');
+    this.cardElement.setAttribute('role', 'radio');
+    this.cardElement.setAttribute('tabindex', '0');
+  }
+
+  private setSelectStatus() {
+    this.cardElement.setAttribute('aria-checked', this.selected);
+  }
+
+  private setHrefLink() {
+    this.cardElement.setAttribute('href', this.href);
+  }
+
+  private linkCard() {
+    this.shadow.innerHTML = `
+      <style>${cardStyle}</style>
+      <a class="ani-card card-interactive" href="${this.href}">
+        <slot></slot>
+      </a>
+    `;
+    this.cardElement = this.shadow.querySelector('.ani-card');
   }
 }
 
