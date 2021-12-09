@@ -74,11 +74,11 @@ export default class Card extends HTMLElement {
     this.selected = this.selected === 'true' ? 'false' : 'true';
   }
 
-  attributeChangedCallback(attrName, oldValue, newValue): void {
-    this.updateAttributes(attrName, oldValue, newValue);
+  attributeChangedCallback(attrName, newValue): void {
+    this.updateAttributes(attrName, newValue);
   }
 
-  private updateAttributes(attrName?, oldValue?, newValue?) {
+  private updateAttributes(attrName?, newValue?) {
     if (attrName === 'type') {
       this.createCard(newValue);
     }
