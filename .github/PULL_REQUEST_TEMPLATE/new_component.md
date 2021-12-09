@@ -1,5 +1,5 @@
 ## `<< NOME-DO-COMPONENTE >>` - novo componente
-  
+
 Novo componente do tipo `<< NOME-DO-COMPONENTE >>`
 
 ### Como revisar
@@ -13,7 +13,6 @@ Novo componente do tipo `<< NOME-DO-COMPONENTE >>`
 - `npx lerna bootstrap`
 - `npx lerna run build`
 
-
 Adicionar o seletor do componente no arquivo `animalia-web-components/demo/app/index.html`, da seguinte forma:
 
 ```
@@ -26,7 +25,6 @@ Depois execute o comando:
 npx lerna run start
 ```
 
-Que irá abrir uma janela no seu navegador com o app de demonstração do componente. 
-
+Que irá abrir uma janela no seu navegador com o app de demonstração do componente.
 
 PR animalia brand: `<< colocar o link da pr do animalia-brand >>`
