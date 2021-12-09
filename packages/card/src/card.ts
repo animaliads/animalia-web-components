@@ -1,5 +1,8 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { cardStyle } from './style';
 
+@Component('ani-card')
 export default class Card extends HTMLElement {
   shadow: ShadowRoot;
   cardElement: HTMLDivElement;
@@ -127,16 +130,4 @@ export default class Card extends HTMLElement {
     `;
     this.cardElement = this.shadow.querySelector('.ani-card');
   }
-}
-
-customElements.define('ani-card', Card);
-
-function transformBooleanProperties(value: string) {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }

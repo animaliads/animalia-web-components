@@ -35,11 +35,21 @@ Se preferir, você também pode instalar o componente de forma individual:
 npm install @animaliads/ani-button
 ```
 
-Adicione o arquivo instalado no seu código `html`:
+Importe o código do componente no seu módulo javascript:
 
+```javascript
+import '@animaliads/ani-button';
 ```
-<script type="module" src="./node_modules/@animaliads/web-components"></script>
+
+E adicione e tag do componente no seu HTML:
+
+```html
+<ani-button>Hello World</ani-button>
 ```
+
+> Os pacotes do AnimaliaDS são gerados utilzando os módulos Node. Para isso,
+> você precisar fazer as resolução de módulos antes de utilizar o componente.
+> Veja mais no [começando do AnimaliaDS](http://animaliads.io/?path=/docs/come%C3%A7ando--page).
 
 <a id="angular"></a>
 
@@ -78,11 +88,9 @@ Saiba mais sobre as [últimas correções e melhorias](CHANGELOG.md).
 
 ## Navegadores suportados (Browser Support)
 
-| Chrome   | Firefox  | Safari   | Edge     | IE   |
-| -------- | -------- | -------- | -------- | ---- |
-| Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ | 11\* |
-
-\*IE 11 necessita de _polyfills_ para funcionar e não tem a funcionalidade de troca de tema.
+| Chrome   | Firefox  | Safari   | Edge     |
+| -------- | -------- | -------- | -------- |
+| Latest ✔ | Latest ✔ | Latest ✔ | Latest ✔ |
 
 <a id="polyfills"></a>
 

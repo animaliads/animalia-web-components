@@ -1,6 +1,9 @@
+import { transformBooleanProperties, Component } from '@animaliads/common';
+
 import { linkStyle } from './link.style';
 import { linkStyleIe } from './link.style.ie';
 
+@Component('ani-link')
 export default class Link extends HTMLElement {
   shadow: ShadowRoot;
 
@@ -43,16 +46,4 @@ export default class Link extends HTMLElement {
   private get target() {
     return this.openNewTab === 'true' ? '_blank' : '_self';
   }
-}
-
-customElements.define('ani-link', Link);
-
-function transformBooleanProperties(value: string) {
-  if (value === '') {
-    return 'true';
-  } else if (value === null) {
-    return 'false';
-  }
-
-  return value;
 }
