@@ -21,6 +21,10 @@ export const cardStyle = `
     width: 100%;
   }
 
+  .card-interactive{
+    box-shadow: var(--shadow);
+  }
+
   .card-interactive:hover {
     border-color: var(--border-color-hover);
     box-shadow: var(--shadow-hover);

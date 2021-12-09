@@ -1,11 +1,23 @@
 ## Propriedades customizáveis
 
 O componente de card possui propriedades customizáveis, que possibilitam fazer alterações, de acordo com a marca ou o tema a ser utilizado. Com isso, garantimos uma consistência ao Design System, sem perder a identidade de cada marca.
+O card possui estados e se modifica de acordo com o tipo do card. Os seus estados são: Normal, Hover, Focused e Selected.
 
-| Propriedade       | Descrição                                      | Valor padrão            |
-| ----------------- | ---------------------------------------------- | ----------------------- |
-| `--border-radius` | arredondamento da borda                        | $border-radius-md       |
-| `--background`    | cor da de fundo do card                        | $color-neutral-light-00 |
-| `--border-color`  | cor da borda                                   | $color-neutral-light-20 |
-| `--border-width`  | espessura da borda                             | $border-width-sm        |
-| `--padding`       | espaço interno entre a texto e a borda do card | 1em (16px)              |
+| Propriedade               | Descrição                                      | Valor padrão            |
+| ------------------------- | ---------------------------------------------- | ----------------------- | --------------------- |
+| `--border-radius`         | arredondamento da borda                        | $border-radius-md       |
+| `--background`            | cor de fundo do card                           | $color-neutral-light-00 |
+| `--border-color`          | cor da borda                                   | $color-neutral-light-20 |
+| `--border-width`          | espessura da borda                             | $border-width-sm        |
+| `--padding`               | espaço interno entre a texto e a borda do card | 1em (16px)              |
+| `--border-color-hover`    | cor da borda do hover                          | $color-action-hover     |
+| `--shadow`                | sombra do background                           | $shadow-lg              |
+| `--color-focused`         | cor principal no estado focus                  | 1em (16px)              | $color-action-default |
+| `--outline-color-focused` | cor do outline do focus                        | 1em (16px)              | $color-action-focus   |
+
+### Selectable
+
+| Propriedade               | Descrição                               | Valor padrão             |
+| ------------------------- | --------------------------------------- | ------------------------ |
+| `--background-selected`   | cor de fundo quando estiver selecionado | $color-brand-01-lightest |
+| `--border-color-selected` | cor da borda quando estiver selecionado | $color-neutral-light-20  |

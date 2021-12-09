@@ -40,7 +40,8 @@ export const globalTypes = {
 const decorator = (story, context) => {
   const theme = context.globals.theme;
   const links = {
-    animalia: 'https://unpkg.com/@animaliads/animalia-brand@dev/theme.css',
+    animalia:
+      'https://unpkg.com/@animaliads/animalia-brand@1.1.0-dev.19/theme.css',
     poui: 'https://unpkg.com/@animaliads/po-ui-brand@latest/theme.css',
     fluig: 'https://unpkg.com/@animaliads/fluig-brand@latest/theme.css',
   };
