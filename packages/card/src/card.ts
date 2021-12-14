@@ -1,7 +1,10 @@
-import { transformBooleanProperties, Component } from '@animaliads/common';
+import {
+  transformBooleanProperties,
+  Component,
+  KeyCode,
+} from '@animaliads/common';
 
 import { cardStyle } from './style';
-
 @Component('ani-card')
 export default class Card extends HTMLElement {
   shadow: ShadowRoot;
@@ -47,7 +50,15 @@ export default class Card extends HTMLElement {
     this.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  render(): void {
+  attributeChangedCallback(
+    attrName: string,
+    _oldValue: string,
+    newValue: string
+  ): void {
+    this.updateAttributes(attrName, newValue);
+  }
+
+  private render(): void {
     this.shadow.innerHTML = `
         <style>${cardStyle}</style>
         <div class="ani-card">
@@ -64,8 +75,8 @@ export default class Card extends HTMLElement {
     }
   }
 
-  private handleKeyDown(event) {
-    if (this.type === 'selectable' && event.keyCode === 32) {
+  private handleKeyDown(event: { keyCode: number }) {
+    if (this.type === 'selectable' && event.keyCode === KeyCode.SPACE) {
       this.toggleSelected();
     }
   }
@@ -74,15 +85,7 @@ export default class Card extends HTMLElement {
     this.selected = this.selected === 'true' ? 'false' : 'true';
   }
 
-  attributeChangedCallback(
-    attrName: string,
-    _oldValue: string,
-    newValue: string
-  ): void {
-    this.updateAttributes(attrName, newValue);
-  }
-
-  private updateAttributes(attrName?, newValue?) {
+  private updateAttributes(attrName?: string, newValue?: string) {
     if (attrName === 'type') {
       this.createCard(newValue);
     }
@@ -95,7 +98,7 @@ export default class Card extends HTMLElement {
     }
   }
 
-  private createCard(type) {
+  private createCard(type: string) {
     if (type === 'selectable') {
       this.selectableCard();
       return;

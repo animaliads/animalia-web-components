@@ -18,7 +18,8 @@ export const cardStyle = `
     text-decoration: none;
     color: inherit;
     box-sizing: border-box;
-    width: 100%;
+    display: inline-block;
+    width: inherit;
   }
 
   .card-interactive{
