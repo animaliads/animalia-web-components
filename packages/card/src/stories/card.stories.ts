@@ -35,7 +35,8 @@ export default {
     },
     href: {
       control: 'text',
-      description: 'Indica qual é o link card irá redirecionar.',
+      description:
+        'Indica para qual endereço/URL o card do tipo link irá redirecionar.',
       defaultValue: 'https://www.google.com/',
       table: {
         type: { summary: 'string' },
