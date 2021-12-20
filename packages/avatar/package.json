@@ -1,0 +1,40 @@
+{
+  "name": "@animaliads/ani-avatar",
+  "version": "1.1.0-dev.34",
+  "description": "> Componente Avatar do Animalia DS",
+  "author": "Nicole Oliveira <nicoleoliveira1995@gmail.com>",
+  "homepage": "https://github.com/animaliads/animalia-web-components/tree/main/packages/ani-avatar#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "tag": "dev",
+  "keywords": [
+    "javascript",
+    "design system",
+    "web components",
+    "button"
+  ],
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animaliads/animalia-web-components.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/animaliads/animalia-web-components/issues"
+  },
+  "dependencies": {
+    "@animaliads/common": "^1.1.0-dev.33"
+  }
+}
