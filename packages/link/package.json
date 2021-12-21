@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/ani-link",
-  "version": "1.1.0-dev.34",
+  "version": "1.1.0-dev.36",
   "description": "Link do Animalia DS",
   "tag": "dev",
   "keywords": [
@@ -29,6 +29,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@animaliads/common": "^1.1.0-dev.33"
+    "@animaliads/common": "^1.1.0-dev.36"
   }
 }
