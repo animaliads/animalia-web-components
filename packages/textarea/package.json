@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/ani-textarea",
-  "version": "1.1.0-dev.36",
+  "version": "1.1.0-dev.39",
   "description": "Textarea do Animalia DS",
   "tag": "dev",
   "keywords": [
@@ -29,6 +29,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@animaliads/common": "^1.1.0-dev.36"
+    "@animaliads/common": "^1.1.0-dev.39"
   }
 }

@@ -18,6 +18,7 @@ export const linkStyle = `
     color: var(--text-color-hover);
 
     cursor: pointer;
+    text-decoration: none;
   }
 
   a:focus {
@@ -36,5 +37,6 @@ export const linkStyle = `
     outline-style: solid;
     outline-offset: 2px;
     cursor: pointer;
+    text-decoration: none;
   }
 `;
