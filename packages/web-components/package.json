@@ -34,6 +34,7 @@
     "@animaliads/ani-button": "^1.1.0-dev.36",
     "@animaliads/ani-card": "^1.1.0-dev.36",
     "@animaliads/ani-checkbox": "^1.1.0-dev.36",
+    "@animaliads/ani-icon": "^1.1.0-dev.36",
     "@animaliads/ani-link": "^1.1.0-dev.36",
     "@animaliads/ani-radio": "^1.1.0-dev.36",
     "@animaliads/ani-select": "^1.1.0-dev.36",
