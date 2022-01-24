@@ -1,11 +1,16 @@
 import { Component } from '@animaliads/common';
 
-import { a11yElderly } from './svg/a11y-elderly';
+import { Svg } from './svg';
+
 import { style } from './style';
 
 @Component('ani-icon')
 export default class Icon extends HTMLElement {
   shadow: ShadowRoot;
+
+  get name(): string {
+    return this.getAttribute('name');
+  }
 
   constructor() {
     super();
@@ -19,7 +24,7 @@ export default class Icon extends HTMLElement {
   private render(): void {
     this.shadow.innerHTML = `
       <style>${style}</style>
-      ${a11yElderly}
+      ${Svg.getIcon(this.name)}
     `;
   }
 }
