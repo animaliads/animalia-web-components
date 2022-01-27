@@ -2,31 +2,37 @@ import { readdir } from 'fs/promises';
 import { readFileSync, writeFile } from 'fs';
 import path from 'path';
 
-const svgs = {};
-
-const pathIcons = 'svg';
-const finalPath = path.join('src', 'svg.ts');
+const iconsDir = 'svg';
+const finalFilePath = path.join('src', 'svg.ts');
 
 try {
-  const files = await readdir(pathIcons);
-  for (const filePath of files) {
-    const file = readFileSync(path.join(pathIcons, filePath), {
-      encoding: 'utf8',
-      flag: 'r',
-    });
+  const files = await readdir(iconsDir);
 
-    svgs[filePath.replace('.svg', '')] = file;
-  }
+  const svgs = getSvgs(files);
+  writeSvgInFile(svgs);
+} catch (err) {
+  console.error(err);
+}
 
+function writeSvgInFile(svgs) {
   const content = `export const svgs = ${JSON.stringify(svgs, null, 4)}
   `;
 
-  writeFile(path.join(finalPath), content, err => {
-    if (err) console.log('ERRO: ', err);
-    else {
-      console.log('File written successfully\n');
-    }
+  writeFile(path.join(finalFilePath), content, err => {
+    if (err) console.log(err);
   });
-} catch (err) {
-  console.error(err);
+}
+
+function getSvgs(files) {
+  const svgs = {};
+
+  for (const filename of files) {
+    const file = readFileSync(path.join(iconsDir, filename), {
+      encoding: 'utf8',
+    });
+
+    svgs[filename.replace('.svg', '')] = file;
+  }
+
+  return svgs;
 }
