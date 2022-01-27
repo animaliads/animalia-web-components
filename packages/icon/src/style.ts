@@ -3,7 +3,7 @@ svg {
     width: var(--size);
     height: var(--size);
 }
-path {
+path, rect {
     fill: var(--color);
 }
 `;

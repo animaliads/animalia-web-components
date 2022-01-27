@@ -1,6 +1,6 @@
 import { Component } from '@animaliads/common';
 
-import { Svg } from './svg';
+import { svgs } from './svg';
 
 import { style } from './style';
 
@@ -24,7 +24,7 @@ export default class Icon extends HTMLElement {
   private render(): void {
     this.shadow.innerHTML = `
       <style>${style}</style>
-      ${Svg.getIcon(this.name)}
+      ${svgs[this.name]}
     `;
   }
 }

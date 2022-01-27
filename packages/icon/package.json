@@ -16,7 +16,8 @@
   "module": "dist/index.js",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npx rollup -c",
+    "prepare": "node prepare.mjs",
+    "build": "npm run prepare && npx rollup -c",
     "dev": "npx rollup -c -w"
   },
   "repository": {
