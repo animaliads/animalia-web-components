@@ -1,0 +1,36 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import Code from './code.mdx';
+import BestPractices from './best-practices.mdx';
+import General from './general.mdx';
+import CustomProperties from './custom-properties.mdx';
+
+<Meta
+  title="Componentes/Icon"
+  parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+<Story name="Visão geral" height="0">
+  {html``}
+</Story>
+
+<General />
+
+<Story name="Boas práticas" height="0">
+  {html``}
+</Story>
+
+<BestPractices />
+
+<Story name="Desenvolvimento" height="0">
+  {html``}
+</Story>
+
+<Code />
+
+<Story name="Propriedades customizáveis" height="0">
+  {html``}
+</Story>
+
+<CustomProperties />
