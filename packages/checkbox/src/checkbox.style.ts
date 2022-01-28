@@ -75,15 +75,9 @@ export const checkboxStyle = `
     height: var(--width-lg);
   }
 
-  svg {
+  ani-icon {
+    --color: var(--color-unchecked);
+    --size: 20px;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  path,
-  rect {
-    fill: var(--color-unchecked);
   }
 `;

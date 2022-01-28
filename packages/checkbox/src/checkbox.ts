@@ -1,18 +1,18 @@
 import { transformBooleanProperties, Component } from '@animaliads/common';
 
+import '@animaliads/ani-icon';
+
 import { CheckboxSize } from './enums/checkbox-size.enum';
 import { KeyCode } from './enums/key-code.enum';
 import { checkboxStyle } from './checkbox.style';
 
 const mixedIcon = `
-<svg width="12" height="3" viewBox="0 0 12 3" xmlns="http://www.w3.org/2000/svg">
-  <rect y="0.5" width="12" height="2"/>
-</svg>`;
+<ani-icon name="minus"></ani-icon>
+`;
 
 const checkIcon = `
-<svg width="12" height="10" viewBox="0 0 12 10" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0 5.32608L4.55114 9.5L12 2.10491L10.3864 0.5L4.55114 6.30151L1.60227 3.49433L0 5.32608Z"/>
-</svg>`;
+<ani-icon name="ok"></ani-icon>
+`;
 
 @Component('ani-checkbox')
 export default class Checkbox extends HTMLElement {
