@@ -10,6 +10,8 @@ export const Component = (prefix: string) => {
   return (target: CustomElementConstructor) => {
     applyGlobalTheme();
 
-    customElements.define(prefix, target);
+    if (!customElements.get(prefix)) {
+      customElements.define(prefix, target);
+    }
   };
 };
