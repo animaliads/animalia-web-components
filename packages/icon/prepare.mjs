@@ -15,7 +15,8 @@ try {
 }
 
 function writeSvgInFile(svgs) {
-  const content = `export const svgs = ${JSON.stringify(svgs, null, 4)}
+  const content = `// prettier-ignore
+export const svgs = ${JSON.stringify(svgs, null, 4)}
   `;
 
   writeFile(path.join(finalFilePath), content, err => {
