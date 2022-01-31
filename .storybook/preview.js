@@ -41,7 +41,7 @@ const decorator = (story, context) => {
   const theme = context.globals.theme;
   const links = {
     animalia:
-      'https://unpkg.com/@animaliads/animalia-brand@1.1.0-dev.20/theme.css',
+      'https://unpkg.com/@animaliads/animalia-brand@1.1.0-dev.22/theme.css',
     poui: 'https://unpkg.com/@animaliads/po-ui-brand@latest/theme.css',
     fluig: 'https://unpkg.com/@animaliads/fluig-brand@latest/theme.css',
   };

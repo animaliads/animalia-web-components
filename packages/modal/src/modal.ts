@@ -1,6 +1,7 @@
+import { Component } from '@animaliads/common';
+
 import { modalStyle } from './style';
 import { ModalSize } from './enums/modal-size.enum';
-import { Component } from '@animaliads/common';
 
 @Component('ani-modal')
 export default class Modal extends HTMLElement {
@@ -8,7 +9,8 @@ export default class Modal extends HTMLElement {
   modalElement: HTMLDivElement;
 
   get title(): string {
-    return this.getAttribute(`title`);
+    const title = this.getAttribute('title');
+    return !title || title === 'null' ? '' : title;
   }
 
   get size(): string {
@@ -21,39 +23,19 @@ export default class Modal extends HTMLElement {
     this.shadow = this.attachShadow({ mode: 'open' });
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
     this.render();
     this.closeByx();
     this.closeByOut();
   }
 
-  private render(): void {
-    this.shadow.innerHTML = `
-        <style>${modalStyle}</style>
-        <div id="modal" class="ani-modal">
-            <div id="overlay" class="ani-modal-overlay"></div>
-                <div class="ani-modal-base">
-                    <div class="ani-modal-header">
-                    <div class="ani-modal-title">${this.title}</div>
-                    <ani-button id="close" class="ani-modal-close" kind="tertiary">&times;</ani-button>
-                </div>
-            <div class="ani-modal-content">
-                <slot></slot>
-            </div>
-            <div class="ani-modal-footer"></div>
-        </div>
-    </div>
-    `;
-    this.modalElement = this.shadow.querySelector('.ani-modal');
-  }
-
-  open() {
+  open(): void {
     this.shadow
       .querySelector('.ani-modal')
       .setAttribute('style', 'display: block');
   }
 
-  close() {
+  close(): void {
     this.shadow.querySelector('.ani-modal').removeAttribute('style');
   }
 
@@ -69,7 +51,7 @@ export default class Modal extends HTMLElement {
         );
         if (isNotCombinedKey) {
           this.close();
-          console.log('tecla Esc foi pressionada sem nenhuma tecla a mais');
+          // console.log('tecla Esc foi pressionada sem nenhuma tecla a mais');
         }
       }
     });
@@ -86,5 +68,26 @@ export default class Modal extends HTMLElement {
       .addEventListener('click', () => {
         this.close();
       });
+  }
+
+  private render(): void {
+    this.shadow.innerHTML = `
+      <style>${modalStyle}</style>
+      <div id="modal" class="ani-modal ani-modal--${this.size}">
+        <div id="overlay" class="ani-modal-overlay"></div>
+        <div class="ani-modal-base">
+          <div class="ani-modal-header">
+            <div class="ani-modal-title">${this.title}</div>
+            <ani-button id="close" class="ani-modal-close" kind="tertiary">&times;</ani-button>
+          </div>
+          <div class="ani-modal-content">
+            <slot></slot>
+          </div>
+          <div class="ani-modal-footer"></div>
+        </div>
+      </div>
+    `;
+
+    this.modalElement = this.shadow.querySelector('.ani-modal');
   }
 }
