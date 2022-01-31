@@ -29,8 +29,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@animaliads/animalia-brand": "^1.1.0-dev.19",
-    "@animaliads/css-tokens": "^1.1.0-dev.1",
+    "@animaliads/animalia-brand": "^1.1.0-dev.22",
+    "@animaliads/css-tokens": "^1.1.0-dev.2",
     "@rollup/plugin-node-resolve": "^13.0.6"
   }
 }

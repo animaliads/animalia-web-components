@@ -11,16 +11,36 @@
       margin: 8px;
       display: block;
     }
-
   </style>
 </head>
 
 <body>
   <h1>Animalia - Demo</h1>
 
-  <ani-button>Hello Animalia</ani-button>
+  <ani-button id="open" >Hello Animalia</ani-button>
+
+
+  <ani-modal title="WEB COMPONENTS.">
+    <h1 slot="title" ></h1>
+       <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh sed pulvinar proin gravida hendrerit.
+        Et odio pellentesque diam volutpat commodo sed egestas. Vel facilisis volutpat est velit. In est ante in nibh mauris cursus mattis molestie a. Ultricies mi quis 
+        hendrerit dolor magna eget. Mollis aliquam ut porttitor leo. Ornare arcu dui vivamus arcu felis bibendum ut tristique. Aliquet eget sit amet tellus cras adipiscing 
+        enim. Diam quam nulla porttitor massa id.
+       </div>
+   </ani-modal>
 
   <script src="./dist/bunddle.js"></script>
+
+  <script>
+    const modal = document.querySelector("ani-modal")
+    const open = document.querySelector("#open")
+
+    open.addEventListener("click", () => {
+      modal.open();
+    })
+  </script>
+  
 </body>
 
 </html>
