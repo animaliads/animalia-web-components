@@ -7,3 +7,4 @@ import '@animaliads/ani-textarea';
 import '@animaliads/ani-textfield';
 import '@animaliads/ani-card';
 import '@animaliads/ani-select';
+import '@animaliads/ani-tooltip';

@@ -39,6 +39,7 @@
     "@animaliads/ani-select": "^1.1.0-dev.39",
     "@animaliads/ani-switch": "^1.1.0-dev.39",
     "@animaliads/ani-textarea": "^1.1.0-dev.39",
-    "@animaliads/ani-textfield": "^1.1.0-dev.39"
+    "@animaliads/ani-textfield": "^1.1.0-dev.39",
+    "@animaliads/ani-tooltip": "^1.1.0-dev.39"
   }
 }

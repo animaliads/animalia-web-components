@@ -7,7 +7,7 @@
   <title>Animalia</title>
 
   <style>
-    ani-button {
+    ani-tooltip {
       margin: 8px;
       display: block;
     }
@@ -17,8 +17,8 @@
 
 <body>
   <h1>Animalia - Demo</h1>
-
-  <ani-button>Hello Animalia</ani-button>
+  <ani-button aria-describedby="tooltip"> Hello </ani-button>
+  <ani-tooltip id="tooltip" tip="teste" trigger="click"></ani-tooltip>
 
   <script src="./dist/bunddle.js"></script>
 </body>
