@@ -1,12 +1,23 @@
 export const style = `
 :host {
     display: inline-block;
-    height: var(--size, 24px);
 }
-svg {
-    width: var(--size);
-    height: var(--size);
+
+:host([size="small"]) svg {
+    width: 1rem;
+    height: 1rem;
 }
+
+:host([size="medium"]) svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+:host([size="large"]) svg {
+    width: 2rem;
+    height: 2rem;
+}
+
 path, rect {
     fill: var(--color);
 }
