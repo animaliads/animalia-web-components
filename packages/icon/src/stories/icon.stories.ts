@@ -17,16 +17,28 @@ export default {
         category: 'Propriedades',
       },
     },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'radio' },
+      description: 'Tamanhos do botão.',
+      defaultValue: 'button',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+        defaultValue: { summary: 'medium' },
+      },
+    },
   },
 };
 
 const Template = ({ ...args }) => {
-  return html` <ani-icon name="${args.name}"> </ani-icon> `;
+  return html` <ani-icon name="${args.name}" size="${args.size}"> </ani-icon> `;
 };
 
 export const Sample = Template.bind({});
 Sample.args = {
   name: 'user',
+  size: 'medium',
 };
 
 Sample.parameters = {
@@ -35,6 +47,7 @@ Sample.parameters = {
       code: `
 <ani-icon
   name="${Sample.args.name}"
+  size="${Sample.args.size}"
 >
 </ani-icon>`,
     },
