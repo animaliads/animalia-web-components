@@ -12,10 +12,6 @@ export default class Icon extends HTMLElement {
     return this.getAttribute('name');
   }
 
-  get size(): string {
-    return this.getAttribute('size');
-  }
-
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
