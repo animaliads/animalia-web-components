@@ -1,27 +1,23 @@
 export const modalStyle = `
-  .ani-modal {
-    -display: none;
-  }
-
-  .ani-modal.ani-modal--open {
-    display: block;
-  }
-
-  .ani-modal-overlay {
-    background-color: var(--color-overlay);
-    opacity: var(--opacity-overlay);
-
+  .modal {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
   }
 
-  .ani-modal-base {
+  .modal-overlay {
+    background-color: var(--color-overlay);
+    opacity: var(--opacity-overlay);
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-dialog {
     border-radius: var(--border-radius);
     border-width: var(--border-width);
     border-color: var(--border-color);
@@ -30,18 +26,26 @@ export const modalStyle = `
 
     border-style: solid;
 
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
     position: absolute;
     top: 50%;
     left: 50%;
     max-height: 80%;
     transform: translate(-50%, -50%);
-    pointer-events: auto;
+
+    display: flex;
+    flex-direction: column;
   }
 
-  .ani-modal-header{
+  .modal-dialog:focus {
+    outline-color: var(--outline-color-focused);
+
+    outline-width: var(--border-width-lg);
+    outline-style: solid;
+    outline-offset: 2px;
+  }
+
+  .modal-header {
     padding-top: var(--spacing-sm);
     padding-right: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
@@ -55,10 +59,9 @@ export const modalStyle = `
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: relative;
   }
 
-  .ani-modal-title{
+  .modal-title {
     font-family: var(--font-family-heading);
     font-weight: var(--font-weight-bold);
     color: var(--color-neutral-dark-90);
@@ -69,13 +72,15 @@ export const modalStyle = `
     letter-spacing: var(--letter-spacing-auto);
 
     padding-right: var(--spacing-md);
+
+    margin: 0;
   }
 
-  .ani-modal-close {
+  .modal-close {
     align-self: flex-start;
   }
 
-  .ani-modal-content {
+  .modal-body {
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-2xl);
     padding-top: var(--spacing-md);
@@ -84,88 +89,87 @@ export const modalStyle = `
     overflow-y: auto;
   }
 
-  .ani-modal-footer{
+  .modal-footer {
     padding-top: var(--spacing-sm);
     padding-right: var(--spacing-md);
     padding-bottom: var(--spacing-sm);
     padding-left: var(--spacing-md);
 
+    border-top-color: var(--color-divider);
+    border-top-width: var(--border-width-sm);
+    border-top-style: solid;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    position: relative;
-
-    border-top-color: var(--color-divider);
-    border-top-width: var(--border-width-sm);
-    border-top-style: solid;
   }
 
   @media screen and (max-width: 480px) {
-    .ani-modal:is(.ani-modal--small, .ani-modal--medium, .ani-modal--large, .ani-modal--extra-large) .ani-modal-base {
-        width: 90%;
+    .modal:is([size="small"], [size="medium"], [size="large"], [size="extra-large"]) .modal-dialog {
+      width: 90%;
     }
 
-    .ani-modal.ani-modal--auto .ani-modal-base{
-        width: auto;
-        max-width: 70%;
+    .modal[size="auto"] .modal-dialog {
+      width: auto;
+      max-width: 70%;
     }
   }
 
   @media screen and (min-width: 481px) and (max-width: 960px) {
-    .ani-modal:is(.ani-modal--small, .ani-modal--medium, .ani-modal--large, .ani-modal--extra-large) .ani-modal-base {
-        width: 80%;
+    .modal:is([size="small"], [size="medium"], [size="large"], [size="extra-large"]) .modal-dialog {
+      width: 80%;
     }
 
-    .ani-modal.ani-modal--auto .ani-modal-base {
-        width: auto;
-        max-width: 70%;
+    .modal[size="auto"] .modal-dialog {
+      width: auto;
+      max-width: 70%;
     }
   }
 
   @media screen and (min-width: 961px) and (max-width: 1366px) {
-    .ani-modal.ani-modal--small .ani-modal-base{
-        width: 40%;
+    .modal[size="small"] .modal-dialog {
+      width: 40%;
     }
 
-    .ani-modal.ani-modal--medium .ani-modal-base {
-        width: 50%;
+    .modal[size="medium"] .modal-dialog {
+      width: 50%;
     }
 
-    .ani-modal.ani-modal--large .ani-modal-base {
-        width: 60%;
+    .modal[size="large"] .modal-dialog {
+      width: 60%;
     }
 
-    .ani-modal.ani-modal--extra-large .ani-modal-base {
-        width: 70%;
+    .modal[size="extra-large"] .modal-dialog {
+      width: 70%;
     }
 
-    .ani-modal.ani-modal--auto .ani-modal-base {
-        width: 70%;
-        max-width: 70%;
+    .modal[size="auto"] .modal-dialog {
+      width: 70%;
+      max-width: 70%;
     }
   }
 
   @media screen and (min-width: 1367px) {
-    .ani-modal.ani-modal--small .ani-modal-base {
-        width: 40%;
+    .modal[size="small"] .modal-dialog {
+      width: 40%;
     }
 
-    .ani-modal.ani-modal--medium .ani-modal-base {
-        width: 50%;
+    .modal[size="medium"] .modal-dialog {
+      width: 50%;
     }
 
-    .ani-modal.ani-modal--large .ani-modal-base {
-        width: 60%;
+    .modal[size="large"] .modal-dialog {
+      width: 60%;
     }
 
-    .ani-modal.ani-modal--extra-large .ani-modal-base {
-        width: 70%;
+    .modal[size="extra-large"] .modal-dialog {
+      width: 70%;
     }
 
-    .ani-modal.ani-modal--auto .ani-modal-base {
-        width: 70%;
-        max-width: 70%;
+    .modal[size="auto"] .modal-dialog {
+      width: 70%;
+      max-width: 70%;
     }
   }
 `;
