@@ -3,6 +3,8 @@ import { tooltipStyle } from './style';
 @Component('ani-tooltip')
 export default class Tooltip extends HTMLElement {
   shadow: ShadowRoot;
+  tooltipElement: HTMLDivElement;
+
   private _target: any;
 
   get id(): string {
@@ -42,6 +44,7 @@ export default class Tooltip extends HTMLElement {
 
     this._target = document.querySelector('[aria-describedby=' + this.id + ']');
     this.listenerEvents();
+    this.positionTooltip();
   }
 
   attributeChangedCallback(): void {
@@ -53,6 +56,18 @@ export default class Tooltip extends HTMLElement {
       this.render();
     } else {
       this.shadow.innerHTML = '';
+    }
+  }
+
+  private positionTooltip() {
+    if (!this.position || this.position === 'bottom') {
+      this.tooltipElement.classList.add('tooltip-bottom');
+    } else if (this.position === 'top') {
+      this.tooltipElement.classList.add('tooltip-top');
+    } else if (this.position === 'right') {
+      this.tooltipElement.classList.add('tooltip-right');
+    } else {
+      this.tooltipElement.classList.add('tooltip-left');
     }
   }
 
@@ -84,13 +99,19 @@ export default class Tooltip extends HTMLElement {
           <span>${this.tip}</span>
         </div>
     `;
+
+    this.tooltipElement = this.shadow.querySelector('.ani-tooltip');
   }
 
   _show() {
     this.hidden = false;
+    const teste = this.shadow.querySelector('.ani-tooltip');
+    teste.classList.add('tooltip-hidden');
   }
 
   _hide() {
     this.hidden = true;
+    const teste = this.shadow.querySelector('.ani-tooltip');
+    teste.classList.remove('tooltip-hidden');
   }
 }

@@ -8,7 +8,7 @@ export const tooltipStyle = `
 
 
     max-width: 15rem;
-    opacity: 0.9;
+
     padding: var(--spacing-squish-md);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
@@ -16,24 +16,31 @@ export const tooltipStyle = `
 
     width: inherit;
     display: inline-block;
+    visibility: hidden;
   }
 
-  .tooltip-top {
+  .tooltip-hidden {
+    visibility: visible;
+    opacity: 0.9;
+    transition: opacity 1s;
+  }
+
+  .tooltip-top{
     position: absolute;
     margin-top: 0.25em;
   }
 
-  .tooltip-left {
+  .tooltip-left{
     position: absolute;
     left: 0;
   }
 
-  .tooltip-right {
+  .tooltip-right{
     position: absolute;
     right: 0;
   }
 
-  .tooltip-bottom {
+  .tooltip-bottom{
     position: absolute;
     bottom: 0;
   }
