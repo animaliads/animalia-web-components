@@ -94,15 +94,10 @@ export class Modal extends HTMLElement {
     const focusableElements = this.querySelectorAll(
       'a[href], button, details, input, select, textarea, [tabindex]:not([tabindex="-1"]), ani-button, ani-textfield'
     );
+
     const firstFocusableElement = focusableElements[0];
     const lastFocusableElement =
       focusableElements[focusableElements.length - 1];
-
-    console.log({
-      focusableElements: focusableElements,
-      firstFocusableElement: firstFocusableElement,
-      lastFocusableElement: lastFocusableElement,
-    });
 
     this.addEventListener('keydown', event => {
       const isTabbed = event.key === 'Tab' || event.code === '9';
@@ -170,6 +165,8 @@ export class Modal extends HTMLElement {
         this.shadow.innerHTML = '';
       }
     }
+
+    this.setWaiAriaDialog();
   }
 
   private setDefaultSize(): void {
@@ -186,6 +183,14 @@ export class Modal extends HTMLElement {
     if (!this.hidden) {
       this.hidden = true;
     }
+  }
+
+  private setWaiAriaDialog() {
+    this.modalElement.setAttribute('role', 'dialog');
+    this.modalElement.setAttribute('aria-labelledby', 'title');
+    this.modalElement
+      .querySelector('.modal-body')
+      .setAttribute('aria-describedby', 'description');
   }
 
   private setDefaultVisible(): void {
