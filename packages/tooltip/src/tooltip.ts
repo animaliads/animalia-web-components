@@ -5,7 +5,7 @@ export default class Tooltip extends HTMLElement {
   shadow: ShadowRoot;
   tooltipElement: HTMLDivElement;
 
-  private _target: any;
+  private target: any;
 
   get id(): string {
     return this.getAttribute('id');
@@ -23,26 +23,22 @@ export default class Tooltip extends HTMLElement {
     return this.getAttribute('direction');
   }
 
-  get trigger(): string {
-    return this.getAttribute('trigger');
-  }
-
   static get observedAttributes(): Array<string> {
-    return ['tip', 'position', 'direction', 'trigger', 'id'];
+    return ['tip', 'position', 'direction', 'id'];
   }
 
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
 
-    this._show = this._show.bind(this);
-    this._hide = this._hide.bind(this);
+    this.show = this.show.bind(this);
+    this.hide = this.hide.bind(this);
   }
 
   connectedCallback(): void {
     this.render();
 
-    this._target = document.querySelector('[aria-describedby=' + this.id + ']');
+    this.target = document.querySelector('[aria-describedby=' + this.id + ']');
     this.listenerEvents();
     this.positionTooltip();
   }
@@ -72,24 +68,26 @@ export default class Tooltip extends HTMLElement {
   }
 
   private listenerEvents() {
-    if (!this._target) {
+    if (!this.target) {
       return;
     }
-    this._target.addEventListener('focus', this._show);
-    this._target.addEventListener('click', this._show);
-    this._target.addEventListener('mouseenter', this._show);
-    this._target.addEventListener('mouseout', this._hide);
+    this.target.addEventListener('click', this.show);
+    this.target.addEventListener('mouseenter', this.show);
+    this.target.addEventListener('mouseout', this.hide);
+    this.target.addEventListener('focus', this.show);
+    this.target.addEventListener('keydown', this.hide);
   }
 
   disconnectedCallback(): void {
-    if (!this._target) {
+    if (!this.target) {
       return;
     }
-    this._target.addEventListener('focus', this._show);
-    this._target.addEventListener('click', this._show);
-    this._target.addEventListener('mouseenter', this._show);
-    this._target.addEventListener('mouseout', this._hide);
-    this._target = null;
+    this.target.removeEventListener('focus', this.show);
+    this.target.removeEventListener('click', this.show);
+    this.target.removeEventListener('mouseenter', this.show);
+    this.target.removeEventListener('mouseout', this.hide);
+    this.target.removeEventListener('keydown', this.hide);
+    this.target = null;
   }
 
   render(): void {
@@ -103,15 +101,20 @@ export default class Tooltip extends HTMLElement {
     this.tooltipElement = this.shadow.querySelector('.ani-tooltip');
   }
 
-  _show() {
-    this.hidden = false;
-    const teste = this.shadow.querySelector('.ani-tooltip');
-    teste.classList.add('tooltip-hidden');
+  private handleKeyDown(event: { keyCode: number }) {
+    if (event.keyCode === 27) {
+      this.hide;
+      return;
+    }
   }
 
-  _hide() {
+  private show() {
+    this.hidden = false;
+    this.tooltipElement.classList.add('tooltip-hidden');
+  }
+
+  private hide() {
     this.hidden = true;
-    const teste = this.shadow.querySelector('.ani-tooltip');
-    teste.classList.remove('tooltip-hidden');
+    this.tooltipElement.classList.remove('tooltip-hidden');
   }
 }
