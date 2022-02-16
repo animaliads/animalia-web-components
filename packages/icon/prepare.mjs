@@ -16,7 +16,7 @@ try {
 
 function writeSvgInFile(svgs) {
   const content = `// prettier-ignore
-  /* eslint-disable */
+/* eslint-disable */
 export const svgs = ${JSON.stringify(svgs, null, 4)}
 `;
 
