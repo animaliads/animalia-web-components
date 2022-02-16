@@ -206,7 +206,10 @@ export class Modal extends HTMLElement {
             <h2 class="modal-title" id="title">
               <slot name="title"></slot>
             </h2>
-            <ani-button class="modal-close" kind="tertiary">&times;</ani-button>
+            <ani-button  class="modal-close" kind="tertiary"><span aria-label="Fechar janela modal"><svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.41413 6.37L11.7071 2.077C12.0981 1.686 12.0981 1.054 11.7071 0.663001C11.3161 0.272001 10.6841 0.272001 10.2931 0.663001L6.00013 4.956L1.70713 0.663001C1.31613 0.272001 0.684128 0.272001 0.293128 0.663001C-0.0978721 1.054 -0.0978721 1.686 0.293128 2.077L4.58613 6.37L0.293128 10.663C-0.0978721 11.054 -0.0978721 11.686 0.293128 12.077C0.488128 12.272 0.744128 12.37 1.00013 12.37C1.25613 12.37 1.51213 12.272 1.70713 12.077L6.00013 7.784L10.2931 12.077C10.4881 12.272 10.7441 12.37 11.0001 12.37C11.2561 12.37 11.5121 12.272 11.7071 12.077C12.0981 11.686 12.0981 11.054 11.7071 10.663L7.41413 6.37Z" fill="#4545A1"/>
+            </svg></span>
+            </ani-button>
           </header>
           <section class="modal-body" id="description">
             <slot name="body"></slot>
