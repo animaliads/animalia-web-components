@@ -1,4 +1,12 @@
 export const modalStyle = `
+  :host {
+    display: block;
+  }
+
+  :host * {
+    box-sizing: border-box;
+  }
+
   .modal {
     position: fixed;
     top: 0;
