@@ -1,7 +1,5 @@
 import { transformBooleanProperties, Component } from '@animaliads/common';
 
-import '@animaliads/ani-icon';
-
 import { CheckboxSize } from './enums/checkbox-size.enum';
 import { KeyCode } from './enums/key-code.enum';
 import { checkboxStyle } from './checkbox.style';
