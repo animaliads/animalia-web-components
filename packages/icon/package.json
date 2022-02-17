@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/ani-icon",
-  "version": "1.1.0-dev.40",
+  "version": "1.1.0-dev.41",
   "description": "Icon do Animalia DS",
   "tag": "dev",
   "keywords": [
@@ -30,6 +30,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@animaliads/common": "^1.1.0-dev.40"
+    "@animaliads/common": "^1.1.0-dev.41"
   }
 }
