@@ -23,11 +23,6 @@ export class Modal extends HTMLElement {
     return !size || size === 'null' ? ModalSize.medium : size;
   }
 
-  get title(): string {
-    const title = this.getAttribute('title');
-    return !title || title === 'null' ? '' : title;
-  }
-
   get visible(): string {
     const visible = this.getAttribute('visible');
     return transformBooleanProperties(visible);
