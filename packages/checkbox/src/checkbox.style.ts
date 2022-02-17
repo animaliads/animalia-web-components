@@ -74,10 +74,4 @@ export const checkboxStyle = `
     width: var(--width-lg);
     height: var(--width-lg);
   }
-
-  ani-icon {
-    --color: var(--color-unchecked);
-    --size: 20px;
-    position: absolute;
-  }
 `;

@@ -20,7 +20,7 @@ export default {
     size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'radio' },
-      description: 'Tamanhos do botão.',
+      description: 'Tamanhos do ícone.',
       defaultValue: 'button',
       table: {
         type: { summary: 'string' },
