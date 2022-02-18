@@ -74,4 +74,16 @@ export const checkboxStyle = `
     width: var(--width-lg);
     height: var(--width-lg);
   }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  path,
+  rect {
+    fill: var(--color-unchecked);
+  }
 `;
