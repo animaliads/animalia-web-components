@@ -69,6 +69,12 @@ export const modalStyle = `
     justify-content: space-between;
   }
 
+  .modal-icon {
+    padding-right: var(--spacing-xs);
+
+    align-self: flex-start;
+  }
+
   .modal-title {
     font-family: var(--font-family-heading);
     font-weight: var(--font-weight-bold);
@@ -81,6 +87,7 @@ export const modalStyle = `
 
     padding-right: var(--spacing-md);
 
+    flex-grow: 1;
     margin: 0;
   }
 
@@ -114,68 +121,68 @@ export const modalStyle = `
   }
 
   @media screen and (max-width: 480px) {
-    .modal:is([size="small"], [size="medium"], [size="large"], [size="extra-large"]) .modal-dialog {
+    :is([size="small"], [size="medium"], [size="large"], [size="extra-large"]) .modal-dialog {
       width: 90%;
     }
 
-    .modal[size="auto"] .modal-dialog {
+    [size="auto"] .modal-dialog {
       width: auto;
       max-width: 70%;
     }
   }
 
   @media screen and (min-width: 481px) and (max-width: 960px) {
-    .modal:is([size="small"], [size="medium"], [size="large"], [size="extra-large"]) .modal-dialog {
+    :is([size="small"], [size="medium"], [size="large"], [size="extra-large"]) .modal-dialog {
       width: 80%;
     }
 
-    .modal[size="auto"] .modal-dialog {
+    [size="auto"] .modal-dialog {
       width: auto;
       max-width: 70%;
     }
   }
 
   @media screen and (min-width: 961px) and (max-width: 1366px) {
-    .modal[size="small"] .modal-dialog {
+    [size="small"] .modal-dialog {
       width: 40%;
     }
 
-    .modal[size="medium"] .modal-dialog {
+    [size="medium"] .modal-dialog {
       width: 50%;
     }
 
-    .modal[size="large"] .modal-dialog {
+    [size="large"] .modal-dialog {
       width: 60%;
     }
 
-    .modal[size="extra-large"] .modal-dialog {
+    [size="extra-large"] .modal-dialog {
       width: 70%;
     }
 
-    .modal[size="auto"] .modal-dialog {
+    [size="auto"] .modal-dialog {
       width: 70%;
       max-width: 70%;
     }
   }
 
   @media screen and (min-width: 1367px) {
-    .modal[size="small"] .modal-dialog {
+    [size="small"] .modal-dialog {
       width: 40%;
     }
 
-    .modal[size="medium"] .modal-dialog {
+    [size="medium"] .modal-dialog {
       width: 50%;
     }
 
-    .modal[size="large"] .modal-dialog {
+    [size="large"] .modal-dialog {
       width: 60%;
     }
 
-    .modal[size="extra-large"] .modal-dialog {
+    [size="extra-large"] .modal-dialog {
       width: 70%;
     }
 
-    .modal[size="auto"] .modal-dialog {
+    [size="auto"] .modal-dialog {
       width: 70%;
       max-width: 70%;
     }

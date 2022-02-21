@@ -6,7 +6,7 @@ import {
 
 import { ModalSize } from './enums/modal-size.enum';
 
-import { modalStyle } from './style';
+import { modalStyle } from './modal.style';
 
 @Component('ani-modal')
 export class Modal extends HTMLElement {
@@ -21,6 +21,11 @@ export class Modal extends HTMLElement {
   get size(): string {
     const size = this.getAttribute('size');
     return !size || size === 'null' ? ModalSize.medium : size;
+  }
+
+  get title(): string {
+    const title = this.getAttribute('title');
+    return !title || title === 'null' ? '' : title;
   }
 
   get visible(): string {
@@ -40,6 +45,7 @@ export class Modal extends HTMLElement {
   connectedCallback(): void {
     this.setDefaultSize();
     this.setDefaultVisible();
+    this.setAriaAttributes();
   }
 
   attributeChangedCallback(
@@ -52,30 +58,27 @@ export class Modal extends HTMLElement {
 
   open(): void {
     this.setAttribute('visible', 'true');
+    this.lockScroll();
     this.focusedElementBeforeOpen = document.activeElement;
     this.setFocus();
   }
 
   close(): void {
     this.setAttribute('visible', 'false');
-
-    if (this.focusedElementBeforeOpen) {
-      this.focusedElementBeforeOpen?.shadow
-        ? this.focusedElementBeforeOpen?.setFocus()
-        : this.focusedElementBeforeOpen.focus();
-    }
+    this.lockScroll();
+    this.focusedElementBeforeOpen?.shadow
+      ? this.focusedElementBeforeOpen?.setFocus()
+      : this.focusedElementBeforeOpen?.focus();
   }
 
   private setFocus(): void {
-    if (this.focusableElements?.length) {
-      this.focusableElements = [];
-    }
+    this.clearFocusableElements();
 
     if (this.shadow) {
-      this.trapFocusableElement(this.shadow.querySelectorAll('*'));
+      this.findFocusableElements(this.shadow.querySelectorAll('*'));
     }
 
-    this.trapFocusableElement(this.querySelectorAll('*'));
+    this.findFocusableElements(this.querySelectorAll('*'));
 
     this.firstFocusableElement = this.focusableElements[0];
     this.lastFocusableElement =
@@ -88,29 +91,36 @@ export class Modal extends HTMLElement {
         return;
       }
 
+      if (this.focusableElements.length === 1) {
+        event.preventDefault();
+      }
+
       if (event.shiftKey) {
         if (
-          document.activeElement === this.firstFocusableElement ||
-          this.shadow.activeElement === this.firstFocusableElement
+          this.firstFocusableElement ===
+          (this.shadow.activeElement || document.activeElement)
         ) {
-          this.lastFocusableElement?.shadow
+          this.lastFocusableElement.shadow
             ? this.lastFocusableElement.setFocus()
-            : (this.lastFocusableElement as HTMLElement).focus();
+            : this.lastFocusableElement.focus();
           event.preventDefault();
         }
       } else {
-        if (document.activeElement === this.lastFocusableElement) {
-          this.firstFocusableElement?.shadow
+        if (
+          this.lastFocusableElement ===
+          (this.shadow.activeElement || document.activeElement)
+        ) {
+          this.firstFocusableElement.shadow
             ? this.firstFocusableElement.setFocus()
-            : (this.firstFocusableElement as HTMLElement).focus();
+            : this.firstFocusableElement.focus();
           event.preventDefault();
         }
       }
     });
 
-    this.firstFocusableElement?.shadow
+    this.firstFocusableElement.shadow
       ? this.firstFocusableElement.setFocus()
-      : (this.firstFocusableElement as HTMLElement).focus();
+      : this.firstFocusableElement.focus();
   }
 
   private isCustomElement(el) {
@@ -125,7 +135,7 @@ export class Modal extends HTMLElement {
     return el.matches(nativeElements);
   }
 
-  private trapFocusableElement(nodes): void {
+  private findFocusableElements(nodes): void {
     for (let i = 0, el; (el = nodes[i]); ++i) {
       if (this.isCustomElement(el) || this.isNativeElement(el)) {
         this.focusableElements.push(el);
@@ -133,7 +143,13 @@ export class Modal extends HTMLElement {
     }
   }
 
-  private onCLickX(): void {
+  private clearFocusableElements(): void {
+    if (this.focusableElements.length) {
+      this.focusableElements = [];
+    }
+  }
+
+  private onClickX(): void {
     const modalClose = this.shadow.querySelector('.modal-close');
     modalClose.addEventListener('click', () => this.close());
   }
@@ -143,7 +159,17 @@ export class Modal extends HTMLElement {
     modalOverlay.addEventListener('click', () => this.close());
   }
 
-  private handlerKeyDown(event: { keyCode: number }): void {
+  private lockScroll() {
+    this.visible === 'true'
+      ? (document.body.style.overflow = 'hidden')
+      : document.body.style.removeProperty('overflow');
+
+    if (document.body.getAttribute('style') === '') {
+      document.body.removeAttribute('style');
+    }
+  }
+
+  private handlerKeyDownEscape(event: { keyCode: number }): void {
     if (event.keyCode === KeyCode.ESCAPE) {
       this.close();
     }
@@ -153,13 +179,12 @@ export class Modal extends HTMLElement {
     if (name === 'visible' && this.shadow) {
       if (newValue === 'true') {
         this.render();
-        this.setWaiAriaModal();
-        this.onCLickX();
         this.onClickOverlay();
-        this.addEventListener('keydown', this.handlerKeyDown);
+        this.onClickX();
+        this.addEventListener('keydown', this.handlerKeyDownEscape);
       } else {
         this.shadow.innerHTML = '';
-        this.removeEventListener('keydown', this.handlerKeyDown);
+        this.removeEventListener('keydown', this.handlerKeyDownEscape);
       }
     }
   }
@@ -175,31 +200,46 @@ export class Modal extends HTMLElement {
   }
 
   private setDefaultVisible(): void {
-    const visible = this.visible;
-
-    if (!this.hasAttribute('visible') || visible === 'false') {
+    if (!this.hasAttribute('visible') || this.visible === 'false') {
       this.setAttribute('visible', 'false');
     } else {
       this.setAttribute('visible', 'true');
     }
   }
 
-  private setWaiAriaModal() {
-    this.setAttribute('role', 'dialog');
-    this.setAttribute('aria-labelledby', 'title');
-    this.setAttribute('aria-describedby', 'description');
+  private setAriaAttributes(): void {
+    const ariaAttributes = {
+      'aria-describedby': 'description',
+      'aria-labelledby': 'title',
+      'aria-modal': 'true',
+      role: 'dialog',
+    };
+
+    Object.entries(ariaAttributes).forEach(([key, value]) => {
+      if (!this.hasAttribute(key)) {
+        this.setAttribute(key, value);
+      }
+    });
   }
 
   private render(): void {
+    const modalIcon =
+      '<span class="modal-icon"><slot name="icon"></slot></span>';
+    const modalFooter =
+      '<footer class="modal-footer" tabindex="-1" role="presentation"><slot name="footer"></slot></footer>';
+
     this.shadow.innerHTML = `
       <style>${modalStyle}</style>
-      <div class="modal" size="${this.size}" visible="${this.visible}" role="dialog" aria-labelledby="title" aria-describedby="description">
+      <div class="modal" size="${this.size}" title="${this.title}" visible="${
+      this.visible
+    }" role="dialog" aria-labelledby="title" aria-describedby="description">
         <div class="modal-overlay"></div>
         <div class="modal-dialog">
           <header class="modal-header" aria-hidden="true">
-            <h2 class="modal-title" id="title" role="presentation">
-              <slot name="title"></slot>
-            </h2>
+            ${this.querySelector('[slot="icon"]') ? modalIcon : ''}
+            <h2 class="modal-title" id="title" role="presentation">${
+              this.title
+            }</h2>
             <ani-button class="modal-close" kind="tertiary">
               <span aria-label="Fechar janela modal">
                 <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -211,9 +251,7 @@ export class Modal extends HTMLElement {
           <section class="modal-body" id="description">
             <slot name="body"></slot>
           </section>
-          <footer class="modal-footer" role="presentation">
-            <slot name="footer"></slot>
-          </footer>
+          ${this.querySelector('[slot="footer"]') ? modalFooter : ''}
         </div>
       </div>
     `;
