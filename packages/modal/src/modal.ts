@@ -129,9 +129,8 @@ export class Modal extends HTMLElement {
   }
 
   private isNativeElement(el) {
-    const nativeElements = [
-      'a[href], button, details, input, select, textarea, [tabindex]:not([tabindex="-1"])',
-    ];
+    const nativeElements =
+      'a[href], button, details, input, select, textarea, [tabindex]:not([tabindex="-1"])';
     return el.matches(nativeElements);
   }
 
