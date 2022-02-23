@@ -1,0 +1,71 @@
+import BestPracticesComponent from './../../helpers/components/best-practices.tsx';
+
+import ImageDo2 from './assets/image-do-2.jpg';
+import ImageDont2 from './assets/image-dont-2.jpg';
+
+## Acessibilidade em imagens
+
+As boas práticas de acessibilidade variam de acordo com tipo da imagem, que podem ser divididas em:
+
+- **Imagem informativa simples**, como por exemplo uma fotografia de um produto
+- **Imagem complexa**, como um gráfico, infográfico ou diagrama
+- **Imagem decorativa**, como um plano de fundo ou uma fotografia que ilustra um assunto, mas não é essencial para compreender a informação
+
+### Imagem informativa
+
+- Forneça uma alternativa de texto para descrever esse conteúdo, através do texto alternativo ou de uma legenda;
+- Não use textos dentro da imagem, pois essa informação fica inacessível para leitores de tela e tradutores. Além disso, à medida que a imagem é reduzida em telas menores, o texto também é redimensionado, podendo comprometer sua legibilidade;
+- Verifique se itens essenciais na imagem atendem às diretrizes de contraste de cores.
+
+### Imagem complexa
+
+- Avalie o nível de complexidade e forneça um recurso que dê acesso àquela informação. Pode ser incluído um texto próximo à imagem explicando seu conteúdo, um texto alternativo que complemente, ou até mesmo um link para uma página externa que contenha uma descrição detalhada daquele conteúdo.
+
+### Imagem decorativa
+
+- Texto em imagens são permitidos apenas em imagens com função decorativa, ou seja, não essenciais para a compreensão do conteúdo;
+- Para imagens puramente decorativas e que não possuam outros recursos (como um link), legenda e texto alternativo são dispensáveis.
+
+## Recursos para imagens
+
+### 📖 Tipos:
+
+> **Legendas:** descrição logo abaixo da imagem, que trazem informações contextuais. É útil para todas as pessoas, usuárias de tecnologias assistivas ou não.
+
+> **Texto alternativo (_alt_):** descrição curta de uma imagem, inserida no código, que é mostrada para pessoas que utilizam leitores de tela, ou que por algum motivo não pôde ser renderizada.
+
+> **Descrição longa:** descrição mais detalhada de uma imagem, importante para imagens complexas.
+
+---
+
+### Como usar cada recurso
+
+#### Legendas
+
+- Use legendas para descrições longas ou para trazer mais contexto para a imagem;
+- Caso o conteúdo da legenda seja suficiente para o entendimento da imagem, o texto alternativo é dispensável.
+
+#### Texto alternativo (_alt_)
+
+- Não repita informações que já estão em outros elementos da página;
+- Descreva apenas o necessário para uma compreensão rápida, pois há limitação de 125 caracteres para esse texto;
+- Não utilize expressões como “foto de...”, “imagem de...”, pois fica redundante. Os leitores de tela já informam que o elemento se trata de uma imagem;
+- Use voz ativa para descrever, por ser mais objetivo e claro quem está fazendo o quê;
+- Para separar itens, use hífen (item 1 - item 2) ou vírgula (item 1, item 2). Evite utilizar barras para esse fim (item 1 / item 2);
+- Não coloque palavras-chave no texto alternativo, com o propósito de melhorar o SEO, pois isso pode confundir os usuários de leitores de tela.
+
+<BestPracticesComponent
+  doImg={ImageDo2}
+  doAlt="Exemplo de um texto alternativo para uma imagem de bolo que descreve os detalhes importantes da imagem"
+  doDescription="Use o texto alternativo para informar o que a imagem está mostrando, trazendo contexto às pessoas.
+  Exemplo do texto alternativo: Fatia de bolo com camadas intercaladas de creme e massa, com pedaços de chocolate em cima"
+  dontImg={ImageDont2}
+  dontAlt="Dois exemplos de textos alternativos ruins para uma imagem de bolo, um repetindo informação e outro usando palavras-chave"
+  dontDescription="Repetir informação ou utilizar palavras-chave pode confundir pessoas que utilizam leitores de tela.
+  Exemplo do texto alternativo: bolo, café, cake, São Paulo"
+/>
+
+#### Descrição longa:
+
+- Utilize para imagens complexas ou informativas que requerem maior detalhamento para sua compreensão;
+- Pode estar na mesma página ou em um link externo, podendo estar visível para todos ou apenas para tecnologias assistivas.

@@ -1,0 +1,58 @@
+import BestPracticesComponent from './../../helpers/components/best-practices.tsx';
+
+import ImageRatio from './assets/image-ratio.jpg';
+import ImageDo1 from './assets/image-do-1.jpg';
+import ImageDont1 from './assets/image-dont-1.jpg';
+
+# Imagem
+
+_As imagens têm a função de traduzir visualmente ideias específicas ou mensagens complexas; mostrar um produto; ou contar uma história, estabelecendo empatia e se conectando com os usuários._
+
+---
+
+### Quando usar?
+
+- Utilize imagens quando o conteúdo puder se beneficiar de um exemplo de apoio para esclarecer as informações.
+
+> 📌 Para a utilização de ícones e logotipo, consulte as documentações específicas para esses elementos.
+
+### Quando não usar?
+
+Considere não incluir ou remover uma imagem em um layout ou visualização específica, quando:
+
+- Não contribuir significativamente para a compreensão do conteúdo da página;
+- Perder o seu significado ao ser recortada nas dimensões corretas;
+- Está sendo encoberta pelo texto que a acompanha;
+- Está aumentando muito a quantidade de rolagem na página.
+
+## Boas práticas no uso
+
+### Imagem em layout
+
+- Ao utilizar imagens, mantenha uma coerência entre elas no produto, de modo que compartilhem um mesmo estilo e intenção entre si;
+- Utilize imagens que expressem a mensagem e estilo do produto, respeitando as diretrizes e guia da marca. Em caso de dúvidas, <a href = "mailto: cristiano.cunha@totvs.com.br">consulte o time de marketing </a>;
+- Ao utilizar fotografias, é recomendável o uso de proporções de aspecto padrão, como 1:1, 3:1, 3:2, 16:9;
+- Mantenha um ponto focal na imagem, pois isso influencia em como ela se comportará em diferentes formatos. Isso também ajuda a transmitir a mensagem de forma objetiva e consistente.
+
+<img
+  src={ImageRatio}
+  alt="Demonstração de uma mesma imagem e seu enquadramento em diferentes proporções."
+  width="700px"
+/>
+
+### Imagem como plano de fundo
+
+- Avalie se é realmente necessário o uso de imagem como plano de fundo e evite sempre que possível, pois pode ocasionar em um baixo contraste entre texto e imagem;
+- Caso utilize, redobre a atenção na escolha da imagem e certifique-se de que ela está adequada para a leitura do texto e não está sendo apenas um ruído;
+- Tenha especial atenção em telas menores. Embora seja possível posicionar o texto em uma área mais vazia ou escurecida, o texto e imagem se ajustam aos diferentes espaços, de acordo com o dispositivo. Muitas vezes acaba resultando no comprometimento tanto da leitura do texto e quando na visualização da imagem;
+- Verifique a taxa de contraste do texto em relação ao fundo. Deve ser suficiente para atender aos padrões de acessibilidade, sendo 4,5:1 para textos acima de 18pt ou bold e 7,1: 1 para textos menores que 18pt;
+- Se não tiver controle sobre qual imagem será colocada por trás do texto, o recomendado é não utilizar nesse formato.
+
+<BestPracticesComponent
+  doImg={ImageDo1}
+  doAlt="Mensagem na tela inicial de um app com texto “Parabéns pelos 2 anos de empresa” sobre um fundo de neutro"
+  doDescription="Evite texto sobre imagens sempre que possível. Quando utilizar, garanta que o texto permaneça legível em relação ao fundo. Filtros podem ajudar."
+  dontImg={ImageDont1}
+  dontAlt="Mensagem em uma tela inicial de um app com texto “Parabéns pelos 2 anos de empresa” sobre um fundo de luzes brilhantes"
+  dontDescription="Imagens sendo usadas como plano de fundo podem dificultar a leitura do texto."
+/>
