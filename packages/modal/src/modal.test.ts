@@ -1,4 +1,3 @@
-import { assertTSTypeAliasDeclaration } from '@babel/types';
 import './modal';
 import { Modal } from './modal';
 
@@ -16,6 +15,17 @@ describe('Modal:', () => {
 
   afterEach(() => {
     document.getElementsByTagName(modalTagName)[0]?.remove();
+  });
+
+  /**
+   * get title()
+   */
+  test('get value from property "title"', () => {
+    document.body.innerHTML = '<ani-modal title="Title"></ani-modal>';
+
+    const aniModal = <Modal>document.querySelector(modalTagName);
+
+    expect(aniModal['title']).toBe('Title');
   });
 
   /**
@@ -37,7 +47,7 @@ describe('Modal:', () => {
     expect(aniModal.getAttribute('size')).toBe('medium');
   });
 
-  test('should set "size" value if "size" is defined with value', () => {
+  test('should set "size" to small if "size" is defined with small', () => {
     document.body.innerHTML = '<ani-modal size="small"></ani-modal>';
 
     const aniModal = <Modal>document.querySelector(modalTagName);
@@ -101,9 +111,9 @@ describe('Modal:', () => {
 
     const aniModal = <Modal>document.querySelector(modalTagName);
 
-    aniModal.close();
+    aniModal['focusedElementBeforeOpen'] = document.body;
 
-    document.activeElement;
+    aniModal.close();
 
     expect(aniModal.getAttribute('visible')).toBe('false');
   });
@@ -118,6 +128,8 @@ describe('Modal:', () => {
     const aniModal = <Modal>document.querySelector(modalTagName);
     const modalClose =
       getShadowRoot(modalTagName).querySelector<HTMLElement>('.modal-close');
+
+    aniModal['focusedElementBeforeOpen'] = document.body;
 
     modalClose.addEventListener('click', onClickX);
     modalClose.click();
@@ -137,6 +149,8 @@ describe('Modal:', () => {
     const modalOverlay =
       getShadowRoot(modalTagName).querySelector<HTMLElement>('.modal-overlay');
 
+    aniModal['focusedElementBeforeOpen'] = document.body;
+
     modalOverlay.addEventListener('click', onClickOverlay);
     modalOverlay.click();
 
@@ -153,6 +167,8 @@ describe('Modal:', () => {
     const aniModal = <Modal>document.querySelector(modalTagName);
     const event = new KeyboardEvent('keydown', { keyCode: 27 });
 
+    aniModal['focusedElementBeforeOpen'] = document.body;
+
     aniModal.dispatchEvent(event);
 
     expect(aniModal.getAttribute('visible')).toBe('false');
@@ -161,7 +177,7 @@ describe('Modal:', () => {
   /**
    * setFocus()
    */
-  test('should set focus in focusable elements', () => {
+  test('should find focusable elements', () => {
     document.body.innerHTML = `
       <ani-modal>
       <div slot="body">
@@ -177,7 +193,6 @@ describe('Modal:', () => {
 
     const aniModal = <Modal>document.querySelector(modalTagName);
     aniModal.open();
-    aniModal['setFocus']();
 
     expect(aniModal.focusableElements.length).toBe(5);
   });
@@ -189,13 +204,62 @@ describe('Modal:', () => {
     document.body.innerHTML = '<ani-modal></ani-modal>';
 
     const aniModal = <Modal>document.querySelector(modalTagName);
-    aniModal.focusableElements = [
-      'a[href], button, details, input, select, textarea, [tabindex]:not([tabindex="-1"])',
-    ];
-
     aniModal.open();
+
+    expect(aniModal.focusableElements).toHaveLength(1);
+
     aniModal['clearFocusableElements']();
 
     expect(aniModal.focusableElements).toHaveLength(0);
+  });
+
+  test('should focus on focusedElementBeforeOpen', () => {
+    document.body.innerHTML = '<ani-modal></ani-modal>';
+
+    const aniModal = <Modal>document.querySelector(modalTagName);
+
+    aniModal.close();
+
+    expect(aniModal.focusedElementBeforeOpen).toBe(document.body);
+  });
+
+  /**
+   * trapFocusableElements()
+   */
+  test('trapFocusableElements just one element', () => {
+    document.body.innerHTML = '<ani-modal></ani-modal>';
+
+    const aniModal = <Modal>document.querySelector(modalTagName);
+
+    aniModal.open();
+
+    aniModal['focusedElementBeforeOpen'] = document.body;
+
+    expect(aniModal.focusableElements.length).toBe(1);
+
+    const modalClose =
+      getShadowRoot(modalTagName).querySelector<HTMLElement>('.modal-close');
+    const event = new KeyboardEvent('keydown', { keyCode: 9 });
+
+    // aniModal.dispatchEvent(event);
+
+    // expect(modalClose).focus();
+  });
+
+  test('should render element "modal-icon" if "slot=icon" is used', () => {
+    document.body.innerHTML = `
+      <ani-modal>
+        <div slot="icon">icon</div>
+      </ani-modal>
+    `;
+
+    const aniModal = <Modal>document.querySelector(modalTagName);
+
+    aniModal.open();
+
+    const modalIcon =
+      getShadowRoot(modalTagName).querySelector<HTMLElement>('.modal-icon');
+
+    expect(modalIcon).toBeTruthy();
   });
 });

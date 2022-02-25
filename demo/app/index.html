@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Animalia</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
 
   <style>
     _ani-button {
@@ -20,7 +21,10 @@
 
     <ani-button id="openModal">Animalia Button</ani-button>
 
-    <ani-modal title="Hello Animalia Modal" size="large">
+    <ani-modal title="Title">
+      <div slot="icon">
+        <span class="material-icons-outlined">info</span>
+      </div>
       <div slot="body">
         <h3>Hello Animalia Modal</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non dolore voluptates soluta consequatur

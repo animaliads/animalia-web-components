@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.json",
   "include": ["./src"],
   "compilerOptions": {
-    "lib": ["es5", "es6", "dom", "dom.iterable"],
     "outDir": "./dist",
     "declarationDir": "."
   }

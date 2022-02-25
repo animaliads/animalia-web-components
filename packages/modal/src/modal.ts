@@ -84,67 +84,57 @@ export class Modal extends HTMLElement {
     this.lastFocusableElement =
       this.focusableElements[this.focusableElements.length - 1];
 
-    this.addEventListener('keydown', event => {
-      const isTabbed = event.key === 'Tab' || event.code === '9';
-
-      if (!isTabbed) {
-        return;
-      }
-
-      if (this.focusableElements.length === 1) {
-        event.preventDefault();
-      }
-
-      if (event.shiftKey) {
-        if (
-          this.firstFocusableElement ===
-          (this.shadow.activeElement || document.activeElement)
-        ) {
-          this.lastFocusableElement.shadow
-            ? this.lastFocusableElement.setFocus()
-            : this.lastFocusableElement.focus();
-          event.preventDefault();
-        }
-      } else {
-        if (
-          this.lastFocusableElement ===
-          (this.shadow.activeElement || document.activeElement)
-        ) {
-          this.firstFocusableElement.shadow
-            ? this.firstFocusableElement.setFocus()
-            : this.firstFocusableElement.focus();
-          event.preventDefault();
-        }
-      }
-    });
-
     this.firstFocusableElement.shadow
       ? this.firstFocusableElement.setFocus()
       : this.firstFocusableElement.focus();
   }
 
-  private isCustomElement(el) {
-    const isAttr = el.getAttribute('is');
-    return el.localName.includes('-') || (isAttr && isAttr.includes('-'));
-  }
-
-  private isNativeElement(el) {
-    const nativeElements =
-      'a[href], button, details, input, select, textarea, [tabindex]:not([tabindex="-1"])';
-    return el.matches(nativeElements);
+  private clearFocusableElements(): void {
+    if (this.focusableElements.length) {
+      this.focusableElements = [];
+    }
   }
 
   private findFocusableElements(nodes): void {
-    for (let i = 0, el; (el = nodes[i]); ++i) {
-      if (this.isCustomElement(el) || this.isNativeElement(el)) {
-        this.focusableElements.push(el);
+    const elements =
+      'a[href], button, details, input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    for (let i = 0, element; (element = nodes[i]); ++i) {
+      if (element.localName.includes('-') || element.matches(elements)) {
+        this.focusableElements.push(element);
       }
     }
   }
 
-  private clearFocusableElements(): void {
-    if (this.focusableElements.length) {
-      this.focusableElements = [];
+  private trapFocusableElements(event): void {
+    if (event.key !== 'Tab') {
+      return;
+    }
+
+    if (this.focusableElements.length === 1) {
+      event.preventDefault();
+    }
+
+    if (event.shiftKey) {
+      if (
+        this.firstFocusableElement ===
+        (this.shadow.activeElement || document.activeElement)
+      ) {
+        this.lastFocusableElement.shadow
+          ? this.lastFocusableElement.setFocus()
+          : this.lastFocusableElement.focus();
+        event.preventDefault();
+      }
+    } else {
+      if (
+        this.lastFocusableElement ===
+        (this.shadow.activeElement || document.activeElement)
+      ) {
+        this.firstFocusableElement.shadow
+          ? this.firstFocusableElement.setFocus()
+          : this.firstFocusableElement.focus();
+        event.preventDefault();
+      }
     }
   }
 
@@ -162,7 +152,6 @@ export class Modal extends HTMLElement {
     this.visible === 'true'
       ? (document.body.style.overflow = 'hidden')
       : document.body.style.removeProperty('overflow');
-
     if (document.body.getAttribute('style') === '') {
       document.body.removeAttribute('style');
     }
@@ -181,9 +170,11 @@ export class Modal extends HTMLElement {
         this.onClickOverlay();
         this.onClickX();
         this.addEventListener('keydown', this.handlerKeyDownEscape);
+        this.addEventListener('keydown', this.trapFocusableElements);
       } else {
         this.shadow.innerHTML = '';
         this.removeEventListener('keydown', this.handlerKeyDownEscape);
+        this.removeEventListener('keydown', this.trapFocusableElements);
       }
     }
   }
@@ -199,7 +190,7 @@ export class Modal extends HTMLElement {
   }
 
   private setDefaultVisible(): void {
-    if (!this.hasAttribute('visible') || this.visible === 'false') {
+    if (!this.hasAttribute('visible') || this.visible !== 'true') {
       this.setAttribute('visible', 'false');
     } else {
       this.setAttribute('visible', 'true');
