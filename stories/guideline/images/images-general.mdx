@@ -1,5 +1,3 @@
-import BestPracticesComponent from './../../helpers/components/best-practices.tsx';
-
 import ImageRatio from './assets/image-ratio.jpg';
 import ImageDo1 from './assets/image-do-1.jpg';
 import ImageDont1 from './assets/image-dont-1.jpg';
@@ -48,12 +46,32 @@ Considere não incluir ou remover uma imagem em um layout ou visualização espe
 - Verifique a taxa de contraste do texto em relação ao fundo. Deve ser suficiente para atender aos padrões de acessibilidade, sendo 4,5:1 para textos acima de 18pt ou bold e 7,1: 1 para textos menores que 18pt;
 - Se não tiver controle sobre qual imagem será colocada por trás do texto, o recomendado é não utilizar nesse formato.
 
-<BestPracticesComponent
-  doImg={ImageDo1}
-  doAlt="Mensagem na tela inicial de um app com texto “Parabéns pelos 2 anos de empresa” sobre um fundo de neutro"
-  doDescription="Evite texto sobre imagens sempre que possível. Quando utilizar, garanta que o texto permaneça legível em relação ao fundo. Filtros podem ajudar."
-  warning="true"
-  dontImg={ImageDont1}
-  dontAlt="Mensagem em uma tela inicial de um app com texto “Parabéns pelos 2 anos de empresa” sobre um fundo de luzes brilhantes"
-  dontDescription="Imagens sendo usadas como plano de fundo podem dificultar a leitura do texto."
-/>
+<div
+  style={{
+    padding: '0 0 24px 0',
+    display: 'flex',
+    fontFamily: 'sans-serif',
+    lineHeight: '24px',
+    color: '#333333',
+  }}
+>
+  <div style={{ width: '50%', marginRight: '4%' }}>
+    <img
+      style={{ width: '100%' }}
+      src={ImageDo1}
+      alt="Mensagem na tela inicial de um app com texto “Parabéns pelos 2 anos de empresa” sobre um fundo de neutro"
+    />
+    <b>Cuidado</b>
+    <p>Evite texto sobre imagens sempre que possível. Quando utilizar, garanta que o texto permaneça legível em relação ao fundo. Filtros podem ajudar.</p>
+  </div>
+
+  <div style={{ width: '50%' }}>
+    <img
+      style={{ width: '100%' }}
+      src={ImageDont1}
+      alt="Mensagem em uma tela inicial de um app com texto “Parabéns pelos 2 anos de empresa” sobre um fundo de luzes brilhantes"
+    />
+    <b>Não fazer</b>
+    <p>Imagens sendo usadas como plano de fundo podem dificultar a leitura do texto.</p>
+  </div>
+</div>
