@@ -292,4 +292,42 @@ describe('Button:', () => {
 
     expect(buttonElement.focus).toBeCalled();
   });
+
+  test('should set size to medium if size is undefined', () => {
+    document.body.innerHTML = `
+      <ani-button></ani-button>
+    `;
+
+    const buttonElement = document.querySelector(buttonTagName);
+
+    expect(buttonElement.getAttribute('size')).toBe('medium');
+  });
+
+  test('should set size to large if type is large', () => {
+    document.body.innerHTML = `
+      <ani-button size="large"></ani-button>
+    `;
+
+    const buttonElement = document.querySelector(buttonTagName);
+
+    expect(buttonElement.getAttribute('size')).toBe('large');
+  });
+
+  test('should set attribute size to medium', () => {
+    document.body.appendChild(button);
+    button.setAttribute('size', 'medium');
+
+    const buttonElement = document.querySelector(buttonTagName);
+
+    expect(buttonElement.getAttribute('size')).toBe('medium');
+  });
+
+  test('should set attribute size to default value if size is null', () => {
+    document.body.appendChild(button);
+    button.setAttribute('size', null);
+
+    const buttonElement = document.querySelector(buttonTagName);
+
+    expect(buttonElement.getAttribute('size')).toBe('medium');
+  });
 });

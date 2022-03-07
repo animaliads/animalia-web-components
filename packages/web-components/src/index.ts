@@ -1,10 +1,11 @@
 import '@animaliads/ani-button';
+import '@animaliads/ani-card';
 import '@animaliads/ani-checkbox';
+import '@animaliads/ani-icon';
 import '@animaliads/ani-link';
+import '@animaliads/ani-modal';
 import '@animaliads/ani-radio';
+import '@animaliads/ani-select';
 import '@animaliads/ani-switch';
 import '@animaliads/ani-textarea';
 import '@animaliads/ani-textfield';
-import '@animaliads/ani-card';
-import '@animaliads/ani-select';
-import '@animaliads/ani-modal';
