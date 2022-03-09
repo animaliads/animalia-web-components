@@ -1,1 +1,58 @@
+import BestPracticesComponent from './../../../../stories/helpers/components/best-practices.tsx';
+
+import Do1 from './img/checkbox-do-1.jpg';
+import Do2 from './img/checkbox-do-2.jpg';
+import Dont1 from './img/checkbox-dont-1.jpg';
+import Dont2 from './img/checkbox-dont-2.jpg';
+
 ## Boas práticas
+
+O componente foi projetado para atender os requisitos das Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1. Também foram estruturadas padrões de usabilidade para auxiliar na utilização do componente e garantir uma boa experiência para os usuários. Por isso, é muito importante que, ao aplicar esse componente, o proprietário do conteúdo leve em consideração alguns critérios e práticas:
+
+### Uso
+
+- Ao utilizar label para acompanhar o checkbox, posicione a mesma ao lado direito da caixa de seleção;
+- Ordene as opções de checkbox de forma lógica, como por exemplo em ordem alfabética, numeral ou com base nos itens mais escolhidos;
+- É recomendável não utilizar mais do que 7 itens em uma lista de opções;
+- Use textos curtos e, sempre que possível, mantenha a label de uma caixa de seleção em uma única linha;
+
+<BestPracticesComponent
+  doImg={Do1}
+  doAlt="Checkbox com uma opção com texto mais longo, mas em linha única"
+  doDescription="Manter o texto em linha única facilita a correlação entre a label e o seletor."
+  dontImg={Dont1}
+  dontAlt="Checkbox com opções listadas uma embaixo da outra"
+  dontDescription="O texto em duas linhas torna os espaços entre as opções irregulares."
+/>
+
+- Prefira a utilização do componente em uma lista vertical ao invés de horizontal, pois permite uma leitura mais fácil
+  para os usuários. O alinhamento horizontal dificulta correlacionar as labels às caixas correspondentes.
+
+<BestPracticesComponent
+  doImg={Do2}
+  doAlt="Checkbox com opções listadas lado a lado"
+  doDescription="Alinhe os componentes verticalmente sempre que possível."
+  dontImg={Dont2}
+  dontAlt="Checkbox com opções listadas lado a lado"
+  dontDescription="Ao inserir os componentes lado a lado, certifique-se de inserir um espaçamento adequado entre as opções."
+  warning="true"
+/>
+
+### Comportamento
+
+- Prefira não deixar nenhuma opção pré-selecionada, pois pode passar despercebida pelos usuários e ocasionar no envio de uma resposta errada;
+- Se o checkbox estiver acompanhado de outro elemento, como label, é recomendado que a área clicável envolva o elemento também.
+
+### Interação
+
+- A ordem de foco deve acontecer em sequência lógica. Como por exemplo, quando não tem nenhuma opção selecionada, o foco deve mover-se para o primeiro item da lista. (WCAG [2.4.3: Focus Order](https://www.w3.org/WAI/WCAG21/Understanding/focus-order))
+- Com navegação via teclado, o checkbox em foco é marcado ou desmarcado através da tecla _space_
+
+### Acessibilidade tratada no componente
+
+Algumas diretrizes de acessibilidade já são tratadas no componente, internamente, e não podem ser alteradas pelo proprietário do conteúdo. São elas:
+
+- O componente foi desenvolvido utilizando controles padrões HTML para permitir a identificação do mesmo na interface por tecnologias assistivas. ([WCAG 4.1.2: Name, Role, Value](https://www.w3.org/WAI/WCAG21/Understanding/name-role-value))
+- A área do foco precisar ter uma espessura de pelo menos 2 pixels CSS e o foco não pode ficar escondido por outros elementos da tela. ([WCAG 2.4.12: Focus Appearance](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance-enhanced))
+- O estado de foco deve ser sempre preservado, inclusive quando o componente estiver desabilitado. ([WCAG 2.4.7: Focus Visible](https://www.w3.org/WAI/WCAG21/Understanding/focus-visible))
+- A cor não deve ser o único meio para diferenciar o componente do seu estado marcado e desmarcado. ([WGAG 1.4.1: Use of Color, 3.2.4: Consistent Identification](https://www.w3.org/WAI/WCAG21/Understanding/use-of-color))
