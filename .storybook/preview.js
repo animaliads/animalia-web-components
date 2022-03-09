@@ -11,7 +11,7 @@ export const parameters = {
         'Princípios',
         'Começando',
         'Guia de estilo',
-        ['Cores', 'Tipografia', 'Imagem'],
+        ['Cores', 'Tipografia', 'Imagem', 'Logo'],
         ['Visão geral', 'Boas práticas', 'Design Tokens'],
         'Componentes',
         'API',
