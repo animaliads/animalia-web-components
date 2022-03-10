@@ -29,7 +29,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@animaliads/animalia-brand": "^1.1.0-dev.24",
+    "@animaliads/animalia-brand": "^1.1.0-dev.25",
     "@animaliads/css-tokens": "^1.1.0-dev.2",
     "@rollup/plugin-node-resolve": "^13.0.6"
   }

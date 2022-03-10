@@ -1,11 +1,11 @@
 import {
   Component,
   KeyCode,
-  transformBooleanProperties,
+  getShortBrowserLanguage,
 } from '@animaliads/common';
 
-import { ModalSize } from './enums/modal-size.enum';
-
+import { modalSize } from './enums/modal-size.enum';
+import { modalLiterals } from './literals/modal-literals';
 import { modalStyle } from './modal.style';
 
 @Component('ani-modal')
@@ -13,14 +13,15 @@ export class Modal extends HTMLElement {
   shadow: ShadowRoot;
   modalElement: HTMLDivElement;
 
-  focusedElementBeforeOpen;
   focusableElements = [];
   firstFocusableElement;
   lastFocusableElement;
 
+  ariaLabel;
+
   get size(): string {
     const size = this.getAttribute('size');
-    return !size || size === 'null' ? ModalSize.medium : size;
+    return !size || size === 'null' ? modalSize.medium : size;
   }
 
   get title(): string {
@@ -28,13 +29,8 @@ export class Modal extends HTMLElement {
     return !title || title === 'null' ? '' : title;
   }
 
-  get visible(): string {
-    const visible = this.getAttribute('visible');
-    return transformBooleanProperties(visible);
-  }
-
   static get observedAttributes(): Array<string> {
-    return ['size', 'title', 'visible'];
+    return ['size', 'title'];
   }
 
   constructor() {
@@ -44,8 +40,8 @@ export class Modal extends HTMLElement {
 
   connectedCallback(): void {
     this.setDefaultSize();
-    this.setDefaultVisible();
-    this.setAriaAttributes();
+    this.setDefaultVisibility();
+    this.setLiterals();
   }
 
   attributeChangedCallback(
@@ -57,36 +53,35 @@ export class Modal extends HTMLElement {
   }
 
   open(): void {
-    this.setAttribute('visible', 'true');
+    this.hidden = false;
+    this.render();
+    this.onClickOverlay();
+    this.onClickX();
+    this.addEventListener('keydown', this.handlerKeyDownEscape);
+    this.addEventListener('keydown', this.trapFocusableElements);
     this.lockScroll();
-    this.focusedElementBeforeOpen = document.activeElement;
     this.setFocus();
   }
 
   close(): void {
-    this.setAttribute('visible', 'false');
+    this.hidden = true;
+    this.shadow.innerHTML = '';
+    this.removeEventListener('keydown', this.handlerKeyDownEscape);
+    this.removeEventListener('keydown', this.trapFocusableElements);
     this.lockScroll();
-    this.focusedElementBeforeOpen?.shadow
-      ? this.focusedElementBeforeOpen?.setFocus()
-      : this.focusedElementBeforeOpen?.focus();
   }
 
   private setFocus(): void {
     this.clearFocusableElements();
 
-    if (this.shadow) {
-      this.findFocusableElements(this.shadow.querySelectorAll('*'));
-    }
-
     this.findFocusableElements(this.querySelectorAll('*'));
 
-    this.firstFocusableElement = this.focusableElements[0];
+    this.firstFocusableElement =
+      this.modalElement.querySelector('.modal-close');
     this.lastFocusableElement =
       this.focusableElements[this.focusableElements.length - 1];
 
-    this.firstFocusableElement.shadow
-      ? this.firstFocusableElement.setFocus()
-      : this.firstFocusableElement.focus();
+    this.firstFocusableElement.setFocus();
   }
 
   private clearFocusableElements(): void {
@@ -116,10 +111,7 @@ export class Modal extends HTMLElement {
     }
 
     if (event.shiftKey) {
-      if (
-        this.firstFocusableElement ===
-        (this.shadow.activeElement || document.activeElement)
-      ) {
+      if (this.firstFocusableElement === this.shadow.activeElement) {
         this.lastFocusableElement.shadow
           ? this.lastFocusableElement.setFocus()
           : this.lastFocusableElement.focus();
@@ -130,9 +122,7 @@ export class Modal extends HTMLElement {
         this.lastFocusableElement ===
         (this.shadow.activeElement || document.activeElement)
       ) {
-        this.firstFocusableElement.shadow
-          ? this.firstFocusableElement.setFocus()
-          : this.firstFocusableElement.focus();
+        this.firstFocusableElement.setFocus();
         event.preventDefault();
       }
     }
@@ -149,9 +139,10 @@ export class Modal extends HTMLElement {
   }
 
   private lockScroll() {
-    this.visible === 'true'
-      ? (document.body.style.overflow = 'hidden')
-      : document.body.style.removeProperty('overflow');
+    this.hidden
+      ? document.body.style.removeProperty('overflow')
+      : (document.body.style.overflow = 'hidden');
+
     if (document.body.getAttribute('style') === '') {
       document.body.removeAttribute('style');
     }
@@ -164,84 +155,66 @@ export class Modal extends HTMLElement {
   }
 
   private updateAttributes(name?: string, newValue?: string): void {
-    if (name === 'visible' && this.shadow) {
-      if (newValue === 'true') {
-        this.render();
-        this.onClickOverlay();
-        this.onClickX();
-        this.addEventListener('keydown', this.handlerKeyDownEscape);
-        this.addEventListener('keydown', this.trapFocusableElements);
-      } else {
-        this.shadow.innerHTML = '';
-        this.removeEventListener('keydown', this.handlerKeyDownEscape);
-        this.removeEventListener('keydown', this.trapFocusableElements);
+    if (name === 'size') {
+      if (newValue in modalSize && this.modalElement) {
+        this.modalElement.setAttribute('size', newValue);
       }
     }
   }
 
   private setDefaultSize(): void {
-    const includesSize = Object.values(ModalSize).includes(
-      <ModalSize>this.getAttribute('size')
+    const includesSize = Object.values(modalSize).includes(
+      <modalSize>this.getAttribute('size')
     );
 
     if (!this.hasAttribute('size') || !includesSize) {
-      this.setAttribute('size', ModalSize.medium);
+      this.setAttribute('size', modalSize.medium);
     }
   }
 
-  private setDefaultVisible(): void {
-    if (!this.hasAttribute('visible') || this.visible !== 'true') {
-      this.setAttribute('visible', 'false');
-    } else {
-      this.setAttribute('visible', 'true');
-    }
+  private setDefaultVisibility(): void {
+    this.hidden = true;
   }
 
-  private setAriaAttributes(): void {
-    const ariaAttributes = {
-      'aria-describedby': 'description',
-      'aria-labelledby': 'title',
-      'aria-modal': 'true',
-      role: 'dialog',
-    };
+  private setLiterals(): void {
+    const lang = getShortBrowserLanguage();
 
-    Object.entries(ariaAttributes).forEach(([key, value]) => {
-      if (!this.hasAttribute(key)) {
-        this.setAttribute(key, value);
-      }
-    });
+    if (lang in modalLiterals) {
+      this.ariaLabel = modalLiterals[lang].close;
+    }
   }
 
   private render(): void {
-    const modalIcon =
-      '<span class="modal-icon"><slot name="icon"></slot></span>';
-    const modalFooter =
-      '<footer class="modal-footer" tabindex="-1" role="presentation"><slot name="footer"></slot></footer>';
-
     this.shadow.innerHTML = `
       <style>${modalStyle}</style>
-      <div class="modal" size="${this.size}" title="${this.title}" visible="${
-      this.visible
+      <div class="modal" size="${this.size}" title="${
+      this.title
     }" role="dialog" aria-labelledby="title" aria-describedby="description">
         <div class="modal-overlay"></div>
         <div class="modal-dialog">
           <header class="modal-header" aria-hidden="true">
-            ${this.querySelector('[slot="icon"]') ? modalIcon : ''}
+            ${
+              this.querySelector('[slot="icon"]')
+                ? '<div class="modal-icon"><slot name="icon"></slot></div>'
+                : ''
+            }
             <h2 class="modal-title" id="title" role="presentation">${
               this.title
             }</h2>
-            <ani-button class="modal-close" kind="tertiary">
-              <span aria-label="Fechar janela modal">
-                <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.41413 6.37L11.7071 2.077C12.0981 1.686 12.0981 1.054 11.7071 0.663001C11.3161 0.272001 10.6841 0.272001 10.2931 0.663001L6.00013 4.956L1.70713 0.663001C1.31613 0.272001 0.684128 0.272001 0.293128 0.663001C-0.0978721 1.054 -0.0978721 1.686 0.293128 2.077L4.58613 6.37L0.293128 10.663C-0.0978721 11.054 -0.0978721 11.686 0.293128 12.077C0.488128 12.272 0.744128 12.37 1.00013 12.37C1.25613 12.37 1.51213 12.272 1.70713 12.077L6.00013 7.784L10.2931 12.077C10.4881 12.272 10.7441 12.37 11.0001 12.37C11.2561 12.37 11.5121 12.272 11.7071 12.077C12.0981 11.686 12.0981 11.054 11.7071 10.663L7.41413 6.37Z" fill="#4545A1"/>
-                </svg>
-              </span>
+            <ani-button class="modal-close" kind="tertiary" aria-label="${
+              this.ariaLabel
+            }">
+              <ani-icon name="close"></ani-icon>
             </ani-button>
           </header>
           <section class="modal-body" id="description">
             <slot name="body"></slot>
           </section>
-          ${this.querySelector('[slot="footer"]') ? modalFooter : ''}
+          ${
+            this.querySelector('[slot="footer"]')
+              ? '<footer class="modal-footer" tabindex="-1" role="presentation"><slot name="footer"></slot></footer>'
+              : ''
+          }
         </div>
       </div>
     `;

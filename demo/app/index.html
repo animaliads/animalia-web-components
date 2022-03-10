@@ -21,9 +21,10 @@
 
     <ani-button id="openModal">Animalia Button</ani-button>
 
-    <ani-modal title="Title">
+    <ani-modal title="Expanded Title to generate more than one line">
       <div slot="icon">
         <span class="material-icons-outlined">info</span>
+        <!-- <ani-icon name="info"></ani-icon> -->
       </div>
       <div slot="body">
         <h3>Hello Animalia Modal</h3>
@@ -75,9 +76,9 @@
 
   <script src="./dist/bunddle.js"></script>
   <script>
-    const modal = document.querySelector("ani-modal")
-    const openModal = document.querySelector("#openModal")
-    const closeModal = document.querySelector("#closeModal")
+    const modal = document.querySelector("ani-modal");
+    const openModal = document.querySelector("#openModal");
+    const closeModal = document.querySelector("#closeModal");
 
     openModal.addEventListener("click", () => {
       modal.open();

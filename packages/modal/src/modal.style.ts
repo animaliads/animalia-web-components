@@ -1,6 +1,18 @@
 export const modalStyle = `
   :host {
     display: block;
+
+    --color: var(--color-action-default);
+    --color-pressed: var(--color-action-pressed);
+    --font-family: var(--font-family-text);
+    --font-size: var(--font-size-default);
+    --line-height: var(--line-height-none);
+    --padding: 0 1em;
+    --outline-color-focused: var(--color-action-focus);
+
+    --background-hover: var(--color-brand-01-lighter);
+    --background-pressed: var(--color-brand-01-light);
+    --border-color-hover: var(--color-brand-01-darkest);
   }
 
   :host * {
@@ -72,19 +84,14 @@ export const modalStyle = `
   .modal-icon {
     padding-right: var(--spacing-xs);
 
+    display: flex;
+    align-items: center;
     align-self: flex-start;
+    justify-content: center;
+    min-height: 2.75em;
   }
 
   .modal-title {
-    font-family: var(--font-family-heading);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-neutral-dark-90);
-    text-align: left;
-
-    font-size: var(--font-size-lg);
-    line-height: var(--line-height-sm);
-    letter-spacing: var(--letter-spacing-auto);
-
     padding-right: var(--spacing-md);
 
     flex-grow: 1;
