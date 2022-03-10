@@ -24,7 +24,7 @@ export default class Tooltip extends HTMLElement {
   }
 
   static get observedAttributes(): Array<string> {
-    return ['tip', 'position', 'direction', 'id'];
+    return ['tip', 'position', 'direction'];
   }
 
   constructor() {
@@ -56,15 +56,21 @@ export default class Tooltip extends HTMLElement {
   }
 
   private positionTooltip() {
-    if (!this.position || this.position === 'bottom') {
-      this.tooltipElement.classList.add('tooltip-bottom');
-    } else if (this.position === 'top') {
-      this.tooltipElement.classList.add('tooltip-top');
-    } else if (this.position === 'right') {
-      this.tooltipElement.classList.add('tooltip-right');
-    } else {
-      this.tooltipElement.classList.add('tooltip-left');
+    if (!this.position && !this.direction) {
+      this.tooltipElement.classList.add('tooltip-center-bottom');
+      return;
     }
+    if (!this.position) {
+      this.tooltipElement.classList.add(`tooltip-${this.direction}-bottom`);
+      return;
+    }
+    if (!this.direction) {
+      this.tooltipElement.classList.add(`tooltip-center-${this.position}`);
+      return;
+    }
+    this.tooltipElement.classList.add(
+      `tooltip-${this.direction}-${this.position}`
+    );
   }
 
   private listenerEvents() {
@@ -93,28 +99,22 @@ export default class Tooltip extends HTMLElement {
   render(): void {
     this.shadow.innerHTML = `
         <style>${tooltipStyle}</style>
-        <div class="ani-tooltip" role="tooltip" tabindex="-1">
+        <div  class="ani-tooltip" role="tooltip" tabindex="-1">
           <span>${this.tip}</span>
         </div>
+
     `;
 
     this.tooltipElement = this.shadow.querySelector('.ani-tooltip');
   }
 
-  private handleKeyDown(event: { keyCode: number }) {
-    if (event.keyCode === 27) {
-      this.hide;
-      return;
-    }
-  }
-
   private show() {
     this.hidden = false;
-    this.tooltipElement.classList.add('tooltip-hidden');
+    this.tooltipElement.classList.add('tooltip-visible');
   }
 
   private hide() {
     this.hidden = true;
-    this.tooltipElement.classList.remove('tooltip-hidden');
+    this.tooltipElement.classList.remove('tooltip-visible');
   }
 }
