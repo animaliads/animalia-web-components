@@ -8,3 +8,4 @@ import '@animaliads/ani-textfield';
 import '@animaliads/ani-card';
 import '@animaliads/ani-select';
 import '@animaliads/ani-tooltip';
+import '@animaliads/ani-icon';

@@ -1,0 +1,36 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import { html } from 'lit-html';
+
+import General from './logo-general.mdx';
+import A11y from './logo-acessibility.mdx';
+import Code from './logo-code.mdx';
+
+<Meta
+  title="Guia de estilo/Logo"
+  parameters={{ previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# Logo
+
+> A _logo é uma representação visual composta de símbolos e palavras que tem como objetivo identificar uma marca específica._
+
+---
+
+<Story name="Uso da logo" height="0">
+  {html``}
+</Story>
+
+<General />
+
+<Story name="Acessibilidade" height="0">
+  {html``}
+</Story>
+
+<A11y />
+
+<Story name="Desenvolvimento" height="0">
+  {html``}
+</Story>
+
+<Code />

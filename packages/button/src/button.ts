@@ -47,7 +47,7 @@ export class Button extends HTMLElement {
   }
 
   static get observedAttributes(): Array<string> {
-    return ['kind', 'disabled', 'danger', 'type'];
+    return ['kind', 'disabled', 'danger', 'type', 'size'];
   }
 
   connectedCallback(): void {

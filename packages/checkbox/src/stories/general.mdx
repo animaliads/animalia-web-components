@@ -1,1 +1,50 @@
+import checkboxAnatomy from './img/checkbox-anatomy.jpg';
+import checkboxSize from './img/checkbox-size.jpg';
+
 # Checkbox
+
+## Visão geral
+
+O componente checkbox (caixa de seleção) é usado para permitir que o usuário selecione uma ou mais opções de um número limitado de escolhas.
+
+As caixas de seleção atuam de forma independente, ou seja, a escolha de uma opção não afeta as outras caixas e seus status.
+
+## Anatomia
+
+O checkbox é composto por _background_ e _border_. Também contém partes que são específicas de variação do componente ou estados de interação, como _shadow_ no estado hover.
+
+<img
+  src={checkboxAnatomy}
+  alt="Anatomia do checkbox disposto lado a lado, sendo 1 border, 2 background, 3 icon, 4 shadow hover e 5 outline"
+/>
+
+**1.** Border
+
+**2.** Background
+
+**3.** Icon (checked)
+
+**4.** Shadow (hover)
+
+**5.** Outline (focused)
+
+## Comportamento
+
+O componente checkbox pode assumir três 3 variações:
+
+- **Unchecked**: item desmarcado
+
+- **Checked**: item marcado
+
+- **Mixed:** quando, em um grupo de checkbox relacionados, alguns itens do grupo (mas não todos) foram marcados
+
+## Tamanhos
+
+O componente possui dois tamanhos diferentes: _Medium_ e _Large_. O tamanho medium é o tamanho padrão. O large pode ser usado em casos específicos, como em cards por exemplo.
+
+<img
+  src={checkboxSize}
+  alt="Duas variações de tamanho para o checkbox dispostas lado a lado"
+/>
+
+Os componentes são formados por tokens, sendo estes propriedades de estilo que definem como será estruturado e estilizado. Os tokens que podem ser alterados pelas marcas, podem ser conferidos na seção de [propriedades customizáveis](https://www.notion.so/Checkbox-b8870a364228481b8350567be1cc63d4).

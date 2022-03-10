@@ -11,7 +11,7 @@ export const parameters = {
         'Princípios',
         'Começando',
         'Guia de estilo',
-        ['Cores', 'Tipografia'],
+        ['Cores', 'Tipografia', 'Imagem', 'Logo'],
         ['Visão geral', 'Boas práticas', 'Design Tokens'],
         'Componentes',
         'API',
@@ -41,7 +41,7 @@ const decorator = (story, context) => {
   const theme = context.globals.theme;
   const links = {
     animalia:
-      'https://unpkg.com/@animaliads/animalia-brand@1.1.0-dev.21/theme.css',
+      'https://unpkg.com/@animaliads/animalia-brand@1.1.0-dev.23/theme.css',
     poui: 'https://unpkg.com/@animaliads/po-ui-brand@latest/theme.css',
     fluig: 'https://unpkg.com/@animaliads/fluig-brand@latest/theme.css',
   };
