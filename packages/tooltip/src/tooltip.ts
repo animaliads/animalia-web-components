@@ -74,9 +74,6 @@ export default class Tooltip extends HTMLElement {
   }
 
   private listenerEvents() {
-    if (!this.target) {
-      return;
-    }
     this.target.addEventListener('click', this.show);
     this.target.addEventListener('mouseenter', this.show);
     this.target.addEventListener('mouseout', this.hide);
@@ -85,9 +82,6 @@ export default class Tooltip extends HTMLElement {
   }
 
   disconnectedCallback(): void {
-    if (!this.target) {
-      return;
-    }
     this.target.removeEventListener('focus', this.show);
     this.target.removeEventListener('click', this.show);
     this.target.removeEventListener('mouseenter', this.show);
@@ -99,22 +93,20 @@ export default class Tooltip extends HTMLElement {
   render(): void {
     this.shadow.innerHTML = `
         <style>${tooltipStyle}</style>
-        <div  class="ani-tooltip" role="tooltip" tabindex="-1">
-          <span>${this.tip}</span>
+        <div  class="ani-tooltip" >
+          <slot></slot>
+          <span class="tooltip-text" role="tooltip" tabindex="-1">${this.tip}</span>
         </div>
-
     `;
 
-    this.tooltipElement = this.shadow.querySelector('.ani-tooltip');
+    this.tooltipElement = this.shadow.querySelector('.tooltip-text');
   }
 
   private show() {
-    this.hidden = false;
     this.tooltipElement.classList.add('tooltip-visible');
   }
 
   private hide() {
-    this.hidden = true;
     this.tooltipElement.classList.remove('tooltip-visible');
   }
 }

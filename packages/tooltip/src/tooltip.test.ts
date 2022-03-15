@@ -43,9 +43,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-bottom'
+      'tooltip-text tooltip-center-bottom'
     );
   });
   test('must add tooltip-center-bottom class when the position is null and the direction is center', () => {
@@ -53,9 +53,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" direction="center"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-bottom'
+      'tooltip-text tooltip-center-bottom'
     );
   });
   test('must add tooltip-center-bottom class when the position is bottom and the direction is null', () => {
@@ -63,9 +63,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="bottom"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-bottom'
+      'tooltip-text tooltip-center-bottom'
     );
   });
   test('must add tooltip-center-bottom class when the position is bottom and the direction is center', () => {
@@ -73,9 +73,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="bottom" direction="center"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-bottom'
+      'tooltip-text tooltip-center-bottom'
     );
   });
   test('must add tooltip-start-bottom class when the position is bottom and the direction is start', () => {
@@ -83,9 +83,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="bottom" direction="start"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-start-bottom'
+      'tooltip-text tooltip-start-bottom'
     );
   });
   test('must add tooltip-end-bottom class when the position is bottom and the direction is end', () => {
@@ -93,9 +93,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="bottom" direction="end"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-end-bottom'
+      'tooltip-text tooltip-end-bottom'
     );
   });
 
@@ -104,9 +104,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="top" direction="center"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-top'
+      'tooltip-text tooltip-center-top'
     );
   });
   test('must add tooltip-start-top class when the position is top and the direction is start', () => {
@@ -114,9 +114,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="top" direction="start"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-start-top'
+      'tooltip-text tooltip-start-top'
     );
   });
   test('must add tooltip-end-top class when the position is top and the direction is end', () => {
@@ -124,17 +124,17 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="top" direction="end"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
-    expect(tooltipElement.classList.value).toBe('ani-tooltip tooltip-end-top');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
+    expect(tooltipElement.classList.value).toBe('tooltip-text tooltip-end-top');
   });
   test('must add tooltip-center-left class when the position is left and the direction is center', () => {
     document.body.innerHTML = `
     <ani-tooltip tip="Hello tooltip" position="left" direction="center"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-left'
+      'tooltip-text tooltip-center-left'
     );
   });
   test('must add tooltip-start-left class when the position is left and the direction is start', () => {
@@ -142,9 +142,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="left" direction="start"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-start-left'
+      'tooltip-text tooltip-start-left'
     );
   });
   test('must add tooltip-end-left class when the position is left and the direction is end', () => {
@@ -152,17 +152,19 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="left" direction="end"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
-    expect(tooltipElement.classList.value).toBe('ani-tooltip tooltip-end-left');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
+    expect(tooltipElement.classList.value).toBe(
+      'tooltip-text tooltip-end-left'
+    );
   });
   test('must add tooltip-center-right class when the position is right and the direction is center', () => {
     document.body.innerHTML = `
     <ani-tooltip tip="Hello tooltip" position="right" direction="center"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-right'
+      'tooltip-text tooltip-center-right'
     );
   });
   test('must add tooltip-start-right class when the position is right and the direction is start', () => {
@@ -170,9 +172,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="right" direction="start"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-start-right'
+      'tooltip-text tooltip-start-right'
     );
   });
   test('must add tooltip-end-right class when the position is right and the direction is end', () => {
@@ -180,9 +182,9 @@ fdescribe('Tooltip:', () => {
     <ani-tooltip tip="Hello tooltip" position="right" direction="end"></ani-tooltip>
     `;
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-end-right'
+      'tooltip-text tooltip-end-right'
     );
   });
 
@@ -196,9 +198,9 @@ fdescribe('Tooltip:', () => {
     const button = document.querySelector<HTMLElement>('ani-button');
     button.click();
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-bottom tooltip-visible'
+      'tooltip-text tooltip-center-bottom tooltip-visible'
     );
   });
 
@@ -215,9 +217,9 @@ fdescribe('Tooltip:', () => {
     const event = new KeyboardEvent('keydown', { keyCode: 32 });
     button.dispatchEvent(event);
 
-    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('div');
+    const tooltipElement = getShadowRoot(tooltipTagName).querySelector('span');
     expect(tooltipElement.classList.value).toBe(
-      'ani-tooltip tooltip-center-bottom'
+      'tooltip-text tooltip-center-bottom'
     );
   });
 });
