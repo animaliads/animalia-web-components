@@ -1,0 +1,36 @@
+{
+  "name": "@animaliads/ani-toaster",
+  "version": "1.1.0-dev.45",
+  "description": "Animalia DS toaster component",
+  "tag": "dev",
+  "keywords": [
+    "javascript",
+    "design system",
+    "web components",
+    "toaster"
+  ],
+  "files": [
+    "dist/*"
+  ],
+  "browser": "dist/index.js",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx rollup -c",
+    "dev": "npx rollup -c -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animaliads/animalia-web-components.git",
+    "directory": "packages/toaster"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@animaliads/ani-button": "^1.1.0-dev.45",
+    "@animaliads/ani-icon": "^1.1.0-dev.45",
+    "@animaliads/common": "^1.1.0-dev.45"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

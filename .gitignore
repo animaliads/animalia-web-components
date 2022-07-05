@@ -3,4 +3,5 @@ package-lock.json
 dist/
 coverage/
 lerna-debug.log
+.idea
 # demo/

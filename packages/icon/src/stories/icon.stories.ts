@@ -32,7 +32,7 @@ export default {
 };
 
 const Template = ({ ...args }) => {
-  return html` <ani-icon name="${args.name}" size="${args.size}"> </ani-icon> `;
+  return html`<ani-icon name="${args.name}" size="${args.size}"> </ani-icon>`;
 };
 
 export const Sample = Template.bind({});
@@ -45,11 +45,12 @@ Sample.parameters = {
   docs: {
     source: {
       code: `
-<ani-icon
-  name="${Sample.args.name}"
-  size="${Sample.args.size}"
->
-</ani-icon>`,
+        <ani-icon
+          name="${Sample.args.name}"
+          size="${Sample.args.size}"
+        >
+        </ani-icon>
+      `,
     },
   },
 };
