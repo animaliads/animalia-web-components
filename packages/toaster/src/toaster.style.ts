@@ -1,29 +1,30 @@
 import { ToasterKind } from './toaster.model';
 
 export const style = `
-  ani-button{--font-family:var(--font-family-text);--font-size:var(--font-size-default);--font-weight:var(--font-weight-bold);--line-height:var(--line-height-none);--border-radius:var(--border-radius-md);--border-width:var(--border-width-md);--padding:0 1em;--text-color-danger:var(--color-neutral-light-00);--color-danger:var(--color-feedback-negative-dark);--color-danger-hover:var(--color-feedback-negative-darker);--color-danger-pressed:var(--color-feedback-negative-darkest);--background-danger-hover:var(--color-feedback-negative-lighter);--border-color-danger-hover:var(--color-feedback-negative-darkest);--background-danger-pressed:var(--color-feedback-negative-light);--text-color:var(--color-neutral-light-00);--color:var(--color-action-default);--shadow:var(--shadow-none);--color-hover:var(--color-action-hover);--outline-color-focused:var(--color-action-focus);--color-pressed:var(--color-action-pressed);--text-color-disabled:var(--color-neutral-dark-70);--color-disabled:var(--color-action-disabled)}ani-button[kind=secondary],ani-button[kind=tertiary]{--background-hover:var(--color-brand-01-lighter);--border-color-hover:var(--color-brand-01-darkest);--background-pressed:var(--color-brand-01-light)}ani-button[size=small]{--font-size:var(--font-size-sm);--line-height:var(--line-height-none);--padding:0 0.5em}ani-button[size=large]{--font-size:var(--font-size-default);--line-height:var(--line-height-none);--padding:0 1.5em}
+  // TODO: fix theme glitch
+  // ani-button{--font-family:var(--font-family-text);--font-size:var(--font-size-default);--font-weight:var(--font-weight-bold);--line-height:var(--line-height-none);--border-radius:var(--border-radius-md);--border-width:var(--border-width-md);--padding:0 1em;--text-color-danger:var(--color-neutral-light-00);--color-danger:var(--color-feedback-negative-dark);--color-danger-hover:var(--color-feedback-negative-darker);--color-danger-pressed:var(--color-feedback-negative-darkest);--background-danger-hover:var(--color-feedback-negative-lighter);--border-color-danger-hover:var(--color-feedback-negative-darkest);--background-danger-pressed:var(--color-feedback-negative-light);--text-color:var(--color-neutral-light-00);--color:var(--color-action-default);--shadow:var(--shadow-none);--color-hover:var(--color-action-hover);--outline-color-focused:var(--color-action-focus);--color-pressed:var(--color-action-pressed);--text-color-disabled:var(--color-neutral-dark-70);--color-disabled:var(--color-action-disabled)}ani-button[kind=secondary],ani-button[kind=tertiary]{--background-hover:var(--color-brand-01-lighter);--border-color-hover:var(--color-brand-01-darkest);--background-pressed:var(--color-brand-01-light)}ani-button[size=small]{--font-size:var(--font-size-sm);--line-height:var(--line-height-none);--padding:0 0.5em}ani-button[size=large]{--font-size:var(--font-size-default);--line-height:var(--line-height-none);--padding:0 1.5em}
 
   :host {
     /* Custom */
-    --border-radius: var(--border-radius-md);
-    --shadow: var(--shadow-lg);
-    --color-icon: var(--color-neutral-light-00);
-    --color-success: var(--color-feedback-positive-base);
-    --background-success: var(--color-feedback-positive-lightest);
-    --border-color-success: var(--color-feedback-positive-lighter);
-    --color-error: var(--color-feedback-negative-base);
-    --background-error: var(--color-feedback-negative-lightest);
-    --border-color-error: var(--color-feedback-negative-lighter);
-    --color-icon-warning: var(--color-neutral-dark-90);
-    --color-warning: var(--color-feedback-warning-base);
-    --background-warning: var(--color-feedback-warning-lightest);
-    --border-color-warning: var(--color-feedback-warning-lighter);
-    --color-info: var(--color-feedback-info-base);
-    --background-info: var(--color-feedback-info-lightest);
-    --border-color-info: var(--color-feedback-info-lighter);
+    // --border-radius: var(--border-radius-md);
+    // --shadow: var(--shadow-lg);
+    // --color-icon: var(--color-neutral-light-00);
+    // --color-success: var(--color-feedback-positive-base);
+    // --background-success: var(--color-feedback-positive-lightest);
+    // --border-color-success: var(--color-feedback-positive-lighter);
+    // --color-error: var(--color-feedback-negative-base);
+    // --background-error: var(--color-feedback-negative-lightest);
+    // --border-color-error: var(--color-feedback-negative-lighter);
+    // --color-icon-warning: var(--color-neutral-dark-90);
+    // --color-warning: var(--color-feedback-warning-base);
+    // --background-warning: var(--color-feedback-warning-lightest);
+    // --border-color-warning: var(--color-feedback-warning-lighter);
+    // --color-info: var(--color-feedback-info-base);
+    // --background-info: var(--color-feedback-info-lightest);
+    // --border-color-info: var(--color-feedback-info-lighter);
 
-    display: block;
-    max-width: 50vw;
+    display: none;
+    max-width: 90vw;
     min-width: 20rem;
 
     font-family: var(--font-family-text);
@@ -40,7 +41,7 @@ export const style = `
   }
 
   .toaster__icon-wrapper {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-xs);
 
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
@@ -52,9 +53,10 @@ export const style = `
 
   .toaster__body {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column wrap;
     flex-grow: 1;
-    justify-content: space-between;
+    padding: calc(var(--spacing-sm) - var(--border-width-sm)) var(--spacing-xs);
+    padding-right: 0.25rem;
   }
 
   .toaster__body,
@@ -67,11 +69,8 @@ export const style = `
 
     line-height: var(--line-height-md);
     font-size: var(--font-size-default);
-
-    padding: calc(var(--spacing-sm) - var(--border-width-sm));
   }
 
-  .toaster__action-wrapper,
   .toaster__close-action-wrapper {
     display: flex;
     flex-flow: row nowrap;
@@ -80,6 +79,10 @@ export const style = `
 
   .toaster__action-wrapper {
     z-index: 1;
+
+    display: flex;
+    justify-content: flex-end;
+    padding-top: var(--spacing-xs);
   }
 
   .toaster__close-action-wrapper::before {
@@ -193,5 +196,34 @@ export const style = `
   :host([kind="${ToasterKind.INFO}"]) .toaster__close-action-wrapper,
   :host([kind="${ToasterKind.INFO}"]) .toaster__close-action-wrapper::before {
     border-right-color: var(--border-color-info);
+  }
+
+  :host([open]) {
+    display: block;
+  }
+
+  @media(min-width: 992px) {
+    :host {
+      max-width: 50vw;
+    }
+
+    .toaster__body {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .toaster__action-wrapper {
+      justify-content: flex-start;
+      padding: calc(var(--spacing-xs) - var(--border-width-sm)) 0;
+    }
+
+    .toaster__message {
+      padding: calc(var(--spacing-sm) - var(--border-width-sm));
+    }
+
+    .toaster__icon-wrapper {
+      padding: var(--spacing-sm);
+    }
   }
 `;
