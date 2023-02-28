@@ -5,6 +5,7 @@
   },
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
@@ -14,18 +15,16 @@
     "sourceType": "module"
   },
   "ignorePatterns": ["**/dist/*"],
-  "plugins": ["@typescript-eslint", "unused-imports"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "no-console": "error",
     "no-debugger": "error",
     "no-alert": "error",
     "max-classes-per-file": ["error", 1],
-    "unused-imports/no-unused-imports-ts": 2,
-
+    "@typescript-eslint/no-unused-vars": ["error"],
     "no-constructor-return": "warn",
     "default-param-last": "warn",
     "operator-linebreak": ["warn", "after"]
