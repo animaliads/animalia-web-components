@@ -80,6 +80,58 @@ import '@animaliads/web-components';
 
 <a id="changelog"></a>
 
+## Instalação
+
+Este projeto usa o gerenciador de pacotes NPM e a ferramenta Lerna para instalar e gerenciar suas dependências. Para começar, siga as instruções abaixo:
+
+1. Certifique-se de ter o Node.js e o NPM instalados em sua máquina. Você pode instalá-los a partir do site oficial: [nodejs.org](https://https://nodejs.org/en/download/)
+
+2. Abra um terminal na raiz do projeto e execute o comando:
+
+```
+npm install
+```
+
+Este comando instalará todas as dependências do projeto listadas no arquivo package.json.
+
+3. Em seguida, instale a ferramenta Lerna globalmente usando o comando:
+
+```
+npm install -g lerna
+```
+
+4. Agora, execute o seguinte comando para inicializar o ambiente de desenvolvimento e instalar as dependências em todos os pacotes do projeto:
+
+```
+lerna bootstrap
+```
+
+5. Após a instalação das dependências, execute o seguinte comando para compilar o código:
+
+```
+lerna run buid
+```
+
+Este comando compilará o código em todos os pacotes do projeto.
+
+6. Por fim, execute o seguinte comando para iniciar o Storybook:
+
+```
+npm run storybook
+```
+
+Este comando iniciará o Storybook em seu navegador para visualizar e testar os componentes do projeto.
+
+Com esses passos, você terá instalado todas as dependências e configurado o ambiente de desenvolvimento para trabalhar no projeto.
+
+### AnimaliaDS Demo
+
+Para visualizar a versão demo do AnimaliaDS, basta rodar o comando lerna abaixo como passo 6:
+
+```
+lerna run start
+```
+
 ## Changelog
 
 Saiba mais sobre as [últimas correções e melhorias](CHANGELOG.md).
