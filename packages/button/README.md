@@ -38,10 +38,6 @@ O componente Button pode ser personalizado com as seguintes propriedades:
 
 - `disabled` (opcional): se o botão estiver desativado ou não. O valor padrão é `false`.
 
-- `icon-only` (opcional): se o botão deve exibir apenas um ícone. O valor padrão é `false`.
-
-- `href` (opcional): o link para o qual o botão deve navegar se `icon-only` for definido como `true`.
-
 Você pode definir essas propriedades diretamente no componente Button, como segue:
 
 ```html
@@ -54,15 +50,15 @@ Isso criará um botão com a variante "secondary", o tamanho "large" e que está
 
 ## Ícones
 
-Se você definir a propriedade `icon-only` como `true`, o botão exibirá apenas um ícone. Você deve incluir o ícone como um elemento filho do componente `Button`. Por exemplo:
+Além de texto, o botão também pode exibir em seu conteúdo texto e ícone ou apenas um ícone. Para isso você deve incluir o ícone como um elemento filho do componente `Button`. Por exemplo:
 
 ```html
-<ani-button icon-only href="https://www.google.com">
-  <i class="material-icons">search</i>
+<ani-button>
+  <ani-icon name="arrow-right"></ani-icon>
 </ani-button>
 ```
 
-Isso criará um botão com apenas um ícone "search" do Material Icons. Quando o usuário clicar no botão, o navegador será redirecionado para o link especificado na propriedade `href`.
+Isso criará um botão com apenas um ícone "arrow-right".
 
 ## Eventos
 
