@@ -46,8 +46,12 @@ export class Button extends HTMLElement {
     return !type || type === 'null' ? ButtonType.button : type;
   }
 
+  get icon(): string {
+    return this.getAttribute('icon');
+  }
+
   static get observedAttributes(): Array<string> {
-    return ['kind', 'disabled', 'danger', 'type', 'size'];
+    return ['kind', 'disabled', 'danger', 'type', 'size', 'icon'];
   }
 
   connectedCallback(): void {
@@ -98,16 +102,21 @@ export class Button extends HTMLElement {
   }
 
   private render(): void {
+    const iconElement = this.icon
+      ? `<ani-icon name="${this.icon}"></ani-icon>`
+      : '';
+
     this.shadow.innerHTML = `
-            <style>${style}</style>
-            <button
-              type="${this.type}"
-              kind=${this.kind}
-              size=${this.size}
-              ${this.disabled === 'true' ? 'disabled' : ''}
-              danger=${this.danger}>
-                <slot></slot>
-            </button>
-        `;
+      <style>${style}</style>
+      <button
+        type="${this.type}"
+        kind=${this.kind}
+        size=${this.size}
+        ${this.disabled === 'true' ? 'disabled' : ''}
+        danger=${this.danger}>
+          ${iconElement}
+          <slot></slot>
+      </button>
+    `;
   }
 }

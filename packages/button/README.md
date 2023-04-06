@@ -38,10 +38,12 @@ O componente Button pode ser personalizado com as seguintes propriedades:
 
 - `disabled` (opcional): se o botão estiver desativado ou não. O valor padrão é `false`.
 
+- `icon` (opcional): o nome do ícone a ser exibido no botão. O componente `ani-icon` deve ser importado e configurado separadamente para que o ícone seja exibido.
+
 Você pode definir essas propriedades diretamente no componente Button, como segue:
 
 ```html
-<ani-button variant="secondary" size="large" disabled>
+<ani-button variant="secondary" size="large" disabled icon="arrow-right">
   Meu botão desativado
 </ani-button>
 ```
@@ -50,15 +52,15 @@ Isso criará um botão com a variante "secondary", o tamanho "large" e que está
 
 ## Ícones
 
-Além de texto, o botão também pode exibir em seu conteúdo texto e ícone ou apenas um ícone. Para isso você deve incluir o ícone como um elemento filho do componente `Button`. Por exemplo:
+Além de texto, o botão também pode exibir em seu conteúdo texto e ícone ou apenas um ícone. Para isso você deve incluir o ícone como um valor da propriedade `icon` do componente `ani-button`. Por exemplo:
 
 ```html
-<ani-button>
-  <ani-icon name="arrow-right"></ani-icon>
-</ani-button>
+<ani-button icon="arrow-right"></ani-button>
 ```
 
 Isso criará um botão com apenas um ícone "arrow-right".
+
+Você pode usar qualquer ícone suportado pelo componente `ani-icon`, basta especificar o nome do ícone na propriedade `icon`.
 
 ## Eventos
 
