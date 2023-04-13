@@ -26,6 +26,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@animaliads/ani-icon": "^1.1.0-dev.40",
     "@animaliads/common": "^1.1.0-dev.45"
   },
   "publishConfig": {

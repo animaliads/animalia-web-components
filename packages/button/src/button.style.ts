@@ -12,6 +12,10 @@ export const style = `
     border-style: solid;
     min-height: 2.75em;
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   button[size='small'], button[size='medium'], button[size='large'] {
@@ -149,4 +153,7 @@ export const style = `
     background-color: transparent;
   }
 
+  button ani-icon {
+    margin-right: 0.5em; /* Adicionado */
+  }
 `;

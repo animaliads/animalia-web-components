@@ -68,6 +68,16 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    icon: {
+      control: 'text',
+      description: 'Nome do ícone a ser exibido no botão.',
+      defaultValue: '',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+        defaultValue: { summary: '' },
+      },
+    },
     onClick: {
       description: 'Evento disparado ao clicar no botão.',
       table: {
@@ -83,7 +93,7 @@ export default {
   },
 };
 
-const Template = ({ label, ...args }) => {
+const Template = ({ label, icon, ...args }) => {
   return html`
     <ani-button
       kind="${args.kind}"
@@ -91,6 +101,7 @@ const Template = ({ label, ...args }) => {
       danger="${args.danger}"
       size="${args.size}"
       disabled="${args.disabled}"
+      icon="${icon}"
     >
       ${label}
     </ani-button>
