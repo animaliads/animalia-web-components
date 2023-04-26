@@ -12,8 +12,8 @@
     "tooltip"
   ],
   "browser": "dist/index.js",
-  "main": "dist/ani-tooltip.js",
-  "module": "dist/ani-tooltip.module.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist"
   ],
