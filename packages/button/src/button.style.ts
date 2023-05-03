@@ -18,14 +18,10 @@ export const style = `
     justify-content: center;
   }
 
-  button[size='small'], button[size='medium'], button[size='large'] {
+  button[size='medium'], button[size='large'] {
     font-size: var(--font-size);
     line-height: var(--line-height);
     padding: var(--padding);
-  }
-
-  button[size='small'] {
-    min-height: 2em;
   }
   
   button[size='large'] {
