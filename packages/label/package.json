@@ -1,0 +1,37 @@
+{
+  "name": "@animaliads/ani-label",
+  "version": "1.1.0-dev.45",
+  "description": "componente label",
+  "keywords": [
+    "javascript",
+    "design system",
+    "web components",
+    "label"
+  ],
+  "browser": "dist/index.js",
+  "homepage": "https://github.com/animaliads/animalia-web-components/tree/main/packages/ani-label#readme",
+  "license": "ISC",
+  "main": "dist/ani-label.js",
+  "module": "dist/ani-label.module.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animaliads/animalia-web-components.git"
+  },
+  "scripts": {
+    "build": "npx rollup -c",
+    "dev": "npx rollup -c -w"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/animaliads/animalia-web-components/issues"
+  },
+  "dependencies": {
+    "@animaliads/common": "^1.1.0-dev.45"
+  }
+}
