@@ -1,0 +1,38 @@
+{
+  "name": "@animaliads/ani-tooltip",
+  "version": "1.1.0-dev.45",
+  "description": "componente tooltip",
+  "homepage": "https://github.com/animaliads/animalia-web-components/tree/main/packages/ani-tooltip#readme",
+  "license": "ISC",
+  "tag": "dev",
+  "keywords": [
+    "javascript",
+    "design system",
+    "web components",
+    "tooltip"
+  ],
+  "browser": "dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animaliads/animalia-web-components.git"
+  },
+  "scripts": {
+    "build": "npx rollup -c",
+    "dev": "npx rollup -c -w"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/animaliads/animalia-web-components/issues"
+  },
+  "dependencies": {
+    "@animaliads/common": "^1.1.0-dev.45"
+  }
+}
