@@ -58,6 +58,14 @@ export default class Textfield extends HTMLElement {
     return transformBooleanProperties(readonly);
   }
 
+  get error(): string {
+    return this.getAttribute('error') || '';
+  }
+
+  set error(value: string) {
+    this.setAttribute('error', value);
+  }
+
   static get observedAttributes(): Array<string> {
     return [
       'pattern',
@@ -70,6 +78,7 @@ export default class Textfield extends HTMLElement {
       'maxlength',
       'minlength',
       'value',
+      'error',
     ];
   }
 
@@ -96,6 +105,17 @@ export default class Textfield extends HTMLElement {
 
   attributeChangedCallback(): void {
     this.updateAttributes();
+
+    if (this.shadowRoot) {
+      const errorTextElement = this.shadowRoot.querySelector(
+        '.error-text'
+      ) as HTMLElement;
+      const errorElement = this.shadowRoot.querySelector(
+        '.error'
+      ) as HTMLElement;
+      errorTextElement.textContent = this.error;
+      errorElement.style.display = this.error ? 'flex' : 'none';
+    }
   }
 
   /**
@@ -120,6 +140,10 @@ export default class Textfield extends HTMLElement {
             <slot></slot>
           </div>
           <input />
+          <span class="error">
+            <ani-icon class="error-icon" size="small" name="info"></ani-icon>
+            <span class="error-text">${this.error}</span>
+          </span>
         </label>
     `;
   }
@@ -144,6 +168,12 @@ export default class Textfield extends HTMLElement {
     this.textfieldElement.readOnly = this.readonly === 'true';
     this.textfieldElement.disabled = this.disabled === 'true';
     this.textfieldElement.required = this.required === 'true';
+    this.updateErrorText();
+  }
+
+  private updateErrorText() {
+    const errorElement = this.shadowRoot.querySelector('.error-text');
+    errorElement.textContent = this.error;
   }
 
   updateAttribute(attr: string, property: string): void {

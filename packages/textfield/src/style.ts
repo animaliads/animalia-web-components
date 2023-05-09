@@ -49,4 +49,16 @@ input:disabled {
 
     cursor: not-allowed;
 }
+
+.error {
+    display: none;
+    align-items: center;
+    color: var(--error-color);
+    margin-top: var(--error-text-margin);
+}
+
+.error-text {
+    margin-left: var(--error-text-margin);
+    margin-bottom: var(--error-text-margin);
+}
 `;

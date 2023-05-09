@@ -143,6 +143,14 @@ export default {
         category: 'Eventos',
       },
     },
+    error: {
+      control: 'text',
+      description: 'Texto de erro exibido quando houver algum erro no campo.',
+      table: {
+        type: { summary: 'string' },
+        category: 'Propriedades',
+      },
+    },
   },
 };
 
@@ -159,6 +167,7 @@ const Template = ({ label, ...args }) => {
       required="${args.required}"
       readonly="${args.readonly}"
       disabled="${args.disabled}"
+      error="${args.error}"
     >
       ${label}
     </ani-textfield>
@@ -177,6 +186,7 @@ Sample.args = {
   required: false,
   readonly: false,
   disabled: false,
+  error: '',
   label: '',
 };
 
@@ -195,6 +205,7 @@ Sample.parameters = {
   required="${Sample.required}"
   readonly="${Sample.readonly}"
   disabled="${Sample.disabled}"
+  error="${Sample.error}"
 >
 ${Sample.args.label}
 </ani-textfield>`,
