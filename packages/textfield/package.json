@@ -1,6 +1,6 @@
 {
   "name": "@animaliads/ani-textfield",
-  "version": "1.1.0-dev.45",
+  "version": "1.1.0-dev.46",
   "description": "Textfield do Animalia DS",
   "tag": "dev",
   "keywords": [
@@ -29,6 +29,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@animaliads/common": "^1.1.0-dev.45"
+    "@animaliads/common": "^1.1.0-dev.46"
   }
 }
